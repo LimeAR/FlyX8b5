@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #canvas {
+    position: absolute;
+    top: 0;
+  }
+
+  #stream {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .poweredbysnap-logo {
+    width: 100%;
+    position: absolute;
+    bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .poweredbysnap-logo > img {
+    width: 200px;
+  }
