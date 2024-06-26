@@ -1,14 +1,14 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 553:
+/***/ 2553:
 /***/ (function(module) {
 
 !function(e,t){if(true)module.exports=t();else { var n, r; }}(this,(function(){return e={418:function(e,t){!function(e,t){for(var r in t)e[r]=t[r]}(t,function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.i=function(e){return e},r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:n})},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=1)}([function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(3),o=function(){function e(e,t){void 0===e&&(e={}),void 0===t&&(t={splitValues:!1});var r,o=this;this.headersMap={},e&&("undefined"!=typeof Headers&&e instanceof Headers?n.getHeaderKeys(e).forEach((function(r){n.getHeaderValues(e,r).forEach((function(e){t.splitValues?o.append(r,n.splitHeaderValue(e)):o.append(r,e)}))})):"object"==typeof(r=e)&&"object"==typeof r.headersMap&&"function"==typeof r.forEach?e.forEach((function(e,t){o.append(e,t)})):"undefined"!=typeof Map&&e instanceof Map?e.forEach((function(e,t){o.append(t,e)})):"string"==typeof e?this.appendFromString(e):"object"==typeof e&&Object.getOwnPropertyNames(e).forEach((function(t){var r=e[t];Array.isArray(r)?r.forEach((function(e){o.append(t,e)})):o.append(t,r)})))}return e.prototype.appendFromString=function(e){for(var t=e.split("\r\n"),r=0;r<t.length;r++){var n=t[r],o=n.indexOf(":");if(o>0){var s=n.substring(0,o).trim(),i=n.substring(o+1).trim();this.append(s,i)}}},e.prototype.delete=function(e,t){var r=n.normalizeName(e);if(void 0===t)delete this.headersMap[r];else{var o=this.headersMap[r];if(o){var s=o.indexOf(t);s>=0&&o.splice(s,1),0===o.length&&delete this.headersMap[r]}}},e.prototype.append=function(e,t){var r=this,o=n.normalizeName(e);Array.isArray(this.headersMap[o])||(this.headersMap[o]=[]),Array.isArray(t)?t.forEach((function(e){r.headersMap[o].push(n.normalizeValue(e))})):this.headersMap[o].push(n.normalizeValue(t))},e.prototype.set=function(e,t){var r=n.normalizeName(e);if(Array.isArray(t)){var o=[];t.forEach((function(e){o.push(n.normalizeValue(e))})),this.headersMap[r]=o}else this.headersMap[r]=[n.normalizeValue(t)]},e.prototype.has=function(e,t){var r=this.headersMap[n.normalizeName(e)];if(!Array.isArray(r))return!1;if(void 0!==t){var o=n.normalizeValue(t);return r.indexOf(o)>=0}return!0},e.prototype.get=function(e){var t=this.headersMap[n.normalizeName(e)];return void 0!==t?t.concat():[]},e.prototype.forEach=function(e){var t=this;Object.getOwnPropertyNames(this.headersMap).forEach((function(r){e(r,t.headersMap[r])}),this)},e.prototype.toHeaders=function(){if("undefined"!=typeof Headers){var e=new Headers;return this.forEach((function(t,r){r.forEach((function(r){e.append(t,r)}))})),e}throw new Error("Headers class is not defined")},e}();t.BrowserHeaders=o},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.BrowserHeaders=n.BrowserHeaders},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.iterateHeaders=function(e,t){for(var r=e[Symbol.iterator](),n=r.next();!n.done;)t(n.value[0]),n=r.next()},t.iterateHeadersKeys=function(e,t){for(var r=e.keys(),n=r.next();!n.done;)t(n.value),n=r.next()}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(2);t.normalizeName=function(e){if("string"!=typeof e&&(e=String(e)),/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(e))throw new TypeError("Invalid character in header field name");return e.toLowerCase()},t.normalizeValue=function(e){return"string"!=typeof e&&(e=String(e)),e},t.getHeaderValues=function(e,t){var r=e;if(r instanceof Headers&&r.getAll)return r.getAll(t);var n=r.get(t);return n&&"string"==typeof n?[n]:n},t.getHeaderKeys=function(e){var t=e,r={},o=[];return t.keys?n.iterateHeadersKeys(t,(function(e){r[e]||(r[e]=!0,o.push(e))})):t.forEach?t.forEach((function(e,t){r[t]||(r[t]=!0,o.push(t))})):n.iterateHeaders(t,(function(e){var t=e[0];r[t]||(r[t]=!0,o.push(t))})),o},t.splitHeaderValue=function(e){var t=[];return e.split(", ").forEach((function(e){e.split(",").forEach((function(e){t.push(e)}))})),t}}]))},617:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.ChunkParser=t.ChunkType=t.encodeASCII=t.decodeASCII=void 0;var n,o=r(65);function s(e){return 9===(t=e)||10===t||13===t||e>=32&&e<=126;var t}function i(e){for(var t=0;t!==e.length;++t)if(!s(e[t]))throw new Error("Metadata is not valid (printable) ASCII");return String.fromCharCode.apply(String,Array.prototype.slice.call(e))}function a(e){return 128==(128&e.getUint8(0))}function u(e){return e.getUint32(1,!1)}function d(e,t,r){return e.byteLength-t>=r}function c(e,t,r){if(e.slice)return e.slice(t,r);var n=e.length;void 0!==r&&(n=r);for(var o=new Uint8Array(n-t),s=0,i=t;i<n;i++)o[s++]=e[i];return o}t.decodeASCII=i,t.encodeASCII=function(e){for(var t=new Uint8Array(e.length),r=0;r!==e.length;++r){var n=e.charCodeAt(r);if(!s(n))throw new Error("Metadata contains invalid ASCII");t[r]=n}return t},function(e){e[e.MESSAGE=1]="MESSAGE",e[e.TRAILERS=2]="TRAILERS"}(n=t.ChunkType||(t.ChunkType={}));var p=function(){function e(){this.buffer=null,this.position=0}return e.prototype.parse=function(e,t){if(0===e.length&&t)return[];var r,s=[];if(null==this.buffer)this.buffer=e,this.position=0;else if(this.position===this.buffer.byteLength)this.buffer=e,this.position=0;else{var p=this.buffer.byteLength-this.position,h=new Uint8Array(p+e.byteLength),f=c(this.buffer,this.position);h.set(f,0);var l=new Uint8Array(e);h.set(l,p),this.buffer=h,this.position=0}for(;;){if(!d(this.buffer,this.position,5))return s;var g=c(this.buffer,this.position,this.position+5),b=new DataView(g.buffer,g.byteOffset,g.byteLength),y=u(b);if(!d(this.buffer,this.position,5+y))return s;var v=c(this.buffer,this.position+5,this.position+5+y);if(this.position+=5+y,a(b))return s.push({chunkType:n.TRAILERS,trailers:(r=v,new o.Metadata(i(r)))}),s;s.push({chunkType:n.MESSAGE,data:v})}},e}();t.ChunkParser=p},8:function(e,t){"use strict";var r;Object.defineProperty(t,"__esModule",{value:!0}),t.httpStatusToCode=t.Code=void 0,function(e){e[e.OK=0]="OK",e[e.Canceled=1]="Canceled",e[e.Unknown=2]="Unknown",e[e.InvalidArgument=3]="InvalidArgument",e[e.DeadlineExceeded=4]="DeadlineExceeded",e[e.NotFound=5]="NotFound",e[e.AlreadyExists=6]="AlreadyExists",e[e.PermissionDenied=7]="PermissionDenied",e[e.ResourceExhausted=8]="ResourceExhausted",e[e.FailedPrecondition=9]="FailedPrecondition",e[e.Aborted=10]="Aborted",e[e.OutOfRange=11]="OutOfRange",e[e.Unimplemented=12]="Unimplemented",e[e.Internal=13]="Internal",e[e.Unavailable=14]="Unavailable",e[e.DataLoss=15]="DataLoss",e[e.Unauthenticated=16]="Unauthenticated"}(r=t.Code||(t.Code={})),t.httpStatusToCode=function(e){switch(e){case 0:return r.Internal;case 200:return r.OK;case 400:return r.InvalidArgument;case 401:return r.Unauthenticated;case 403:return r.PermissionDenied;case 404:return r.NotFound;case 409:return r.Aborted;case 412:return r.FailedPrecondition;case 429:return r.ResourceExhausted;case 499:return r.Canceled;case 500:return r.Unknown;case 501:return r.Unimplemented;case 503:return r.Unavailable;case 504:return r.DeadlineExceeded;default:return r.Unknown}}},934:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.client=void 0;var n=r(65),o=r(617),s=r(8),i=r(346),a=r(57),u=r(882);t.client=function(e,t){return new d(e,t)};var d=function(){function e(e,t){this.started=!1,this.sentFirstMessage=!1,this.completed=!1,this.closed=!1,this.finishedSending=!1,this.onHeadersCallbacks=[],this.onMessageCallbacks=[],this.onEndCallbacks=[],this.parser=new o.ChunkParser,this.methodDefinition=e,this.props=t,this.createTransport()}return e.prototype.createTransport=function(){var e=this.props.host+"/"+this.methodDefinition.service.serviceName+"/"+this.methodDefinition.methodName,t={methodDefinition:this.methodDefinition,debug:this.props.debug||!1,url:e,onHeaders:this.onTransportHeaders.bind(this),onChunk:this.onTransportChunk.bind(this),onEnd:this.onTransportEnd.bind(this)};this.props.transport?this.transport=this.props.transport(t):this.transport=a.makeDefaultTransport(t)},e.prototype.onTransportHeaders=function(e,t){if(this.props.debug&&i.debug("onHeaders",e,t),this.closed)this.props.debug&&i.debug("grpc.onHeaders received after request was closed - ignoring");else if(0===t);else{this.responseHeaders=e,this.props.debug&&i.debug("onHeaders.responseHeaders",JSON.stringify(this.responseHeaders,null,2));var r=c(e);this.props.debug&&i.debug("onHeaders.gRPCStatus",r);var n=r&&r>=0?r:s.httpStatusToCode(t);this.props.debug&&i.debug("onHeaders.code",n);var o=e.get("grpc-message")||[];if(this.props.debug&&i.debug("onHeaders.gRPCMessage",o),this.rawOnHeaders(e),n!==s.Code.OK){var a=this.decodeGRPCStatus(o[0]);this.rawOnError(n,a,e)}}},e.prototype.onTransportChunk=function(e){var t=this;if(this.closed)this.props.debug&&i.debug("grpc.onChunk received after request was closed - ignoring");else{var r=[];try{r=this.parser.parse(e)}catch(e){return this.props.debug&&i.debug("onChunk.parsing error",e,e.message),void this.rawOnError(s.Code.Internal,"parsing error: "+e.message)}r.forEach((function(e){if(e.chunkType===o.ChunkType.MESSAGE){var r=t.methodDefinition.responseType.deserializeBinary(e.data);t.rawOnMessage(r)}else e.chunkType===o.ChunkType.TRAILERS&&(t.responseHeaders?(t.responseTrailers=new n.Metadata(e.trailers),t.props.debug&&i.debug("onChunk.trailers",t.responseTrailers)):(t.responseHeaders=new n.Metadata(e.trailers),t.rawOnHeaders(t.responseHeaders)))}))}},e.prototype.onTransportEnd=function(){if(this.props.debug&&i.debug("grpc.onEnd"),this.closed)this.props.debug&&i.debug("grpc.onEnd received after request was closed - ignoring");else if(void 0!==this.responseTrailers){var e=c(this.responseTrailers);if(null!==e){var t=this.responseTrailers.get("grpc-message"),r=this.decodeGRPCStatus(t[0]);this.rawOnEnd(e,r,this.responseTrailers)}else this.rawOnError(s.Code.Internal,"Response closed without grpc-status (Trailers provided)")}else{if(void 0===this.responseHeaders)return void this.rawOnError(s.Code.Unknown,"Response closed without headers");var n=c(this.responseHeaders),o=this.responseHeaders.get("grpc-message");if(this.props.debug&&i.debug("grpc.headers only response ",n,o),null===n)return void this.rawOnEnd(s.Code.Unknown,"Response closed without grpc-status (Headers only)",this.responseHeaders);var a=this.decodeGRPCStatus(o[0]);this.rawOnEnd(n,a,this.responseHeaders)}},e.prototype.decodeGRPCStatus=function(e){if(!e)return"";try{return decodeURIComponent(e)}catch(t){return e}},e.prototype.rawOnEnd=function(e,t,r){var n=this;this.props.debug&&i.debug("rawOnEnd",e,t,r),this.completed||(this.completed=!0,this.onEndCallbacks.forEach((function(o){if(!n.closed)try{o(e,t,r)}catch(e){setTimeout((function(){throw e}),0)}})))},e.prototype.rawOnHeaders=function(e){this.props.debug&&i.debug("rawOnHeaders",e),this.completed||this.onHeadersCallbacks.forEach((function(t){try{t(e)}catch(e){setTimeout((function(){throw e}),0)}}))},e.prototype.rawOnError=function(e,t,r){var o=this;void 0===r&&(r=new n.Metadata),this.props.debug&&i.debug("rawOnError",e,t),this.completed||(this.completed=!0,this.onEndCallbacks.forEach((function(n){if(!o.closed)try{n(e,t,r)}catch(e){setTimeout((function(){throw e}),0)}})))},e.prototype.rawOnMessage=function(e){var t=this;this.props.debug&&i.debug("rawOnMessage",e.toObject()),this.completed||this.closed||this.onMessageCallbacks.forEach((function(r){if(!t.closed)try{r(e)}catch(e){setTimeout((function(){throw e}),0)}}))},e.prototype.onHeaders=function(e){this.onHeadersCallbacks.push(e)},e.prototype.onMessage=function(e){this.onMessageCallbacks.push(e)},e.prototype.onEnd=function(e){this.onEndCallbacks.push(e)},e.prototype.start=function(e){if(this.started)throw new Error("Client already started - cannot .start()");this.started=!0;var t=new n.Metadata(e||{});t.set("content-type","application/grpc-web+proto"),t.set("x-grpc-web","1"),this.transport.start(t)},e.prototype.send=function(e){if(!this.started)throw new Error("Client not started - .start() must be called before .send()");if(this.closed)throw new Error("Client already closed - cannot .send()");if(this.finishedSending)throw new Error("Client already finished sending - cannot .send()");if(!this.methodDefinition.requestStream&&this.sentFirstMessage)throw new Error("Message already sent for non-client-streaming method - cannot .send()");this.sentFirstMessage=!0;var t=u.frameRequest(e);this.transport.sendMessage(t)},e.prototype.finishSend=function(){if(!this.started)throw new Error("Client not started - .finishSend() must be called before .close()");if(this.closed)throw new Error("Client already closed - cannot .send()");if(this.finishedSending)throw new Error("Client already finished sending - cannot .finishSend()");this.finishedSending=!0,this.transport.finishSend()},e.prototype.close=function(){if(!this.started)throw new Error("Client not started - .start() must be called before .close()");if(this.closed)throw new Error("Client already closed - cannot .close()");this.closed=!0,this.props.debug&&i.debug("request.abort aborting request"),this.transport.cancel()},e}();function c(e){var t=e.get("grpc-status")||[];if(t.length>0)try{var r=t[0];return parseInt(r,10)}catch(e){return null}return null}},346:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.debug=void 0,t.debug=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];console.debug?console.debug.apply(null,e):console.log.apply(null,e)}},607:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.grpc=void 0;var n,o=r(418),s=r(57),i=r(229),a=r(540),u=r(210),d=r(859),c=r(8),p=r(938),h=r(35),f=r(934);(n=t.grpc||(t.grpc={})).setDefaultTransport=s.setDefaultTransportFactory,n.CrossBrowserHttpTransport=d.CrossBrowserHttpTransport,n.FetchReadableStreamTransport=i.FetchReadableStreamTransport,n.XhrTransport=u.XhrTransport,n.WebsocketTransport=a.WebsocketTransport,n.Code=c.Code,n.Metadata=o.BrowserHeaders,n.client=function(e,t){return f.client(e,t)},n.invoke=p.invoke,n.unary=h.unary},938:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.invoke=void 0;var n=r(934);t.invoke=function(e,t){if(e.requestStream)throw new Error(".invoke cannot be used with client-streaming methods. Use .client instead.");var r=n.client(e,{host:t.host,transport:t.transport,debug:t.debug});return t.onHeaders&&r.onHeaders(t.onHeaders),t.onMessage&&r.onMessage(t.onMessage),t.onEnd&&r.onEnd(t.onEnd),r.start(t.metadata),r.send(t.request),r.finishSend(),{close:function(){r.close()}}}},65:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Metadata=void 0;var n=r(418);Object.defineProperty(t,"Metadata",{enumerable:!0,get:function(){return n.BrowserHeaders}})},57:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.makeDefaultTransport=t.setDefaultTransportFactory=void 0;var n=r(859),o=function(e){return n.CrossBrowserHttpTransport({withCredentials:!1})(e)};t.setDefaultTransportFactory=function(e){o=e},t.makeDefaultTransport=function(e){return o(e)}},229:function(e,t,r){"use strict";var n=this&&this.__assign||function(){return(n=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var o in t=arguments[r])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e}).apply(this,arguments)};Object.defineProperty(t,"__esModule",{value:!0}),t.detectFetchSupport=t.FetchReadableStreamTransport=void 0;var o=r(65),s=r(346);t.FetchReadableStreamTransport=function(e){return function(t){return function(e,t){return e.debug&&s.debug("fetchRequest",e),new i(e,t)}(t,e)}};var i=function(){function e(e,t){this.cancelled=!1,this.controller=self.AbortController&&new AbortController,this.options=e,this.init=t}return e.prototype.pump=function(e,t){var r=this;if(this.reader=e,this.cancelled)return this.options.debug&&s.debug("Fetch.pump.cancel at first pump"),void this.reader.cancel().catch((function(e){r.options.debug&&s.debug("Fetch.pump.reader.cancel exception",e)}));this.reader.read().then((function(e){if(e.done)return r.options.onEnd(),t;r.options.onChunk(e.value),r.pump(r.reader,t)})).catch((function(e){r.cancelled?r.options.debug&&s.debug("Fetch.catch - request cancelled"):(r.cancelled=!0,r.options.debug&&s.debug("Fetch.catch",e.message),r.options.onEnd(e))}))},e.prototype.send=function(e){var t=this;fetch(this.options.url,n(n({},this.init),{headers:this.metadata.toHeaders(),method:"POST",body:e,signal:this.controller&&this.controller.signal})).then((function(e){if(t.options.debug&&s.debug("Fetch.response",e),t.options.onHeaders(new o.Metadata(e.headers),e.status),!e.body)return e;t.pump(e.body.getReader(),e)})).catch((function(e){t.cancelled?t.options.debug&&s.debug("Fetch.catch - request cancelled"):(t.cancelled=!0,t.options.debug&&s.debug("Fetch.catch",e.message),t.options.onEnd(e))}))},e.prototype.sendMessage=function(e){this.send(e)},e.prototype.finishSend=function(){},e.prototype.start=function(e){this.metadata=e},e.prototype.cancel=function(){var e=this;this.cancelled?this.options.debug&&s.debug("Fetch.cancel already cancelled"):(this.cancelled=!0,this.controller?(this.options.debug&&s.debug("Fetch.cancel.controller.abort"),this.controller.abort()):this.options.debug&&s.debug("Fetch.cancel.missing abort controller"),this.reader?(this.options.debug&&s.debug("Fetch.cancel.reader.cancel"),this.reader.cancel().catch((function(t){e.options.debug&&s.debug("Fetch.cancel.reader.cancel exception",t)}))):this.options.debug&&s.debug("Fetch.cancel before reader"))},e}();t.detectFetchSupport=function(){return"undefined"!=typeof Response&&Response.prototype.hasOwnProperty("body")&&"function"==typeof Headers}},859:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.CrossBrowserHttpTransport=void 0;var n=r(229),o=r(210);t.CrossBrowserHttpTransport=function(e){if(n.detectFetchSupport()){var t={credentials:e.withCredentials?"include":"same-origin"};return n.FetchReadableStreamTransport(t)}return o.XhrTransport({withCredentials:e.withCredentials})}},210:function(e,t,r){"use strict";var n,o=this&&this.__extends||(n=function(e,t){return(n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])})(e,t)},function(e,t){function r(){this.constructor=e}n(e,t),e.prototype=null===t?Object.create(t):(r.prototype=t.prototype,new r)});Object.defineProperty(t,"__esModule",{value:!0}),t.stringToArrayBuffer=t.MozChunkedArrayBufferXHR=t.XHR=t.XhrTransport=void 0;var s=r(65),i=r(346),a=r(849);t.XhrTransport=function(e){return function(t){if(a.detectMozXHRSupport())return new d(t,e);if(a.detectXHROverrideMimeTypeSupport())return new u(t,e);throw new Error("This environment's XHR implementation cannot support binary transfer.")}};var u=function(){function e(e,t){this.options=e,this.init=t}return e.prototype.onProgressEvent=function(){this.options.debug&&i.debug("XHR.onProgressEvent.length: ",this.xhr.response.length);var e=this.xhr.response.substr(this.index);this.index=this.xhr.response.length;var t=p(e);this.options.onChunk(t)},e.prototype.onLoadEvent=function(){this.options.debug&&i.debug("XHR.onLoadEvent"),this.options.onEnd()},e.prototype.onStateChange=function(){this.options.debug&&i.debug("XHR.onStateChange",this.xhr.readyState),this.xhr.readyState===XMLHttpRequest.HEADERS_RECEIVED&&this.options.onHeaders(new s.Metadata(this.xhr.getAllResponseHeaders()),this.xhr.status)},e.prototype.sendMessage=function(e){this.xhr.send(e)},e.prototype.finishSend=function(){},e.prototype.start=function(e){var t=this;this.metadata=e;var r=new XMLHttpRequest;this.xhr=r,r.open("POST",this.options.url),this.configureXhr(),this.metadata.forEach((function(e,t){r.setRequestHeader(e,t.join(", "))})),r.withCredentials=Boolean(this.init.withCredentials),r.addEventListener("readystatechange",this.onStateChange.bind(this)),r.addEventListener("progress",this.onProgressEvent.bind(this)),r.addEventListener("loadend",this.onLoadEvent.bind(this)),r.addEventListener("error",(function(e){t.options.debug&&i.debug("XHR.error",e),t.options.onEnd(e.error)}))},e.prototype.configureXhr=function(){this.xhr.responseType="text",this.xhr.overrideMimeType("text/plain; charset=x-user-defined")},e.prototype.cancel=function(){this.options.debug&&i.debug("XHR.abort"),this.xhr.abort()},e}();t.XHR=u;var d=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return o(t,e),t.prototype.configureXhr=function(){this.options.debug&&i.debug("MozXHR.configureXhr: setting responseType to 'moz-chunked-arraybuffer'"),this.xhr.responseType="moz-chunked-arraybuffer"},t.prototype.onProgressEvent=function(){var e=this.xhr.response;this.options.debug&&i.debug("MozXHR.onProgressEvent: ",new Uint8Array(e)),this.options.onChunk(new Uint8Array(e))},t}(u);function c(e,t){var r=e.charCodeAt(t);if(r>=55296&&r<=56319){var n=e.charCodeAt(t+1);n>=56320&&n<=57343&&(r=65536+(r-55296<<10)+(n-56320))}return r}function p(e){for(var t=new Uint8Array(e.length),r=0,n=0;n<e.length;n++){var o=String.prototype.codePointAt?e.codePointAt(n):c(e,n);t[r++]=255&o}return t}t.MozChunkedArrayBufferXHR=d,t.stringToArrayBuffer=p},849:function(e,t){"use strict";var r;function n(){if(void 0!==r)return r;if(XMLHttpRequest){r=new XMLHttpRequest;try{r.open("GET","https://localhost")}catch(e){}}return r}function o(e){var t=n();if(!t)return!1;try{return t.responseType=e,t.responseType===e}catch(e){}return!1}Object.defineProperty(t,"__esModule",{value:!0}),t.detectXHROverrideMimeTypeSupport=t.detectMozXHRSupport=t.xhrSupportsResponseType=void 0,t.xhrSupportsResponseType=o,t.detectMozXHRSupport=function(){return"undefined"!=typeof XMLHttpRequest&&o("moz-chunked-arraybuffer")},t.detectXHROverrideMimeTypeSupport=function(){return"undefined"!=typeof XMLHttpRequest&&XMLHttpRequest.prototype.hasOwnProperty("overrideMimeType")}},540:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.WebsocketTransport=void 0;var n,o=r(346),s=r(617);!function(e){e[e.FINISH_SEND=1]="FINISH_SEND"}(n||(n={}));var i=new Uint8Array([1]);t.WebsocketTransport=function(){return function(e){return function(e){e.debug&&o.debug("websocketRequest",e);var t,r=function(e){if("https://"===e.substr(0,8))return"wss://"+e.substr(8);if("http://"===e.substr(0,7))return"ws://"+e.substr(7);throw new Error("Websocket transport constructed with non-https:// or http:// host.")}(e.url),a=[];function u(e){if(e===n.FINISH_SEND)t.send(i);else{var r=e,o=new Int8Array(r.byteLength+1);o.set(new Uint8Array([0])),o.set(r,1),t.send(o)}}return{sendMessage:function(e){t&&t.readyState!==t.CONNECTING?u(e):a.push(e)},finishSend:function(){t&&t.readyState!==t.CONNECTING?u(n.FINISH_SEND):a.push(n.FINISH_SEND)},start:function(n){(t=new WebSocket(r,["grpc-websockets"])).binaryType="arraybuffer",t.onopen=function(){var r;e.debug&&o.debug("websocketRequest.onopen"),t.send((r="",n.forEach((function(e,t){r+=e+": "+t.join(", ")+"\r\n"})),s.encodeASCII(r))),a.forEach((function(e){u(e)}))},t.onclose=function(t){e.debug&&o.debug("websocketRequest.onclose",t),e.onEnd()},t.onerror=function(t){e.debug&&o.debug("websocketRequest.onerror",t)},t.onmessage=function(t){e.onChunk(new Uint8Array(t.data))}},cancel:function(){e.debug&&o.debug("websocket.abort"),t.close()}}}(e)}}},35:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.unary=void 0;var n=r(65),o=r(934);t.unary=function(e,t){if(e.responseStream)throw new Error(".unary cannot be used with server-streaming methods. Use .invoke or .client instead.");if(e.requestStream)throw new Error(".unary cannot be used with client-streaming methods. Use .client instead.");var r=null,s=null,i=o.client(e,{host:t.host,transport:t.transport,debug:t.debug});return i.onHeaders((function(e){r=e})),i.onMessage((function(e){s=e})),i.onEnd((function(e,o,i){t.onEnd({status:e,statusMessage:o,headers:r||new n.Metadata,message:s,trailers:i})})),i.start(t.metadata),i.send(t.request),i.finishSend(),{close:function(){i.close()}}}},882:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.frameRequest=void 0,t.frameRequest=function(e){var t=e.serializeBinary(),r=new ArrayBuffer(t.byteLength+5);return new DataView(r,1,4).setUint32(0,t.length,!1),new Uint8Array(r,5).set(t),new Uint8Array(r)}}},t={},function r(n){if(t[n])return t[n].exports;var o=t[n]={exports:{}};return e[n].call(o.exports,o,o.exports,r),o.exports}(607);var e,t}));
 
 /***/ }),
 
-/***/ 45:
+/***/ 8045:
 /***/ ((module) => {
 
 "use strict";
@@ -68,7 +68,7 @@ function asPromise(fn, ctx/*, varargs */) {
 
 /***/ }),
 
-/***/ 839:
+/***/ 8839:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -215,7 +215,7 @@ base64.test = function test(string) {
 
 /***/ }),
 
-/***/ 561:
+/***/ 8561:
 /***/ ((module) => {
 
 "use strict";
@@ -322,7 +322,7 @@ codegen.verbose = false;
 
 /***/ }),
 
-/***/ 358:
+/***/ 4358:
 /***/ ((module) => {
 
 "use strict";
@@ -406,15 +406,15 @@ EventEmitter.prototype.emit = function emit(evt) {
 
 /***/ }),
 
-/***/ 212:
+/***/ 5212:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 module.exports = fetch;
 
-var asPromise = __webpack_require__(45),
-    inquire   = __webpack_require__(153);
+var asPromise = __webpack_require__(8045),
+    inquire   = __webpack_require__(4153);
 
 var fs = inquire("fs");
 
@@ -529,7 +529,7 @@ fetch.xhr = function fetch_xhr(filename, options, callback) {
 
 /***/ }),
 
-/***/ 410:
+/***/ 9410:
 /***/ ((module) => {
 
 "use strict";
@@ -872,7 +872,7 @@ function readUintBE(buf, pos) {
 
 /***/ }),
 
-/***/ 153:
+/***/ 4153:
 /***/ ((module) => {
 
 "use strict";
@@ -897,7 +897,7 @@ function inquire(moduleName) {
 
 /***/ }),
 
-/***/ 207:
+/***/ 9207:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -970,7 +970,7 @@ path.resolve = function resolve(originPath, includePath, alreadyNormalized) {
 
 /***/ }),
 
-/***/ 390:
+/***/ 9390:
 /***/ ((module) => {
 
 "use strict";
@@ -1026,7 +1026,7 @@ function pool(alloc, slice, size) {
 
 /***/ }),
 
-/***/ 447:
+/***/ 1447:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1139,10995 +1139,68 @@ utf8.write = function utf8_write(string, buffer, offset) {
 
 /***/ }),
 
-/***/ 18:
-/***/ (function(module) {
-
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(true)
-		module.exports = factory();
-	else { var i, a; }
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __nested_webpack_require_536__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_536__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_536__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__nested_webpack_require_536__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__nested_webpack_require_536__.i = function(value) { return value; };
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__nested_webpack_require_536__.d = function(exports, name, getter) {
-/******/ 		if(!__nested_webpack_require_536__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__nested_webpack_require_536__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__nested_webpack_require_536__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__nested_webpack_require_536__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__nested_webpack_require_536__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __nested_webpack_require_536__(__nested_webpack_require_536__.s = 1);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __nested_webpack_require_2975__) {
+/***/ 4303:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = __nested_webpack_require_2975__(3);
-function isBrowserHeaders(arg) {
-    return typeof arg === "object" && typeof arg.headersMap === "object" && typeof arg.forEach === "function";
-}
-var BrowserHeaders = (function () {
-    function BrowserHeaders(init, options) {
-        if (init === void 0) { init = {}; }
-        if (options === void 0) { options = { splitValues: false }; }
-        var _this = this;
-        this.headersMap = {};
-        if (init) {
-            if (typeof Headers !== "undefined" && init instanceof Headers) {
-                var keys = util_1.getHeaderKeys(init);
-                keys.forEach(function (key) {
-                    var values = util_1.getHeaderValues(init, key);
-                    values.forEach(function (value) {
-                        if (options.splitValues) {
-                            _this.append(key, util_1.splitHeaderValue(value));
-                        }
-                        else {
-                            _this.append(key, value);
-                        }
-                    });
-                });
-            }
-            else if (isBrowserHeaders(init)) {
-                init.forEach(function (key, values) {
-                    _this.append(key, values);
-                });
-            }
-            else if (typeof Map !== "undefined" && init instanceof Map) {
-                var asMap = init;
-                asMap.forEach(function (value, key) {
-                    _this.append(key, value);
-                });
-            }
-            else if (typeof init === "string") {
-                this.appendFromString(init);
-            }
-            else if (typeof init === "object") {
-                Object.getOwnPropertyNames(init).forEach(function (key) {
-                    var asObject = init;
-                    var values = asObject[key];
-                    if (Array.isArray(values)) {
-                        values.forEach(function (value) {
-                            _this.append(key, value);
-                        });
-                    }
-                    else {
-                        _this.append(key, values);
-                    }
-                });
-            }
-        }
-    }
-    BrowserHeaders.prototype.appendFromString = function (str) {
-        var pairs = str.split("\r\n");
-        for (var i = 0; i < pairs.length; i++) {
-            var p = pairs[i];
-            var index = p.indexOf(":");
-            if (index > 0) {
-                var key = p.substring(0, index).trim();
-                var value = p.substring(index + 1).trim();
-                this.append(key, value);
-            }
-        }
-    };
-    BrowserHeaders.prototype.delete = function (key, value) {
-        var normalizedKey = util_1.normalizeName(key);
-        if (value === undefined) {
-            delete this.headersMap[normalizedKey];
-        }
-        else {
-            var existing = this.headersMap[normalizedKey];
-            if (existing) {
-                var index = existing.indexOf(value);
-                if (index >= 0) {
-                    existing.splice(index, 1);
-                }
-                if (existing.length === 0) {
-                    delete this.headersMap[normalizedKey];
-                }
-            }
-        }
-    };
-    BrowserHeaders.prototype.append = function (key, value) {
-        var _this = this;
-        var normalizedKey = util_1.normalizeName(key);
-        if (!Array.isArray(this.headersMap[normalizedKey])) {
-            this.headersMap[normalizedKey] = [];
-        }
-        if (Array.isArray(value)) {
-            value.forEach(function (arrayValue) {
-                _this.headersMap[normalizedKey].push(util_1.normalizeValue(arrayValue));
-            });
-        }
-        else {
-            this.headersMap[normalizedKey].push(util_1.normalizeValue(value));
-        }
-    };
-    BrowserHeaders.prototype.set = function (key, value) {
-        var normalizedKey = util_1.normalizeName(key);
-        if (Array.isArray(value)) {
-            var normalized_1 = [];
-            value.forEach(function (arrayValue) {
-                normalized_1.push(util_1.normalizeValue(arrayValue));
-            });
-            this.headersMap[normalizedKey] = normalized_1;
-        }
-        else {
-            this.headersMap[normalizedKey] = [util_1.normalizeValue(value)];
-        }
-    };
-    BrowserHeaders.prototype.has = function (key, value) {
-        var keyArray = this.headersMap[util_1.normalizeName(key)];
-        var keyExists = Array.isArray(keyArray);
-        if (!keyExists) {
-            return false;
-        }
-        if (value !== undefined) {
-            var normalizedValue = util_1.normalizeValue(value);
-            return keyArray.indexOf(normalizedValue) >= 0;
-        }
-        else {
-            return true;
-        }
-    };
-    BrowserHeaders.prototype.get = function (key) {
-        var values = this.headersMap[util_1.normalizeName(key)];
-        if (values !== undefined) {
-            return values.concat();
-        }
-        return [];
-    };
-    BrowserHeaders.prototype.forEach = function (callback) {
-        var _this = this;
-        Object.getOwnPropertyNames(this.headersMap)
-            .forEach(function (key) {
-            callback(key, _this.headersMap[key]);
-        }, this);
-    };
-    BrowserHeaders.prototype.toHeaders = function () {
-        if (typeof Headers !== "undefined") {
-            var headers_1 = new Headers();
-            this.forEach(function (key, values) {
-                values.forEach(function (value) {
-                    headers_1.append(key, value);
-                });
-            });
-            return headers_1;
-        }
-        else {
-            throw new Error("Headers class is not defined");
-        }
-    };
-    return BrowserHeaders;
-}());
-exports.BrowserHeaders = BrowserHeaders;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __nested_webpack_require_8924__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var BrowserHeaders_1 = __nested_webpack_require_8924__(0);
-exports.BrowserHeaders = BrowserHeaders_1.BrowserHeaders;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-function iterateHeaders(headers, callback) {
-    var iterator = headers[Symbol.iterator]();
-    var entry = iterator.next();
-    while (!entry.done) {
-        callback(entry.value[0]);
-        entry = iterator.next();
-    }
-}
-exports.iterateHeaders = iterateHeaders;
-function iterateHeadersKeys(headers, callback) {
-    var iterator = headers.keys();
-    var entry = iterator.next();
-    while (!entry.done) {
-        callback(entry.value);
-        entry = iterator.next();
-    }
-}
-exports.iterateHeadersKeys = iterateHeadersKeys;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __nested_webpack_require_9870__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var iterateHeaders_1 = __nested_webpack_require_9870__(2);
-function normalizeName(name) {
-    if (typeof name !== "string") {
-        name = String(name);
-    }
-    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
-        throw new TypeError("Invalid character in header field name");
-    }
-    return name.toLowerCase();
-}
-exports.normalizeName = normalizeName;
-function normalizeValue(value) {
-    if (typeof value !== "string") {
-        value = String(value);
-    }
-    return value;
-}
-exports.normalizeValue = normalizeValue;
-function getHeaderValues(headersAsNative, key) {
-    var headers = toWindowHeaders(headersAsNative);
-    if (headers instanceof Headers && headers.getAll) {
-        return headers.getAll(key);
-    }
-    var getValue = headers.get(key);
-    if (getValue && typeof getValue === "string") {
-        return [getValue];
-    }
-    return getValue;
-}
-exports.getHeaderValues = getHeaderValues;
-function toWindowHeaders(headersAsNative) {
-    return headersAsNative;
-}
-function getHeaderKeys(headersAsNative) {
-    var headers = toWindowHeaders(headersAsNative);
-    var asMap = {};
-    var keys = [];
-    if (headers.keys) {
-        iterateHeaders_1.iterateHeadersKeys(headers, function (key) {
-            if (!asMap[key]) {
-                asMap[key] = true;
-                keys.push(key);
-            }
-        });
-    }
-    else if (headers.forEach) {
-        headers.forEach(function (_, key) {
-            if (!asMap[key]) {
-                asMap[key] = true;
-                keys.push(key);
-            }
-        });
-    }
-    else {
-        iterateHeaders_1.iterateHeaders(headers, function (entry) {
-            var key = entry[0];
-            if (!asMap[key]) {
-                asMap[key] = true;
-                keys.push(key);
-            }
-        });
-    }
-    return keys;
-}
-exports.getHeaderKeys = getHeaderKeys;
-function splitHeaderValue(str) {
-    var values = [];
-    var commaSpaceValues = str.split(", ");
-    commaSpaceValues.forEach(function (commaSpaceValue) {
-        commaSpaceValue.split(",").forEach(function (commaValue) {
-            values.push(commaValue);
-        });
-    });
-    return values;
-}
-exports.splitHeaderValue = splitHeaderValue;
-
-
-/***/ })
-/******/ ]);
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  Any: () => (/* reexport */ Any),
+  CameraKit: () => (/* reexport */ CameraKit),
+  CameraKitSession: () => (/* reexport */ CameraKitSession_CameraKitSession),
+  CameraKitSource: () => (/* reexport */ CameraKitSource),
+  ConcatInjectable: () => (/* reexport */ ConcatInjectable),
+  Container: () => (/* reexport */ Container),
+  Count: () => (/* reexport */ Count),
+  Histogram: () => (/* reexport */ Histogram),
+  Injectable: () => (/* reexport */ Injectable),
+  LensPerformanceMeasurement: () => (/* reexport */ LensPerformanceMeasurement),
+  LensPerformanceMetrics: () => (/* reexport */ LensPerformanceMetrics),
+  LensRepository: () => (/* reexport */ LensRepository),
+  Lens_CameraFacing: () => (/* reexport */ Lens_CameraFacing),
+  Metric: () => (/* reexport */ Metric),
+  PartialContainer: () => (/* reexport */ PartialContainer),
+  Timer: () => (/* reexport */ Timer),
+  Transform2D: () => (/* reexport */ Transform2D),
+  TypedCustomEvent: () => (/* reexport */ TypedCustomEvent),
+  TypedEventTarget: () => (/* reexport */ TypedEventTarget),
+  UserData_Zodiac: () => (/* reexport */ UserData_Zodiac),
+  benchmarkError: () => (/* reexport */ benchmarkError),
+  bootstrapCameraKit: () => (/* reexport */ bootstrapCameraKit),
+  bootstrapError: () => (/* reexport */ bootstrapError),
+  cacheKeyNotFoundError: () => (/* reexport */ cacheKeyNotFoundError),
+  cameraKitSourceError: () => (/* reexport */ cameraKitSourceError),
+  configurationError: () => (/* reexport */ configurationError),
+  configurationToken: () => (/* reexport */ configurationToken),
+  createExtension: () => (/* reexport */ createExtension),
+  createFunctionSource: () => (/* reexport */ createFunctionSource),
+  createImageSource: () => (/* reexport */ createImageSource),
+  createMediaStreamSource: () => (/* reexport */ createMediaStreamSource),
+  createVideoSource: () => (/* reexport */ createVideoSource),
+  defaultFetchHandlerFactory: () => (/* reexport */ defaultFetchHandlerFactory),
+  estimateLensPerformance: () => (/* reexport */ estimateLensPerformance),
+  extensionRequestContext: () => (/* reexport */ extensionRequestContext),
+  externalMetricsSubjectFactory: () => (/* reexport */ externalMetricsSubjectFactory),
+  legalError: () => (/* reexport */ legalError),
+  lensAbortError: () => (/* reexport */ lensAbortError),
+  lensAssetError: () => (/* reexport */ lensAssetError),
+  lensContentValidationError: () => (/* reexport */ lensContentValidationError),
+  lensError: () => (/* reexport */ lensError),
+  lensExecutionError: () => (/* reexport */ lensExecutionError),
+  lensImagePickerError: () => (/* reexport */ lensImagePickerError),
+  lensSourcesFactory: () => (/* reexport */ lensSourcesFactory),
+  namedError: () => (/* reexport */ namedError),
+  persistentStoreError: () => (/* reexport */ persistentStoreError),
+  platformNotSupportedError: () => (/* reexport */ platformNotSupportedError),
+  remoteApiServicesFactory: () => (/* reexport */ remoteApiServicesFactory),
+  remoteMediaAssetLoaderFactory: () => (/* reexport */ remoteMediaAssetLoaderFactory),
+  toPublicLens: () => (/* reexport */ toPublicLens),
+  uriHandlersFactory: () => (/* reexport */ uriHandlersFactory),
+  webGLError: () => (/* reexport */ webGLError)
 });
-
-/***/ }),
-
-/***/ 570:
-/***/ ((module) => {
-
-module.exports = Long;
-
-/**
- * wasm optimizations, to do native i64 multiplication and divide
- */
-var wasm = null;
-
-try {
-  wasm = new WebAssembly.Instance(new WebAssembly.Module(new Uint8Array([
-    0, 97, 115, 109, 1, 0, 0, 0, 1, 13, 2, 96, 0, 1, 127, 96, 4, 127, 127, 127, 127, 1, 127, 3, 7, 6, 0, 1, 1, 1, 1, 1, 6, 6, 1, 127, 1, 65, 0, 11, 7, 50, 6, 3, 109, 117, 108, 0, 1, 5, 100, 105, 118, 95, 115, 0, 2, 5, 100, 105, 118, 95, 117, 0, 3, 5, 114, 101, 109, 95, 115, 0, 4, 5, 114, 101, 109, 95, 117, 0, 5, 8, 103, 101, 116, 95, 104, 105, 103, 104, 0, 0, 10, 191, 1, 6, 4, 0, 35, 0, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 126, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 127, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 128, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 129, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 130, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11
-  ])), {}).exports;
-} catch (e) {
-  // no wasm support :(
-}
-
-/**
- * Constructs a 64 bit two's-complement integer, given its low and high 32 bit values as *signed* integers.
- *  See the from* functions below for more convenient ways of constructing Longs.
- * @exports Long
- * @class A Long class for representing a 64 bit two's-complement integer value.
- * @param {number} low The low (signed) 32 bits of the long
- * @param {number} high The high (signed) 32 bits of the long
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @constructor
- */
-function Long(low, high, unsigned) {
-
-    /**
-     * The low 32 bits as a signed value.
-     * @type {number}
-     */
-    this.low = low | 0;
-
-    /**
-     * The high 32 bits as a signed value.
-     * @type {number}
-     */
-    this.high = high | 0;
-
-    /**
-     * Whether unsigned or not.
-     * @type {boolean}
-     */
-    this.unsigned = !!unsigned;
-}
-
-// The internal representation of a long is the two given signed, 32-bit values.
-// We use 32-bit pieces because these are the size of integers on which
-// Javascript performs bit-operations.  For operations like addition and
-// multiplication, we split each number into 16 bit pieces, which can easily be
-// multiplied within Javascript's floating-point representation without overflow
-// or change in sign.
-//
-// In the algorithms below, we frequently reduce the negative case to the
-// positive case by negating the input(s) and then post-processing the result.
-// Note that we must ALWAYS check specially whether those values are MIN_VALUE
-// (-2^63) because -MIN_VALUE == MIN_VALUE (since 2^63 cannot be represented as
-// a positive number, it overflows back into a negative).  Not handling this
-// case would often result in infinite recursion.
-//
-// Common constant values ZERO, ONE, NEG_ONE, etc. are defined below the from*
-// methods on which they depend.
-
-/**
- * An indicator used to reliably determine if an object is a Long or not.
- * @type {boolean}
- * @const
- * @private
- */
-Long.prototype.__isLong__;
-
-Object.defineProperty(Long.prototype, "__isLong__", { value: true });
-
-/**
- * @function
- * @param {*} obj Object
- * @returns {boolean}
- * @inner
- */
-function isLong(obj) {
-    return (obj && obj["__isLong__"]) === true;
-}
-
-/**
- * Tests if the specified object is a Long.
- * @function
- * @param {*} obj Object
- * @returns {boolean}
- */
-Long.isLong = isLong;
-
-/**
- * A cache of the Long representations of small integer values.
- * @type {!Object}
- * @inner
- */
-var INT_CACHE = {};
-
-/**
- * A cache of the Long representations of small unsigned integer values.
- * @type {!Object}
- * @inner
- */
-var UINT_CACHE = {};
-
-/**
- * @param {number} value
- * @param {boolean=} unsigned
- * @returns {!Long}
- * @inner
- */
-function fromInt(value, unsigned) {
-    var obj, cachedObj, cache;
-    if (unsigned) {
-        value >>>= 0;
-        if (cache = (0 <= value && value < 256)) {
-            cachedObj = UINT_CACHE[value];
-            if (cachedObj)
-                return cachedObj;
-        }
-        obj = fromBits(value, (value | 0) < 0 ? -1 : 0, true);
-        if (cache)
-            UINT_CACHE[value] = obj;
-        return obj;
-    } else {
-        value |= 0;
-        if (cache = (-128 <= value && value < 128)) {
-            cachedObj = INT_CACHE[value];
-            if (cachedObj)
-                return cachedObj;
-        }
-        obj = fromBits(value, value < 0 ? -1 : 0, false);
-        if (cache)
-            INT_CACHE[value] = obj;
-        return obj;
-    }
-}
-
-/**
- * Returns a Long representing the given 32 bit integer value.
- * @function
- * @param {number} value The 32 bit integer in question
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @returns {!Long} The corresponding Long value
- */
-Long.fromInt = fromInt;
-
-/**
- * @param {number} value
- * @param {boolean=} unsigned
- * @returns {!Long}
- * @inner
- */
-function fromNumber(value, unsigned) {
-    if (isNaN(value))
-        return unsigned ? UZERO : ZERO;
-    if (unsigned) {
-        if (value < 0)
-            return UZERO;
-        if (value >= TWO_PWR_64_DBL)
-            return MAX_UNSIGNED_VALUE;
-    } else {
-        if (value <= -TWO_PWR_63_DBL)
-            return MIN_VALUE;
-        if (value + 1 >= TWO_PWR_63_DBL)
-            return MAX_VALUE;
-    }
-    if (value < 0)
-        return fromNumber(-value, unsigned).neg();
-    return fromBits((value % TWO_PWR_32_DBL) | 0, (value / TWO_PWR_32_DBL) | 0, unsigned);
-}
-
-/**
- * Returns a Long representing the given value, provided that it is a finite number. Otherwise, zero is returned.
- * @function
- * @param {number} value The number in question
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @returns {!Long} The corresponding Long value
- */
-Long.fromNumber = fromNumber;
-
-/**
- * @param {number} lowBits
- * @param {number} highBits
- * @param {boolean=} unsigned
- * @returns {!Long}
- * @inner
- */
-function fromBits(lowBits, highBits, unsigned) {
-    return new Long(lowBits, highBits, unsigned);
-}
-
-/**
- * Returns a Long representing the 64 bit integer that comes by concatenating the given low and high bits. Each is
- *  assumed to use 32 bits.
- * @function
- * @param {number} lowBits The low 32 bits
- * @param {number} highBits The high 32 bits
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @returns {!Long} The corresponding Long value
- */
-Long.fromBits = fromBits;
-
-/**
- * @function
- * @param {number} base
- * @param {number} exponent
- * @returns {number}
- * @inner
- */
-var pow_dbl = Math.pow; // Used 4 times (4*8 to 15+4)
-
-/**
- * @param {string} str
- * @param {(boolean|number)=} unsigned
- * @param {number=} radix
- * @returns {!Long}
- * @inner
- */
-function fromString(str, unsigned, radix) {
-    if (str.length === 0)
-        throw Error('empty string');
-    if (str === "NaN" || str === "Infinity" || str === "+Infinity" || str === "-Infinity")
-        return ZERO;
-    if (typeof unsigned === 'number') {
-        // For goog.math.long compatibility
-        radix = unsigned,
-        unsigned = false;
-    } else {
-        unsigned = !! unsigned;
-    }
-    radix = radix || 10;
-    if (radix < 2 || 36 < radix)
-        throw RangeError('radix');
-
-    var p;
-    if ((p = str.indexOf('-')) > 0)
-        throw Error('interior hyphen');
-    else if (p === 0) {
-        return fromString(str.substring(1), unsigned, radix).neg();
-    }
-
-    // Do several (8) digits each time through the loop, so as to
-    // minimize the calls to the very expensive emulated div.
-    var radixToPower = fromNumber(pow_dbl(radix, 8));
-
-    var result = ZERO;
-    for (var i = 0; i < str.length; i += 8) {
-        var size = Math.min(8, str.length - i),
-            value = parseInt(str.substring(i, i + size), radix);
-        if (size < 8) {
-            var power = fromNumber(pow_dbl(radix, size));
-            result = result.mul(power).add(fromNumber(value));
-        } else {
-            result = result.mul(radixToPower);
-            result = result.add(fromNumber(value));
-        }
-    }
-    result.unsigned = unsigned;
-    return result;
-}
-
-/**
- * Returns a Long representation of the given string, written using the specified radix.
- * @function
- * @param {string} str The textual representation of the Long
- * @param {(boolean|number)=} unsigned Whether unsigned or not, defaults to signed
- * @param {number=} radix The radix in which the text is written (2-36), defaults to 10
- * @returns {!Long} The corresponding Long value
- */
-Long.fromString = fromString;
-
-/**
- * @function
- * @param {!Long|number|string|!{low: number, high: number, unsigned: boolean}} val
- * @param {boolean=} unsigned
- * @returns {!Long}
- * @inner
- */
-function fromValue(val, unsigned) {
-    if (typeof val === 'number')
-        return fromNumber(val, unsigned);
-    if (typeof val === 'string')
-        return fromString(val, unsigned);
-    // Throws for non-objects, converts non-instanceof Long:
-    return fromBits(val.low, val.high, typeof unsigned === 'boolean' ? unsigned : val.unsigned);
-}
-
-/**
- * Converts the specified value to a Long using the appropriate from* function for its type.
- * @function
- * @param {!Long|number|string|!{low: number, high: number, unsigned: boolean}} val Value
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @returns {!Long}
- */
-Long.fromValue = fromValue;
-
-// NOTE: the compiler should inline these constant values below and then remove these variables, so there should be
-// no runtime penalty for these.
-
-/**
- * @type {number}
- * @const
- * @inner
- */
-var TWO_PWR_16_DBL = 1 << 16;
-
-/**
- * @type {number}
- * @const
- * @inner
- */
-var TWO_PWR_24_DBL = 1 << 24;
-
-/**
- * @type {number}
- * @const
- * @inner
- */
-var TWO_PWR_32_DBL = TWO_PWR_16_DBL * TWO_PWR_16_DBL;
-
-/**
- * @type {number}
- * @const
- * @inner
- */
-var TWO_PWR_64_DBL = TWO_PWR_32_DBL * TWO_PWR_32_DBL;
-
-/**
- * @type {number}
- * @const
- * @inner
- */
-var TWO_PWR_63_DBL = TWO_PWR_64_DBL / 2;
-
-/**
- * @type {!Long}
- * @const
- * @inner
- */
-var TWO_PWR_24 = fromInt(TWO_PWR_24_DBL);
-
-/**
- * @type {!Long}
- * @inner
- */
-var ZERO = fromInt(0);
-
-/**
- * Signed zero.
- * @type {!Long}
- */
-Long.ZERO = ZERO;
-
-/**
- * @type {!Long}
- * @inner
- */
-var UZERO = fromInt(0, true);
-
-/**
- * Unsigned zero.
- * @type {!Long}
- */
-Long.UZERO = UZERO;
-
-/**
- * @type {!Long}
- * @inner
- */
-var ONE = fromInt(1);
-
-/**
- * Signed one.
- * @type {!Long}
- */
-Long.ONE = ONE;
-
-/**
- * @type {!Long}
- * @inner
- */
-var UONE = fromInt(1, true);
-
-/**
- * Unsigned one.
- * @type {!Long}
- */
-Long.UONE = UONE;
-
-/**
- * @type {!Long}
- * @inner
- */
-var NEG_ONE = fromInt(-1);
-
-/**
- * Signed negative one.
- * @type {!Long}
- */
-Long.NEG_ONE = NEG_ONE;
-
-/**
- * @type {!Long}
- * @inner
- */
-var MAX_VALUE = fromBits(0xFFFFFFFF|0, 0x7FFFFFFF|0, false);
-
-/**
- * Maximum signed value.
- * @type {!Long}
- */
-Long.MAX_VALUE = MAX_VALUE;
-
-/**
- * @type {!Long}
- * @inner
- */
-var MAX_UNSIGNED_VALUE = fromBits(0xFFFFFFFF|0, 0xFFFFFFFF|0, true);
-
-/**
- * Maximum unsigned value.
- * @type {!Long}
- */
-Long.MAX_UNSIGNED_VALUE = MAX_UNSIGNED_VALUE;
-
-/**
- * @type {!Long}
- * @inner
- */
-var MIN_VALUE = fromBits(0, 0x80000000|0, false);
-
-/**
- * Minimum signed value.
- * @type {!Long}
- */
-Long.MIN_VALUE = MIN_VALUE;
-
-/**
- * @alias Long.prototype
- * @inner
- */
-var LongPrototype = Long.prototype;
-
-/**
- * Converts the Long to a 32 bit integer, assuming it is a 32 bit integer.
- * @returns {number}
- */
-LongPrototype.toInt = function toInt() {
-    return this.unsigned ? this.low >>> 0 : this.low;
-};
-
-/**
- * Converts the Long to a the nearest floating-point representation of this value (double, 53 bit mantissa).
- * @returns {number}
- */
-LongPrototype.toNumber = function toNumber() {
-    if (this.unsigned)
-        return ((this.high >>> 0) * TWO_PWR_32_DBL) + (this.low >>> 0);
-    return this.high * TWO_PWR_32_DBL + (this.low >>> 0);
-};
-
-/**
- * Converts the Long to a string written in the specified radix.
- * @param {number=} radix Radix (2-36), defaults to 10
- * @returns {string}
- * @override
- * @throws {RangeError} If `radix` is out of range
- */
-LongPrototype.toString = function toString(radix) {
-    radix = radix || 10;
-    if (radix < 2 || 36 < radix)
-        throw RangeError('radix');
-    if (this.isZero())
-        return '0';
-    if (this.isNegative()) { // Unsigned Longs are never negative
-        if (this.eq(MIN_VALUE)) {
-            // We need to change the Long value before it can be negated, so we remove
-            // the bottom-most digit in this base and then recurse to do the rest.
-            var radixLong = fromNumber(radix),
-                div = this.div(radixLong),
-                rem1 = div.mul(radixLong).sub(this);
-            return div.toString(radix) + rem1.toInt().toString(radix);
-        } else
-            return '-' + this.neg().toString(radix);
-    }
-
-    // Do several (6) digits each time through the loop, so as to
-    // minimize the calls to the very expensive emulated div.
-    var radixToPower = fromNumber(pow_dbl(radix, 6), this.unsigned),
-        rem = this;
-    var result = '';
-    while (true) {
-        var remDiv = rem.div(radixToPower),
-            intval = rem.sub(remDiv.mul(radixToPower)).toInt() >>> 0,
-            digits = intval.toString(radix);
-        rem = remDiv;
-        if (rem.isZero())
-            return digits + result;
-        else {
-            while (digits.length < 6)
-                digits = '0' + digits;
-            result = '' + digits + result;
-        }
-    }
-};
-
-/**
- * Gets the high 32 bits as a signed integer.
- * @returns {number} Signed high bits
- */
-LongPrototype.getHighBits = function getHighBits() {
-    return this.high;
-};
-
-/**
- * Gets the high 32 bits as an unsigned integer.
- * @returns {number} Unsigned high bits
- */
-LongPrototype.getHighBitsUnsigned = function getHighBitsUnsigned() {
-    return this.high >>> 0;
-};
-
-/**
- * Gets the low 32 bits as a signed integer.
- * @returns {number} Signed low bits
- */
-LongPrototype.getLowBits = function getLowBits() {
-    return this.low;
-};
-
-/**
- * Gets the low 32 bits as an unsigned integer.
- * @returns {number} Unsigned low bits
- */
-LongPrototype.getLowBitsUnsigned = function getLowBitsUnsigned() {
-    return this.low >>> 0;
-};
-
-/**
- * Gets the number of bits needed to represent the absolute value of this Long.
- * @returns {number}
- */
-LongPrototype.getNumBitsAbs = function getNumBitsAbs() {
-    if (this.isNegative()) // Unsigned Longs are never negative
-        return this.eq(MIN_VALUE) ? 64 : this.neg().getNumBitsAbs();
-    var val = this.high != 0 ? this.high : this.low;
-    for (var bit = 31; bit > 0; bit--)
-        if ((val & (1 << bit)) != 0)
-            break;
-    return this.high != 0 ? bit + 33 : bit + 1;
-};
-
-/**
- * Tests if this Long's value equals zero.
- * @returns {boolean}
- */
-LongPrototype.isZero = function isZero() {
-    return this.high === 0 && this.low === 0;
-};
-
-/**
- * Tests if this Long's value equals zero. This is an alias of {@link Long#isZero}.
- * @returns {boolean}
- */
-LongPrototype.eqz = LongPrototype.isZero;
-
-/**
- * Tests if this Long's value is negative.
- * @returns {boolean}
- */
-LongPrototype.isNegative = function isNegative() {
-    return !this.unsigned && this.high < 0;
-};
-
-/**
- * Tests if this Long's value is positive.
- * @returns {boolean}
- */
-LongPrototype.isPositive = function isPositive() {
-    return this.unsigned || this.high >= 0;
-};
-
-/**
- * Tests if this Long's value is odd.
- * @returns {boolean}
- */
-LongPrototype.isOdd = function isOdd() {
-    return (this.low & 1) === 1;
-};
-
-/**
- * Tests if this Long's value is even.
- * @returns {boolean}
- */
-LongPrototype.isEven = function isEven() {
-    return (this.low & 1) === 0;
-};
-
-/**
- * Tests if this Long's value equals the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.equals = function equals(other) {
-    if (!isLong(other))
-        other = fromValue(other);
-    if (this.unsigned !== other.unsigned && (this.high >>> 31) === 1 && (other.high >>> 31) === 1)
-        return false;
-    return this.high === other.high && this.low === other.low;
-};
-
-/**
- * Tests if this Long's value equals the specified's. This is an alias of {@link Long#equals}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.eq = LongPrototype.equals;
-
-/**
- * Tests if this Long's value differs from the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.notEquals = function notEquals(other) {
-    return !this.eq(/* validates */ other);
-};
-
-/**
- * Tests if this Long's value differs from the specified's. This is an alias of {@link Long#notEquals}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.neq = LongPrototype.notEquals;
-
-/**
- * Tests if this Long's value differs from the specified's. This is an alias of {@link Long#notEquals}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.ne = LongPrototype.notEquals;
-
-/**
- * Tests if this Long's value is less than the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.lessThan = function lessThan(other) {
-    return this.comp(/* validates */ other) < 0;
-};
-
-/**
- * Tests if this Long's value is less than the specified's. This is an alias of {@link Long#lessThan}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.lt = LongPrototype.lessThan;
-
-/**
- * Tests if this Long's value is less than or equal the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.lessThanOrEqual = function lessThanOrEqual(other) {
-    return this.comp(/* validates */ other) <= 0;
-};
-
-/**
- * Tests if this Long's value is less than or equal the specified's. This is an alias of {@link Long#lessThanOrEqual}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.lte = LongPrototype.lessThanOrEqual;
-
-/**
- * Tests if this Long's value is less than or equal the specified's. This is an alias of {@link Long#lessThanOrEqual}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.le = LongPrototype.lessThanOrEqual;
-
-/**
- * Tests if this Long's value is greater than the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.greaterThan = function greaterThan(other) {
-    return this.comp(/* validates */ other) > 0;
-};
-
-/**
- * Tests if this Long's value is greater than the specified's. This is an alias of {@link Long#greaterThan}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.gt = LongPrototype.greaterThan;
-
-/**
- * Tests if this Long's value is greater than or equal the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.greaterThanOrEqual = function greaterThanOrEqual(other) {
-    return this.comp(/* validates */ other) >= 0;
-};
-
-/**
- * Tests if this Long's value is greater than or equal the specified's. This is an alias of {@link Long#greaterThanOrEqual}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.gte = LongPrototype.greaterThanOrEqual;
-
-/**
- * Tests if this Long's value is greater than or equal the specified's. This is an alias of {@link Long#greaterThanOrEqual}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {boolean}
- */
-LongPrototype.ge = LongPrototype.greaterThanOrEqual;
-
-/**
- * Compares this Long's value with the specified's.
- * @param {!Long|number|string} other Other value
- * @returns {number} 0 if they are the same, 1 if the this is greater and -1
- *  if the given one is greater
- */
-LongPrototype.compare = function compare(other) {
-    if (!isLong(other))
-        other = fromValue(other);
-    if (this.eq(other))
-        return 0;
-    var thisNeg = this.isNegative(),
-        otherNeg = other.isNegative();
-    if (thisNeg && !otherNeg)
-        return -1;
-    if (!thisNeg && otherNeg)
-        return 1;
-    // At this point the sign bits are the same
-    if (!this.unsigned)
-        return this.sub(other).isNegative() ? -1 : 1;
-    // Both are positive if at least one is unsigned
-    return (other.high >>> 0) > (this.high >>> 0) || (other.high === this.high && (other.low >>> 0) > (this.low >>> 0)) ? -1 : 1;
-};
-
-/**
- * Compares this Long's value with the specified's. This is an alias of {@link Long#compare}.
- * @function
- * @param {!Long|number|string} other Other value
- * @returns {number} 0 if they are the same, 1 if the this is greater and -1
- *  if the given one is greater
- */
-LongPrototype.comp = LongPrototype.compare;
-
-/**
- * Negates this Long's value.
- * @returns {!Long} Negated Long
- */
-LongPrototype.negate = function negate() {
-    if (!this.unsigned && this.eq(MIN_VALUE))
-        return MIN_VALUE;
-    return this.not().add(ONE);
-};
-
-/**
- * Negates this Long's value. This is an alias of {@link Long#negate}.
- * @function
- * @returns {!Long} Negated Long
- */
-LongPrototype.neg = LongPrototype.negate;
-
-/**
- * Returns the sum of this and the specified Long.
- * @param {!Long|number|string} addend Addend
- * @returns {!Long} Sum
- */
-LongPrototype.add = function add(addend) {
-    if (!isLong(addend))
-        addend = fromValue(addend);
-
-    // Divide each number into 4 chunks of 16 bits, and then sum the chunks.
-
-    var a48 = this.high >>> 16;
-    var a32 = this.high & 0xFFFF;
-    var a16 = this.low >>> 16;
-    var a00 = this.low & 0xFFFF;
-
-    var b48 = addend.high >>> 16;
-    var b32 = addend.high & 0xFFFF;
-    var b16 = addend.low >>> 16;
-    var b00 = addend.low & 0xFFFF;
-
-    var c48 = 0, c32 = 0, c16 = 0, c00 = 0;
-    c00 += a00 + b00;
-    c16 += c00 >>> 16;
-    c00 &= 0xFFFF;
-    c16 += a16 + b16;
-    c32 += c16 >>> 16;
-    c16 &= 0xFFFF;
-    c32 += a32 + b32;
-    c48 += c32 >>> 16;
-    c32 &= 0xFFFF;
-    c48 += a48 + b48;
-    c48 &= 0xFFFF;
-    return fromBits((c16 << 16) | c00, (c48 << 16) | c32, this.unsigned);
-};
-
-/**
- * Returns the difference of this and the specified Long.
- * @param {!Long|number|string} subtrahend Subtrahend
- * @returns {!Long} Difference
- */
-LongPrototype.subtract = function subtract(subtrahend) {
-    if (!isLong(subtrahend))
-        subtrahend = fromValue(subtrahend);
-    return this.add(subtrahend.neg());
-};
-
-/**
- * Returns the difference of this and the specified Long. This is an alias of {@link Long#subtract}.
- * @function
- * @param {!Long|number|string} subtrahend Subtrahend
- * @returns {!Long} Difference
- */
-LongPrototype.sub = LongPrototype.subtract;
-
-/**
- * Returns the product of this and the specified Long.
- * @param {!Long|number|string} multiplier Multiplier
- * @returns {!Long} Product
- */
-LongPrototype.multiply = function multiply(multiplier) {
-    if (this.isZero())
-        return ZERO;
-    if (!isLong(multiplier))
-        multiplier = fromValue(multiplier);
-
-    // use wasm support if present
-    if (wasm) {
-        var low = wasm.mul(this.low,
-                           this.high,
-                           multiplier.low,
-                           multiplier.high);
-        return fromBits(low, wasm.get_high(), this.unsigned);
-    }
-
-    if (multiplier.isZero())
-        return ZERO;
-    if (this.eq(MIN_VALUE))
-        return multiplier.isOdd() ? MIN_VALUE : ZERO;
-    if (multiplier.eq(MIN_VALUE))
-        return this.isOdd() ? MIN_VALUE : ZERO;
-
-    if (this.isNegative()) {
-        if (multiplier.isNegative())
-            return this.neg().mul(multiplier.neg());
-        else
-            return this.neg().mul(multiplier).neg();
-    } else if (multiplier.isNegative())
-        return this.mul(multiplier.neg()).neg();
-
-    // If both longs are small, use float multiplication
-    if (this.lt(TWO_PWR_24) && multiplier.lt(TWO_PWR_24))
-        return fromNumber(this.toNumber() * multiplier.toNumber(), this.unsigned);
-
-    // Divide each long into 4 chunks of 16 bits, and then add up 4x4 products.
-    // We can skip products that would overflow.
-
-    var a48 = this.high >>> 16;
-    var a32 = this.high & 0xFFFF;
-    var a16 = this.low >>> 16;
-    var a00 = this.low & 0xFFFF;
-
-    var b48 = multiplier.high >>> 16;
-    var b32 = multiplier.high & 0xFFFF;
-    var b16 = multiplier.low >>> 16;
-    var b00 = multiplier.low & 0xFFFF;
-
-    var c48 = 0, c32 = 0, c16 = 0, c00 = 0;
-    c00 += a00 * b00;
-    c16 += c00 >>> 16;
-    c00 &= 0xFFFF;
-    c16 += a16 * b00;
-    c32 += c16 >>> 16;
-    c16 &= 0xFFFF;
-    c16 += a00 * b16;
-    c32 += c16 >>> 16;
-    c16 &= 0xFFFF;
-    c32 += a32 * b00;
-    c48 += c32 >>> 16;
-    c32 &= 0xFFFF;
-    c32 += a16 * b16;
-    c48 += c32 >>> 16;
-    c32 &= 0xFFFF;
-    c32 += a00 * b32;
-    c48 += c32 >>> 16;
-    c32 &= 0xFFFF;
-    c48 += a48 * b00 + a32 * b16 + a16 * b32 + a00 * b48;
-    c48 &= 0xFFFF;
-    return fromBits((c16 << 16) | c00, (c48 << 16) | c32, this.unsigned);
-};
-
-/**
- * Returns the product of this and the specified Long. This is an alias of {@link Long#multiply}.
- * @function
- * @param {!Long|number|string} multiplier Multiplier
- * @returns {!Long} Product
- */
-LongPrototype.mul = LongPrototype.multiply;
-
-/**
- * Returns this Long divided by the specified. The result is signed if this Long is signed or
- *  unsigned if this Long is unsigned.
- * @param {!Long|number|string} divisor Divisor
- * @returns {!Long} Quotient
- */
-LongPrototype.divide = function divide(divisor) {
-    if (!isLong(divisor))
-        divisor = fromValue(divisor);
-    if (divisor.isZero())
-        throw Error('division by zero');
-
-    // use wasm support if present
-    if (wasm) {
-        // guard against signed division overflow: the largest
-        // negative number / -1 would be 1 larger than the largest
-        // positive number, due to two's complement.
-        if (!this.unsigned &&
-            this.high === -0x80000000 &&
-            divisor.low === -1 && divisor.high === -1) {
-            // be consistent with non-wasm code path
-            return this;
-        }
-        var low = (this.unsigned ? wasm.div_u : wasm.div_s)(
-            this.low,
-            this.high,
-            divisor.low,
-            divisor.high
-        );
-        return fromBits(low, wasm.get_high(), this.unsigned);
-    }
-
-    if (this.isZero())
-        return this.unsigned ? UZERO : ZERO;
-    var approx, rem, res;
-    if (!this.unsigned) {
-        // This section is only relevant for signed longs and is derived from the
-        // closure library as a whole.
-        if (this.eq(MIN_VALUE)) {
-            if (divisor.eq(ONE) || divisor.eq(NEG_ONE))
-                return MIN_VALUE;  // recall that -MIN_VALUE == MIN_VALUE
-            else if (divisor.eq(MIN_VALUE))
-                return ONE;
-            else {
-                // At this point, we have |other| >= 2, so |this/other| < |MIN_VALUE|.
-                var halfThis = this.shr(1);
-                approx = halfThis.div(divisor).shl(1);
-                if (approx.eq(ZERO)) {
-                    return divisor.isNegative() ? ONE : NEG_ONE;
-                } else {
-                    rem = this.sub(divisor.mul(approx));
-                    res = approx.add(rem.div(divisor));
-                    return res;
-                }
-            }
-        } else if (divisor.eq(MIN_VALUE))
-            return this.unsigned ? UZERO : ZERO;
-        if (this.isNegative()) {
-            if (divisor.isNegative())
-                return this.neg().div(divisor.neg());
-            return this.neg().div(divisor).neg();
-        } else if (divisor.isNegative())
-            return this.div(divisor.neg()).neg();
-        res = ZERO;
-    } else {
-        // The algorithm below has not been made for unsigned longs. It's therefore
-        // required to take special care of the MSB prior to running it.
-        if (!divisor.unsigned)
-            divisor = divisor.toUnsigned();
-        if (divisor.gt(this))
-            return UZERO;
-        if (divisor.gt(this.shru(1))) // 15 >>> 1 = 7 ; with divisor = 8 ; true
-            return UONE;
-        res = UZERO;
-    }
-
-    // Repeat the following until the remainder is less than other:  find a
-    // floating-point that approximates remainder / other *from below*, add this
-    // into the result, and subtract it from the remainder.  It is critical that
-    // the approximate value is less than or equal to the real value so that the
-    // remainder never becomes negative.
-    rem = this;
-    while (rem.gte(divisor)) {
-        // Approximate the result of division. This may be a little greater or
-        // smaller than the actual value.
-        approx = Math.max(1, Math.floor(rem.toNumber() / divisor.toNumber()));
-
-        // We will tweak the approximate result by changing it in the 48-th digit or
-        // the smallest non-fractional digit, whichever is larger.
-        var log2 = Math.ceil(Math.log(approx) / Math.LN2),
-            delta = (log2 <= 48) ? 1 : pow_dbl(2, log2 - 48),
-
-        // Decrease the approximation until it is smaller than the remainder.  Note
-        // that if it is too large, the product overflows and is negative.
-            approxRes = fromNumber(approx),
-            approxRem = approxRes.mul(divisor);
-        while (approxRem.isNegative() || approxRem.gt(rem)) {
-            approx -= delta;
-            approxRes = fromNumber(approx, this.unsigned);
-            approxRem = approxRes.mul(divisor);
-        }
-
-        // We know the answer can't be zero... and actually, zero would cause
-        // infinite recursion since we would make no progress.
-        if (approxRes.isZero())
-            approxRes = ONE;
-
-        res = res.add(approxRes);
-        rem = rem.sub(approxRem);
-    }
-    return res;
-};
-
-/**
- * Returns this Long divided by the specified. This is an alias of {@link Long#divide}.
- * @function
- * @param {!Long|number|string} divisor Divisor
- * @returns {!Long} Quotient
- */
-LongPrototype.div = LongPrototype.divide;
-
-/**
- * Returns this Long modulo the specified.
- * @param {!Long|number|string} divisor Divisor
- * @returns {!Long} Remainder
- */
-LongPrototype.modulo = function modulo(divisor) {
-    if (!isLong(divisor))
-        divisor = fromValue(divisor);
-
-    // use wasm support if present
-    if (wasm) {
-        var low = (this.unsigned ? wasm.rem_u : wasm.rem_s)(
-            this.low,
-            this.high,
-            divisor.low,
-            divisor.high
-        );
-        return fromBits(low, wasm.get_high(), this.unsigned);
-    }
-
-    return this.sub(this.div(divisor).mul(divisor));
-};
-
-/**
- * Returns this Long modulo the specified. This is an alias of {@link Long#modulo}.
- * @function
- * @param {!Long|number|string} divisor Divisor
- * @returns {!Long} Remainder
- */
-LongPrototype.mod = LongPrototype.modulo;
-
-/**
- * Returns this Long modulo the specified. This is an alias of {@link Long#modulo}.
- * @function
- * @param {!Long|number|string} divisor Divisor
- * @returns {!Long} Remainder
- */
-LongPrototype.rem = LongPrototype.modulo;
-
-/**
- * Returns the bitwise NOT of this Long.
- * @returns {!Long}
- */
-LongPrototype.not = function not() {
-    return fromBits(~this.low, ~this.high, this.unsigned);
-};
-
-/**
- * Returns the bitwise AND of this Long and the specified.
- * @param {!Long|number|string} other Other Long
- * @returns {!Long}
- */
-LongPrototype.and = function and(other) {
-    if (!isLong(other))
-        other = fromValue(other);
-    return fromBits(this.low & other.low, this.high & other.high, this.unsigned);
-};
-
-/**
- * Returns the bitwise OR of this Long and the specified.
- * @param {!Long|number|string} other Other Long
- * @returns {!Long}
- */
-LongPrototype.or = function or(other) {
-    if (!isLong(other))
-        other = fromValue(other);
-    return fromBits(this.low | other.low, this.high | other.high, this.unsigned);
-};
-
-/**
- * Returns the bitwise XOR of this Long and the given one.
- * @param {!Long|number|string} other Other Long
- * @returns {!Long}
- */
-LongPrototype.xor = function xor(other) {
-    if (!isLong(other))
-        other = fromValue(other);
-    return fromBits(this.low ^ other.low, this.high ^ other.high, this.unsigned);
-};
-
-/**
- * Returns this Long with bits shifted to the left by the given amount.
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shiftLeft = function shiftLeft(numBits) {
-    if (isLong(numBits))
-        numBits = numBits.toInt();
-    if ((numBits &= 63) === 0)
-        return this;
-    else if (numBits < 32)
-        return fromBits(this.low << numBits, (this.high << numBits) | (this.low >>> (32 - numBits)), this.unsigned);
-    else
-        return fromBits(0, this.low << (numBits - 32), this.unsigned);
-};
-
-/**
- * Returns this Long with bits shifted to the left by the given amount. This is an alias of {@link Long#shiftLeft}.
- * @function
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shl = LongPrototype.shiftLeft;
-
-/**
- * Returns this Long with bits arithmetically shifted to the right by the given amount.
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shiftRight = function shiftRight(numBits) {
-    if (isLong(numBits))
-        numBits = numBits.toInt();
-    if ((numBits &= 63) === 0)
-        return this;
-    else if (numBits < 32)
-        return fromBits((this.low >>> numBits) | (this.high << (32 - numBits)), this.high >> numBits, this.unsigned);
-    else
-        return fromBits(this.high >> (numBits - 32), this.high >= 0 ? 0 : -1, this.unsigned);
-};
-
-/**
- * Returns this Long with bits arithmetically shifted to the right by the given amount. This is an alias of {@link Long#shiftRight}.
- * @function
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shr = LongPrototype.shiftRight;
-
-/**
- * Returns this Long with bits logically shifted to the right by the given amount.
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shiftRightUnsigned = function shiftRightUnsigned(numBits) {
-    if (isLong(numBits))
-        numBits = numBits.toInt();
-    numBits &= 63;
-    if (numBits === 0)
-        return this;
-    else {
-        var high = this.high;
-        if (numBits < 32) {
-            var low = this.low;
-            return fromBits((low >>> numBits) | (high << (32 - numBits)), high >>> numBits, this.unsigned);
-        } else if (numBits === 32)
-            return fromBits(high, 0, this.unsigned);
-        else
-            return fromBits(high >>> (numBits - 32), 0, this.unsigned);
-    }
-};
-
-/**
- * Returns this Long with bits logically shifted to the right by the given amount. This is an alias of {@link Long#shiftRightUnsigned}.
- * @function
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shru = LongPrototype.shiftRightUnsigned;
-
-/**
- * Returns this Long with bits logically shifted to the right by the given amount. This is an alias of {@link Long#shiftRightUnsigned}.
- * @function
- * @param {number|!Long} numBits Number of bits
- * @returns {!Long} Shifted Long
- */
-LongPrototype.shr_u = LongPrototype.shiftRightUnsigned;
-
-/**
- * Converts this Long to signed.
- * @returns {!Long} Signed long
- */
-LongPrototype.toSigned = function toSigned() {
-    if (!this.unsigned)
-        return this;
-    return fromBits(this.low, this.high, false);
-};
-
-/**
- * Converts this Long to unsigned.
- * @returns {!Long} Unsigned long
- */
-LongPrototype.toUnsigned = function toUnsigned() {
-    if (this.unsigned)
-        return this;
-    return fromBits(this.low, this.high, true);
-};
-
-/**
- * Converts this Long to its byte representation.
- * @param {boolean=} le Whether little or big endian, defaults to big endian
- * @returns {!Array.<number>} Byte representation
- */
-LongPrototype.toBytes = function toBytes(le) {
-    return le ? this.toBytesLE() : this.toBytesBE();
-};
-
-/**
- * Converts this Long to its little endian byte representation.
- * @returns {!Array.<number>} Little endian byte representation
- */
-LongPrototype.toBytesLE = function toBytesLE() {
-    var hi = this.high,
-        lo = this.low;
-    return [
-        lo        & 0xff,
-        lo >>>  8 & 0xff,
-        lo >>> 16 & 0xff,
-        lo >>> 24       ,
-        hi        & 0xff,
-        hi >>>  8 & 0xff,
-        hi >>> 16 & 0xff,
-        hi >>> 24
-    ];
-};
-
-/**
- * Converts this Long to its big endian byte representation.
- * @returns {!Array.<number>} Big endian byte representation
- */
-LongPrototype.toBytesBE = function toBytesBE() {
-    var hi = this.high,
-        lo = this.low;
-    return [
-        hi >>> 24       ,
-        hi >>> 16 & 0xff,
-        hi >>>  8 & 0xff,
-        hi        & 0xff,
-        lo >>> 24       ,
-        lo >>> 16 & 0xff,
-        lo >>>  8 & 0xff,
-        lo        & 0xff
-    ];
-};
-
-/**
- * Creates a Long from its byte representation.
- * @param {!Array.<number>} bytes Byte representation
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @param {boolean=} le Whether little or big endian, defaults to big endian
- * @returns {Long} The corresponding Long value
- */
-Long.fromBytes = function fromBytes(bytes, unsigned, le) {
-    return le ? Long.fromBytesLE(bytes, unsigned) : Long.fromBytesBE(bytes, unsigned);
-};
-
-/**
- * Creates a Long from its little endian byte representation.
- * @param {!Array.<number>} bytes Little endian byte representation
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @returns {Long} The corresponding Long value
- */
-Long.fromBytesLE = function fromBytesLE(bytes, unsigned) {
-    return new Long(
-        bytes[0]       |
-        bytes[1] <<  8 |
-        bytes[2] << 16 |
-        bytes[3] << 24,
-        bytes[4]       |
-        bytes[5] <<  8 |
-        bytes[6] << 16 |
-        bytes[7] << 24,
-        unsigned
-    );
-};
-
-/**
- * Creates a Long from its big endian byte representation.
- * @param {!Array.<number>} bytes Big endian byte representation
- * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
- * @returns {Long} The corresponding Long value
- */
-Long.fromBytesBE = function fromBytesBE(bytes, unsigned) {
-    return new Long(
-        bytes[4] << 24 |
-        bytes[5] << 16 |
-        bytes[6] <<  8 |
-        bytes[7],
-        bytes[0] << 24 |
-        bytes[1] << 16 |
-        bytes[2] <<  8 |
-        bytes[3],
-        unsigned
-    );
-};
-
-
-/***/ }),
-
-/***/ 549:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-// full library entry point.
-
-
-module.exports = __webpack_require__(100);
-
-
-/***/ }),
-
-/***/ 946:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-// minimal library entry point.
-
-
-module.exports = __webpack_require__(394);
-
-
-/***/ }),
-
-/***/ 95:
-/***/ ((module) => {
-
-"use strict";
-
-module.exports = common;
-
-var commonRe = /\/|\./;
-
-/**
- * Provides common type definitions.
- * Can also be used to provide additional google types or your own custom types.
- * @param {string} name Short name as in `google/protobuf/[name].proto` or full file name
- * @param {Object.<string,*>} json JSON definition within `google.protobuf` if a short name, otherwise the file's root definition
- * @returns {undefined}
- * @property {INamespace} google/protobuf/any.proto Any
- * @property {INamespace} google/protobuf/duration.proto Duration
- * @property {INamespace} google/protobuf/empty.proto Empty
- * @property {INamespace} google/protobuf/field_mask.proto FieldMask
- * @property {INamespace} google/protobuf/struct.proto Struct, Value, NullValue and ListValue
- * @property {INamespace} google/protobuf/timestamp.proto Timestamp
- * @property {INamespace} google/protobuf/wrappers.proto Wrappers
- * @example
- * // manually provides descriptor.proto (assumes google/protobuf/ namespace and .proto extension)
- * protobuf.common("descriptor", descriptorJson);
- *
- * // manually provides a custom definition (uses my.foo namespace)
- * protobuf.common("my/foo/bar.proto", myFooBarJson);
- */
-function common(name, json) {
-    if (!commonRe.test(name)) {
-        name = "google/protobuf/" + name + ".proto";
-        json = { nested: { google: { nested: { protobuf: { nested: json } } } } };
-    }
-    common[name] = json;
-}
-
-// Not provided because of limited use (feel free to discuss or to provide yourself):
-//
-// google/protobuf/descriptor.proto
-// google/protobuf/source_context.proto
-// google/protobuf/type.proto
-//
-// Stripped and pre-parsed versions of these non-bundled files are instead available as part of
-// the repository or package within the google/protobuf directory.
-
-common("any", {
-
-    /**
-     * Properties of a google.protobuf.Any message.
-     * @interface IAny
-     * @type {Object}
-     * @property {string} [typeUrl]
-     * @property {Uint8Array} [bytes]
-     * @memberof common
-     */
-    Any: {
-        fields: {
-            type_url: {
-                type: "string",
-                id: 1
-            },
-            value: {
-                type: "bytes",
-                id: 2
-            }
-        }
-    }
-});
-
-var timeType;
-
-common("duration", {
-
-    /**
-     * Properties of a google.protobuf.Duration message.
-     * @interface IDuration
-     * @type {Object}
-     * @property {number|Long} [seconds]
-     * @property {number} [nanos]
-     * @memberof common
-     */
-    Duration: timeType = {
-        fields: {
-            seconds: {
-                type: "int64",
-                id: 1
-            },
-            nanos: {
-                type: "int32",
-                id: 2
-            }
-        }
-    }
-});
-
-common("timestamp", {
-
-    /**
-     * Properties of a google.protobuf.Timestamp message.
-     * @interface ITimestamp
-     * @type {Object}
-     * @property {number|Long} [seconds]
-     * @property {number} [nanos]
-     * @memberof common
-     */
-    Timestamp: timeType
-});
-
-common("empty", {
-
-    /**
-     * Properties of a google.protobuf.Empty message.
-     * @interface IEmpty
-     * @memberof common
-     */
-    Empty: {
-        fields: {}
-    }
-});
-
-common("struct", {
-
-    /**
-     * Properties of a google.protobuf.Struct message.
-     * @interface IStruct
-     * @type {Object}
-     * @property {Object.<string,IValue>} [fields]
-     * @memberof common
-     */
-    Struct: {
-        fields: {
-            fields: {
-                keyType: "string",
-                type: "Value",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.Value message.
-     * @interface IValue
-     * @type {Object}
-     * @property {string} [kind]
-     * @property {0} [nullValue]
-     * @property {number} [numberValue]
-     * @property {string} [stringValue]
-     * @property {boolean} [boolValue]
-     * @property {IStruct} [structValue]
-     * @property {IListValue} [listValue]
-     * @memberof common
-     */
-    Value: {
-        oneofs: {
-            kind: {
-                oneof: [
-                    "nullValue",
-                    "numberValue",
-                    "stringValue",
-                    "boolValue",
-                    "structValue",
-                    "listValue"
-                ]
-            }
-        },
-        fields: {
-            nullValue: {
-                type: "NullValue",
-                id: 1
-            },
-            numberValue: {
-                type: "double",
-                id: 2
-            },
-            stringValue: {
-                type: "string",
-                id: 3
-            },
-            boolValue: {
-                type: "bool",
-                id: 4
-            },
-            structValue: {
-                type: "Struct",
-                id: 5
-            },
-            listValue: {
-                type: "ListValue",
-                id: 6
-            }
-        }
-    },
-
-    NullValue: {
-        values: {
-            NULL_VALUE: 0
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.ListValue message.
-     * @interface IListValue
-     * @type {Object}
-     * @property {Array.<IValue>} [values]
-     * @memberof common
-     */
-    ListValue: {
-        fields: {
-            values: {
-                rule: "repeated",
-                type: "Value",
-                id: 1
-            }
-        }
-    }
-});
-
-common("wrappers", {
-
-    /**
-     * Properties of a google.protobuf.DoubleValue message.
-     * @interface IDoubleValue
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    DoubleValue: {
-        fields: {
-            value: {
-                type: "double",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.FloatValue message.
-     * @interface IFloatValue
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    FloatValue: {
-        fields: {
-            value: {
-                type: "float",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.Int64Value message.
-     * @interface IInt64Value
-     * @type {Object}
-     * @property {number|Long} [value]
-     * @memberof common
-     */
-    Int64Value: {
-        fields: {
-            value: {
-                type: "int64",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.UInt64Value message.
-     * @interface IUInt64Value
-     * @type {Object}
-     * @property {number|Long} [value]
-     * @memberof common
-     */
-    UInt64Value: {
-        fields: {
-            value: {
-                type: "uint64",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.Int32Value message.
-     * @interface IInt32Value
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    Int32Value: {
-        fields: {
-            value: {
-                type: "int32",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.UInt32Value message.
-     * @interface IUInt32Value
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    UInt32Value: {
-        fields: {
-            value: {
-                type: "uint32",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.BoolValue message.
-     * @interface IBoolValue
-     * @type {Object}
-     * @property {boolean} [value]
-     * @memberof common
-     */
-    BoolValue: {
-        fields: {
-            value: {
-                type: "bool",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.StringValue message.
-     * @interface IStringValue
-     * @type {Object}
-     * @property {string} [value]
-     * @memberof common
-     */
-    StringValue: {
-        fields: {
-            value: {
-                type: "string",
-                id: 1
-            }
-        }
-    },
-
-    /**
-     * Properties of a google.protobuf.BytesValue message.
-     * @interface IBytesValue
-     * @type {Object}
-     * @property {Uint8Array} [value]
-     * @memberof common
-     */
-    BytesValue: {
-        fields: {
-            value: {
-                type: "bytes",
-                id: 1
-            }
-        }
-    }
-});
-
-common("field_mask", {
-
-    /**
-     * Properties of a google.protobuf.FieldMask message.
-     * @interface IDoubleValue
-     * @type {Object}
-     * @property {number} [value]
-     * @memberof common
-     */
-    FieldMask: {
-        fields: {
-            paths: {
-                rule: "repeated",
-                type: "string",
-                id: 1
-            }
-        }
-    }
-});
-
-/**
- * Gets the root definition of the specified common proto file.
- *
- * Bundled definitions are:
- * - google/protobuf/any.proto
- * - google/protobuf/duration.proto
- * - google/protobuf/empty.proto
- * - google/protobuf/field_mask.proto
- * - google/protobuf/struct.proto
- * - google/protobuf/timestamp.proto
- * - google/protobuf/wrappers.proto
- *
- * @param {string} file Proto file name
- * @returns {INamespace|null} Root definition or `null` if not defined
- */
-common.get = function get(file) {
-    return common[file] || null;
-};
-
-
-/***/ }),
-
-/***/ 744:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-/**
- * Runtime message from/to plain object converters.
- * @namespace
- */
-var converter = exports;
-
-var Enum = __webpack_require__(643),
-    util = __webpack_require__(262);
-
-/**
- * Generates a partial value fromObject conveter.
- * @param {Codegen} gen Codegen instance
- * @param {Field} field Reflected field
- * @param {number} fieldIndex Field index
- * @param {string} prop Property reference
- * @returns {Codegen} Codegen instance
- * @ignore
- */
-function genValuePartial_fromObject(gen, field, fieldIndex, prop) {
-    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
-    if (field.resolvedType) {
-        if (field.resolvedType instanceof Enum) { gen
-            ("switch(d%s){", prop);
-            for (var values = field.resolvedType.values, keys = Object.keys(values), i = 0; i < keys.length; ++i) {
-                if (field.repeated && values[keys[i]] === field.typeDefault) gen
-                ("default:");
-                gen
-                ("case%j:", keys[i])
-                ("case %i:", values[keys[i]])
-                    ("m%s=%j", prop, values[keys[i]])
-                    ("break");
-            } gen
-            ("}");
-        } else gen
-            ("if(typeof d%s!==\"object\")", prop)
-                ("throw TypeError(%j)", field.fullName + ": object expected")
-            ("m%s=types[%i].fromObject(d%s)", prop, fieldIndex, prop);
-    } else {
-        var isUnsigned = false;
-        switch (field.type) {
-            case "double":
-            case "float": gen
-                ("m%s=Number(d%s)", prop, prop); // also catches "NaN", "Infinity"
-                break;
-            case "uint32":
-            case "fixed32": gen
-                ("m%s=d%s>>>0", prop, prop);
-                break;
-            case "int32":
-            case "sint32":
-            case "sfixed32": gen
-                ("m%s=d%s|0", prop, prop);
-                break;
-            case "uint64":
-                isUnsigned = true;
-                // eslint-disable-line no-fallthrough
-            case "int64":
-            case "sint64":
-            case "fixed64":
-            case "sfixed64": gen
-                ("if(util.Long)")
-                    ("(m%s=util.Long.fromValue(d%s)).unsigned=%j", prop, prop, isUnsigned)
-                ("else if(typeof d%s===\"string\")", prop)
-                    ("m%s=parseInt(d%s,10)", prop, prop)
-                ("else if(typeof d%s===\"number\")", prop)
-                    ("m%s=d%s", prop, prop)
-                ("else if(typeof d%s===\"object\")", prop)
-                    ("m%s=new util.LongBits(d%s.low>>>0,d%s.high>>>0).toNumber(%s)", prop, prop, prop, isUnsigned ? "true" : "");
-                break;
-            case "bytes": gen
-                ("if(typeof d%s===\"string\")", prop)
-                    ("util.base64.decode(d%s,m%s=util.newBuffer(util.base64.length(d%s)),0)", prop, prop, prop)
-                ("else if(d%s.length)", prop)
-                    ("m%s=d%s", prop, prop);
-                break;
-            case "string": gen
-                ("m%s=String(d%s)", prop, prop);
-                break;
-            case "bool": gen
-                ("m%s=Boolean(d%s)", prop, prop);
-                break;
-            /* default: gen
-                ("m%s=d%s", prop, prop);
-                break; */
-        }
-    }
-    return gen;
-    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
-}
-
-/**
- * Generates a plain object to runtime message converter specific to the specified message type.
- * @param {Type} mtype Message type
- * @returns {Codegen} Codegen instance
- */
-converter.fromObject = function fromObject(mtype) {
-    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
-    var fields = mtype.fieldsArray;
-    var gen = util.codegen(["d"], mtype.name + "$fromObject")
-    ("if(d instanceof this.ctor)")
-        ("return d");
-    if (!fields.length) return gen
-    ("return new this.ctor");
-    gen
-    ("var m=new this.ctor");
-    for (var i = 0; i < fields.length; ++i) {
-        var field  = fields[i].resolve(),
-            prop   = util.safeProp(field.name);
-
-        // Map fields
-        if (field.map) { gen
-    ("if(d%s){", prop)
-        ("if(typeof d%s!==\"object\")", prop)
-            ("throw TypeError(%j)", field.fullName + ": object expected")
-        ("m%s={}", prop)
-        ("for(var ks=Object.keys(d%s),i=0;i<ks.length;++i){", prop);
-            genValuePartial_fromObject(gen, field, /* not sorted */ i, prop + "[ks[i]]")
-        ("}")
-    ("}");
-
-        // Repeated fields
-        } else if (field.repeated) { gen
-    ("if(d%s){", prop)
-        ("if(!Array.isArray(d%s))", prop)
-            ("throw TypeError(%j)", field.fullName + ": array expected")
-        ("m%s=[]", prop)
-        ("for(var i=0;i<d%s.length;++i){", prop);
-            genValuePartial_fromObject(gen, field, /* not sorted */ i, prop + "[i]")
-        ("}")
-    ("}");
-
-        // Non-repeated fields
-        } else {
-            if (!(field.resolvedType instanceof Enum)) gen // no need to test for null/undefined if an enum (uses switch)
-    ("if(d%s!=null){", prop); // !== undefined && !== null
-        genValuePartial_fromObject(gen, field, /* not sorted */ i, prop);
-            if (!(field.resolvedType instanceof Enum)) gen
-    ("}");
-        }
-    } return gen
-    ("return m");
-    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
-};
-
-/**
- * Generates a partial value toObject converter.
- * @param {Codegen} gen Codegen instance
- * @param {Field} field Reflected field
- * @param {number} fieldIndex Field index
- * @param {string} prop Property reference
- * @returns {Codegen} Codegen instance
- * @ignore
- */
-function genValuePartial_toObject(gen, field, fieldIndex, prop) {
-    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
-    if (field.resolvedType) {
-        if (field.resolvedType instanceof Enum) gen
-            ("d%s=o.enums===String?types[%i].values[m%s]:m%s", prop, fieldIndex, prop, prop);
-        else gen
-            ("d%s=types[%i].toObject(m%s,o)", prop, fieldIndex, prop);
-    } else {
-        var isUnsigned = false;
-        switch (field.type) {
-            case "double":
-            case "float": gen
-            ("d%s=o.json&&!isFinite(m%s)?String(m%s):m%s", prop, prop, prop, prop);
-                break;
-            case "uint64":
-                isUnsigned = true;
-                // eslint-disable-line no-fallthrough
-            case "int64":
-            case "sint64":
-            case "fixed64":
-            case "sfixed64": gen
-            ("if(typeof m%s===\"number\")", prop)
-                ("d%s=o.longs===String?String(m%s):m%s", prop, prop, prop)
-            ("else") // Long-like
-                ("d%s=o.longs===String?util.Long.prototype.toString.call(m%s):o.longs===Number?new util.LongBits(m%s.low>>>0,m%s.high>>>0).toNumber(%s):m%s", prop, prop, prop, prop, isUnsigned ? "true": "", prop);
-                break;
-            case "bytes": gen
-            ("d%s=o.bytes===String?util.base64.encode(m%s,0,m%s.length):o.bytes===Array?Array.prototype.slice.call(m%s):m%s", prop, prop, prop, prop, prop);
-                break;
-            default: gen
-            ("d%s=m%s", prop, prop);
-                break;
-        }
-    }
-    return gen;
-    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
-}
-
-/**
- * Generates a runtime message to plain object converter specific to the specified message type.
- * @param {Type} mtype Message type
- * @returns {Codegen} Codegen instance
- */
-converter.toObject = function toObject(mtype) {
-    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
-    var fields = mtype.fieldsArray.slice().sort(util.compareFieldsById);
-    if (!fields.length)
-        return util.codegen()("return {}");
-    var gen = util.codegen(["m", "o"], mtype.name + "$toObject")
-    ("if(!o)")
-        ("o={}")
-    ("var d={}");
-
-    var repeatedFields = [],
-        mapFields = [],
-        normalFields = [],
-        i = 0;
-    for (; i < fields.length; ++i)
-        if (!fields[i].partOf)
-            ( fields[i].resolve().repeated ? repeatedFields
-            : fields[i].map ? mapFields
-            : normalFields).push(fields[i]);
-
-    if (repeatedFields.length) { gen
-    ("if(o.arrays||o.defaults){");
-        for (i = 0; i < repeatedFields.length; ++i) gen
-        ("d%s=[]", util.safeProp(repeatedFields[i].name));
-        gen
-    ("}");
-    }
-
-    if (mapFields.length) { gen
-    ("if(o.objects||o.defaults){");
-        for (i = 0; i < mapFields.length; ++i) gen
-        ("d%s={}", util.safeProp(mapFields[i].name));
-        gen
-    ("}");
-    }
-
-    if (normalFields.length) { gen
-    ("if(o.defaults){");
-        for (i = 0; i < normalFields.length; ++i) {
-            var field = normalFields[i],
-                prop  = util.safeProp(field.name);
-            if (field.resolvedType instanceof Enum) gen
-        ("d%s=o.enums===String?%j:%j", prop, field.resolvedType.valuesById[field.typeDefault], field.typeDefault);
-            else if (field.long) gen
-        ("if(util.Long){")
-            ("var n=new util.Long(%i,%i,%j)", field.typeDefault.low, field.typeDefault.high, field.typeDefault.unsigned)
-            ("d%s=o.longs===String?n.toString():o.longs===Number?n.toNumber():n", prop)
-        ("}else")
-            ("d%s=o.longs===String?%j:%i", prop, field.typeDefault.toString(), field.typeDefault.toNumber());
-            else if (field.bytes) {
-                var arrayDefault = "[" + Array.prototype.slice.call(field.typeDefault).join(",") + "]";
-                gen
-        ("if(o.bytes===String)d%s=%j", prop, String.fromCharCode.apply(String, field.typeDefault))
-        ("else{")
-            ("d%s=%s", prop, arrayDefault)
-            ("if(o.bytes!==Array)d%s=util.newBuffer(d%s)", prop, prop)
-        ("}");
-            } else gen
-        ("d%s=%j", prop, field.typeDefault); // also messages (=null)
-        } gen
-    ("}");
-    }
-    var hasKs2 = false;
-    for (i = 0; i < fields.length; ++i) {
-        var field = fields[i],
-            index = mtype._fieldsArray.indexOf(field),
-            prop  = util.safeProp(field.name);
-        if (field.map) {
-            if (!hasKs2) { hasKs2 = true; gen
-    ("var ks2");
-            } gen
-    ("if(m%s&&(ks2=Object.keys(m%s)).length){", prop, prop)
-        ("d%s={}", prop)
-        ("for(var j=0;j<ks2.length;++j){");
-            genValuePartial_toObject(gen, field, /* sorted */ index, prop + "[ks2[j]]")
-        ("}");
-        } else if (field.repeated) { gen
-    ("if(m%s&&m%s.length){", prop, prop)
-        ("d%s=[]", prop)
-        ("for(var j=0;j<m%s.length;++j){", prop);
-            genValuePartial_toObject(gen, field, /* sorted */ index, prop + "[j]")
-        ("}");
-        } else { gen
-    ("if(m%s!=null&&m.hasOwnProperty(%j)){", prop, field.name); // !== undefined && !== null
-        genValuePartial_toObject(gen, field, /* sorted */ index, prop);
-        if (field.partOf) gen
-        ("if(o.oneofs)")
-            ("d%s=%j", util.safeProp(field.partOf.name), field.name);
-        }
-        gen
-    ("}");
-    }
-    return gen
-    ("return d");
-    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
-};
-
-
-/***/ }),
-
-/***/ 728:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = decoder;
-
-var Enum    = __webpack_require__(643),
-    types   = __webpack_require__(361),
-    util    = __webpack_require__(262);
-
-function missing(field) {
-    return "missing required '" + field.name + "'";
-}
-
-/**
- * Generates a decoder specific to the specified message type.
- * @param {Type} mtype Message type
- * @returns {Codegen} Codegen instance
- */
-function decoder(mtype) {
-    /* eslint-disable no-unexpected-multiline */
-    var gen = util.codegen(["r", "l"], mtype.name + "$decode")
-    ("if(!(r instanceof Reader))")
-        ("r=Reader.create(r)")
-    ("var c=l===undefined?r.len:r.pos+l,m=new this.ctor" + (mtype.fieldsArray.filter(function(field) { return field.map; }).length ? ",k,value" : ""))
-    ("while(r.pos<c){")
-        ("var t=r.uint32()");
-    if (mtype.group) gen
-        ("if((t&7)===4)")
-            ("break");
-    gen
-        ("switch(t>>>3){");
-
-    var i = 0;
-    for (; i < /* initializes */ mtype.fieldsArray.length; ++i) {
-        var field = mtype._fieldsArray[i].resolve(),
-            type  = field.resolvedType instanceof Enum ? "int32" : field.type,
-            ref   = "m" + util.safeProp(field.name); gen
-            ("case %i:", field.id);
-
-        // Map fields
-        if (field.map) { gen
-                ("if(%s===util.emptyObject)", ref)
-                    ("%s={}", ref)
-                ("var c2 = r.uint32()+r.pos");
-
-            if (types.defaults[field.keyType] !== undefined) gen
-                ("k=%j", types.defaults[field.keyType]);
-            else gen
-                ("k=null");
-
-            if (types.defaults[type] !== undefined) gen
-                ("value=%j", types.defaults[type]);
-            else gen
-                ("value=null");
-
-            gen
-                ("while(r.pos<c2){")
-                    ("var tag2=r.uint32()")
-                    ("switch(tag2>>>3){")
-                        ("case 1: k=r.%s(); break", field.keyType)
-                        ("case 2:");
-
-            if (types.basic[type] === undefined) gen
-                            ("value=types[%i].decode(r,r.uint32())", i); // can't be groups
-            else gen
-                            ("value=r.%s()", type);
-
-            gen
-                            ("break")
-                        ("default:")
-                            ("r.skipType(tag2&7)")
-                            ("break")
-                    ("}")
-                ("}");
-
-            if (types.long[field.keyType] !== undefined) gen
-                ("%s[typeof k===\"object\"?util.longToHash(k):k]=value", ref);
-            else gen
-                ("%s[k]=value", ref);
-
-        // Repeated fields
-        } else if (field.repeated) { gen
-
-                ("if(!(%s&&%s.length))", ref, ref)
-                    ("%s=[]", ref);
-
-            // Packable (always check for forward and backward compatiblity)
-            if (types.packed[type] !== undefined) gen
-                ("if((t&7)===2){")
-                    ("var c2=r.uint32()+r.pos")
-                    ("while(r.pos<c2)")
-                        ("%s.push(r.%s())", ref, type)
-                ("}else");
-
-            // Non-packed
-            if (types.basic[type] === undefined) gen(field.resolvedType.group
-                    ? "%s.push(types[%i].decode(r))"
-                    : "%s.push(types[%i].decode(r,r.uint32()))", ref, i);
-            else gen
-                    ("%s.push(r.%s())", ref, type);
-
-        // Non-repeated
-        } else if (types.basic[type] === undefined) gen(field.resolvedType.group
-                ? "%s=types[%i].decode(r)"
-                : "%s=types[%i].decode(r,r.uint32())", ref, i);
-        else gen
-                ("%s=r.%s()", ref, type);
-        gen
-                ("break");
-    // Unknown fields
-    } gen
-            ("default:")
-                ("r.skipType(t&7)")
-                ("break")
-
-        ("}")
-    ("}");
-
-    // Field presence
-    for (i = 0; i < mtype._fieldsArray.length; ++i) {
-        var rfield = mtype._fieldsArray[i];
-        if (rfield.required) gen
-    ("if(!m.hasOwnProperty(%j))", rfield.name)
-        ("throw util.ProtocolError(%j,{instance:m})", missing(rfield));
-    }
-
-    return gen
-    ("return m");
-    /* eslint-enable no-unexpected-multiline */
-}
-
-
-/***/ }),
-
-/***/ 80:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = encoder;
-
-var Enum     = __webpack_require__(643),
-    types    = __webpack_require__(361),
-    util     = __webpack_require__(262);
-
-/**
- * Generates a partial message type encoder.
- * @param {Codegen} gen Codegen instance
- * @param {Field} field Reflected field
- * @param {number} fieldIndex Field index
- * @param {string} ref Variable reference
- * @returns {Codegen} Codegen instance
- * @ignore
- */
-function genTypePartial(gen, field, fieldIndex, ref) {
-    return field.resolvedType.group
-        ? gen("types[%i].encode(%s,w.uint32(%i)).uint32(%i)", fieldIndex, ref, (field.id << 3 | 3) >>> 0, (field.id << 3 | 4) >>> 0)
-        : gen("types[%i].encode(%s,w.uint32(%i).fork()).ldelim()", fieldIndex, ref, (field.id << 3 | 2) >>> 0);
-}
-
-/**
- * Generates an encoder specific to the specified message type.
- * @param {Type} mtype Message type
- * @returns {Codegen} Codegen instance
- */
-function encoder(mtype) {
-    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
-    var gen = util.codegen(["m", "w"], mtype.name + "$encode")
-    ("if(!w)")
-        ("w=Writer.create()");
-
-    var i, ref;
-
-    // "when a message is serialized its known fields should be written sequentially by field number"
-    var fields = /* initializes */ mtype.fieldsArray.slice().sort(util.compareFieldsById);
-
-    for (var i = 0; i < fields.length; ++i) {
-        var field    = fields[i].resolve(),
-            index    = mtype._fieldsArray.indexOf(field),
-            type     = field.resolvedType instanceof Enum ? "int32" : field.type,
-            wireType = types.basic[type];
-            ref      = "m" + util.safeProp(field.name);
-
-        // Map fields
-        if (field.map) {
-            gen
-    ("if(%s!=null&&Object.hasOwnProperty.call(m,%j)){", ref, field.name) // !== undefined && !== null
-        ("for(var ks=Object.keys(%s),i=0;i<ks.length;++i){", ref)
-            ("w.uint32(%i).fork().uint32(%i).%s(ks[i])", (field.id << 3 | 2) >>> 0, 8 | types.mapKey[field.keyType], field.keyType);
-            if (wireType === undefined) gen
-            ("types[%i].encode(%s[ks[i]],w.uint32(18).fork()).ldelim().ldelim()", index, ref); // can't be groups
-            else gen
-            (".uint32(%i).%s(%s[ks[i]]).ldelim()", 16 | wireType, type, ref);
-            gen
-        ("}")
-    ("}");
-
-            // Repeated fields
-        } else if (field.repeated) { gen
-    ("if(%s!=null&&%s.length){", ref, ref); // !== undefined && !== null
-
-            // Packed repeated
-            if (field.packed && types.packed[type] !== undefined) { gen
-
-        ("w.uint32(%i).fork()", (field.id << 3 | 2) >>> 0)
-        ("for(var i=0;i<%s.length;++i)", ref)
-            ("w.%s(%s[i])", type, ref)
-        ("w.ldelim()");
-
-            // Non-packed
-            } else { gen
-
-        ("for(var i=0;i<%s.length;++i)", ref);
-                if (wireType === undefined)
-            genTypePartial(gen, field, index, ref + "[i]");
-                else gen
-            ("w.uint32(%i).%s(%s[i])", (field.id << 3 | wireType) >>> 0, type, ref);
-
-            } gen
-    ("}");
-
-        // Non-repeated
-        } else {
-            if (field.optional) gen
-    ("if(%s!=null&&Object.hasOwnProperty.call(m,%j))", ref, field.name); // !== undefined && !== null
-
-            if (wireType === undefined)
-        genTypePartial(gen, field, index, ref);
-            else gen
-        ("w.uint32(%i).%s(%s)", (field.id << 3 | wireType) >>> 0, type, ref);
-
-        }
-    }
-
-    return gen
-    ("return w");
-    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
-}
-
-
-/***/ }),
-
-/***/ 643:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Enum;
-
-// extends ReflectionObject
-var ReflectionObject = __webpack_require__(209);
-((Enum.prototype = Object.create(ReflectionObject.prototype)).constructor = Enum).className = "Enum";
-
-var Namespace = __webpack_require__(923),
-    util = __webpack_require__(262);
-
-/**
- * Constructs a new enum instance.
- * @classdesc Reflected enum.
- * @extends ReflectionObject
- * @constructor
- * @param {string} name Unique name within its namespace
- * @param {Object.<string,number>} [values] Enum values as an object, by name
- * @param {Object.<string,*>} [options] Declared options
- * @param {string} [comment] The comment for this enum
- * @param {Object.<string,string>} [comments] The value comments for this enum
- */
-function Enum(name, values, options, comment, comments) {
-    ReflectionObject.call(this, name, options);
-
-    if (values && typeof values !== "object")
-        throw TypeError("values must be an object");
-
-    /**
-     * Enum values by id.
-     * @type {Object.<number,string>}
-     */
-    this.valuesById = {};
-
-    /**
-     * Enum values by name.
-     * @type {Object.<string,number>}
-     */
-    this.values = Object.create(this.valuesById); // toJSON, marker
-
-    /**
-     * Enum comment text.
-     * @type {string|null}
-     */
-    this.comment = comment;
-
-    /**
-     * Value comment texts, if any.
-     * @type {Object.<string,string>}
-     */
-    this.comments = comments || {};
-
-    /**
-     * Reserved ranges, if any.
-     * @type {Array.<number[]|string>}
-     */
-    this.reserved = undefined; // toJSON
-
-    // Note that values inherit valuesById on their prototype which makes them a TypeScript-
-    // compatible enum. This is used by pbts to write actual enum definitions that work for
-    // static and reflection code alike instead of emitting generic object definitions.
-
-    if (values)
-        for (var keys = Object.keys(values), i = 0; i < keys.length; ++i)
-            if (typeof values[keys[i]] === "number") // use forward entries only
-                this.valuesById[ this.values[keys[i]] = values[keys[i]] ] = keys[i];
-}
-
-/**
- * Enum descriptor.
- * @interface IEnum
- * @property {Object.<string,number>} values Enum values
- * @property {Object.<string,*>} [options] Enum options
- */
-
-/**
- * Constructs an enum from an enum descriptor.
- * @param {string} name Enum name
- * @param {IEnum} json Enum descriptor
- * @returns {Enum} Created enum
- * @throws {TypeError} If arguments are invalid
- */
-Enum.fromJSON = function fromJSON(name, json) {
-    var enm = new Enum(name, json.values, json.options, json.comment, json.comments);
-    enm.reserved = json.reserved;
-    return enm;
-};
-
-/**
- * Converts this enum to an enum descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IEnum} Enum descriptor
- */
-Enum.prototype.toJSON = function toJSON(toJSONOptions) {
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "options"  , this.options,
-        "values"   , this.values,
-        "reserved" , this.reserved && this.reserved.length ? this.reserved : undefined,
-        "comment"  , keepComments ? this.comment : undefined,
-        "comments" , keepComments ? this.comments : undefined
-    ]);
-};
-
-/**
- * Adds a value to this enum.
- * @param {string} name Value name
- * @param {number} id Value id
- * @param {string} [comment] Comment, if any
- * @returns {Enum} `this`
- * @throws {TypeError} If arguments are invalid
- * @throws {Error} If there is already a value with this name or id
- */
-Enum.prototype.add = function add(name, id, comment) {
-    // utilized by the parser but not by .fromJSON
-
-    if (!util.isString(name))
-        throw TypeError("name must be a string");
-
-    if (!util.isInteger(id))
-        throw TypeError("id must be an integer");
-
-    if (this.values[name] !== undefined)
-        throw Error("duplicate name '" + name + "' in " + this);
-
-    if (this.isReservedId(id))
-        throw Error("id " + id + " is reserved in " + this);
-
-    if (this.isReservedName(name))
-        throw Error("name '" + name + "' is reserved in " + this);
-
-    if (this.valuesById[id] !== undefined) {
-        if (!(this.options && this.options.allow_alias))
-            throw Error("duplicate id " + id + " in " + this);
-        this.values[name] = id;
-    } else
-        this.valuesById[this.values[name] = id] = name;
-
-    this.comments[name] = comment || null;
-    return this;
-};
-
-/**
- * Removes a value from this enum
- * @param {string} name Value name
- * @returns {Enum} `this`
- * @throws {TypeError} If arguments are invalid
- * @throws {Error} If `name` is not a name of this enum
- */
-Enum.prototype.remove = function remove(name) {
-
-    if (!util.isString(name))
-        throw TypeError("name must be a string");
-
-    var val = this.values[name];
-    if (val == null)
-        throw Error("name '" + name + "' does not exist in " + this);
-
-    delete this.valuesById[val];
-    delete this.values[name];
-    delete this.comments[name];
-
-    return this;
-};
-
-/**
- * Tests if the specified id is reserved.
- * @param {number} id Id to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-Enum.prototype.isReservedId = function isReservedId(id) {
-    return Namespace.isReservedId(this.reserved, id);
-};
-
-/**
- * Tests if the specified name is reserved.
- * @param {string} name Name to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-Enum.prototype.isReservedName = function isReservedName(name) {
-    return Namespace.isReservedName(this.reserved, name);
-};
-
-
-/***/ }),
-
-/***/ 344:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Field;
-
-// extends ReflectionObject
-var ReflectionObject = __webpack_require__(209);
-((Field.prototype = Object.create(ReflectionObject.prototype)).constructor = Field).className = "Field";
-
-var Enum  = __webpack_require__(643),
-    types = __webpack_require__(361),
-    util  = __webpack_require__(262);
-
-var Type; // cyclic
-
-var ruleRe = /^required|optional|repeated$/;
-
-/**
- * Constructs a new message field instance. Note that {@link MapField|map fields} have their own class.
- * @name Field
- * @classdesc Reflected message field.
- * @extends FieldBase
- * @constructor
- * @param {string} name Unique name within its namespace
- * @param {number} id Unique id within its namespace
- * @param {string} type Value type
- * @param {string|Object.<string,*>} [rule="optional"] Field rule
- * @param {string|Object.<string,*>} [extend] Extended type if different from parent
- * @param {Object.<string,*>} [options] Declared options
- */
-
-/**
- * Constructs a field from a field descriptor.
- * @param {string} name Field name
- * @param {IField} json Field descriptor
- * @returns {Field} Created field
- * @throws {TypeError} If arguments are invalid
- */
-Field.fromJSON = function fromJSON(name, json) {
-    return new Field(name, json.id, json.type, json.rule, json.extend, json.options, json.comment);
-};
-
-/**
- * Not an actual constructor. Use {@link Field} instead.
- * @classdesc Base class of all reflected message fields. This is not an actual class but here for the sake of having consistent type definitions.
- * @exports FieldBase
- * @extends ReflectionObject
- * @constructor
- * @param {string} name Unique name within its namespace
- * @param {number} id Unique id within its namespace
- * @param {string} type Value type
- * @param {string|Object.<string,*>} [rule="optional"] Field rule
- * @param {string|Object.<string,*>} [extend] Extended type if different from parent
- * @param {Object.<string,*>} [options] Declared options
- * @param {string} [comment] Comment associated with this field
- */
-function Field(name, id, type, rule, extend, options, comment) {
-
-    if (util.isObject(rule)) {
-        comment = extend;
-        options = rule;
-        rule = extend = undefined;
-    } else if (util.isObject(extend)) {
-        comment = options;
-        options = extend;
-        extend = undefined;
-    }
-
-    ReflectionObject.call(this, name, options);
-
-    if (!util.isInteger(id) || id < 0)
-        throw TypeError("id must be a non-negative integer");
-
-    if (!util.isString(type))
-        throw TypeError("type must be a string");
-
-    if (rule !== undefined && !ruleRe.test(rule = rule.toString().toLowerCase()))
-        throw TypeError("rule must be a string rule");
-
-    if (extend !== undefined && !util.isString(extend))
-        throw TypeError("extend must be a string");
-
-    if (rule === "proto3_optional") {
-        rule = "optional";
-    }
-    /**
-     * Field rule, if any.
-     * @type {string|undefined}
-     */
-    this.rule = rule && rule !== "optional" ? rule : undefined; // toJSON
-
-    /**
-     * Field type.
-     * @type {string}
-     */
-    this.type = type; // toJSON
-
-    /**
-     * Unique field id.
-     * @type {number}
-     */
-    this.id = id; // toJSON, marker
-
-    /**
-     * Extended type if different from parent.
-     * @type {string|undefined}
-     */
-    this.extend = extend || undefined; // toJSON
-
-    /**
-     * Whether this field is required.
-     * @type {boolean}
-     */
-    this.required = rule === "required";
-
-    /**
-     * Whether this field is optional.
-     * @type {boolean}
-     */
-    this.optional = !this.required;
-
-    /**
-     * Whether this field is repeated.
-     * @type {boolean}
-     */
-    this.repeated = rule === "repeated";
-
-    /**
-     * Whether this field is a map or not.
-     * @type {boolean}
-     */
-    this.map = false;
-
-    /**
-     * Message this field belongs to.
-     * @type {Type|null}
-     */
-    this.message = null;
-
-    /**
-     * OneOf this field belongs to, if any,
-     * @type {OneOf|null}
-     */
-    this.partOf = null;
-
-    /**
-     * The field type's default value.
-     * @type {*}
-     */
-    this.typeDefault = null;
-
-    /**
-     * The field's default value on prototypes.
-     * @type {*}
-     */
-    this.defaultValue = null;
-
-    /**
-     * Whether this field's value should be treated as a long.
-     * @type {boolean}
-     */
-    this.long = util.Long ? types.long[type] !== undefined : /* istanbul ignore next */ false;
-
-    /**
-     * Whether this field's value is a buffer.
-     * @type {boolean}
-     */
-    this.bytes = type === "bytes";
-
-    /**
-     * Resolved type if not a basic type.
-     * @type {Type|Enum|null}
-     */
-    this.resolvedType = null;
-
-    /**
-     * Sister-field within the extended type if a declaring extension field.
-     * @type {Field|null}
-     */
-    this.extensionField = null;
-
-    /**
-     * Sister-field within the declaring namespace if an extended field.
-     * @type {Field|null}
-     */
-    this.declaringField = null;
-
-    /**
-     * Internally remembers whether this field is packed.
-     * @type {boolean|null}
-     * @private
-     */
-    this._packed = null;
-
-    /**
-     * Comment for this field.
-     * @type {string|null}
-     */
-    this.comment = comment;
-}
-
-/**
- * Determines whether this field is packed. Only relevant when repeated and working with proto2.
- * @name Field#packed
- * @type {boolean}
- * @readonly
- */
-Object.defineProperty(Field.prototype, "packed", {
-    get: function() {
-        // defaults to packed=true if not explicity set to false
-        if (this._packed === null)
-            this._packed = this.getOption("packed") !== false;
-        return this._packed;
-    }
-});
-
-/**
- * @override
- */
-Field.prototype.setOption = function setOption(name, value, ifNotSet) {
-    if (name === "packed") // clear cached before setting
-        this._packed = null;
-    return ReflectionObject.prototype.setOption.call(this, name, value, ifNotSet);
-};
-
-/**
- * Field descriptor.
- * @interface IField
- * @property {string} [rule="optional"] Field rule
- * @property {string} type Field type
- * @property {number} id Field id
- * @property {Object.<string,*>} [options] Field options
- */
-
-/**
- * Extension field descriptor.
- * @interface IExtensionField
- * @extends IField
- * @property {string} extend Extended type
- */
-
-/**
- * Converts this field to a field descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IField} Field descriptor
- */
-Field.prototype.toJSON = function toJSON(toJSONOptions) {
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "rule"    , this.rule !== "optional" && this.rule || undefined,
-        "type"    , this.type,
-        "id"      , this.id,
-        "extend"  , this.extend,
-        "options" , this.options,
-        "comment" , keepComments ? this.comment : undefined
-    ]);
-};
-
-/**
- * Resolves this field's type references.
- * @returns {Field} `this`
- * @throws {Error} If any reference cannot be resolved
- */
-Field.prototype.resolve = function resolve() {
-
-    if (this.resolved)
-        return this;
-
-    if ((this.typeDefault = types.defaults[this.type]) === undefined) { // if not a basic type, resolve it
-        this.resolvedType = (this.declaringField ? this.declaringField.parent : this.parent).lookupTypeOrEnum(this.type);
-        if (this.resolvedType instanceof Type)
-            this.typeDefault = null;
-        else // instanceof Enum
-            this.typeDefault = this.resolvedType.values[Object.keys(this.resolvedType.values)[0]]; // first defined
-    }
-
-    // use explicitly set default value if present
-    if (this.options && this.options["default"] != null) {
-        this.typeDefault = this.options["default"];
-        if (this.resolvedType instanceof Enum && typeof this.typeDefault === "string")
-            this.typeDefault = this.resolvedType.values[this.typeDefault];
-    }
-
-    // remove unnecessary options
-    if (this.options) {
-        if (this.options.packed === true || this.options.packed !== undefined && this.resolvedType && !(this.resolvedType instanceof Enum))
-            delete this.options.packed;
-        if (!Object.keys(this.options).length)
-            this.options = undefined;
-    }
-
-    // convert to internal data type if necesssary
-    if (this.long) {
-        this.typeDefault = util.Long.fromNumber(this.typeDefault, this.type.charAt(0) === "u");
-
-        /* istanbul ignore else */
-        if (Object.freeze)
-            Object.freeze(this.typeDefault); // long instances are meant to be immutable anyway (i.e. use small int cache that even requires it)
-
-    } else if (this.bytes && typeof this.typeDefault === "string") {
-        var buf;
-        if (util.base64.test(this.typeDefault))
-            util.base64.decode(this.typeDefault, buf = util.newBuffer(util.base64.length(this.typeDefault)), 0);
-        else
-            util.utf8.write(this.typeDefault, buf = util.newBuffer(util.utf8.length(this.typeDefault)), 0);
-        this.typeDefault = buf;
-    }
-
-    // take special care of maps and repeated fields
-    if (this.map)
-        this.defaultValue = util.emptyObject;
-    else if (this.repeated)
-        this.defaultValue = util.emptyArray;
-    else
-        this.defaultValue = this.typeDefault;
-
-    // ensure proper value on prototype
-    if (this.parent instanceof Type)
-        this.parent.ctor.prototype[this.name] = this.defaultValue;
-
-    return ReflectionObject.prototype.resolve.call(this);
-};
-
-/**
- * Decorator function as returned by {@link Field.d} and {@link MapField.d} (TypeScript).
- * @typedef FieldDecorator
- * @type {function}
- * @param {Object} prototype Target prototype
- * @param {string} fieldName Field name
- * @returns {undefined}
- */
-
-/**
- * Field decorator (TypeScript).
- * @name Field.d
- * @function
- * @param {number} fieldId Field id
- * @param {"double"|"float"|"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"string"|"bool"|"bytes"|Object} fieldType Field type
- * @param {"optional"|"required"|"repeated"} [fieldRule="optional"] Field rule
- * @param {T} [defaultValue] Default value
- * @returns {FieldDecorator} Decorator function
- * @template T extends number | number[] | Long | Long[] | string | string[] | boolean | boolean[] | Uint8Array | Uint8Array[] | Buffer | Buffer[]
- */
-Field.d = function decorateField(fieldId, fieldType, fieldRule, defaultValue) {
-
-    // submessage: decorate the submessage and use its name as the type
-    if (typeof fieldType === "function")
-        fieldType = util.decorateType(fieldType).name;
-
-    // enum reference: create a reflected copy of the enum and keep reuseing it
-    else if (fieldType && typeof fieldType === "object")
-        fieldType = util.decorateEnum(fieldType).name;
-
-    return function fieldDecorator(prototype, fieldName) {
-        util.decorateType(prototype.constructor)
-            .add(new Field(fieldName, fieldId, fieldType, fieldRule, { "default": defaultValue }));
-    };
-};
-
-/**
- * Field decorator (TypeScript).
- * @name Field.d
- * @function
- * @param {number} fieldId Field id
- * @param {Constructor<T>|string} fieldType Field type
- * @param {"optional"|"required"|"repeated"} [fieldRule="optional"] Field rule
- * @returns {FieldDecorator} Decorator function
- * @template T extends Message<T>
- * @variation 2
- */
-// like Field.d but without a default value
-
-// Sets up cyclic dependencies (called in index-light)
-Field._configure = function configure(Type_) {
-    Type = Type_;
-};
-
-
-/***/ }),
-
-/***/ 325:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var protobuf = module.exports = __webpack_require__(394);
-
-protobuf.build = "light";
-
-/**
- * A node-style callback as used by {@link load} and {@link Root#load}.
- * @typedef LoadCallback
- * @type {function}
- * @param {Error|null} error Error, if any, otherwise `null`
- * @param {Root} [root] Root, if there hasn't been an error
- * @returns {undefined}
- */
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
- * @param {string|string[]} filename One or multiple files to load
- * @param {Root} root Root namespace, defaults to create a new one if omitted.
- * @param {LoadCallback} callback Callback function
- * @returns {undefined}
- * @see {@link Root#load}
- */
-function load(filename, root, callback) {
-    if (typeof root === "function") {
-        callback = root;
-        root = new protobuf.Root();
-    } else if (!root)
-        root = new protobuf.Root();
-    return root.load(filename, callback);
-}
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
- * @name load
- * @function
- * @param {string|string[]} filename One or multiple files to load
- * @param {LoadCallback} callback Callback function
- * @returns {undefined}
- * @see {@link Root#load}
- * @variation 2
- */
-// function load(filename:string, callback:LoadCallback):undefined
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into a common root namespace and returns a promise.
- * @name load
- * @function
- * @param {string|string[]} filename One or multiple files to load
- * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
- * @returns {Promise<Root>} Promise
- * @see {@link Root#load}
- * @variation 3
- */
-// function load(filename:string, [root:Root]):Promise<Root>
-
-protobuf.load = load;
-
-/**
- * Synchronously loads one or multiple .proto or preprocessed .json files into a common root namespace (node only).
- * @param {string|string[]} filename One or multiple files to load
- * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
- * @returns {Root} Root namespace
- * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
- * @see {@link Root#loadSync}
- */
-function loadSync(filename, root) {
-    if (!root)
-        root = new protobuf.Root();
-    return root.loadSync(filename);
-}
-
-protobuf.loadSync = loadSync;
-
-// Serialization
-protobuf.encoder          = __webpack_require__(80);
-protobuf.decoder          = __webpack_require__(728);
-protobuf.verifier         = __webpack_require__(420);
-protobuf.converter        = __webpack_require__(744);
-
-// Reflection
-protobuf.ReflectionObject = __webpack_require__(209);
-protobuf.Namespace        = __webpack_require__(923);
-protobuf.Root             = __webpack_require__(330);
-protobuf.Enum             = __webpack_require__(643);
-protobuf.Type             = __webpack_require__(882);
-protobuf.Field            = __webpack_require__(344);
-protobuf.OneOf            = __webpack_require__(457);
-protobuf.MapField         = __webpack_require__(252);
-protobuf.Service          = __webpack_require__(687);
-protobuf.Method           = __webpack_require__(811);
-
-// Runtime
-protobuf.Message          = __webpack_require__(551);
-protobuf.wrappers         = __webpack_require__(434);
-
-// Utility
-protobuf.types            = __webpack_require__(361);
-protobuf.util             = __webpack_require__(262);
-
-// Set up possibly cyclic reflection dependencies
-protobuf.ReflectionObject._configure(protobuf.Root);
-protobuf.Namespace._configure(protobuf.Type, protobuf.Service, protobuf.Enum);
-protobuf.Root._configure(protobuf.Type);
-protobuf.Field._configure(protobuf.Type);
-
-
-/***/ }),
-
-/***/ 394:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-var protobuf = exports;
-
-/**
- * Build type, one of `"full"`, `"light"` or `"minimal"`.
- * @name build
- * @type {string}
- * @const
- */
-protobuf.build = "minimal";
-
-// Serialization
-protobuf.Writer       = __webpack_require__(449);
-protobuf.BufferWriter = __webpack_require__(818);
-protobuf.Reader       = __webpack_require__(237);
-protobuf.BufferReader = __webpack_require__(158);
-
-// Utility
-protobuf.util         = __webpack_require__(610);
-protobuf.rpc          = __webpack_require__(47);
-protobuf.roots        = __webpack_require__(529);
-protobuf.configure    = configure;
-
-/* istanbul ignore next */
-/**
- * Reconfigures the library according to the environment.
- * @returns {undefined}
- */
-function configure() {
-    protobuf.util._configure();
-    protobuf.Writer._configure(protobuf.BufferWriter);
-    protobuf.Reader._configure(protobuf.BufferReader);
-}
-
-// Set up buffer utility according to the environment
-configure();
-
-
-/***/ }),
-
-/***/ 100:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-var protobuf = module.exports = __webpack_require__(325);
-
-protobuf.build = "full";
-
-// Parser
-protobuf.tokenize         = __webpack_require__(527);
-protobuf.parse            = __webpack_require__(863);
-protobuf.common           = __webpack_require__(95);
-
-// Configure parser
-protobuf.Root._configure(protobuf.Type, protobuf.parse, protobuf.common);
-
-
-/***/ }),
-
-/***/ 252:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = MapField;
-
-// extends Field
-var Field = __webpack_require__(344);
-((MapField.prototype = Object.create(Field.prototype)).constructor = MapField).className = "MapField";
-
-var types   = __webpack_require__(361),
-    util    = __webpack_require__(262);
-
-/**
- * Constructs a new map field instance.
- * @classdesc Reflected map field.
- * @extends FieldBase
- * @constructor
- * @param {string} name Unique name within its namespace
- * @param {number} id Unique id within its namespace
- * @param {string} keyType Key type
- * @param {string} type Value type
- * @param {Object.<string,*>} [options] Declared options
- * @param {string} [comment] Comment associated with this field
- */
-function MapField(name, id, keyType, type, options, comment) {
-    Field.call(this, name, id, type, undefined, undefined, options, comment);
-
-    /* istanbul ignore if */
-    if (!util.isString(keyType))
-        throw TypeError("keyType must be a string");
-
-    /**
-     * Key type.
-     * @type {string}
-     */
-    this.keyType = keyType; // toJSON, marker
-
-    /**
-     * Resolved key type if not a basic type.
-     * @type {ReflectionObject|null}
-     */
-    this.resolvedKeyType = null;
-
-    // Overrides Field#map
-    this.map = true;
-}
-
-/**
- * Map field descriptor.
- * @interface IMapField
- * @extends {IField}
- * @property {string} keyType Key type
- */
-
-/**
- * Extension map field descriptor.
- * @interface IExtensionMapField
- * @extends IMapField
- * @property {string} extend Extended type
- */
-
-/**
- * Constructs a map field from a map field descriptor.
- * @param {string} name Field name
- * @param {IMapField} json Map field descriptor
- * @returns {MapField} Created map field
- * @throws {TypeError} If arguments are invalid
- */
-MapField.fromJSON = function fromJSON(name, json) {
-    return new MapField(name, json.id, json.keyType, json.type, json.options, json.comment);
-};
-
-/**
- * Converts this map field to a map field descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IMapField} Map field descriptor
- */
-MapField.prototype.toJSON = function toJSON(toJSONOptions) {
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "keyType" , this.keyType,
-        "type"    , this.type,
-        "id"      , this.id,
-        "extend"  , this.extend,
-        "options" , this.options,
-        "comment" , keepComments ? this.comment : undefined
-    ]);
-};
-
-/**
- * @override
- */
-MapField.prototype.resolve = function resolve() {
-    if (this.resolved)
-        return this;
-
-    // Besides a value type, map fields have a key type that may be "any scalar type except for floating point types and bytes"
-    if (types.mapKey[this.keyType] === undefined)
-        throw Error("invalid key type: " + this.keyType);
-
-    return Field.prototype.resolve.call(this);
-};
-
-/**
- * Map field decorator (TypeScript).
- * @name MapField.d
- * @function
- * @param {number} fieldId Field id
- * @param {"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"bool"|"string"} fieldKeyType Field key type
- * @param {"double"|"float"|"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"bool"|"string"|"bytes"|Object|Constructor<{}>} fieldValueType Field value type
- * @returns {FieldDecorator} Decorator function
- * @template T extends { [key: string]: number | Long | string | boolean | Uint8Array | Buffer | number[] | Message<{}> }
- */
-MapField.d = function decorateMapField(fieldId, fieldKeyType, fieldValueType) {
-
-    // submessage value: decorate the submessage and use its name as the type
-    if (typeof fieldValueType === "function")
-        fieldValueType = util.decorateType(fieldValueType).name;
-
-    // enum reference value: create a reflected copy of the enum and keep reuseing it
-    else if (fieldValueType && typeof fieldValueType === "object")
-        fieldValueType = util.decorateEnum(fieldValueType).name;
-
-    return function mapFieldDecorator(prototype, fieldName) {
-        util.decorateType(prototype.constructor)
-            .add(new MapField(fieldName, fieldId, fieldKeyType, fieldValueType));
-    };
-};
-
-
-/***/ }),
-
-/***/ 551:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Message;
-
-var util = __webpack_require__(610);
-
-/**
- * Constructs a new message instance.
- * @classdesc Abstract runtime message.
- * @constructor
- * @param {Properties<T>} [properties] Properties to set
- * @template T extends object = object
- */
-function Message(properties) {
-    // not used internally
-    if (properties)
-        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-            this[keys[i]] = properties[keys[i]];
-}
-
-/**
- * Reference to the reflected type.
- * @name Message.$type
- * @type {Type}
- * @readonly
- */
-
-/**
- * Reference to the reflected type.
- * @name Message#$type
- * @type {Type}
- * @readonly
- */
-
-/*eslint-disable valid-jsdoc*/
-
-/**
- * Creates a new message of this type using the specified properties.
- * @param {Object.<string,*>} [properties] Properties to set
- * @returns {Message<T>} Message instance
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.create = function create(properties) {
-    return this.$type.create(properties);
-};
-
-/**
- * Encodes a message of this type.
- * @param {T|Object.<string,*>} message Message to encode
- * @param {Writer} [writer] Writer to use
- * @returns {Writer} Writer
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.encode = function encode(message, writer) {
-    return this.$type.encode(message, writer);
-};
-
-/**
- * Encodes a message of this type preceeded by its length as a varint.
- * @param {T|Object.<string,*>} message Message to encode
- * @param {Writer} [writer] Writer to use
- * @returns {Writer} Writer
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.$type.encodeDelimited(message, writer);
-};
-
-/**
- * Decodes a message of this type.
- * @name Message.decode
- * @function
- * @param {Reader|Uint8Array} reader Reader or buffer to decode
- * @returns {T} Decoded message
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.decode = function decode(reader) {
-    return this.$type.decode(reader);
-};
-
-/**
- * Decodes a message of this type preceeded by its length as a varint.
- * @name Message.decodeDelimited
- * @function
- * @param {Reader|Uint8Array} reader Reader or buffer to decode
- * @returns {T} Decoded message
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.decodeDelimited = function decodeDelimited(reader) {
-    return this.$type.decodeDelimited(reader);
-};
-
-/**
- * Verifies a message of this type.
- * @name Message.verify
- * @function
- * @param {Object.<string,*>} message Plain object to verify
- * @returns {string|null} `null` if valid, otherwise the reason why it is not
- */
-Message.verify = function verify(message) {
-    return this.$type.verify(message);
-};
-
-/**
- * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
- * @param {Object.<string,*>} object Plain object
- * @returns {T} Message instance
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.fromObject = function fromObject(object) {
-    return this.$type.fromObject(object);
-};
-
-/**
- * Creates a plain object from a message of this type. Also converts values to other types if specified.
- * @param {T} message Message instance
- * @param {IConversionOptions} [options] Conversion options
- * @returns {Object.<string,*>} Plain object
- * @template T extends Message<T>
- * @this Constructor<T>
- */
-Message.toObject = function toObject(message, options) {
-    return this.$type.toObject(message, options);
-};
-
-/**
- * Converts this message to JSON.
- * @returns {Object.<string,*>} JSON object
- */
-Message.prototype.toJSON = function toJSON() {
-    return this.$type.toObject(this, util.toJSONOptions);
-};
-
-/*eslint-enable valid-jsdoc*/
-
-/***/ }),
-
-/***/ 811:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Method;
-
-// extends ReflectionObject
-var ReflectionObject = __webpack_require__(209);
-((Method.prototype = Object.create(ReflectionObject.prototype)).constructor = Method).className = "Method";
-
-var util = __webpack_require__(262);
-
-/**
- * Constructs a new service method instance.
- * @classdesc Reflected service method.
- * @extends ReflectionObject
- * @constructor
- * @param {string} name Method name
- * @param {string|undefined} type Method type, usually `"rpc"`
- * @param {string} requestType Request message type
- * @param {string} responseType Response message type
- * @param {boolean|Object.<string,*>} [requestStream] Whether the request is streamed
- * @param {boolean|Object.<string,*>} [responseStream] Whether the response is streamed
- * @param {Object.<string,*>} [options] Declared options
- * @param {string} [comment] The comment for this method
- * @param {Object.<string,*>} [parsedOptions] Declared options, properly parsed into an object
- */
-function Method(name, type, requestType, responseType, requestStream, responseStream, options, comment, parsedOptions) {
-
-    /* istanbul ignore next */
-    if (util.isObject(requestStream)) {
-        options = requestStream;
-        requestStream = responseStream = undefined;
-    } else if (util.isObject(responseStream)) {
-        options = responseStream;
-        responseStream = undefined;
-    }
-
-    /* istanbul ignore if */
-    if (!(type === undefined || util.isString(type)))
-        throw TypeError("type must be a string");
-
-    /* istanbul ignore if */
-    if (!util.isString(requestType))
-        throw TypeError("requestType must be a string");
-
-    /* istanbul ignore if */
-    if (!util.isString(responseType))
-        throw TypeError("responseType must be a string");
-
-    ReflectionObject.call(this, name, options);
-
-    /**
-     * Method type.
-     * @type {string}
-     */
-    this.type = type || "rpc"; // toJSON
-
-    /**
-     * Request type.
-     * @type {string}
-     */
-    this.requestType = requestType; // toJSON, marker
-
-    /**
-     * Whether requests are streamed or not.
-     * @type {boolean|undefined}
-     */
-    this.requestStream = requestStream ? true : undefined; // toJSON
-
-    /**
-     * Response type.
-     * @type {string}
-     */
-    this.responseType = responseType; // toJSON
-
-    /**
-     * Whether responses are streamed or not.
-     * @type {boolean|undefined}
-     */
-    this.responseStream = responseStream ? true : undefined; // toJSON
-
-    /**
-     * Resolved request type.
-     * @type {Type|null}
-     */
-    this.resolvedRequestType = null;
-
-    /**
-     * Resolved response type.
-     * @type {Type|null}
-     */
-    this.resolvedResponseType = null;
-
-    /**
-     * Comment for this method
-     * @type {string|null}
-     */
-    this.comment = comment;
-
-    /**
-     * Options properly parsed into an object
-     */
-    this.parsedOptions = parsedOptions;
-}
-
-/**
- * Method descriptor.
- * @interface IMethod
- * @property {string} [type="rpc"] Method type
- * @property {string} requestType Request type
- * @property {string} responseType Response type
- * @property {boolean} [requestStream=false] Whether requests are streamed
- * @property {boolean} [responseStream=false] Whether responses are streamed
- * @property {Object.<string,*>} [options] Method options
- * @property {string} comment Method comments
- * @property {Object.<string,*>} [parsedOptions] Method options properly parsed into an object
- */
-
-/**
- * Constructs a method from a method descriptor.
- * @param {string} name Method name
- * @param {IMethod} json Method descriptor
- * @returns {Method} Created method
- * @throws {TypeError} If arguments are invalid
- */
-Method.fromJSON = function fromJSON(name, json) {
-    return new Method(name, json.type, json.requestType, json.responseType, json.requestStream, json.responseStream, json.options, json.comment, json.parsedOptions);
-};
-
-/**
- * Converts this method to a method descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IMethod} Method descriptor
- */
-Method.prototype.toJSON = function toJSON(toJSONOptions) {
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "type"           , this.type !== "rpc" && /* istanbul ignore next */ this.type || undefined,
-        "requestType"    , this.requestType,
-        "requestStream"  , this.requestStream,
-        "responseType"   , this.responseType,
-        "responseStream" , this.responseStream,
-        "options"        , this.options,
-        "comment"        , keepComments ? this.comment : undefined,
-        "parsedOptions"  , this.parsedOptions,
-    ]);
-};
-
-/**
- * @override
- */
-Method.prototype.resolve = function resolve() {
-
-    /* istanbul ignore if */
-    if (this.resolved)
-        return this;
-
-    this.resolvedRequestType = this.parent.lookupType(this.requestType);
-    this.resolvedResponseType = this.parent.lookupType(this.responseType);
-
-    return ReflectionObject.prototype.resolve.call(this);
-};
-
-
-/***/ }),
-
-/***/ 923:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Namespace;
-
-// extends ReflectionObject
-var ReflectionObject = __webpack_require__(209);
-((Namespace.prototype = Object.create(ReflectionObject.prototype)).constructor = Namespace).className = "Namespace";
-
-var Field    = __webpack_require__(344),
-    OneOf    = __webpack_require__(457),
-    util     = __webpack_require__(262);
-
-var Type,    // cyclic
-    Service,
-    Enum;
-
-/**
- * Constructs a new namespace instance.
- * @name Namespace
- * @classdesc Reflected namespace.
- * @extends NamespaceBase
- * @constructor
- * @param {string} name Namespace name
- * @param {Object.<string,*>} [options] Declared options
- */
-
-/**
- * Constructs a namespace from JSON.
- * @memberof Namespace
- * @function
- * @param {string} name Namespace name
- * @param {Object.<string,*>} json JSON object
- * @returns {Namespace} Created namespace
- * @throws {TypeError} If arguments are invalid
- */
-Namespace.fromJSON = function fromJSON(name, json) {
-    return new Namespace(name, json.options).addJSON(json.nested);
-};
-
-/**
- * Converts an array of reflection objects to JSON.
- * @memberof Namespace
- * @param {ReflectionObject[]} array Object array
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {Object.<string,*>|undefined} JSON object or `undefined` when array is empty
- */
-function arrayToJSON(array, toJSONOptions) {
-    if (!(array && array.length))
-        return undefined;
-    var obj = {};
-    for (var i = 0; i < array.length; ++i)
-        obj[array[i].name] = array[i].toJSON(toJSONOptions);
-    return obj;
-}
-
-Namespace.arrayToJSON = arrayToJSON;
-
-/**
- * Tests if the specified id is reserved.
- * @param {Array.<number[]|string>|undefined} reserved Array of reserved ranges and names
- * @param {number} id Id to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-Namespace.isReservedId = function isReservedId(reserved, id) {
-    if (reserved)
-        for (var i = 0; i < reserved.length; ++i)
-            if (typeof reserved[i] !== "string" && reserved[i][0] <= id && reserved[i][1] > id)
-                return true;
-    return false;
-};
-
-/**
- * Tests if the specified name is reserved.
- * @param {Array.<number[]|string>|undefined} reserved Array of reserved ranges and names
- * @param {string} name Name to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-Namespace.isReservedName = function isReservedName(reserved, name) {
-    if (reserved)
-        for (var i = 0; i < reserved.length; ++i)
-            if (reserved[i] === name)
-                return true;
-    return false;
-};
-
-/**
- * Not an actual constructor. Use {@link Namespace} instead.
- * @classdesc Base class of all reflection objects containing nested objects. This is not an actual class but here for the sake of having consistent type definitions.
- * @exports NamespaceBase
- * @extends ReflectionObject
- * @abstract
- * @constructor
- * @param {string} name Namespace name
- * @param {Object.<string,*>} [options] Declared options
- * @see {@link Namespace}
- */
-function Namespace(name, options) {
-    ReflectionObject.call(this, name, options);
-
-    /**
-     * Nested objects by name.
-     * @type {Object.<string,ReflectionObject>|undefined}
-     */
-    this.nested = undefined; // toJSON
-
-    /**
-     * Cached nested objects as an array.
-     * @type {ReflectionObject[]|null}
-     * @private
-     */
-    this._nestedArray = null;
-}
-
-function clearCache(namespace) {
-    namespace._nestedArray = null;
-    return namespace;
-}
-
-/**
- * Nested objects of this namespace as an array for iteration.
- * @name NamespaceBase#nestedArray
- * @type {ReflectionObject[]}
- * @readonly
- */
-Object.defineProperty(Namespace.prototype, "nestedArray", {
-    get: function() {
-        return this._nestedArray || (this._nestedArray = util.toArray(this.nested));
-    }
-});
-
-/**
- * Namespace descriptor.
- * @interface INamespace
- * @property {Object.<string,*>} [options] Namespace options
- * @property {Object.<string,AnyNestedObject>} [nested] Nested object descriptors
- */
-
-/**
- * Any extension field descriptor.
- * @typedef AnyExtensionField
- * @type {IExtensionField|IExtensionMapField}
- */
-
-/**
- * Any nested object descriptor.
- * @typedef AnyNestedObject
- * @type {IEnum|IType|IService|AnyExtensionField|INamespace}
- */
-// ^ BEWARE: VSCode hangs forever when using more than 5 types (that's why AnyExtensionField exists in the first place)
-
-/**
- * Converts this namespace to a namespace descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {INamespace} Namespace descriptor
- */
-Namespace.prototype.toJSON = function toJSON(toJSONOptions) {
-    return util.toObject([
-        "options" , this.options,
-        "nested"  , arrayToJSON(this.nestedArray, toJSONOptions)
-    ]);
-};
-
-/**
- * Adds nested objects to this namespace from nested object descriptors.
- * @param {Object.<string,AnyNestedObject>} nestedJson Any nested object descriptors
- * @returns {Namespace} `this`
- */
-Namespace.prototype.addJSON = function addJSON(nestedJson) {
-    var ns = this;
-    /* istanbul ignore else */
-    if (nestedJson) {
-        for (var names = Object.keys(nestedJson), i = 0, nested; i < names.length; ++i) {
-            nested = nestedJson[names[i]];
-            ns.add( // most to least likely
-                ( nested.fields !== undefined
-                ? Type.fromJSON
-                : nested.values !== undefined
-                ? Enum.fromJSON
-                : nested.methods !== undefined
-                ? Service.fromJSON
-                : nested.id !== undefined
-                ? Field.fromJSON
-                : Namespace.fromJSON )(names[i], nested)
-            );
-        }
-    }
-    return this;
-};
-
-/**
- * Gets the nested object of the specified name.
- * @param {string} name Nested object name
- * @returns {ReflectionObject|null} The reflection object or `null` if it doesn't exist
- */
-Namespace.prototype.get = function get(name) {
-    return this.nested && this.nested[name]
-        || null;
-};
-
-/**
- * Gets the values of the nested {@link Enum|enum} of the specified name.
- * This methods differs from {@link Namespace#get|get} in that it returns an enum's values directly and throws instead of returning `null`.
- * @param {string} name Nested enum name
- * @returns {Object.<string,number>} Enum values
- * @throws {Error} If there is no such enum
- */
-Namespace.prototype.getEnum = function getEnum(name) {
-    if (this.nested && this.nested[name] instanceof Enum)
-        return this.nested[name].values;
-    throw Error("no such enum: " + name);
-};
-
-/**
- * Adds a nested object to this namespace.
- * @param {ReflectionObject} object Nested object to add
- * @returns {Namespace} `this`
- * @throws {TypeError} If arguments are invalid
- * @throws {Error} If there is already a nested object with this name
- */
-Namespace.prototype.add = function add(object) {
-
-    if (!(object instanceof Field && object.extend !== undefined || object instanceof Type || object instanceof Enum || object instanceof Service || object instanceof Namespace || object instanceof OneOf))
-        throw TypeError("object must be a valid nested object");
-
-    if (!this.nested)
-        this.nested = {};
-    else {
-        var prev = this.get(object.name);
-        if (prev) {
-            if (prev instanceof Namespace && object instanceof Namespace && !(prev instanceof Type || prev instanceof Service)) {
-                // replace plain namespace but keep existing nested elements and options
-                var nested = prev.nestedArray;
-                for (var i = 0; i < nested.length; ++i)
-                    object.add(nested[i]);
-                this.remove(prev);
-                if (!this.nested)
-                    this.nested = {};
-                object.setOptions(prev.options, true);
-
-            } else
-                throw Error("duplicate name '" + object.name + "' in " + this);
-        }
-    }
-    this.nested[object.name] = object;
-    object.onAdd(this);
-    return clearCache(this);
-};
-
-/**
- * Removes a nested object from this namespace.
- * @param {ReflectionObject} object Nested object to remove
- * @returns {Namespace} `this`
- * @throws {TypeError} If arguments are invalid
- * @throws {Error} If `object` is not a member of this namespace
- */
-Namespace.prototype.remove = function remove(object) {
-
-    if (!(object instanceof ReflectionObject))
-        throw TypeError("object must be a ReflectionObject");
-    if (object.parent !== this)
-        throw Error(object + " is not a member of " + this);
-
-    delete this.nested[object.name];
-    if (!Object.keys(this.nested).length)
-        this.nested = undefined;
-
-    object.onRemove(this);
-    return clearCache(this);
-};
-
-/**
- * Defines additial namespaces within this one if not yet existing.
- * @param {string|string[]} path Path to create
- * @param {*} [json] Nested types to create from JSON
- * @returns {Namespace} Pointer to the last namespace created or `this` if path is empty
- */
-Namespace.prototype.define = function define(path, json) {
-
-    if (util.isString(path))
-        path = path.split(".");
-    else if (!Array.isArray(path))
-        throw TypeError("illegal path");
-    if (path && path.length && path[0] === "")
-        throw Error("path must be relative");
-
-    var ptr = this;
-    while (path.length > 0) {
-        var part = path.shift();
-        if (ptr.nested && ptr.nested[part]) {
-            ptr = ptr.nested[part];
-            if (!(ptr instanceof Namespace))
-                throw Error("path conflicts with non-namespace objects");
-        } else
-            ptr.add(ptr = new Namespace(part));
-    }
-    if (json)
-        ptr.addJSON(json);
-    return ptr;
-};
-
-/**
- * Resolves this namespace's and all its nested objects' type references. Useful to validate a reflection tree, but comes at a cost.
- * @returns {Namespace} `this`
- */
-Namespace.prototype.resolveAll = function resolveAll() {
-    var nested = this.nestedArray, i = 0;
-    while (i < nested.length)
-        if (nested[i] instanceof Namespace)
-            nested[i++].resolveAll();
-        else
-            nested[i++].resolve();
-    return this.resolve();
-};
-
-/**
- * Recursively looks up the reflection object matching the specified path in the scope of this namespace.
- * @param {string|string[]} path Path to look up
- * @param {*|Array.<*>} filterTypes Filter types, any combination of the constructors of `protobuf.Type`, `protobuf.Enum`, `protobuf.Service` etc.
- * @param {boolean} [parentAlreadyChecked=false] If known, whether the parent has already been checked
- * @returns {ReflectionObject|null} Looked up object or `null` if none could be found
- */
-Namespace.prototype.lookup = function lookup(path, filterTypes, parentAlreadyChecked) {
-
-    /* istanbul ignore next */
-    if (typeof filterTypes === "boolean") {
-        parentAlreadyChecked = filterTypes;
-        filterTypes = undefined;
-    } else if (filterTypes && !Array.isArray(filterTypes))
-        filterTypes = [ filterTypes ];
-
-    if (util.isString(path) && path.length) {
-        if (path === ".")
-            return this.root;
-        path = path.split(".");
-    } else if (!path.length)
-        return this;
-
-    // Start at root if path is absolute
-    if (path[0] === "")
-        return this.root.lookup(path.slice(1), filterTypes);
-
-    // Test if the first part matches any nested object, and if so, traverse if path contains more
-    var found = this.get(path[0]);
-    if (found) {
-        if (path.length === 1) {
-            if (!filterTypes || filterTypes.indexOf(found.constructor) > -1)
-                return found;
-        } else if (found instanceof Namespace && (found = found.lookup(path.slice(1), filterTypes, true)))
-            return found;
-
-    // Otherwise try each nested namespace
-    } else
-        for (var i = 0; i < this.nestedArray.length; ++i)
-            if (this._nestedArray[i] instanceof Namespace && (found = this._nestedArray[i].lookup(path, filterTypes, true)))
-                return found;
-
-    // If there hasn't been a match, try again at the parent
-    if (this.parent === null || parentAlreadyChecked)
-        return null;
-    return this.parent.lookup(path, filterTypes);
-};
-
-/**
- * Looks up the reflection object at the specified path, relative to this namespace.
- * @name NamespaceBase#lookup
- * @function
- * @param {string|string[]} path Path to look up
- * @param {boolean} [parentAlreadyChecked=false] Whether the parent has already been checked
- * @returns {ReflectionObject|null} Looked up object or `null` if none could be found
- * @variation 2
- */
-// lookup(path: string, [parentAlreadyChecked: boolean])
-
-/**
- * Looks up the {@link Type|type} at the specified path, relative to this namespace.
- * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
- * @param {string|string[]} path Path to look up
- * @returns {Type} Looked up type
- * @throws {Error} If `path` does not point to a type
- */
-Namespace.prototype.lookupType = function lookupType(path) {
-    var found = this.lookup(path, [ Type ]);
-    if (!found)
-        throw Error("no such type: " + path);
-    return found;
-};
-
-/**
- * Looks up the values of the {@link Enum|enum} at the specified path, relative to this namespace.
- * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
- * @param {string|string[]} path Path to look up
- * @returns {Enum} Looked up enum
- * @throws {Error} If `path` does not point to an enum
- */
-Namespace.prototype.lookupEnum = function lookupEnum(path) {
-    var found = this.lookup(path, [ Enum ]);
-    if (!found)
-        throw Error("no such Enum '" + path + "' in " + this);
-    return found;
-};
-
-/**
- * Looks up the {@link Type|type} or {@link Enum|enum} at the specified path, relative to this namespace.
- * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
- * @param {string|string[]} path Path to look up
- * @returns {Type} Looked up type or enum
- * @throws {Error} If `path` does not point to a type or enum
- */
-Namespace.prototype.lookupTypeOrEnum = function lookupTypeOrEnum(path) {
-    var found = this.lookup(path, [ Type, Enum ]);
-    if (!found)
-        throw Error("no such Type or Enum '" + path + "' in " + this);
-    return found;
-};
-
-/**
- * Looks up the {@link Service|service} at the specified path, relative to this namespace.
- * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
- * @param {string|string[]} path Path to look up
- * @returns {Service} Looked up service
- * @throws {Error} If `path` does not point to a service
- */
-Namespace.prototype.lookupService = function lookupService(path) {
-    var found = this.lookup(path, [ Service ]);
-    if (!found)
-        throw Error("no such Service '" + path + "' in " + this);
-    return found;
-};
-
-// Sets up cyclic dependencies (called in index-light)
-Namespace._configure = function(Type_, Service_, Enum_) {
-    Type    = Type_;
-    Service = Service_;
-    Enum    = Enum_;
-};
-
-
-/***/ }),
-
-/***/ 209:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = ReflectionObject;
-
-ReflectionObject.className = "ReflectionObject";
-
-var util = __webpack_require__(262);
-
-var Root; // cyclic
-
-/**
- * Constructs a new reflection object instance.
- * @classdesc Base class of all reflection objects.
- * @constructor
- * @param {string} name Object name
- * @param {Object.<string,*>} [options] Declared options
- * @abstract
- */
-function ReflectionObject(name, options) {
-
-    if (!util.isString(name))
-        throw TypeError("name must be a string");
-
-    if (options && !util.isObject(options))
-        throw TypeError("options must be an object");
-
-    /**
-     * Options.
-     * @type {Object.<string,*>|undefined}
-     */
-    this.options = options; // toJSON
-
-    /**
-     * Parsed Options.
-     * @type {Array.<Object.<string,*>>|undefined}
-     */
-    this.parsedOptions = null;
-
-    /**
-     * Unique name within its namespace.
-     * @type {string}
-     */
-    this.name = name;
-
-    /**
-     * Parent namespace.
-     * @type {Namespace|null}
-     */
-    this.parent = null;
-
-    /**
-     * Whether already resolved or not.
-     * @type {boolean}
-     */
-    this.resolved = false;
-
-    /**
-     * Comment text, if any.
-     * @type {string|null}
-     */
-    this.comment = null;
-
-    /**
-     * Defining file name.
-     * @type {string|null}
-     */
-    this.filename = null;
-}
-
-Object.defineProperties(ReflectionObject.prototype, {
-
-    /**
-     * Reference to the root namespace.
-     * @name ReflectionObject#root
-     * @type {Root}
-     * @readonly
-     */
-    root: {
-        get: function() {
-            var ptr = this;
-            while (ptr.parent !== null)
-                ptr = ptr.parent;
-            return ptr;
-        }
-    },
-
-    /**
-     * Full name including leading dot.
-     * @name ReflectionObject#fullName
-     * @type {string}
-     * @readonly
-     */
-    fullName: {
-        get: function() {
-            var path = [ this.name ],
-                ptr = this.parent;
-            while (ptr) {
-                path.unshift(ptr.name);
-                ptr = ptr.parent;
-            }
-            return path.join(".");
-        }
-    }
-});
-
-/**
- * Converts this reflection object to its descriptor representation.
- * @returns {Object.<string,*>} Descriptor
- * @abstract
- */
-ReflectionObject.prototype.toJSON = /* istanbul ignore next */ function toJSON() {
-    throw Error(); // not implemented, shouldn't happen
-};
-
-/**
- * Called when this object is added to a parent.
- * @param {ReflectionObject} parent Parent added to
- * @returns {undefined}
- */
-ReflectionObject.prototype.onAdd = function onAdd(parent) {
-    if (this.parent && this.parent !== parent)
-        this.parent.remove(this);
-    this.parent = parent;
-    this.resolved = false;
-    var root = parent.root;
-    if (root instanceof Root)
-        root._handleAdd(this);
-};
-
-/**
- * Called when this object is removed from a parent.
- * @param {ReflectionObject} parent Parent removed from
- * @returns {undefined}
- */
-ReflectionObject.prototype.onRemove = function onRemove(parent) {
-    var root = parent.root;
-    if (root instanceof Root)
-        root._handleRemove(this);
-    this.parent = null;
-    this.resolved = false;
-};
-
-/**
- * Resolves this objects type references.
- * @returns {ReflectionObject} `this`
- */
-ReflectionObject.prototype.resolve = function resolve() {
-    if (this.resolved)
-        return this;
-    if (this.root instanceof Root)
-        this.resolved = true; // only if part of a root
-    return this;
-};
-
-/**
- * Gets an option value.
- * @param {string} name Option name
- * @returns {*} Option value or `undefined` if not set
- */
-ReflectionObject.prototype.getOption = function getOption(name) {
-    if (this.options)
-        return this.options[name];
-    return undefined;
-};
-
-/**
- * Sets an option.
- * @param {string} name Option name
- * @param {*} value Option value
- * @param {boolean} [ifNotSet] Sets the option only if it isn't currently set
- * @returns {ReflectionObject} `this`
- */
-ReflectionObject.prototype.setOption = function setOption(name, value, ifNotSet) {
-    if (!ifNotSet || !this.options || this.options[name] === undefined)
-        (this.options || (this.options = {}))[name] = value;
-    return this;
-};
-
-/**
- * Sets a parsed option.
- * @param {string} name parsed Option name
- * @param {*} value Option value
- * @param {string} propName dot '.' delimited full path of property within the option to set. if undefined\empty, will add a new option with that value
- * @returns {ReflectionObject} `this`
- */
-ReflectionObject.prototype.setParsedOption = function setParsedOption(name, value, propName) {
-    if (!this.parsedOptions) {
-        this.parsedOptions = [];
-    }
-    var parsedOptions = this.parsedOptions;
-    if (propName) {
-        // If setting a sub property of an option then try to merge it
-        // with an existing option
-        var opt = parsedOptions.find(function (opt) {
-            return Object.prototype.hasOwnProperty.call(opt, name);
-        });
-        if (opt) {
-            // If we found an existing option - just merge the property value
-            var newValue = opt[name];
-            util.setProperty(newValue, propName, value);
-        } else {
-            // otherwise, create a new option, set it's property and add it to the list
-            opt = {};
-            opt[name] = util.setProperty({}, propName, value);
-            parsedOptions.push(opt);
-        }
-    } else {
-        // Always create a new option when setting the value of the option itself
-        var newOpt = {};
-        newOpt[name] = value;
-        parsedOptions.push(newOpt);
-    }
-    return this;
-};
-
-/**
- * Sets multiple options.
- * @param {Object.<string,*>} options Options to set
- * @param {boolean} [ifNotSet] Sets an option only if it isn't currently set
- * @returns {ReflectionObject} `this`
- */
-ReflectionObject.prototype.setOptions = function setOptions(options, ifNotSet) {
-    if (options)
-        for (var keys = Object.keys(options), i = 0; i < keys.length; ++i)
-            this.setOption(keys[i], options[keys[i]], ifNotSet);
-    return this;
-};
-
-/**
- * Converts this instance to its string representation.
- * @returns {string} Class name[, space, full name]
- */
-ReflectionObject.prototype.toString = function toString() {
-    var className = this.constructor.className,
-        fullName  = this.fullName;
-    if (fullName.length)
-        return className + " " + fullName;
-    return className;
-};
-
-// Sets up cyclic dependencies (called in index-light)
-ReflectionObject._configure = function(Root_) {
-    Root = Root_;
-};
-
-
-/***/ }),
-
-/***/ 457:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = OneOf;
-
-// extends ReflectionObject
-var ReflectionObject = __webpack_require__(209);
-((OneOf.prototype = Object.create(ReflectionObject.prototype)).constructor = OneOf).className = "OneOf";
-
-var Field = __webpack_require__(344),
-    util  = __webpack_require__(262);
-
-/**
- * Constructs a new oneof instance.
- * @classdesc Reflected oneof.
- * @extends ReflectionObject
- * @constructor
- * @param {string} name Oneof name
- * @param {string[]|Object.<string,*>} [fieldNames] Field names
- * @param {Object.<string,*>} [options] Declared options
- * @param {string} [comment] Comment associated with this field
- */
-function OneOf(name, fieldNames, options, comment) {
-    if (!Array.isArray(fieldNames)) {
-        options = fieldNames;
-        fieldNames = undefined;
-    }
-    ReflectionObject.call(this, name, options);
-
-    /* istanbul ignore if */
-    if (!(fieldNames === undefined || Array.isArray(fieldNames)))
-        throw TypeError("fieldNames must be an Array");
-
-    /**
-     * Field names that belong to this oneof.
-     * @type {string[]}
-     */
-    this.oneof = fieldNames || []; // toJSON, marker
-
-    /**
-     * Fields that belong to this oneof as an array for iteration.
-     * @type {Field[]}
-     * @readonly
-     */
-    this.fieldsArray = []; // declared readonly for conformance, possibly not yet added to parent
-
-    /**
-     * Comment for this field.
-     * @type {string|null}
-     */
-    this.comment = comment;
-}
-
-/**
- * Oneof descriptor.
- * @interface IOneOf
- * @property {Array.<string>} oneof Oneof field names
- * @property {Object.<string,*>} [options] Oneof options
- */
-
-/**
- * Constructs a oneof from a oneof descriptor.
- * @param {string} name Oneof name
- * @param {IOneOf} json Oneof descriptor
- * @returns {OneOf} Created oneof
- * @throws {TypeError} If arguments are invalid
- */
-OneOf.fromJSON = function fromJSON(name, json) {
-    return new OneOf(name, json.oneof, json.options, json.comment);
-};
-
-/**
- * Converts this oneof to a oneof descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IOneOf} Oneof descriptor
- */
-OneOf.prototype.toJSON = function toJSON(toJSONOptions) {
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "options" , this.options,
-        "oneof"   , this.oneof,
-        "comment" , keepComments ? this.comment : undefined
-    ]);
-};
-
-/**
- * Adds the fields of the specified oneof to the parent if not already done so.
- * @param {OneOf} oneof The oneof
- * @returns {undefined}
- * @inner
- * @ignore
- */
-function addFieldsToParent(oneof) {
-    if (oneof.parent)
-        for (var i = 0; i < oneof.fieldsArray.length; ++i)
-            if (!oneof.fieldsArray[i].parent)
-                oneof.parent.add(oneof.fieldsArray[i]);
-}
-
-/**
- * Adds a field to this oneof and removes it from its current parent, if any.
- * @param {Field} field Field to add
- * @returns {OneOf} `this`
- */
-OneOf.prototype.add = function add(field) {
-
-    /* istanbul ignore if */
-    if (!(field instanceof Field))
-        throw TypeError("field must be a Field");
-
-    if (field.parent && field.parent !== this.parent)
-        field.parent.remove(field);
-    this.oneof.push(field.name);
-    this.fieldsArray.push(field);
-    field.partOf = this; // field.parent remains null
-    addFieldsToParent(this);
-    return this;
-};
-
-/**
- * Removes a field from this oneof and puts it back to the oneof's parent.
- * @param {Field} field Field to remove
- * @returns {OneOf} `this`
- */
-OneOf.prototype.remove = function remove(field) {
-
-    /* istanbul ignore if */
-    if (!(field instanceof Field))
-        throw TypeError("field must be a Field");
-
-    var index = this.fieldsArray.indexOf(field);
-
-    /* istanbul ignore if */
-    if (index < 0)
-        throw Error(field + " is not a member of " + this);
-
-    this.fieldsArray.splice(index, 1);
-    index = this.oneof.indexOf(field.name);
-
-    /* istanbul ignore else */
-    if (index > -1) // theoretical
-        this.oneof.splice(index, 1);
-
-    field.partOf = null;
-    return this;
-};
-
-/**
- * @override
- */
-OneOf.prototype.onAdd = function onAdd(parent) {
-    ReflectionObject.prototype.onAdd.call(this, parent);
-    var self = this;
-    // Collect present fields
-    for (var i = 0; i < this.oneof.length; ++i) {
-        var field = parent.get(this.oneof[i]);
-        if (field && !field.partOf) {
-            field.partOf = self;
-            self.fieldsArray.push(field);
-        }
-    }
-    // Add not yet present fields
-    addFieldsToParent(this);
-};
-
-/**
- * @override
- */
-OneOf.prototype.onRemove = function onRemove(parent) {
-    for (var i = 0, field; i < this.fieldsArray.length; ++i)
-        if ((field = this.fieldsArray[i]).parent)
-            field.parent.remove(field);
-    ReflectionObject.prototype.onRemove.call(this, parent);
-};
-
-/**
- * Decorator function as returned by {@link OneOf.d} (TypeScript).
- * @typedef OneOfDecorator
- * @type {function}
- * @param {Object} prototype Target prototype
- * @param {string} oneofName OneOf name
- * @returns {undefined}
- */
-
-/**
- * OneOf decorator (TypeScript).
- * @function
- * @param {...string} fieldNames Field names
- * @returns {OneOfDecorator} Decorator function
- * @template T extends string
- */
-OneOf.d = function decorateOneOf() {
-    var fieldNames = new Array(arguments.length),
-        index = 0;
-    while (index < arguments.length)
-        fieldNames[index] = arguments[index++];
-    return function oneOfDecorator(prototype, oneofName) {
-        util.decorateType(prototype.constructor)
-            .add(new OneOf(oneofName, fieldNames));
-        Object.defineProperty(prototype, oneofName, {
-            get: util.oneOfGetter(fieldNames),
-            set: util.oneOfSetter(fieldNames)
-        });
-    };
-};
-
-
-/***/ }),
-
-/***/ 863:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = parse;
-
-parse.filename = null;
-parse.defaults = { keepCase: false };
-
-var tokenize  = __webpack_require__(527),
-    Root      = __webpack_require__(330),
-    Type      = __webpack_require__(882),
-    Field     = __webpack_require__(344),
-    MapField  = __webpack_require__(252),
-    OneOf     = __webpack_require__(457),
-    Enum      = __webpack_require__(643),
-    Service   = __webpack_require__(687),
-    Method    = __webpack_require__(811),
-    types     = __webpack_require__(361),
-    util      = __webpack_require__(262);
-
-var base10Re    = /^[1-9][0-9]*$/,
-    base10NegRe = /^-?[1-9][0-9]*$/,
-    base16Re    = /^0[x][0-9a-fA-F]+$/,
-    base16NegRe = /^-?0[x][0-9a-fA-F]+$/,
-    base8Re     = /^0[0-7]+$/,
-    base8NegRe  = /^-?0[0-7]+$/,
-    numberRe    = /^(?![eE])[0-9]*(?:\.[0-9]*)?(?:[eE][+-]?[0-9]+)?$/,
-    nameRe      = /^[a-zA-Z_][a-zA-Z_0-9]*$/,
-    typeRefRe   = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)(?:\.[a-zA-Z_][a-zA-Z_0-9]*)*$/,
-    fqTypeRefRe = /^(?:\.[a-zA-Z_][a-zA-Z_0-9]*)+$/;
-
-/**
- * Result object returned from {@link parse}.
- * @interface IParserResult
- * @property {string|undefined} package Package name, if declared
- * @property {string[]|undefined} imports Imports, if any
- * @property {string[]|undefined} weakImports Weak imports, if any
- * @property {string|undefined} syntax Syntax, if specified (either `"proto2"` or `"proto3"`)
- * @property {Root} root Populated root instance
- */
-
-/**
- * Options modifying the behavior of {@link parse}.
- * @interface IParseOptions
- * @property {boolean} [keepCase=false] Keeps field casing instead of converting to camel case
- * @property {boolean} [alternateCommentMode=false] Recognize double-slash comments in addition to doc-block comments.
- * @property {boolean} [preferTrailingComment=false] Use trailing comment when both leading comment and trailing comment exist.
- */
-
-/**
- * Options modifying the behavior of JSON serialization.
- * @interface IToJSONOptions
- * @property {boolean} [keepComments=false] Serializes comments.
- */
-
-/**
- * Parses the given .proto source and returns an object with the parsed contents.
- * @param {string} source Source contents
- * @param {Root} root Root to populate
- * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
- * @returns {IParserResult} Parser result
- * @property {string} filename=null Currently processing file name for error reporting, if known
- * @property {IParseOptions} defaults Default {@link IParseOptions}
- */
-function parse(source, root, options) {
-    /* eslint-disable callback-return */
-    if (!(root instanceof Root)) {
-        options = root;
-        root = new Root();
-    }
-    if (!options)
-        options = parse.defaults;
-
-    var preferTrailingComment = options.preferTrailingComment || false;
-    var tn = tokenize(source, options.alternateCommentMode || false),
-        next = tn.next,
-        push = tn.push,
-        peek = tn.peek,
-        skip = tn.skip,
-        cmnt = tn.cmnt;
-
-    var head = true,
-        pkg,
-        imports,
-        weakImports,
-        syntax,
-        isProto3 = false;
-
-    var ptr = root;
-
-    var applyCase = options.keepCase ? function(name) { return name; } : util.camelCase;
-
-    /* istanbul ignore next */
-    function illegal(token, name, insideTryCatch) {
-        var filename = parse.filename;
-        if (!insideTryCatch)
-            parse.filename = null;
-        return Error("illegal " + (name || "token") + " '" + token + "' (" + (filename ? filename + ", " : "") + "line " + tn.line + ")");
-    }
-
-    function readString() {
-        var values = [],
-            token;
-        do {
-            /* istanbul ignore if */
-            if ((token = next()) !== "\"" && token !== "'")
-                throw illegal(token);
-
-            values.push(next());
-            skip(token);
-            token = peek();
-        } while (token === "\"" || token === "'");
-        return values.join("");
-    }
-
-    function readValue(acceptTypeRef) {
-        var token = next();
-        switch (token) {
-            case "'":
-            case "\"":
-                push(token);
-                return readString();
-            case "true": case "TRUE":
-                return true;
-            case "false": case "FALSE":
-                return false;
-        }
-        try {
-            return parseNumber(token, /* insideTryCatch */ true);
-        } catch (e) {
-
-            /* istanbul ignore else */
-            if (acceptTypeRef && typeRefRe.test(token))
-                return token;
-
-            /* istanbul ignore next */
-            throw illegal(token, "value");
-        }
-    }
-
-    function readRanges(target, acceptStrings) {
-        var token, start;
-        do {
-            if (acceptStrings && ((token = peek()) === "\"" || token === "'"))
-                target.push(readString());
-            else
-                target.push([ start = parseId(next()), skip("to", true) ? parseId(next()) : start ]);
-        } while (skip(",", true));
-        skip(";");
-    }
-
-    function parseNumber(token, insideTryCatch) {
-        var sign = 1;
-        if (token.charAt(0) === "-") {
-            sign = -1;
-            token = token.substring(1);
-        }
-        switch (token) {
-            case "inf": case "INF": case "Inf":
-                return sign * Infinity;
-            case "nan": case "NAN": case "Nan": case "NaN":
-                return NaN;
-            case "0":
-                return 0;
-        }
-        if (base10Re.test(token))
-            return sign * parseInt(token, 10);
-        if (base16Re.test(token))
-            return sign * parseInt(token, 16);
-        if (base8Re.test(token))
-            return sign * parseInt(token, 8);
-
-        /* istanbul ignore else */
-        if (numberRe.test(token))
-            return sign * parseFloat(token);
-
-        /* istanbul ignore next */
-        throw illegal(token, "number", insideTryCatch);
-    }
-
-    function parseId(token, acceptNegative) {
-        switch (token) {
-            case "max": case "MAX": case "Max":
-                return 536870911;
-            case "0":
-                return 0;
-        }
-
-        /* istanbul ignore if */
-        if (!acceptNegative && token.charAt(0) === "-")
-            throw illegal(token, "id");
-
-        if (base10NegRe.test(token))
-            return parseInt(token, 10);
-        if (base16NegRe.test(token))
-            return parseInt(token, 16);
-
-        /* istanbul ignore else */
-        if (base8NegRe.test(token))
-            return parseInt(token, 8);
-
-        /* istanbul ignore next */
-        throw illegal(token, "id");
-    }
-
-    function parsePackage() {
-
-        /* istanbul ignore if */
-        if (pkg !== undefined)
-            throw illegal("package");
-
-        pkg = next();
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(pkg))
-            throw illegal(pkg, "name");
-
-        ptr = ptr.define(pkg);
-        skip(";");
-    }
-
-    function parseImport() {
-        var token = peek();
-        var whichImports;
-        switch (token) {
-            case "weak":
-                whichImports = weakImports || (weakImports = []);
-                next();
-                break;
-            case "public":
-                next();
-                // eslint-disable-line no-fallthrough
-            default:
-                whichImports = imports || (imports = []);
-                break;
-        }
-        token = readString();
-        skip(";");
-        whichImports.push(token);
-    }
-
-    function parseSyntax() {
-        skip("=");
-        syntax = readString();
-        isProto3 = syntax === "proto3";
-
-        /* istanbul ignore if */
-        if (!isProto3 && syntax !== "proto2")
-            throw illegal(syntax, "syntax");
-
-        skip(";");
-    }
-
-    function parseCommon(parent, token) {
-        switch (token) {
-
-            case "option":
-                parseOption(parent, token);
-                skip(";");
-                return true;
-
-            case "message":
-                parseType(parent, token);
-                return true;
-
-            case "enum":
-                parseEnum(parent, token);
-                return true;
-
-            case "service":
-                parseService(parent, token);
-                return true;
-
-            case "extend":
-                parseExtension(parent, token);
-                return true;
-        }
-        return false;
-    }
-
-    function ifBlock(obj, fnIf, fnElse) {
-        var trailingLine = tn.line;
-        if (obj) {
-            if(typeof obj.comment !== "string") {
-              obj.comment = cmnt(); // try block-type comment
-            }
-            obj.filename = parse.filename;
-        }
-        if (skip("{", true)) {
-            var token;
-            while ((token = next()) !== "}")
-                fnIf(token);
-            skip(";", true);
-        } else {
-            if (fnElse)
-                fnElse();
-            skip(";");
-            if (obj && (typeof obj.comment !== "string" || preferTrailingComment))
-                obj.comment = cmnt(trailingLine) || obj.comment; // try line-type comment
-        }
-    }
-
-    function parseType(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "type name");
-
-        var type = new Type(token);
-        ifBlock(type, function parseType_block(token) {
-            if (parseCommon(type, token))
-                return;
-
-            switch (token) {
-
-                case "map":
-                    parseMapField(type, token);
-                    break;
-
-                case "required":
-                case "repeated":
-                    parseField(type, token);
-                    break;
-
-                case "optional":
-                    /* istanbul ignore if */
-                    if (isProto3) {
-                        parseField(type, "proto3_optional");
-                    } else {
-                        parseField(type, "optional");
-                    }
-                    break;
-
-                case "oneof":
-                    parseOneOf(type, token);
-                    break;
-
-                case "extensions":
-                    readRanges(type.extensions || (type.extensions = []));
-                    break;
-
-                case "reserved":
-                    readRanges(type.reserved || (type.reserved = []), true);
-                    break;
-
-                default:
-                    /* istanbul ignore if */
-                    if (!isProto3 || !typeRefRe.test(token))
-                        throw illegal(token);
-
-                    push(token);
-                    parseField(type, "optional");
-                    break;
-            }
-        });
-        parent.add(type);
-    }
-
-    function parseField(parent, rule, extend) {
-        var type = next();
-        if (type === "group") {
-            parseGroup(parent, rule);
-            return;
-        }
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(type))
-            throw illegal(type, "type");
-
-        var name = next();
-
-        /* istanbul ignore if */
-        if (!nameRe.test(name))
-            throw illegal(name, "name");
-
-        name = applyCase(name);
-        skip("=");
-
-        var field = new Field(name, parseId(next()), type, rule, extend);
-        ifBlock(field, function parseField_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(field, token);
-                skip(";");
-            } else
-                throw illegal(token);
-
-        }, function parseField_line() {
-            parseInlineOptions(field);
-        });
-
-        if (rule === "proto3_optional") {
-            // for proto3 optional fields, we create a single-member Oneof to mimic "optional" behavior
-            var oneof = new OneOf("_" + name);
-            field.setOption("proto3_optional", true);
-            oneof.add(field);
-            parent.add(oneof);
-        } else {
-            parent.add(field);
-        }
-
-        // JSON defaults to packed=true if not set so we have to set packed=false explicity when
-        // parsing proto2 descriptors without the option, where applicable. This must be done for
-        // all known packable types and anything that could be an enum (= is not a basic type).
-        if (!isProto3 && field.repeated && (types.packed[type] !== undefined || types.basic[type] === undefined))
-            field.setOption("packed", false, /* ifNotSet */ true);
-    }
-
-    function parseGroup(parent, rule) {
-        var name = next();
-
-        /* istanbul ignore if */
-        if (!nameRe.test(name))
-            throw illegal(name, "name");
-
-        var fieldName = util.lcFirst(name);
-        if (name === fieldName)
-            name = util.ucFirst(name);
-        skip("=");
-        var id = parseId(next());
-        var type = new Type(name);
-        type.group = true;
-        var field = new Field(fieldName, id, name, rule);
-        field.filename = parse.filename;
-        ifBlock(type, function parseGroup_block(token) {
-            switch (token) {
-
-                case "option":
-                    parseOption(type, token);
-                    skip(";");
-                    break;
-
-                case "required":
-                case "repeated":
-                    parseField(type, token);
-                    break;
-
-                case "optional":
-                    /* istanbul ignore if */
-                    if (isProto3) {
-                        parseField(type, "proto3_optional");
-                    } else {
-                        parseField(type, "optional");
-                    }
-                    break;
-
-                /* istanbul ignore next */
-                default:
-                    throw illegal(token); // there are no groups with proto3 semantics
-            }
-        });
-        parent.add(type)
-              .add(field);
-    }
-
-    function parseMapField(parent) {
-        skip("<");
-        var keyType = next();
-
-        /* istanbul ignore if */
-        if (types.mapKey[keyType] === undefined)
-            throw illegal(keyType, "type");
-
-        skip(",");
-        var valueType = next();
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(valueType))
-            throw illegal(valueType, "type");
-
-        skip(">");
-        var name = next();
-
-        /* istanbul ignore if */
-        if (!nameRe.test(name))
-            throw illegal(name, "name");
-
-        skip("=");
-        var field = new MapField(applyCase(name), parseId(next()), keyType, valueType);
-        ifBlock(field, function parseMapField_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(field, token);
-                skip(";");
-            } else
-                throw illegal(token);
-
-        }, function parseMapField_line() {
-            parseInlineOptions(field);
-        });
-        parent.add(field);
-    }
-
-    function parseOneOf(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var oneof = new OneOf(applyCase(token));
-        ifBlock(oneof, function parseOneOf_block(token) {
-            if (token === "option") {
-                parseOption(oneof, token);
-                skip(";");
-            } else {
-                push(token);
-                parseField(oneof, "optional");
-            }
-        });
-        parent.add(oneof);
-    }
-
-    function parseEnum(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var enm = new Enum(token);
-        ifBlock(enm, function parseEnum_block(token) {
-          switch(token) {
-            case "option":
-              parseOption(enm, token);
-              skip(";");
-              break;
-
-            case "reserved":
-              readRanges(enm.reserved || (enm.reserved = []), true);
-              break;
-
-            default:
-              parseEnumValue(enm, token);
-          }
-        });
-        parent.add(enm);
-    }
-
-    function parseEnumValue(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token))
-            throw illegal(token, "name");
-
-        skip("=");
-        var value = parseId(next(), true),
-            dummy = {};
-        ifBlock(dummy, function parseEnumValue_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(dummy, token); // skip
-                skip(";");
-            } else
-                throw illegal(token);
-
-        }, function parseEnumValue_line() {
-            parseInlineOptions(dummy); // skip
-        });
-        parent.add(token, value, dummy.comment);
-    }
-
-    function parseOption(parent, token) {
-        var isCustom = skip("(", true);
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var name = token;
-        var option = name;
-        var propName;
-
-        if (isCustom) {
-            skip(")");
-            name = "(" + name + ")";
-            option = name;
-            token = peek();
-            if (fqTypeRefRe.test(token)) {
-                propName = token.substr(1); //remove '.' before property name
-                name += token;
-                next();
-            }
-        }
-        skip("=");
-        var optionValue = parseOptionValue(parent, name);
-        setParsedOption(parent, option, optionValue, propName);
-    }
-
-    function parseOptionValue(parent, name) {
-        if (skip("{", true)) { // { a: "foo" b { c: "bar" } }
-            var result = {};
-            while (!skip("}", true)) {
-                /* istanbul ignore if */
-                if (!nameRe.test(token = next()))
-                    throw illegal(token, "name");
-
-                var value;
-                var propName = token;
-                if (peek() === "{")
-                    value = parseOptionValue(parent, name + "." + token);
-                else {
-                    skip(":");
-                    if (peek() === "{")
-                        value = parseOptionValue(parent, name + "." + token);
-                    else {
-                        value = readValue(true);
-                        setOption(parent, name + "." + token, value);
-                    }
-                }
-                var prevValue = result[propName];
-                if (prevValue)
-                    value = [].concat(prevValue).concat(value);
-                result[propName] = value;
-                skip(",", true);
-            }
-            return result;
-        }
-
-        var simpleValue = readValue(true);
-        setOption(parent, name, simpleValue);
-        return simpleValue;
-        // Does not enforce a delimiter to be universal
-    }
-
-    function setOption(parent, name, value) {
-        if (parent.setOption)
-            parent.setOption(name, value);
-    }
-
-    function setParsedOption(parent, name, value, propName) {
-        if (parent.setParsedOption)
-            parent.setParsedOption(name, value, propName);
-    }
-
-    function parseInlineOptions(parent) {
-        if (skip("[", true)) {
-            do {
-                parseOption(parent, "option");
-            } while (skip(",", true));
-            skip("]");
-        }
-        return parent;
-    }
-
-    function parseService(parent, token) {
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "service name");
-
-        var service = new Service(token);
-        ifBlock(service, function parseService_block(token) {
-            if (parseCommon(service, token))
-                return;
-
-            /* istanbul ignore else */
-            if (token === "rpc")
-                parseMethod(service, token);
-            else
-                throw illegal(token);
-        });
-        parent.add(service);
-    }
-
-    function parseMethod(parent, token) {
-        // Get the comment of the preceding line now (if one exists) in case the
-        // method is defined across multiple lines.
-        var commentText = cmnt();
-
-        var type = token;
-
-        /* istanbul ignore if */
-        if (!nameRe.test(token = next()))
-            throw illegal(token, "name");
-
-        var name = token,
-            requestType, requestStream,
-            responseType, responseStream;
-
-        skip("(");
-        if (skip("stream", true))
-            requestStream = true;
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token);
-
-        requestType = token;
-        skip(")"); skip("returns"); skip("(");
-        if (skip("stream", true))
-            responseStream = true;
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token);
-
-        responseType = token;
-        skip(")");
-
-        var method = new Method(name, type, requestType, responseType, requestStream, responseStream);
-        method.comment = commentText;
-        ifBlock(method, function parseMethod_block(token) {
-
-            /* istanbul ignore else */
-            if (token === "option") {
-                parseOption(method, token);
-                skip(";");
-            } else
-                throw illegal(token);
-
-        });
-        parent.add(method);
-    }
-
-    function parseExtension(parent, token) {
-
-        /* istanbul ignore if */
-        if (!typeRefRe.test(token = next()))
-            throw illegal(token, "reference");
-
-        var reference = token;
-        ifBlock(null, function parseExtension_block(token) {
-            switch (token) {
-
-                case "required":
-                case "repeated":
-                    parseField(parent, token, reference);
-                    break;
-
-                case "optional":
-                    /* istanbul ignore if */
-                    if (isProto3) {
-                        parseField(parent, "proto3_optional", reference);
-                    } else {
-                        parseField(parent, "optional", reference);
-                    }
-                    break;
-
-                default:
-                    /* istanbul ignore if */
-                    if (!isProto3 || !typeRefRe.test(token))
-                        throw illegal(token);
-                    push(token);
-                    parseField(parent, "optional", reference);
-                    break;
-            }
-        });
-    }
-
-    var token;
-    while ((token = next()) !== null) {
-        switch (token) {
-
-            case "package":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parsePackage();
-                break;
-
-            case "import":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parseImport();
-                break;
-
-            case "syntax":
-
-                /* istanbul ignore if */
-                if (!head)
-                    throw illegal(token);
-
-                parseSyntax();
-                break;
-
-            case "option":
-
-                parseOption(ptr, token);
-                skip(";");
-                break;
-
-            default:
-
-                /* istanbul ignore else */
-                if (parseCommon(ptr, token)) {
-                    head = false;
-                    continue;
-                }
-
-                /* istanbul ignore next */
-                throw illegal(token);
-        }
-    }
-
-    parse.filename = null;
-    return {
-        "package"     : pkg,
-        "imports"     : imports,
-         weakImports  : weakImports,
-         syntax       : syntax,
-         root         : root
-    };
-}
-
-/**
- * Parses the given .proto source and returns an object with the parsed contents.
- * @name parse
- * @function
- * @param {string} source Source contents
- * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
- * @returns {IParserResult} Parser result
- * @property {string} filename=null Currently processing file name for error reporting, if known
- * @property {IParseOptions} defaults Default {@link IParseOptions}
- * @variation 2
- */
-
-
-/***/ }),
-
-/***/ 237:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Reader;
-
-var util      = __webpack_require__(610);
-
-var BufferReader; // cyclic
-
-var LongBits  = util.LongBits,
-    utf8      = util.utf8;
-
-/* istanbul ignore next */
-function indexOutOfRange(reader, writeLength) {
-    return RangeError("index out of range: " + reader.pos + " + " + (writeLength || 1) + " > " + reader.len);
-}
-
-/**
- * Constructs a new reader instance using the specified buffer.
- * @classdesc Wire format reader using `Uint8Array` if available, otherwise `Array`.
- * @constructor
- * @param {Uint8Array} buffer Buffer to read from
- */
-function Reader(buffer) {
-
-    /**
-     * Read buffer.
-     * @type {Uint8Array}
-     */
-    this.buf = buffer;
-
-    /**
-     * Read buffer position.
-     * @type {number}
-     */
-    this.pos = 0;
-
-    /**
-     * Read buffer length.
-     * @type {number}
-     */
-    this.len = buffer.length;
-}
-
-var create_array = typeof Uint8Array !== "undefined"
-    ? function create_typed_array(buffer) {
-        if (buffer instanceof Uint8Array || Array.isArray(buffer))
-            return new Reader(buffer);
-        throw Error("illegal buffer");
-    }
-    /* istanbul ignore next */
-    : function create_array(buffer) {
-        if (Array.isArray(buffer))
-            return new Reader(buffer);
-        throw Error("illegal buffer");
-    };
-
-var create = function create() {
-    return util.Buffer
-        ? function create_buffer_setup(buffer) {
-            return (Reader.create = function create_buffer(buffer) {
-                return util.Buffer.isBuffer(buffer)
-                    ? new BufferReader(buffer)
-                    /* istanbul ignore next */
-                    : create_array(buffer);
-            })(buffer);
-        }
-        /* istanbul ignore next */
-        : create_array;
-};
-
-/**
- * Creates a new reader using the specified buffer.
- * @function
- * @param {Uint8Array|Buffer} buffer Buffer to read from
- * @returns {Reader|BufferReader} A {@link BufferReader} if `buffer` is a Buffer, otherwise a {@link Reader}
- * @throws {Error} If `buffer` is not a valid buffer
- */
-Reader.create = create();
-
-Reader.prototype._slice = util.Array.prototype.subarray || /* istanbul ignore next */ util.Array.prototype.slice;
-
-/**
- * Reads a varint as an unsigned 32 bit value.
- * @function
- * @returns {number} Value read
- */
-Reader.prototype.uint32 = (function read_uint32_setup() {
-    var value = 4294967295; // optimizer type-hint, tends to deopt otherwise (?!)
-    return function read_uint32() {
-        value = (         this.buf[this.pos] & 127       ) >>> 0; if (this.buf[this.pos++] < 128) return value;
-        value = (value | (this.buf[this.pos] & 127) <<  7) >>> 0; if (this.buf[this.pos++] < 128) return value;
-        value = (value | (this.buf[this.pos] & 127) << 14) >>> 0; if (this.buf[this.pos++] < 128) return value;
-        value = (value | (this.buf[this.pos] & 127) << 21) >>> 0; if (this.buf[this.pos++] < 128) return value;
-        value = (value | (this.buf[this.pos] &  15) << 28) >>> 0; if (this.buf[this.pos++] < 128) return value;
-
-        /* istanbul ignore if */
-        if ((this.pos += 5) > this.len) {
-            this.pos = this.len;
-            throw indexOutOfRange(this, 10);
-        }
-        return value;
-    };
-})();
-
-/**
- * Reads a varint as a signed 32 bit value.
- * @returns {number} Value read
- */
-Reader.prototype.int32 = function read_int32() {
-    return this.uint32() | 0;
-};
-
-/**
- * Reads a zig-zag encoded varint as a signed 32 bit value.
- * @returns {number} Value read
- */
-Reader.prototype.sint32 = function read_sint32() {
-    var value = this.uint32();
-    return value >>> 1 ^ -(value & 1) | 0;
-};
-
-/* eslint-disable no-invalid-this */
-
-function readLongVarint() {
-    // tends to deopt with local vars for octet etc.
-    var bits = new LongBits(0, 0);
-    var i = 0;
-    if (this.len - this.pos > 4) { // fast route (lo)
-        for (; i < 4; ++i) {
-            // 1st..4th
-            bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
-            if (this.buf[this.pos++] < 128)
-                return bits;
-        }
-        // 5th
-        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << 28) >>> 0;
-        bits.hi = (bits.hi | (this.buf[this.pos] & 127) >>  4) >>> 0;
-        if (this.buf[this.pos++] < 128)
-            return bits;
-        i = 0;
-    } else {
-        for (; i < 3; ++i) {
-            /* istanbul ignore if */
-            if (this.pos >= this.len)
-                throw indexOutOfRange(this);
-            // 1st..3th
-            bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
-            if (this.buf[this.pos++] < 128)
-                return bits;
-        }
-        // 4th
-        bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i * 7) >>> 0;
-        return bits;
-    }
-    if (this.len - this.pos > 4) { // fast route (hi)
-        for (; i < 5; ++i) {
-            // 6th..10th
-            bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
-            if (this.buf[this.pos++] < 128)
-                return bits;
-        }
-    } else {
-        for (; i < 5; ++i) {
-            /* istanbul ignore if */
-            if (this.pos >= this.len)
-                throw indexOutOfRange(this);
-            // 6th..10th
-            bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
-            if (this.buf[this.pos++] < 128)
-                return bits;
-        }
-    }
-    /* istanbul ignore next */
-    throw Error("invalid varint encoding");
-}
-
-/* eslint-enable no-invalid-this */
-
-/**
- * Reads a varint as a signed 64 bit value.
- * @name Reader#int64
- * @function
- * @returns {Long} Value read
- */
-
-/**
- * Reads a varint as an unsigned 64 bit value.
- * @name Reader#uint64
- * @function
- * @returns {Long} Value read
- */
-
-/**
- * Reads a zig-zag encoded varint as a signed 64 bit value.
- * @name Reader#sint64
- * @function
- * @returns {Long} Value read
- */
-
-/**
- * Reads a varint as a boolean.
- * @returns {boolean} Value read
- */
-Reader.prototype.bool = function read_bool() {
-    return this.uint32() !== 0;
-};
-
-function readFixed32_end(buf, end) { // note that this uses `end`, not `pos`
-    return (buf[end - 4]
-          | buf[end - 3] << 8
-          | buf[end - 2] << 16
-          | buf[end - 1] << 24) >>> 0;
-}
-
-/**
- * Reads fixed 32 bits as an unsigned 32 bit integer.
- * @returns {number} Value read
- */
-Reader.prototype.fixed32 = function read_fixed32() {
-
-    /* istanbul ignore if */
-    if (this.pos + 4 > this.len)
-        throw indexOutOfRange(this, 4);
-
-    return readFixed32_end(this.buf, this.pos += 4);
-};
-
-/**
- * Reads fixed 32 bits as a signed 32 bit integer.
- * @returns {number} Value read
- */
-Reader.prototype.sfixed32 = function read_sfixed32() {
-
-    /* istanbul ignore if */
-    if (this.pos + 4 > this.len)
-        throw indexOutOfRange(this, 4);
-
-    return readFixed32_end(this.buf, this.pos += 4) | 0;
-};
-
-/* eslint-disable no-invalid-this */
-
-function readFixed64(/* this: Reader */) {
-
-    /* istanbul ignore if */
-    if (this.pos + 8 > this.len)
-        throw indexOutOfRange(this, 8);
-
-    return new LongBits(readFixed32_end(this.buf, this.pos += 4), readFixed32_end(this.buf, this.pos += 4));
-}
-
-/* eslint-enable no-invalid-this */
-
-/**
- * Reads fixed 64 bits.
- * @name Reader#fixed64
- * @function
- * @returns {Long} Value read
- */
-
-/**
- * Reads zig-zag encoded fixed 64 bits.
- * @name Reader#sfixed64
- * @function
- * @returns {Long} Value read
- */
-
-/**
- * Reads a float (32 bit) as a number.
- * @function
- * @returns {number} Value read
- */
-Reader.prototype.float = function read_float() {
-
-    /* istanbul ignore if */
-    if (this.pos + 4 > this.len)
-        throw indexOutOfRange(this, 4);
-
-    var value = util.float.readFloatLE(this.buf, this.pos);
-    this.pos += 4;
-    return value;
-};
-
-/**
- * Reads a double (64 bit float) as a number.
- * @function
- * @returns {number} Value read
- */
-Reader.prototype.double = function read_double() {
-
-    /* istanbul ignore if */
-    if (this.pos + 8 > this.len)
-        throw indexOutOfRange(this, 4);
-
-    var value = util.float.readDoubleLE(this.buf, this.pos);
-    this.pos += 8;
-    return value;
-};
-
-/**
- * Reads a sequence of bytes preceeded by its length as a varint.
- * @returns {Uint8Array} Value read
- */
-Reader.prototype.bytes = function read_bytes() {
-    var length = this.uint32(),
-        start  = this.pos,
-        end    = this.pos + length;
-
-    /* istanbul ignore if */
-    if (end > this.len)
-        throw indexOutOfRange(this, length);
-
-    this.pos += length;
-    if (Array.isArray(this.buf)) // plain array
-        return this.buf.slice(start, end);
-    return start === end // fix for IE 10/Win8 and others' subarray returning array of size 1
-        ? new this.buf.constructor(0)
-        : this._slice.call(this.buf, start, end);
-};
-
-/**
- * Reads a string preceeded by its byte length as a varint.
- * @returns {string} Value read
- */
-Reader.prototype.string = function read_string() {
-    var bytes = this.bytes();
-    return utf8.read(bytes, 0, bytes.length);
-};
-
-/**
- * Skips the specified number of bytes if specified, otherwise skips a varint.
- * @param {number} [length] Length if known, otherwise a varint is assumed
- * @returns {Reader} `this`
- */
-Reader.prototype.skip = function skip(length) {
-    if (typeof length === "number") {
-        /* istanbul ignore if */
-        if (this.pos + length > this.len)
-            throw indexOutOfRange(this, length);
-        this.pos += length;
-    } else {
-        do {
-            /* istanbul ignore if */
-            if (this.pos >= this.len)
-                throw indexOutOfRange(this);
-        } while (this.buf[this.pos++] & 128);
-    }
-    return this;
-};
-
-/**
- * Skips the next element of the specified wire type.
- * @param {number} wireType Wire type received
- * @returns {Reader} `this`
- */
-Reader.prototype.skipType = function(wireType) {
-    switch (wireType) {
-        case 0:
-            this.skip();
-            break;
-        case 1:
-            this.skip(8);
-            break;
-        case 2:
-            this.skip(this.uint32());
-            break;
-        case 3:
-            while ((wireType = this.uint32() & 7) !== 4) {
-                this.skipType(wireType);
-            }
-            break;
-        case 5:
-            this.skip(4);
-            break;
-
-        /* istanbul ignore next */
-        default:
-            throw Error("invalid wire type " + wireType + " at offset " + this.pos);
-    }
-    return this;
-};
-
-Reader._configure = function(BufferReader_) {
-    BufferReader = BufferReader_;
-    Reader.create = create();
-    BufferReader._configure();
-
-    var fn = util.Long ? "toLong" : /* istanbul ignore next */ "toNumber";
-    util.merge(Reader.prototype, {
-
-        int64: function read_int64() {
-            return readLongVarint.call(this)[fn](false);
-        },
-
-        uint64: function read_uint64() {
-            return readLongVarint.call(this)[fn](true);
-        },
-
-        sint64: function read_sint64() {
-            return readLongVarint.call(this).zzDecode()[fn](false);
-        },
-
-        fixed64: function read_fixed64() {
-            return readFixed64.call(this)[fn](true);
-        },
-
-        sfixed64: function read_sfixed64() {
-            return readFixed64.call(this)[fn](false);
-        }
-
-    });
-};
-
-
-/***/ }),
-
-/***/ 158:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = BufferReader;
-
-// extends Reader
-var Reader = __webpack_require__(237);
-(BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
-
-var util = __webpack_require__(610);
-
-/**
- * Constructs a new buffer reader instance.
- * @classdesc Wire format reader using node buffers.
- * @extends Reader
- * @constructor
- * @param {Buffer} buffer Buffer to read from
- */
-function BufferReader(buffer) {
-    Reader.call(this, buffer);
-
-    /**
-     * Read buffer.
-     * @name BufferReader#buf
-     * @type {Buffer}
-     */
-}
-
-BufferReader._configure = function () {
-    /* istanbul ignore else */
-    if (util.Buffer)
-        BufferReader.prototype._slice = util.Buffer.prototype.slice;
-};
-
-
-/**
- * @override
- */
-BufferReader.prototype.string = function read_string_buffer() {
-    var len = this.uint32(); // modifies pos
-    return this.buf.utf8Slice
-        ? this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len))
-        : this.buf.toString("utf-8", this.pos, this.pos = Math.min(this.pos + len, this.len));
-};
-
-/**
- * Reads a sequence of bytes preceeded by its length as a varint.
- * @name BufferReader#bytes
- * @function
- * @returns {Buffer} Value read
- */
-
-BufferReader._configure();
-
-
-/***/ }),
-
-/***/ 330:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Root;
-
-// extends Namespace
-var Namespace = __webpack_require__(923);
-((Root.prototype = Object.create(Namespace.prototype)).constructor = Root).className = "Root";
-
-var Field   = __webpack_require__(344),
-    Enum    = __webpack_require__(643),
-    OneOf   = __webpack_require__(457),
-    util    = __webpack_require__(262);
-
-var Type,   // cyclic
-    parse,  // might be excluded
-    common; // "
-
-/**
- * Constructs a new root namespace instance.
- * @classdesc Root namespace wrapping all types, enums, services, sub-namespaces etc. that belong together.
- * @extends NamespaceBase
- * @constructor
- * @param {Object.<string,*>} [options] Top level options
- */
-function Root(options) {
-    Namespace.call(this, "", options);
-
-    /**
-     * Deferred extension fields.
-     * @type {Field[]}
-     */
-    this.deferred = [];
-
-    /**
-     * Resolved file names of loaded files.
-     * @type {string[]}
-     */
-    this.files = [];
-}
-
-/**
- * Loads a namespace descriptor into a root namespace.
- * @param {INamespace} json Nameespace descriptor
- * @param {Root} [root] Root namespace, defaults to create a new one if omitted
- * @returns {Root} Root namespace
- */
-Root.fromJSON = function fromJSON(json, root) {
-    if (!root)
-        root = new Root();
-    if (json.options)
-        root.setOptions(json.options);
-    return root.addJSON(json.nested);
-};
-
-/**
- * Resolves the path of an imported file, relative to the importing origin.
- * This method exists so you can override it with your own logic in case your imports are scattered over multiple directories.
- * @function
- * @param {string} origin The file name of the importing file
- * @param {string} target The file name being imported
- * @returns {string|null} Resolved path to `target` or `null` to skip the file
- */
-Root.prototype.resolvePath = util.path.resolve;
-
-/**
- * Fetch content from file path or url
- * This method exists so you can override it with your own logic.
- * @function
- * @param {string} path File path or url
- * @param {FetchCallback} callback Callback function
- * @returns {undefined}
- */
-Root.prototype.fetch = util.fetch;
-
-// A symbol-like function to safely signal synchronous loading
-/* istanbul ignore next */
-function SYNC() {} // eslint-disable-line no-empty-function
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into this root namespace and calls the callback.
- * @param {string|string[]} filename Names of one or multiple files to load
- * @param {IParseOptions} options Parse options
- * @param {LoadCallback} callback Callback function
- * @returns {undefined}
- */
-Root.prototype.load = function load(filename, options, callback) {
-    if (typeof options === "function") {
-        callback = options;
-        options = undefined;
-    }
-    var self = this;
-    if (!callback)
-        return util.asPromise(load, self, filename, options);
-
-    var sync = callback === SYNC; // undocumented
-
-    // Finishes loading by calling the callback (exactly once)
-    function finish(err, root) {
-        /* istanbul ignore if */
-        if (!callback)
-            return;
-        var cb = callback;
-        callback = null;
-        if (sync)
-            throw err;
-        cb(err, root);
-    }
-
-    // Bundled definition existence checking
-    function getBundledFileName(filename) {
-        var idx = filename.lastIndexOf("google/protobuf/");
-        if (idx > -1) {
-            var altname = filename.substring(idx);
-            if (altname in common) return altname;
-        }
-        return null;
-    }
-
-    // Processes a single file
-    function process(filename, source) {
-        try {
-            if (util.isString(source) && source.charAt(0) === "{")
-                source = JSON.parse(source);
-            if (!util.isString(source))
-                self.setOptions(source.options).addJSON(source.nested);
-            else {
-                parse.filename = filename;
-                var parsed = parse(source, self, options),
-                    resolved,
-                    i = 0;
-                if (parsed.imports)
-                    for (; i < parsed.imports.length; ++i)
-                        if (resolved = getBundledFileName(parsed.imports[i]) || self.resolvePath(filename, parsed.imports[i]))
-                            fetch(resolved);
-                if (parsed.weakImports)
-                    for (i = 0; i < parsed.weakImports.length; ++i)
-                        if (resolved = getBundledFileName(parsed.weakImports[i]) || self.resolvePath(filename, parsed.weakImports[i]))
-                            fetch(resolved, true);
-            }
-        } catch (err) {
-            finish(err);
-        }
-        if (!sync && !queued)
-            finish(null, self); // only once anyway
-    }
-
-    // Fetches a single file
-    function fetch(filename, weak) {
-
-        // Skip if already loaded / attempted
-        if (self.files.indexOf(filename) > -1)
-            return;
-        self.files.push(filename);
-
-        // Shortcut bundled definitions
-        if (filename in common) {
-            if (sync)
-                process(filename, common[filename]);
-            else {
-                ++queued;
-                setTimeout(function() {
-                    --queued;
-                    process(filename, common[filename]);
-                });
-            }
-            return;
-        }
-
-        // Otherwise fetch from disk or network
-        if (sync) {
-            var source;
-            try {
-                source = util.fs.readFileSync(filename).toString("utf8");
-            } catch (err) {
-                if (!weak)
-                    finish(err);
-                return;
-            }
-            process(filename, source);
-        } else {
-            ++queued;
-            self.fetch(filename, function(err, source) {
-                --queued;
-                /* istanbul ignore if */
-                if (!callback)
-                    return; // terminated meanwhile
-                if (err) {
-                    /* istanbul ignore else */
-                    if (!weak)
-                        finish(err);
-                    else if (!queued) // can't be covered reliably
-                        finish(null, self);
-                    return;
-                }
-                process(filename, source);
-            });
-        }
-    }
-    var queued = 0;
-
-    // Assembling the root namespace doesn't require working type
-    // references anymore, so we can load everything in parallel
-    if (util.isString(filename))
-        filename = [ filename ];
-    for (var i = 0, resolved; i < filename.length; ++i)
-        if (resolved = self.resolvePath("", filename[i]))
-            fetch(resolved);
-
-    if (sync)
-        return self;
-    if (!queued)
-        finish(null, self);
-    return undefined;
-};
-// function load(filename:string, options:IParseOptions, callback:LoadCallback):undefined
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into this root namespace and calls the callback.
- * @function Root#load
- * @param {string|string[]} filename Names of one or multiple files to load
- * @param {LoadCallback} callback Callback function
- * @returns {undefined}
- * @variation 2
- */
-// function load(filename:string, callback:LoadCallback):undefined
-
-/**
- * Loads one or multiple .proto or preprocessed .json files into this root namespace and returns a promise.
- * @function Root#load
- * @param {string|string[]} filename Names of one or multiple files to load
- * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
- * @returns {Promise<Root>} Promise
- * @variation 3
- */
-// function load(filename:string, [options:IParseOptions]):Promise<Root>
-
-/**
- * Synchronously loads one or multiple .proto or preprocessed .json files into this root namespace (node only).
- * @function Root#loadSync
- * @param {string|string[]} filename Names of one or multiple files to load
- * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
- * @returns {Root} Root namespace
- * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
- */
-Root.prototype.loadSync = function loadSync(filename, options) {
-    if (!util.isNode)
-        throw Error("not supported");
-    return this.load(filename, options, SYNC);
-};
-
-/**
- * @override
- */
-Root.prototype.resolveAll = function resolveAll() {
-    if (this.deferred.length)
-        throw Error("unresolvable extensions: " + this.deferred.map(function(field) {
-            return "'extend " + field.extend + "' in " + field.parent.fullName;
-        }).join(", "));
-    return Namespace.prototype.resolveAll.call(this);
-};
-
-// only uppercased (and thus conflict-free) children are exposed, see below
-var exposeRe = /^[A-Z]/;
-
-/**
- * Handles a deferred declaring extension field by creating a sister field to represent it within its extended type.
- * @param {Root} root Root instance
- * @param {Field} field Declaring extension field witin the declaring type
- * @returns {boolean} `true` if successfully added to the extended type, `false` otherwise
- * @inner
- * @ignore
- */
-function tryHandleExtension(root, field) {
-    var extendedType = field.parent.lookup(field.extend);
-    if (extendedType) {
-        var sisterField = new Field(field.fullName, field.id, field.type, field.rule, undefined, field.options);
-        sisterField.declaringField = field;
-        field.extensionField = sisterField;
-        extendedType.add(sisterField);
-        return true;
-    }
-    return false;
-}
-
-/**
- * Called when any object is added to this root or its sub-namespaces.
- * @param {ReflectionObject} object Object added
- * @returns {undefined}
- * @private
- */
-Root.prototype._handleAdd = function _handleAdd(object) {
-    if (object instanceof Field) {
-
-        if (/* an extension field (implies not part of a oneof) */ object.extend !== undefined && /* not already handled */ !object.extensionField)
-            if (!tryHandleExtension(this, object))
-                this.deferred.push(object);
-
-    } else if (object instanceof Enum) {
-
-        if (exposeRe.test(object.name))
-            object.parent[object.name] = object.values; // expose enum values as property of its parent
-
-    } else if (!(object instanceof OneOf)) /* everything else is a namespace */ {
-
-        if (object instanceof Type) // Try to handle any deferred extensions
-            for (var i = 0; i < this.deferred.length;)
-                if (tryHandleExtension(this, this.deferred[i]))
-                    this.deferred.splice(i, 1);
-                else
-                    ++i;
-        for (var j = 0; j < /* initializes */ object.nestedArray.length; ++j) // recurse into the namespace
-            this._handleAdd(object._nestedArray[j]);
-        if (exposeRe.test(object.name))
-            object.parent[object.name] = object; // expose namespace as property of its parent
-    }
-
-    // The above also adds uppercased (and thus conflict-free) nested types, services and enums as
-    // properties of namespaces just like static code does. This allows using a .d.ts generated for
-    // a static module with reflection-based solutions where the condition is met.
-};
-
-/**
- * Called when any object is removed from this root or its sub-namespaces.
- * @param {ReflectionObject} object Object removed
- * @returns {undefined}
- * @private
- */
-Root.prototype._handleRemove = function _handleRemove(object) {
-    if (object instanceof Field) {
-
-        if (/* an extension field */ object.extend !== undefined) {
-            if (/* already handled */ object.extensionField) { // remove its sister field
-                object.extensionField.parent.remove(object.extensionField);
-                object.extensionField = null;
-            } else { // cancel the extension
-                var index = this.deferred.indexOf(object);
-                /* istanbul ignore else */
-                if (index > -1)
-                    this.deferred.splice(index, 1);
-            }
-        }
-
-    } else if (object instanceof Enum) {
-
-        if (exposeRe.test(object.name))
-            delete object.parent[object.name]; // unexpose enum values
-
-    } else if (object instanceof Namespace) {
-
-        for (var i = 0; i < /* initializes */ object.nestedArray.length; ++i) // recurse into the namespace
-            this._handleRemove(object._nestedArray[i]);
-
-        if (exposeRe.test(object.name))
-            delete object.parent[object.name]; // unexpose namespaces
-
-    }
-};
-
-// Sets up cyclic dependencies (called in index-light)
-Root._configure = function(Type_, parse_, common_) {
-    Type   = Type_;
-    parse  = parse_;
-    common = common_;
-};
-
-
-/***/ }),
-
-/***/ 529:
-/***/ ((module) => {
-
-"use strict";
-
-module.exports = {};
-
-/**
- * Named roots.
- * This is where pbjs stores generated structures (the option `-r, --root` specifies a name).
- * Can also be used manually to make roots available accross modules.
- * @name roots
- * @type {Object.<string,Root>}
- * @example
- * // pbjs -r myroot -o compiled.js ...
- *
- * // in another module:
- * require("./compiled.js");
- *
- * // in any subsequent module:
- * var root = protobuf.roots["myroot"];
- */
-
-
-/***/ }),
-
-/***/ 47:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-/**
- * Streaming RPC helpers.
- * @namespace
- */
-var rpc = exports;
-
-/**
- * RPC implementation passed to {@link Service#create} performing a service request on network level, i.e. by utilizing http requests or websockets.
- * @typedef RPCImpl
- * @type {function}
- * @param {Method|rpc.ServiceMethod<Message<{}>,Message<{}>>} method Reflected or static method being called
- * @param {Uint8Array} requestData Request data
- * @param {RPCImplCallback} callback Callback function
- * @returns {undefined}
- * @example
- * function rpcImpl(method, requestData, callback) {
- *     if (protobuf.util.lcFirst(method.name) !== "myMethod") // compatible with static code
- *         throw Error("no such method");
- *     asynchronouslyObtainAResponse(requestData, function(err, responseData) {
- *         callback(err, responseData);
- *     });
- * }
- */
-
-/**
- * Node-style callback as used by {@link RPCImpl}.
- * @typedef RPCImplCallback
- * @type {function}
- * @param {Error|null} error Error, if any, otherwise `null`
- * @param {Uint8Array|null} [response] Response data or `null` to signal end of stream, if there hasn't been an error
- * @returns {undefined}
- */
-
-rpc.Service = __webpack_require__(595);
-
-
-/***/ }),
-
-/***/ 595:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Service;
-
-var util = __webpack_require__(610);
-
-// Extends EventEmitter
-(Service.prototype = Object.create(util.EventEmitter.prototype)).constructor = Service;
-
-/**
- * A service method callback as used by {@link rpc.ServiceMethod|ServiceMethod}.
- *
- * Differs from {@link RPCImplCallback} in that it is an actual callback of a service method which may not return `response = null`.
- * @typedef rpc.ServiceMethodCallback
- * @template TRes extends Message<TRes>
- * @type {function}
- * @param {Error|null} error Error, if any
- * @param {TRes} [response] Response message
- * @returns {undefined}
- */
-
-/**
- * A service method part of a {@link rpc.Service} as created by {@link Service.create}.
- * @typedef rpc.ServiceMethod
- * @template TReq extends Message<TReq>
- * @template TRes extends Message<TRes>
- * @type {function}
- * @param {TReq|Properties<TReq>} request Request message or plain object
- * @param {rpc.ServiceMethodCallback<TRes>} [callback] Node-style callback called with the error, if any, and the response message
- * @returns {Promise<Message<TRes>>} Promise if `callback` has been omitted, otherwise `undefined`
- */
-
-/**
- * Constructs a new RPC service instance.
- * @classdesc An RPC service as returned by {@link Service#create}.
- * @exports rpc.Service
- * @extends util.EventEmitter
- * @constructor
- * @param {RPCImpl} rpcImpl RPC implementation
- * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
- * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
- */
-function Service(rpcImpl, requestDelimited, responseDelimited) {
-
-    if (typeof rpcImpl !== "function")
-        throw TypeError("rpcImpl must be a function");
-
-    util.EventEmitter.call(this);
-
-    /**
-     * RPC implementation. Becomes `null` once the service is ended.
-     * @type {RPCImpl|null}
-     */
-    this.rpcImpl = rpcImpl;
-
-    /**
-     * Whether requests are length-delimited.
-     * @type {boolean}
-     */
-    this.requestDelimited = Boolean(requestDelimited);
-
-    /**
-     * Whether responses are length-delimited.
-     * @type {boolean}
-     */
-    this.responseDelimited = Boolean(responseDelimited);
-}
-
-/**
- * Calls a service method through {@link rpc.Service#rpcImpl|rpcImpl}.
- * @param {Method|rpc.ServiceMethod<TReq,TRes>} method Reflected or static method
- * @param {Constructor<TReq>} requestCtor Request constructor
- * @param {Constructor<TRes>} responseCtor Response constructor
- * @param {TReq|Properties<TReq>} request Request message or plain object
- * @param {rpc.ServiceMethodCallback<TRes>} callback Service callback
- * @returns {undefined}
- * @template TReq extends Message<TReq>
- * @template TRes extends Message<TRes>
- */
-Service.prototype.rpcCall = function rpcCall(method, requestCtor, responseCtor, request, callback) {
-
-    if (!request)
-        throw TypeError("request must be specified");
-
-    var self = this;
-    if (!callback)
-        return util.asPromise(rpcCall, self, method, requestCtor, responseCtor, request);
-
-    if (!self.rpcImpl) {
-        setTimeout(function() { callback(Error("already ended")); }, 0);
-        return undefined;
-    }
-
-    try {
-        return self.rpcImpl(
-            method,
-            requestCtor[self.requestDelimited ? "encodeDelimited" : "encode"](request).finish(),
-            function rpcCallback(err, response) {
-
-                if (err) {
-                    self.emit("error", err, method);
-                    return callback(err);
-                }
-
-                if (response === null) {
-                    self.end(/* endedByRPC */ true);
-                    return undefined;
-                }
-
-                if (!(response instanceof responseCtor)) {
-                    try {
-                        response = responseCtor[self.responseDelimited ? "decodeDelimited" : "decode"](response);
-                    } catch (err) {
-                        self.emit("error", err, method);
-                        return callback(err);
-                    }
-                }
-
-                self.emit("data", response, method);
-                return callback(null, response);
-            }
-        );
-    } catch (err) {
-        self.emit("error", err, method);
-        setTimeout(function() { callback(err); }, 0);
-        return undefined;
-    }
-};
-
-/**
- * Ends this service and emits the `end` event.
- * @param {boolean} [endedByRPC=false] Whether the service has been ended by the RPC implementation.
- * @returns {rpc.Service} `this`
- */
-Service.prototype.end = function end(endedByRPC) {
-    if (this.rpcImpl) {
-        if (!endedByRPC) // signal end to rpcImpl
-            this.rpcImpl(null, null, null);
-        this.rpcImpl = null;
-        this.emit("end").off();
-    }
-    return this;
-};
-
-
-/***/ }),
-
-/***/ 687:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Service;
-
-// extends Namespace
-var Namespace = __webpack_require__(923);
-((Service.prototype = Object.create(Namespace.prototype)).constructor = Service).className = "Service";
-
-var Method = __webpack_require__(811),
-    util   = __webpack_require__(262),
-    rpc    = __webpack_require__(47);
-
-/**
- * Constructs a new service instance.
- * @classdesc Reflected service.
- * @extends NamespaceBase
- * @constructor
- * @param {string} name Service name
- * @param {Object.<string,*>} [options] Service options
- * @throws {TypeError} If arguments are invalid
- */
-function Service(name, options) {
-    Namespace.call(this, name, options);
-
-    /**
-     * Service methods.
-     * @type {Object.<string,Method>}
-     */
-    this.methods = {}; // toJSON, marker
-
-    /**
-     * Cached methods as an array.
-     * @type {Method[]|null}
-     * @private
-     */
-    this._methodsArray = null;
-}
-
-/**
- * Service descriptor.
- * @interface IService
- * @extends INamespace
- * @property {Object.<string,IMethod>} methods Method descriptors
- */
-
-/**
- * Constructs a service from a service descriptor.
- * @param {string} name Service name
- * @param {IService} json Service descriptor
- * @returns {Service} Created service
- * @throws {TypeError} If arguments are invalid
- */
-Service.fromJSON = function fromJSON(name, json) {
-    var service = new Service(name, json.options);
-    /* istanbul ignore else */
-    if (json.methods)
-        for (var names = Object.keys(json.methods), i = 0; i < names.length; ++i)
-            service.add(Method.fromJSON(names[i], json.methods[names[i]]));
-    if (json.nested)
-        service.addJSON(json.nested);
-    service.comment = json.comment;
-    return service;
-};
-
-/**
- * Converts this service to a service descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IService} Service descriptor
- */
-Service.prototype.toJSON = function toJSON(toJSONOptions) {
-    var inherited = Namespace.prototype.toJSON.call(this, toJSONOptions);
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "options" , inherited && inherited.options || undefined,
-        "methods" , Namespace.arrayToJSON(this.methodsArray, toJSONOptions) || /* istanbul ignore next */ {},
-        "nested"  , inherited && inherited.nested || undefined,
-        "comment" , keepComments ? this.comment : undefined
-    ]);
-};
-
-/**
- * Methods of this service as an array for iteration.
- * @name Service#methodsArray
- * @type {Method[]}
- * @readonly
- */
-Object.defineProperty(Service.prototype, "methodsArray", {
-    get: function() {
-        return this._methodsArray || (this._methodsArray = util.toArray(this.methods));
-    }
-});
-
-function clearCache(service) {
-    service._methodsArray = null;
-    return service;
-}
-
-/**
- * @override
- */
-Service.prototype.get = function get(name) {
-    return this.methods[name]
-        || Namespace.prototype.get.call(this, name);
-};
-
-/**
- * @override
- */
-Service.prototype.resolveAll = function resolveAll() {
-    var methods = this.methodsArray;
-    for (var i = 0; i < methods.length; ++i)
-        methods[i].resolve();
-    return Namespace.prototype.resolve.call(this);
-};
-
-/**
- * @override
- */
-Service.prototype.add = function add(object) {
-
-    /* istanbul ignore if */
-    if (this.get(object.name))
-        throw Error("duplicate name '" + object.name + "' in " + this);
-
-    if (object instanceof Method) {
-        this.methods[object.name] = object;
-        object.parent = this;
-        return clearCache(this);
-    }
-    return Namespace.prototype.add.call(this, object);
-};
-
-/**
- * @override
- */
-Service.prototype.remove = function remove(object) {
-    if (object instanceof Method) {
-
-        /* istanbul ignore if */
-        if (this.methods[object.name] !== object)
-            throw Error(object + " is not a member of " + this);
-
-        delete this.methods[object.name];
-        object.parent = null;
-        return clearCache(this);
-    }
-    return Namespace.prototype.remove.call(this, object);
-};
-
-/**
- * Creates a runtime service using the specified rpc implementation.
- * @param {RPCImpl} rpcImpl RPC implementation
- * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
- * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
- * @returns {rpc.Service} RPC service. Useful where requests and/or responses are streamed.
- */
-Service.prototype.create = function create(rpcImpl, requestDelimited, responseDelimited) {
-    var rpcService = new rpc.Service(rpcImpl, requestDelimited, responseDelimited);
-    for (var i = 0, method; i < /* initializes */ this.methodsArray.length; ++i) {
-        var methodName = util.lcFirst((method = this._methodsArray[i]).resolve().name).replace(/[^$\w_]/g, "");
-        rpcService[methodName] = util.codegen(["r","c"], util.isReserved(methodName) ? methodName + "_" : methodName)("return this.rpcCall(m,q,s,r,c)")({
-            m: method,
-            q: method.resolvedRequestType.ctor,
-            s: method.resolvedResponseType.ctor
-        });
-    }
-    return rpcService;
-};
-
-
-/***/ }),
-
-/***/ 527:
-/***/ ((module) => {
-
-"use strict";
-
-module.exports = tokenize;
-
-var delimRe        = /[\s{}=;:[\],'"()<>]/g,
-    stringDoubleRe = /(?:"([^"\\]*(?:\\.[^"\\]*)*)")/g,
-    stringSingleRe = /(?:'([^'\\]*(?:\\.[^'\\]*)*)')/g;
-
-var setCommentRe = /^ *[*/]+ */,
-    setCommentAltRe = /^\s*\*?\/*/,
-    setCommentSplitRe = /\n/g,
-    whitespaceRe = /\s/,
-    unescapeRe = /\\(.?)/g;
-
-var unescapeMap = {
-    "0": "\0",
-    "r": "\r",
-    "n": "\n",
-    "t": "\t"
-};
-
-/**
- * Unescapes a string.
- * @param {string} str String to unescape
- * @returns {string} Unescaped string
- * @property {Object.<string,string>} map Special characters map
- * @memberof tokenize
- */
-function unescape(str) {
-    return str.replace(unescapeRe, function($0, $1) {
-        switch ($1) {
-            case "\\":
-            case "":
-                return $1;
-            default:
-                return unescapeMap[$1] || "";
-        }
-    });
-}
-
-tokenize.unescape = unescape;
-
-/**
- * Gets the next token and advances.
- * @typedef TokenizerHandleNext
- * @type {function}
- * @returns {string|null} Next token or `null` on eof
- */
-
-/**
- * Peeks for the next token.
- * @typedef TokenizerHandlePeek
- * @type {function}
- * @returns {string|null} Next token or `null` on eof
- */
-
-/**
- * Pushes a token back to the stack.
- * @typedef TokenizerHandlePush
- * @type {function}
- * @param {string} token Token
- * @returns {undefined}
- */
-
-/**
- * Skips the next token.
- * @typedef TokenizerHandleSkip
- * @type {function}
- * @param {string} expected Expected token
- * @param {boolean} [optional=false] If optional
- * @returns {boolean} Whether the token matched
- * @throws {Error} If the token didn't match and is not optional
- */
-
-/**
- * Gets the comment on the previous line or, alternatively, the line comment on the specified line.
- * @typedef TokenizerHandleCmnt
- * @type {function}
- * @param {number} [line] Line number
- * @returns {string|null} Comment text or `null` if none
- */
-
-/**
- * Handle object returned from {@link tokenize}.
- * @interface ITokenizerHandle
- * @property {TokenizerHandleNext} next Gets the next token and advances (`null` on eof)
- * @property {TokenizerHandlePeek} peek Peeks for the next token (`null` on eof)
- * @property {TokenizerHandlePush} push Pushes a token back to the stack
- * @property {TokenizerHandleSkip} skip Skips a token, returns its presence and advances or, if non-optional and not present, throws
- * @property {TokenizerHandleCmnt} cmnt Gets the comment on the previous line or the line comment on the specified line, if any
- * @property {number} line Current line number
- */
-
-/**
- * Tokenizes the given .proto source and returns an object with useful utility functions.
- * @param {string} source Source contents
- * @param {boolean} alternateCommentMode Whether we should activate alternate comment parsing mode.
- * @returns {ITokenizerHandle} Tokenizer handle
- */
-function tokenize(source, alternateCommentMode) {
-    /* eslint-disable callback-return */
-    source = source.toString();
-
-    var offset = 0,
-        length = source.length,
-        line = 1,
-        commentType = null,
-        commentText = null,
-        commentLine = 0,
-        commentLineEmpty = false,
-        commentIsLeading = false;
-
-    var stack = [];
-
-    var stringDelim = null;
-
-    /* istanbul ignore next */
-    /**
-     * Creates an error for illegal syntax.
-     * @param {string} subject Subject
-     * @returns {Error} Error created
-     * @inner
-     */
-    function illegal(subject) {
-        return Error("illegal " + subject + " (line " + line + ")");
-    }
-
-    /**
-     * Reads a string till its end.
-     * @returns {string} String read
-     * @inner
-     */
-    function readString() {
-        var re = stringDelim === "'" ? stringSingleRe : stringDoubleRe;
-        re.lastIndex = offset - 1;
-        var match = re.exec(source);
-        if (!match)
-            throw illegal("string");
-        offset = re.lastIndex;
-        push(stringDelim);
-        stringDelim = null;
-        return unescape(match[1]);
-    }
-
-    /**
-     * Gets the character at `pos` within the source.
-     * @param {number} pos Position
-     * @returns {string} Character
-     * @inner
-     */
-    function charAt(pos) {
-        return source.charAt(pos);
-    }
-
-    /**
-     * Sets the current comment text.
-     * @param {number} start Start offset
-     * @param {number} end End offset
-     * @param {boolean} isLeading set if a leading comment
-     * @returns {undefined}
-     * @inner
-     */
-    function setComment(start, end, isLeading) {
-        commentType = source.charAt(start++);
-        commentLine = line;
-        commentLineEmpty = false;
-        commentIsLeading = isLeading;
-        var lookback;
-        if (alternateCommentMode) {
-            lookback = 2;  // alternate comment parsing: "//" or "/*"
-        } else {
-            lookback = 3;  // "///" or "/**"
-        }
-        var commentOffset = start - lookback,
-            c;
-        do {
-            if (--commentOffset < 0 ||
-                    (c = source.charAt(commentOffset)) === "\n") {
-                commentLineEmpty = true;
-                break;
-            }
-        } while (c === " " || c === "\t");
-        var lines = source
-            .substring(start, end)
-            .split(setCommentSplitRe);
-        for (var i = 0; i < lines.length; ++i)
-            lines[i] = lines[i]
-                .replace(alternateCommentMode ? setCommentAltRe : setCommentRe, "")
-                .trim();
-        commentText = lines
-            .join("\n")
-            .trim();
-    }
-
-    function isDoubleSlashCommentLine(startOffset) {
-        var endOffset = findEndOfLine(startOffset);
-
-        // see if remaining line matches comment pattern
-        var lineText = source.substring(startOffset, endOffset);
-        // look for 1 or 2 slashes since startOffset would already point past
-        // the first slash that started the comment.
-        var isComment = /^\s*\/{1,2}/.test(lineText);
-        return isComment;
-    }
-
-    function findEndOfLine(cursor) {
-        // find end of cursor's line
-        var endOffset = cursor;
-        while (endOffset < length && charAt(endOffset) !== "\n") {
-            endOffset++;
-        }
-        return endOffset;
-    }
-
-    /**
-     * Obtains the next token.
-     * @returns {string|null} Next token or `null` on eof
-     * @inner
-     */
-    function next() {
-        if (stack.length > 0)
-            return stack.shift();
-        if (stringDelim)
-            return readString();
-        var repeat,
-            prev,
-            curr,
-            start,
-            isDoc,
-            isLeadingComment = offset === 0;
-        do {
-            if (offset === length)
-                return null;
-            repeat = false;
-            while (whitespaceRe.test(curr = charAt(offset))) {
-                if (curr === "\n") {
-                    isLeadingComment = true;
-                    ++line;
-                }
-                if (++offset === length)
-                    return null;
-            }
-
-            if (charAt(offset) === "/") {
-                if (++offset === length) {
-                    throw illegal("comment");
-                }
-                if (charAt(offset) === "/") { // Line
-                    if (!alternateCommentMode) {
-                        // check for triple-slash comment
-                        isDoc = charAt(start = offset + 1) === "/";
-
-                        while (charAt(++offset) !== "\n") {
-                            if (offset === length) {
-                                return null;
-                            }
-                        }
-                        ++offset;
-                        if (isDoc) {
-                            setComment(start, offset - 1, isLeadingComment);
-                        }
-                        ++line;
-                        repeat = true;
-                    } else {
-                        // check for double-slash comments, consolidating consecutive lines
-                        start = offset;
-                        isDoc = false;
-                        if (isDoubleSlashCommentLine(offset)) {
-                            isDoc = true;
-                            do {
-                                offset = findEndOfLine(offset);
-                                if (offset === length) {
-                                    break;
-                                }
-                                offset++;
-                            } while (isDoubleSlashCommentLine(offset));
-                        } else {
-                            offset = Math.min(length, findEndOfLine(offset) + 1);
-                        }
-                        if (isDoc) {
-                            setComment(start, offset, isLeadingComment);
-                        }
-                        line++;
-                        repeat = true;
-                    }
-                } else if ((curr = charAt(offset)) === "*") { /* Block */
-                    // check for /** (regular comment mode) or /* (alternate comment mode)
-                    start = offset + 1;
-                    isDoc = alternateCommentMode || charAt(start) === "*";
-                    do {
-                        if (curr === "\n") {
-                            ++line;
-                        }
-                        if (++offset === length) {
-                            throw illegal("comment");
-                        }
-                        prev = curr;
-                        curr = charAt(offset);
-                    } while (prev !== "*" || curr !== "/");
-                    ++offset;
-                    if (isDoc) {
-                        setComment(start, offset - 2, isLeadingComment);
-                    }
-                    repeat = true;
-                } else {
-                    return "/";
-                }
-            }
-        } while (repeat);
-
-        // offset !== length if we got here
-
-        var end = offset;
-        delimRe.lastIndex = 0;
-        var delim = delimRe.test(charAt(end++));
-        if (!delim)
-            while (end < length && !delimRe.test(charAt(end)))
-                ++end;
-        var token = source.substring(offset, offset = end);
-        if (token === "\"" || token === "'")
-            stringDelim = token;
-        return token;
-    }
-
-    /**
-     * Pushes a token back to the stack.
-     * @param {string} token Token
-     * @returns {undefined}
-     * @inner
-     */
-    function push(token) {
-        stack.push(token);
-    }
-
-    /**
-     * Peeks for the next token.
-     * @returns {string|null} Token or `null` on eof
-     * @inner
-     */
-    function peek() {
-        if (!stack.length) {
-            var token = next();
-            if (token === null)
-                return null;
-            push(token);
-        }
-        return stack[0];
-    }
-
-    /**
-     * Skips a token.
-     * @param {string} expected Expected token
-     * @param {boolean} [optional=false] Whether the token is optional
-     * @returns {boolean} `true` when skipped, `false` if not
-     * @throws {Error} When a required token is not present
-     * @inner
-     */
-    function skip(expected, optional) {
-        var actual = peek(),
-            equals = actual === expected;
-        if (equals) {
-            next();
-            return true;
-        }
-        if (!optional)
-            throw illegal("token '" + actual + "', '" + expected + "' expected");
-        return false;
-    }
-
-    /**
-     * Gets a comment.
-     * @param {number} [trailingLine] Line number if looking for a trailing comment
-     * @returns {string|null} Comment text
-     * @inner
-     */
-    function cmnt(trailingLine) {
-        var ret = null;
-        if (trailingLine === undefined) {
-            if (commentLine === line - 1 && (alternateCommentMode || commentType === "*" || commentLineEmpty)) {
-                ret = commentIsLeading ? commentText : null;
-            }
-        } else {
-            /* istanbul ignore else */
-            if (commentLine < trailingLine) {
-                peek();
-            }
-            if (commentLine === trailingLine && !commentLineEmpty && (alternateCommentMode || commentType === "/")) {
-                ret = commentIsLeading ? null : commentText;
-            }
-        }
-        return ret;
-    }
-
-    return Object.defineProperty({
-        next: next,
-        peek: peek,
-        push: push,
-        skip: skip,
-        cmnt: cmnt
-    }, "line", {
-        get: function() { return line; }
-    });
-    /* eslint-enable callback-return */
-}
-
-
-/***/ }),
-
-/***/ 882:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Type;
-
-// extends Namespace
-var Namespace = __webpack_require__(923);
-((Type.prototype = Object.create(Namespace.prototype)).constructor = Type).className = "Type";
-
-var Enum      = __webpack_require__(643),
-    OneOf     = __webpack_require__(457),
-    Field     = __webpack_require__(344),
-    MapField  = __webpack_require__(252),
-    Service   = __webpack_require__(687),
-    Message   = __webpack_require__(551),
-    Reader    = __webpack_require__(237),
-    Writer    = __webpack_require__(449),
-    util      = __webpack_require__(262),
-    encoder   = __webpack_require__(80),
-    decoder   = __webpack_require__(728),
-    verifier  = __webpack_require__(420),
-    converter = __webpack_require__(744),
-    wrappers  = __webpack_require__(434);
-
-/**
- * Constructs a new reflected message type instance.
- * @classdesc Reflected message type.
- * @extends NamespaceBase
- * @constructor
- * @param {string} name Message name
- * @param {Object.<string,*>} [options] Declared options
- */
-function Type(name, options) {
-    Namespace.call(this, name, options);
-
-    /**
-     * Message fields.
-     * @type {Object.<string,Field>}
-     */
-    this.fields = {};  // toJSON, marker
-
-    /**
-     * Oneofs declared within this namespace, if any.
-     * @type {Object.<string,OneOf>}
-     */
-    this.oneofs = undefined; // toJSON
-
-    /**
-     * Extension ranges, if any.
-     * @type {number[][]}
-     */
-    this.extensions = undefined; // toJSON
-
-    /**
-     * Reserved ranges, if any.
-     * @type {Array.<number[]|string>}
-     */
-    this.reserved = undefined; // toJSON
-
-    /*?
-     * Whether this type is a legacy group.
-     * @type {boolean|undefined}
-     */
-    this.group = undefined; // toJSON
-
-    /**
-     * Cached fields by id.
-     * @type {Object.<number,Field>|null}
-     * @private
-     */
-    this._fieldsById = null;
-
-    /**
-     * Cached fields as an array.
-     * @type {Field[]|null}
-     * @private
-     */
-    this._fieldsArray = null;
-
-    /**
-     * Cached oneofs as an array.
-     * @type {OneOf[]|null}
-     * @private
-     */
-    this._oneofsArray = null;
-
-    /**
-     * Cached constructor.
-     * @type {Constructor<{}>}
-     * @private
-     */
-    this._ctor = null;
-}
-
-Object.defineProperties(Type.prototype, {
-
-    /**
-     * Message fields by id.
-     * @name Type#fieldsById
-     * @type {Object.<number,Field>}
-     * @readonly
-     */
-    fieldsById: {
-        get: function() {
-
-            /* istanbul ignore if */
-            if (this._fieldsById)
-                return this._fieldsById;
-
-            this._fieldsById = {};
-            for (var names = Object.keys(this.fields), i = 0; i < names.length; ++i) {
-                var field = this.fields[names[i]],
-                    id = field.id;
-
-                /* istanbul ignore if */
-                if (this._fieldsById[id])
-                    throw Error("duplicate id " + id + " in " + this);
-
-                this._fieldsById[id] = field;
-            }
-            return this._fieldsById;
-        }
-    },
-
-    /**
-     * Fields of this message as an array for iteration.
-     * @name Type#fieldsArray
-     * @type {Field[]}
-     * @readonly
-     */
-    fieldsArray: {
-        get: function() {
-            return this._fieldsArray || (this._fieldsArray = util.toArray(this.fields));
-        }
-    },
-
-    /**
-     * Oneofs of this message as an array for iteration.
-     * @name Type#oneofsArray
-     * @type {OneOf[]}
-     * @readonly
-     */
-    oneofsArray: {
-        get: function() {
-            return this._oneofsArray || (this._oneofsArray = util.toArray(this.oneofs));
-        }
-    },
-
-    /**
-     * The registered constructor, if any registered, otherwise a generic constructor.
-     * Assigning a function replaces the internal constructor. If the function does not extend {@link Message} yet, its prototype will be setup accordingly and static methods will be populated. If it already extends {@link Message}, it will just replace the internal constructor.
-     * @name Type#ctor
-     * @type {Constructor<{}>}
-     */
-    ctor: {
-        get: function() {
-            return this._ctor || (this.ctor = Type.generateConstructor(this)());
-        },
-        set: function(ctor) {
-
-            // Ensure proper prototype
-            var prototype = ctor.prototype;
-            if (!(prototype instanceof Message)) {
-                (ctor.prototype = new Message()).constructor = ctor;
-                util.merge(ctor.prototype, prototype);
-            }
-
-            // Classes and messages reference their reflected type
-            ctor.$type = ctor.prototype.$type = this;
-
-            // Mix in static methods
-            util.merge(ctor, Message, true);
-
-            this._ctor = ctor;
-
-            // Messages have non-enumerable default values on their prototype
-            var i = 0;
-            for (; i < /* initializes */ this.fieldsArray.length; ++i)
-                this._fieldsArray[i].resolve(); // ensures a proper value
-
-            // Messages have non-enumerable getters and setters for each virtual oneof field
-            var ctorProperties = {};
-            for (i = 0; i < /* initializes */ this.oneofsArray.length; ++i)
-                ctorProperties[this._oneofsArray[i].resolve().name] = {
-                    get: util.oneOfGetter(this._oneofsArray[i].oneof),
-                    set: util.oneOfSetter(this._oneofsArray[i].oneof)
-                };
-            if (i)
-                Object.defineProperties(ctor.prototype, ctorProperties);
-        }
-    }
-});
-
-/**
- * Generates a constructor function for the specified type.
- * @param {Type} mtype Message type
- * @returns {Codegen} Codegen instance
- */
-Type.generateConstructor = function generateConstructor(mtype) {
-    /* eslint-disable no-unexpected-multiline */
-    var gen = util.codegen(["p"], mtype.name);
-    // explicitly initialize mutable object/array fields so that these aren't just inherited from the prototype
-    for (var i = 0, field; i < mtype.fieldsArray.length; ++i)
-        if ((field = mtype._fieldsArray[i]).map) gen
-            ("this%s={}", util.safeProp(field.name));
-        else if (field.repeated) gen
-            ("this%s=[]", util.safeProp(field.name));
-    return gen
-    ("if(p)for(var ks=Object.keys(p),i=0;i<ks.length;++i)if(p[ks[i]]!=null)") // omit undefined or null
-        ("this[ks[i]]=p[ks[i]]");
-    /* eslint-enable no-unexpected-multiline */
-};
-
-function clearCache(type) {
-    type._fieldsById = type._fieldsArray = type._oneofsArray = null;
-    delete type.encode;
-    delete type.decode;
-    delete type.verify;
-    return type;
-}
-
-/**
- * Message type descriptor.
- * @interface IType
- * @extends INamespace
- * @property {Object.<string,IOneOf>} [oneofs] Oneof descriptors
- * @property {Object.<string,IField>} fields Field descriptors
- * @property {number[][]} [extensions] Extension ranges
- * @property {number[][]} [reserved] Reserved ranges
- * @property {boolean} [group=false] Whether a legacy group or not
- */
-
-/**
- * Creates a message type from a message type descriptor.
- * @param {string} name Message name
- * @param {IType} json Message type descriptor
- * @returns {Type} Created message type
- */
-Type.fromJSON = function fromJSON(name, json) {
-    var type = new Type(name, json.options);
-    type.extensions = json.extensions;
-    type.reserved = json.reserved;
-    var names = Object.keys(json.fields),
-        i = 0;
-    for (; i < names.length; ++i)
-        type.add(
-            ( typeof json.fields[names[i]].keyType !== "undefined"
-            ? MapField.fromJSON
-            : Field.fromJSON )(names[i], json.fields[names[i]])
-        );
-    if (json.oneofs)
-        for (names = Object.keys(json.oneofs), i = 0; i < names.length; ++i)
-            type.add(OneOf.fromJSON(names[i], json.oneofs[names[i]]));
-    if (json.nested)
-        for (names = Object.keys(json.nested), i = 0; i < names.length; ++i) {
-            var nested = json.nested[names[i]];
-            type.add( // most to least likely
-                ( nested.id !== undefined
-                ? Field.fromJSON
-                : nested.fields !== undefined
-                ? Type.fromJSON
-                : nested.values !== undefined
-                ? Enum.fromJSON
-                : nested.methods !== undefined
-                ? Service.fromJSON
-                : Namespace.fromJSON )(names[i], nested)
-            );
-        }
-    if (json.extensions && json.extensions.length)
-        type.extensions = json.extensions;
-    if (json.reserved && json.reserved.length)
-        type.reserved = json.reserved;
-    if (json.group)
-        type.group = true;
-    if (json.comment)
-        type.comment = json.comment;
-    return type;
-};
-
-/**
- * Converts this message type to a message type descriptor.
- * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
- * @returns {IType} Message type descriptor
- */
-Type.prototype.toJSON = function toJSON(toJSONOptions) {
-    var inherited = Namespace.prototype.toJSON.call(this, toJSONOptions);
-    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
-    return util.toObject([
-        "options"    , inherited && inherited.options || undefined,
-        "oneofs"     , Namespace.arrayToJSON(this.oneofsArray, toJSONOptions),
-        "fields"     , Namespace.arrayToJSON(this.fieldsArray.filter(function(obj) { return !obj.declaringField; }), toJSONOptions) || {},
-        "extensions" , this.extensions && this.extensions.length ? this.extensions : undefined,
-        "reserved"   , this.reserved && this.reserved.length ? this.reserved : undefined,
-        "group"      , this.group || undefined,
-        "nested"     , inherited && inherited.nested || undefined,
-        "comment"    , keepComments ? this.comment : undefined
-    ]);
-};
-
-/**
- * @override
- */
-Type.prototype.resolveAll = function resolveAll() {
-    var fields = this.fieldsArray, i = 0;
-    while (i < fields.length)
-        fields[i++].resolve();
-    var oneofs = this.oneofsArray; i = 0;
-    while (i < oneofs.length)
-        oneofs[i++].resolve();
-    return Namespace.prototype.resolveAll.call(this);
-};
-
-/**
- * @override
- */
-Type.prototype.get = function get(name) {
-    return this.fields[name]
-        || this.oneofs && this.oneofs[name]
-        || this.nested && this.nested[name]
-        || null;
-};
-
-/**
- * Adds a nested object to this type.
- * @param {ReflectionObject} object Nested object to add
- * @returns {Type} `this`
- * @throws {TypeError} If arguments are invalid
- * @throws {Error} If there is already a nested object with this name or, if a field, when there is already a field with this id
- */
-Type.prototype.add = function add(object) {
-
-    if (this.get(object.name))
-        throw Error("duplicate name '" + object.name + "' in " + this);
-
-    if (object instanceof Field && object.extend === undefined) {
-        // NOTE: Extension fields aren't actual fields on the declaring type, but nested objects.
-        // The root object takes care of adding distinct sister-fields to the respective extended
-        // type instead.
-
-        // avoids calling the getter if not absolutely necessary because it's called quite frequently
-        if (this._fieldsById ? /* istanbul ignore next */ this._fieldsById[object.id] : this.fieldsById[object.id])
-            throw Error("duplicate id " + object.id + " in " + this);
-        if (this.isReservedId(object.id))
-            throw Error("id " + object.id + " is reserved in " + this);
-        if (this.isReservedName(object.name))
-            throw Error("name '" + object.name + "' is reserved in " + this);
-
-        if (object.parent)
-            object.parent.remove(object);
-        this.fields[object.name] = object;
-        object.message = this;
-        object.onAdd(this);
-        return clearCache(this);
-    }
-    if (object instanceof OneOf) {
-        if (!this.oneofs)
-            this.oneofs = {};
-        this.oneofs[object.name] = object;
-        object.onAdd(this);
-        return clearCache(this);
-    }
-    return Namespace.prototype.add.call(this, object);
-};
-
-/**
- * Removes a nested object from this type.
- * @param {ReflectionObject} object Nested object to remove
- * @returns {Type} `this`
- * @throws {TypeError} If arguments are invalid
- * @throws {Error} If `object` is not a member of this type
- */
-Type.prototype.remove = function remove(object) {
-    if (object instanceof Field && object.extend === undefined) {
-        // See Type#add for the reason why extension fields are excluded here.
-
-        /* istanbul ignore if */
-        if (!this.fields || this.fields[object.name] !== object)
-            throw Error(object + " is not a member of " + this);
-
-        delete this.fields[object.name];
-        object.parent = null;
-        object.onRemove(this);
-        return clearCache(this);
-    }
-    if (object instanceof OneOf) {
-
-        /* istanbul ignore if */
-        if (!this.oneofs || this.oneofs[object.name] !== object)
-            throw Error(object + " is not a member of " + this);
-
-        delete this.oneofs[object.name];
-        object.parent = null;
-        object.onRemove(this);
-        return clearCache(this);
-    }
-    return Namespace.prototype.remove.call(this, object);
-};
-
-/**
- * Tests if the specified id is reserved.
- * @param {number} id Id to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-Type.prototype.isReservedId = function isReservedId(id) {
-    return Namespace.isReservedId(this.reserved, id);
-};
-
-/**
- * Tests if the specified name is reserved.
- * @param {string} name Name to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-Type.prototype.isReservedName = function isReservedName(name) {
-    return Namespace.isReservedName(this.reserved, name);
-};
-
-/**
- * Creates a new message of this type using the specified properties.
- * @param {Object.<string,*>} [properties] Properties to set
- * @returns {Message<{}>} Message instance
- */
-Type.prototype.create = function create(properties) {
-    return new this.ctor(properties);
-};
-
-/**
- * Sets up {@link Type#encode|encode}, {@link Type#decode|decode} and {@link Type#verify|verify}.
- * @returns {Type} `this`
- */
-Type.prototype.setup = function setup() {
-    // Sets up everything at once so that the prototype chain does not have to be re-evaluated
-    // multiple times (V8, soft-deopt prototype-check).
-
-    var fullName = this.fullName,
-        types    = [];
-    for (var i = 0; i < /* initializes */ this.fieldsArray.length; ++i)
-        types.push(this._fieldsArray[i].resolve().resolvedType);
-
-    // Replace setup methods with type-specific generated functions
-    this.encode = encoder(this)({
-        Writer : Writer,
-        types  : types,
-        util   : util
-    });
-    this.decode = decoder(this)({
-        Reader : Reader,
-        types  : types,
-        util   : util
-    });
-    this.verify = verifier(this)({
-        types : types,
-        util  : util
-    });
-    this.fromObject = converter.fromObject(this)({
-        types : types,
-        util  : util
-    });
-    this.toObject = converter.toObject(this)({
-        types : types,
-        util  : util
-    });
-
-    // Inject custom wrappers for common types
-    var wrapper = wrappers[fullName];
-    if (wrapper) {
-        var originalThis = Object.create(this);
-        // if (wrapper.fromObject) {
-            originalThis.fromObject = this.fromObject;
-            this.fromObject = wrapper.fromObject.bind(originalThis);
-        // }
-        // if (wrapper.toObject) {
-            originalThis.toObject = this.toObject;
-            this.toObject = wrapper.toObject.bind(originalThis);
-        // }
-    }
-
-    return this;
-};
-
-/**
- * Encodes a message of this type. Does not implicitly {@link Type#verify|verify} messages.
- * @param {Message<{}>|Object.<string,*>} message Message instance or plain object
- * @param {Writer} [writer] Writer to encode to
- * @returns {Writer} writer
- */
-Type.prototype.encode = function encode_setup(message, writer) {
-    return this.setup().encode(message, writer); // overrides this method
-};
-
-/**
- * Encodes a message of this type preceeded by its byte length as a varint. Does not implicitly {@link Type#verify|verify} messages.
- * @param {Message<{}>|Object.<string,*>} message Message instance or plain object
- * @param {Writer} [writer] Writer to encode to
- * @returns {Writer} writer
- */
-Type.prototype.encodeDelimited = function encodeDelimited(message, writer) {
-    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
-};
-
-/**
- * Decodes a message of this type.
- * @param {Reader|Uint8Array} reader Reader or buffer to decode from
- * @param {number} [length] Length of the message, if known beforehand
- * @returns {Message<{}>} Decoded message
- * @throws {Error} If the payload is not a reader or valid buffer
- * @throws {util.ProtocolError<{}>} If required fields are missing
- */
-Type.prototype.decode = function decode_setup(reader, length) {
-    return this.setup().decode(reader, length); // overrides this method
-};
-
-/**
- * Decodes a message of this type preceeded by its byte length as a varint.
- * @param {Reader|Uint8Array} reader Reader or buffer to decode from
- * @returns {Message<{}>} Decoded message
- * @throws {Error} If the payload is not a reader or valid buffer
- * @throws {util.ProtocolError} If required fields are missing
- */
-Type.prototype.decodeDelimited = function decodeDelimited(reader) {
-    if (!(reader instanceof Reader))
-        reader = Reader.create(reader);
-    return this.decode(reader, reader.uint32());
-};
-
-/**
- * Verifies that field values are valid and that required fields are present.
- * @param {Object.<string,*>} message Plain object to verify
- * @returns {null|string} `null` if valid, otherwise the reason why it is not
- */
-Type.prototype.verify = function verify_setup(message) {
-    return this.setup().verify(message); // overrides this method
-};
-
-/**
- * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
- * @param {Object.<string,*>} object Plain object to convert
- * @returns {Message<{}>} Message instance
- */
-Type.prototype.fromObject = function fromObject(object) {
-    return this.setup().fromObject(object);
-};
-
-/**
- * Conversion options as used by {@link Type#toObject} and {@link Message.toObject}.
- * @interface IConversionOptions
- * @property {Function} [longs] Long conversion type.
- * Valid values are `String` and `Number` (the global types).
- * Defaults to copy the present value, which is a possibly unsafe number without and a {@link Long} with a long library.
- * @property {Function} [enums] Enum value conversion type.
- * Only valid value is `String` (the global type).
- * Defaults to copy the present value, which is the numeric id.
- * @property {Function} [bytes] Bytes value conversion type.
- * Valid values are `Array` and (a base64 encoded) `String` (the global types).
- * Defaults to copy the present value, which usually is a Buffer under node and an Uint8Array in the browser.
- * @property {boolean} [defaults=false] Also sets default values on the resulting object
- * @property {boolean} [arrays=false] Sets empty arrays for missing repeated fields even if `defaults=false`
- * @property {boolean} [objects=false] Sets empty objects for missing map fields even if `defaults=false`
- * @property {boolean} [oneofs=false] Includes virtual oneof properties set to the present field's name, if any
- * @property {boolean} [json=false] Performs additional JSON compatibility conversions, i.e. NaN and Infinity to strings
- */
-
-/**
- * Creates a plain object from a message of this type. Also converts values to other types if specified.
- * @param {Message<{}>} message Message instance
- * @param {IConversionOptions} [options] Conversion options
- * @returns {Object.<string,*>} Plain object
- */
-Type.prototype.toObject = function toObject(message, options) {
-    return this.setup().toObject(message, options);
-};
-
-/**
- * Decorator function as returned by {@link Type.d} (TypeScript).
- * @typedef TypeDecorator
- * @type {function}
- * @param {Constructor<T>} target Target constructor
- * @returns {undefined}
- * @template T extends Message<T>
- */
-
-/**
- * Type decorator (TypeScript).
- * @param {string} [typeName] Type name, defaults to the constructor's name
- * @returns {TypeDecorator<T>} Decorator function
- * @template T extends Message<T>
- */
-Type.d = function decorateType(typeName) {
-    return function typeDecorator(target) {
-        util.decorateType(target, typeName);
-    };
-};
-
-
-/***/ }),
-
-/***/ 361:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-/**
- * Common type constants.
- * @namespace
- */
-var types = exports;
-
-var util = __webpack_require__(262);
-
-var s = [
-    "double",   // 0
-    "float",    // 1
-    "int32",    // 2
-    "uint32",   // 3
-    "sint32",   // 4
-    "fixed32",  // 5
-    "sfixed32", // 6
-    "int64",    // 7
-    "uint64",   // 8
-    "sint64",   // 9
-    "fixed64",  // 10
-    "sfixed64", // 11
-    "bool",     // 12
-    "string",   // 13
-    "bytes"     // 14
-];
-
-function bake(values, offset) {
-    var i = 0, o = {};
-    offset |= 0;
-    while (i < values.length) o[s[i + offset]] = values[i++];
-    return o;
-}
-
-/**
- * Basic type wire types.
- * @type {Object.<string,number>}
- * @const
- * @property {number} double=1 Fixed64 wire type
- * @property {number} float=5 Fixed32 wire type
- * @property {number} int32=0 Varint wire type
- * @property {number} uint32=0 Varint wire type
- * @property {number} sint32=0 Varint wire type
- * @property {number} fixed32=5 Fixed32 wire type
- * @property {number} sfixed32=5 Fixed32 wire type
- * @property {number} int64=0 Varint wire type
- * @property {number} uint64=0 Varint wire type
- * @property {number} sint64=0 Varint wire type
- * @property {number} fixed64=1 Fixed64 wire type
- * @property {number} sfixed64=1 Fixed64 wire type
- * @property {number} bool=0 Varint wire type
- * @property {number} string=2 Ldelim wire type
- * @property {number} bytes=2 Ldelim wire type
- */
-types.basic = bake([
-    /* double   */ 1,
-    /* float    */ 5,
-    /* int32    */ 0,
-    /* uint32   */ 0,
-    /* sint32   */ 0,
-    /* fixed32  */ 5,
-    /* sfixed32 */ 5,
-    /* int64    */ 0,
-    /* uint64   */ 0,
-    /* sint64   */ 0,
-    /* fixed64  */ 1,
-    /* sfixed64 */ 1,
-    /* bool     */ 0,
-    /* string   */ 2,
-    /* bytes    */ 2
-]);
-
-/**
- * Basic type defaults.
- * @type {Object.<string,*>}
- * @const
- * @property {number} double=0 Double default
- * @property {number} float=0 Float default
- * @property {number} int32=0 Int32 default
- * @property {number} uint32=0 Uint32 default
- * @property {number} sint32=0 Sint32 default
- * @property {number} fixed32=0 Fixed32 default
- * @property {number} sfixed32=0 Sfixed32 default
- * @property {number} int64=0 Int64 default
- * @property {number} uint64=0 Uint64 default
- * @property {number} sint64=0 Sint32 default
- * @property {number} fixed64=0 Fixed64 default
- * @property {number} sfixed64=0 Sfixed64 default
- * @property {boolean} bool=false Bool default
- * @property {string} string="" String default
- * @property {Array.<number>} bytes=Array(0) Bytes default
- * @property {null} message=null Message default
- */
-types.defaults = bake([
-    /* double   */ 0,
-    /* float    */ 0,
-    /* int32    */ 0,
-    /* uint32   */ 0,
-    /* sint32   */ 0,
-    /* fixed32  */ 0,
-    /* sfixed32 */ 0,
-    /* int64    */ 0,
-    /* uint64   */ 0,
-    /* sint64   */ 0,
-    /* fixed64  */ 0,
-    /* sfixed64 */ 0,
-    /* bool     */ false,
-    /* string   */ "",
-    /* bytes    */ util.emptyArray,
-    /* message  */ null
-]);
-
-/**
- * Basic long type wire types.
- * @type {Object.<string,number>}
- * @const
- * @property {number} int64=0 Varint wire type
- * @property {number} uint64=0 Varint wire type
- * @property {number} sint64=0 Varint wire type
- * @property {number} fixed64=1 Fixed64 wire type
- * @property {number} sfixed64=1 Fixed64 wire type
- */
-types.long = bake([
-    /* int64    */ 0,
-    /* uint64   */ 0,
-    /* sint64   */ 0,
-    /* fixed64  */ 1,
-    /* sfixed64 */ 1
-], 7);
-
-/**
- * Allowed types for map keys with their associated wire type.
- * @type {Object.<string,number>}
- * @const
- * @property {number} int32=0 Varint wire type
- * @property {number} uint32=0 Varint wire type
- * @property {number} sint32=0 Varint wire type
- * @property {number} fixed32=5 Fixed32 wire type
- * @property {number} sfixed32=5 Fixed32 wire type
- * @property {number} int64=0 Varint wire type
- * @property {number} uint64=0 Varint wire type
- * @property {number} sint64=0 Varint wire type
- * @property {number} fixed64=1 Fixed64 wire type
- * @property {number} sfixed64=1 Fixed64 wire type
- * @property {number} bool=0 Varint wire type
- * @property {number} string=2 Ldelim wire type
- */
-types.mapKey = bake([
-    /* int32    */ 0,
-    /* uint32   */ 0,
-    /* sint32   */ 0,
-    /* fixed32  */ 5,
-    /* sfixed32 */ 5,
-    /* int64    */ 0,
-    /* uint64   */ 0,
-    /* sint64   */ 0,
-    /* fixed64  */ 1,
-    /* sfixed64 */ 1,
-    /* bool     */ 0,
-    /* string   */ 2
-], 2);
-
-/**
- * Allowed types for packed repeated fields with their associated wire type.
- * @type {Object.<string,number>}
- * @const
- * @property {number} double=1 Fixed64 wire type
- * @property {number} float=5 Fixed32 wire type
- * @property {number} int32=0 Varint wire type
- * @property {number} uint32=0 Varint wire type
- * @property {number} sint32=0 Varint wire type
- * @property {number} fixed32=5 Fixed32 wire type
- * @property {number} sfixed32=5 Fixed32 wire type
- * @property {number} int64=0 Varint wire type
- * @property {number} uint64=0 Varint wire type
- * @property {number} sint64=0 Varint wire type
- * @property {number} fixed64=1 Fixed64 wire type
- * @property {number} sfixed64=1 Fixed64 wire type
- * @property {number} bool=0 Varint wire type
- */
-types.packed = bake([
-    /* double   */ 1,
-    /* float    */ 5,
-    /* int32    */ 0,
-    /* uint32   */ 0,
-    /* sint32   */ 0,
-    /* fixed32  */ 5,
-    /* sfixed32 */ 5,
-    /* int64    */ 0,
-    /* uint64   */ 0,
-    /* sint64   */ 0,
-    /* fixed64  */ 1,
-    /* sfixed64 */ 1,
-    /* bool     */ 0
-]);
-
-
-/***/ }),
-
-/***/ 262:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-/**
- * Various utility functions.
- * @namespace
- */
-var util = module.exports = __webpack_require__(610);
-
-var roots = __webpack_require__(529);
-
-var Type, // cyclic
-    Enum;
-
-util.codegen = __webpack_require__(561);
-util.fetch   = __webpack_require__(212);
-util.path    = __webpack_require__(207);
-
-/**
- * Node's fs module if available.
- * @type {Object.<string,*>}
- */
-util.fs = util.inquire("fs");
-
-/**
- * Converts an object's values to an array.
- * @param {Object.<string,*>} object Object to convert
- * @returns {Array.<*>} Converted array
- */
-util.toArray = function toArray(object) {
-    if (object) {
-        var keys  = Object.keys(object),
-            array = new Array(keys.length),
-            index = 0;
-        while (index < keys.length)
-            array[index] = object[keys[index++]];
-        return array;
-    }
-    return [];
-};
-
-/**
- * Converts an array of keys immediately followed by their respective value to an object, omitting undefined values.
- * @param {Array.<*>} array Array to convert
- * @returns {Object.<string,*>} Converted object
- */
-util.toObject = function toObject(array) {
-    var object = {},
-        index  = 0;
-    while (index < array.length) {
-        var key = array[index++],
-            val = array[index++];
-        if (val !== undefined)
-            object[key] = val;
-    }
-    return object;
-};
-
-var safePropBackslashRe = /\\/g,
-    safePropQuoteRe     = /"/g;
-
-/**
- * Tests whether the specified name is a reserved word in JS.
- * @param {string} name Name to test
- * @returns {boolean} `true` if reserved, otherwise `false`
- */
-util.isReserved = function isReserved(name) {
-    return /^(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$/.test(name);
-};
-
-/**
- * Returns a safe property accessor for the specified property name.
- * @param {string} prop Property name
- * @returns {string} Safe accessor
- */
-util.safeProp = function safeProp(prop) {
-    if (!/^[$\w_]+$/.test(prop) || util.isReserved(prop))
-        return "[\"" + prop.replace(safePropBackslashRe, "\\\\").replace(safePropQuoteRe, "\\\"") + "\"]";
-    return "." + prop;
-};
-
-/**
- * Converts the first character of a string to upper case.
- * @param {string} str String to convert
- * @returns {string} Converted string
- */
-util.ucFirst = function ucFirst(str) {
-    return str.charAt(0).toUpperCase() + str.substring(1);
-};
-
-var camelCaseRe = /_([a-z])/g;
-
-/**
- * Converts a string to camel case.
- * @param {string} str String to convert
- * @returns {string} Converted string
- */
-util.camelCase = function camelCase(str) {
-    return str.substring(0, 1)
-         + str.substring(1)
-               .replace(camelCaseRe, function($0, $1) { return $1.toUpperCase(); });
-};
-
-/**
- * Compares reflected fields by id.
- * @param {Field} a First field
- * @param {Field} b Second field
- * @returns {number} Comparison value
- */
-util.compareFieldsById = function compareFieldsById(a, b) {
-    return a.id - b.id;
-};
-
-/**
- * Decorator helper for types (TypeScript).
- * @param {Constructor<T>} ctor Constructor function
- * @param {string} [typeName] Type name, defaults to the constructor's name
- * @returns {Type} Reflected type
- * @template T extends Message<T>
- * @property {Root} root Decorators root
- */
-util.decorateType = function decorateType(ctor, typeName) {
-
-    /* istanbul ignore if */
-    if (ctor.$type) {
-        if (typeName && ctor.$type.name !== typeName) {
-            util.decorateRoot.remove(ctor.$type);
-            ctor.$type.name = typeName;
-            util.decorateRoot.add(ctor.$type);
-        }
-        return ctor.$type;
-    }
-
-    /* istanbul ignore next */
-    if (!Type)
-        Type = __webpack_require__(882);
-
-    var type = new Type(typeName || ctor.name);
-    util.decorateRoot.add(type);
-    type.ctor = ctor; // sets up .encode, .decode etc.
-    Object.defineProperty(ctor, "$type", { value: type, enumerable: false });
-    Object.defineProperty(ctor.prototype, "$type", { value: type, enumerable: false });
-    return type;
-};
-
-var decorateEnumIndex = 0;
-
-/**
- * Decorator helper for enums (TypeScript).
- * @param {Object} object Enum object
- * @returns {Enum} Reflected enum
- */
-util.decorateEnum = function decorateEnum(object) {
-
-    /* istanbul ignore if */
-    if (object.$type)
-        return object.$type;
-
-    /* istanbul ignore next */
-    if (!Enum)
-        Enum = __webpack_require__(643);
-
-    var enm = new Enum("Enum" + decorateEnumIndex++, object);
-    util.decorateRoot.add(enm);
-    Object.defineProperty(object, "$type", { value: enm, enumerable: false });
-    return enm;
-};
-
-
-/**
- * Sets the value of a property by property path. If a value already exists, it is turned to an array
- * @param {Object.<string,*>} dst Destination object
- * @param {string} path dot '.' delimited path of the property to set
- * @param {Object} value the value to set
- * @returns {Object.<string,*>} Destination object
- */
-util.setProperty = function setProperty(dst, path, value) {
-    function setProp(dst, path, value) {
-        var part = path.shift();
-        if (part === "__proto__" || part === "prototype") {
-          return dst;
-        }
-        if (path.length > 0) {
-            dst[part] = setProp(dst[part] || {}, path, value);
-        } else {
-            var prevValue = dst[part];
-            if (prevValue)
-                value = [].concat(prevValue).concat(value);
-            dst[part] = value;
-        }
-        return dst;
-    }
-
-    if (typeof dst !== "object")
-        throw TypeError("dst must be an object");
-    if (!path)
-        throw TypeError("path must be specified");
-
-    path = path.split(".");
-    return setProp(dst, path, value);
-};
-
-/**
- * Decorator root (TypeScript).
- * @name util.decorateRoot
- * @type {Root}
- * @readonly
- */
-Object.defineProperty(util, "decorateRoot", {
-    get: function() {
-        return roots["decorated"] || (roots["decorated"] = new (__webpack_require__(330))());
-    }
-});
-
-
-/***/ }),
-
-/***/ 239:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = LongBits;
-
-var util = __webpack_require__(610);
-
-/**
- * Constructs new long bits.
- * @classdesc Helper class for working with the low and high bits of a 64 bit value.
- * @memberof util
- * @constructor
- * @param {number} lo Low 32 bits, unsigned
- * @param {number} hi High 32 bits, unsigned
- */
-function LongBits(lo, hi) {
-
-    // note that the casts below are theoretically unnecessary as of today, but older statically
-    // generated converter code might still call the ctor with signed 32bits. kept for compat.
-
-    /**
-     * Low bits.
-     * @type {number}
-     */
-    this.lo = lo >>> 0;
-
-    /**
-     * High bits.
-     * @type {number}
-     */
-    this.hi = hi >>> 0;
-}
-
-/**
- * Zero bits.
- * @memberof util.LongBits
- * @type {util.LongBits}
- */
-var zero = LongBits.zero = new LongBits(0, 0);
-
-zero.toNumber = function() { return 0; };
-zero.zzEncode = zero.zzDecode = function() { return this; };
-zero.length = function() { return 1; };
-
-/**
- * Zero hash.
- * @memberof util.LongBits
- * @type {string}
- */
-var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
-
-/**
- * Constructs new long bits from the specified number.
- * @param {number} value Value
- * @returns {util.LongBits} Instance
- */
-LongBits.fromNumber = function fromNumber(value) {
-    if (value === 0)
-        return zero;
-    var sign = value < 0;
-    if (sign)
-        value = -value;
-    var lo = value >>> 0,
-        hi = (value - lo) / 4294967296 >>> 0;
-    if (sign) {
-        hi = ~hi >>> 0;
-        lo = ~lo >>> 0;
-        if (++lo > 4294967295) {
-            lo = 0;
-            if (++hi > 4294967295)
-                hi = 0;
-        }
-    }
-    return new LongBits(lo, hi);
-};
-
-/**
- * Constructs new long bits from a number, long or string.
- * @param {Long|number|string} value Value
- * @returns {util.LongBits} Instance
- */
-LongBits.from = function from(value) {
-    if (typeof value === "number")
-        return LongBits.fromNumber(value);
-    if (util.isString(value)) {
-        /* istanbul ignore else */
-        if (util.Long)
-            value = util.Long.fromString(value);
-        else
-            return LongBits.fromNumber(parseInt(value, 10));
-    }
-    return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
-};
-
-/**
- * Converts this long bits to a possibly unsafe JavaScript number.
- * @param {boolean} [unsigned=false] Whether unsigned or not
- * @returns {number} Possibly unsafe number
- */
-LongBits.prototype.toNumber = function toNumber(unsigned) {
-    if (!unsigned && this.hi >>> 31) {
-        var lo = ~this.lo + 1 >>> 0,
-            hi = ~this.hi     >>> 0;
-        if (!lo)
-            hi = hi + 1 >>> 0;
-        return -(lo + hi * 4294967296);
-    }
-    return this.lo + this.hi * 4294967296;
-};
-
-/**
- * Converts this long bits to a long.
- * @param {boolean} [unsigned=false] Whether unsigned or not
- * @returns {Long} Long
- */
-LongBits.prototype.toLong = function toLong(unsigned) {
-    return util.Long
-        ? new util.Long(this.lo | 0, this.hi | 0, Boolean(unsigned))
-        /* istanbul ignore next */
-        : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
-};
-
-var charCodeAt = String.prototype.charCodeAt;
-
-/**
- * Constructs new long bits from the specified 8 characters long hash.
- * @param {string} hash Hash
- * @returns {util.LongBits} Bits
- */
-LongBits.fromHash = function fromHash(hash) {
-    if (hash === zeroHash)
-        return zero;
-    return new LongBits(
-        ( charCodeAt.call(hash, 0)
-        | charCodeAt.call(hash, 1) << 8
-        | charCodeAt.call(hash, 2) << 16
-        | charCodeAt.call(hash, 3) << 24) >>> 0
-    ,
-        ( charCodeAt.call(hash, 4)
-        | charCodeAt.call(hash, 5) << 8
-        | charCodeAt.call(hash, 6) << 16
-        | charCodeAt.call(hash, 7) << 24) >>> 0
-    );
-};
-
-/**
- * Converts this long bits to a 8 characters long hash.
- * @returns {string} Hash
- */
-LongBits.prototype.toHash = function toHash() {
-    return String.fromCharCode(
-        this.lo        & 255,
-        this.lo >>> 8  & 255,
-        this.lo >>> 16 & 255,
-        this.lo >>> 24      ,
-        this.hi        & 255,
-        this.hi >>> 8  & 255,
-        this.hi >>> 16 & 255,
-        this.hi >>> 24
-    );
-};
-
-/**
- * Zig-zag encodes this long bits.
- * @returns {util.LongBits} `this`
- */
-LongBits.prototype.zzEncode = function zzEncode() {
-    var mask =   this.hi >> 31;
-    this.hi  = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
-    this.lo  = ( this.lo << 1                   ^ mask) >>> 0;
-    return this;
-};
-
-/**
- * Zig-zag decodes this long bits.
- * @returns {util.LongBits} `this`
- */
-LongBits.prototype.zzDecode = function zzDecode() {
-    var mask = -(this.lo & 1);
-    this.lo  = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
-    this.hi  = ( this.hi >>> 1                  ^ mask) >>> 0;
-    return this;
-};
-
-/**
- * Calculates the length of this longbits when encoded as a varint.
- * @returns {number} Length
- */
-LongBits.prototype.length = function length() {
-    var part0 =  this.lo,
-        part1 = (this.lo >>> 28 | this.hi << 4) >>> 0,
-        part2 =  this.hi >>> 24;
-    return part2 === 0
-         ? part1 === 0
-           ? part0 < 16384
-             ? part0 < 128 ? 1 : 2
-             : part0 < 2097152 ? 3 : 4
-           : part1 < 16384
-             ? part1 < 128 ? 5 : 6
-             : part1 < 2097152 ? 7 : 8
-         : part2 < 128 ? 9 : 10;
-};
-
-
-/***/ }),
-
-/***/ 610:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var util = exports;
-
-// used to return a Promise where callback is omitted
-util.asPromise = __webpack_require__(45);
-
-// converts to / from base64 encoded strings
-util.base64 = __webpack_require__(839);
-
-// base class of rpc.Service
-util.EventEmitter = __webpack_require__(358);
-
-// float handling accross browsers
-util.float = __webpack_require__(410);
-
-// requires modules optionally and hides the call from bundlers
-util.inquire = __webpack_require__(153);
-
-// converts to / from utf8 encoded strings
-util.utf8 = __webpack_require__(447);
-
-// provides a node-like buffer pool in the browser
-util.pool = __webpack_require__(390);
-
-// utility to work with the low and high bits of a 64 bit value
-util.LongBits = __webpack_require__(239);
-
-/**
- * Whether running within node or not.
- * @memberof util
- * @type {boolean}
- */
-util.isNode = Boolean(typeof __webpack_require__.g !== "undefined"
-                   && __webpack_require__.g
-                   && __webpack_require__.g.process
-                   && __webpack_require__.g.process.versions
-                   && __webpack_require__.g.process.versions.node);
-
-/**
- * Global object reference.
- * @memberof util
- * @type {Object}
- */
-util.global = util.isNode && __webpack_require__.g
-           || typeof window !== "undefined" && window
-           || typeof self   !== "undefined" && self
-           || this; // eslint-disable-line no-invalid-this
-
-/**
- * An immuable empty array.
- * @memberof util
- * @type {Array.<*>}
- * @const
- */
-util.emptyArray = Object.freeze ? Object.freeze([]) : /* istanbul ignore next */ []; // used on prototypes
-
-/**
- * An immutable empty object.
- * @type {Object}
- * @const
- */
-util.emptyObject = Object.freeze ? Object.freeze({}) : /* istanbul ignore next */ {}; // used on prototypes
-
-/**
- * Tests if the specified value is an integer.
- * @function
- * @param {*} value Value to test
- * @returns {boolean} `true` if the value is an integer
- */
-util.isInteger = Number.isInteger || /* istanbul ignore next */ function isInteger(value) {
-    return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
-};
-
-/**
- * Tests if the specified value is a string.
- * @param {*} value Value to test
- * @returns {boolean} `true` if the value is a string
- */
-util.isString = function isString(value) {
-    return typeof value === "string" || value instanceof String;
-};
-
-/**
- * Tests if the specified value is a non-null object.
- * @param {*} value Value to test
- * @returns {boolean} `true` if the value is a non-null object
- */
-util.isObject = function isObject(value) {
-    return value && typeof value === "object";
-};
-
-/**
- * Checks if a property on a message is considered to be present.
- * This is an alias of {@link util.isSet}.
- * @function
- * @param {Object} obj Plain object or message instance
- * @param {string} prop Property name
- * @returns {boolean} `true` if considered to be present, otherwise `false`
- */
-util.isset =
-
-/**
- * Checks if a property on a message is considered to be present.
- * @param {Object} obj Plain object or message instance
- * @param {string} prop Property name
- * @returns {boolean} `true` if considered to be present, otherwise `false`
- */
-util.isSet = function isSet(obj, prop) {
-    var value = obj[prop];
-    if (value != null && obj.hasOwnProperty(prop)) // eslint-disable-line eqeqeq, no-prototype-builtins
-        return typeof value !== "object" || (Array.isArray(value) ? value.length : Object.keys(value).length) > 0;
-    return false;
-};
-
-/**
- * Any compatible Buffer instance.
- * This is a minimal stand-alone definition of a Buffer instance. The actual type is that exported by node's typings.
- * @interface Buffer
- * @extends Uint8Array
- */
-
-/**
- * Node's Buffer class if available.
- * @type {Constructor<Buffer>}
- */
-util.Buffer = (function() {
-    try {
-        var Buffer = util.inquire("buffer").Buffer;
-        // refuse to use non-node buffers if not explicitly assigned (perf reasons):
-        return Buffer.prototype.utf8Write ? Buffer : /* istanbul ignore next */ null;
-    } catch (e) {
-        /* istanbul ignore next */
-        return null;
-    }
-})();
-
-// Internal alias of or polyfull for Buffer.from.
-util._Buffer_from = null;
-
-// Internal alias of or polyfill for Buffer.allocUnsafe.
-util._Buffer_allocUnsafe = null;
-
-/**
- * Creates a new buffer of whatever type supported by the environment.
- * @param {number|number[]} [sizeOrArray=0] Buffer size or number array
- * @returns {Uint8Array|Buffer} Buffer
- */
-util.newBuffer = function newBuffer(sizeOrArray) {
-    /* istanbul ignore next */
-    return typeof sizeOrArray === "number"
-        ? util.Buffer
-            ? util._Buffer_allocUnsafe(sizeOrArray)
-            : new util.Array(sizeOrArray)
-        : util.Buffer
-            ? util._Buffer_from(sizeOrArray)
-            : typeof Uint8Array === "undefined"
-                ? sizeOrArray
-                : new Uint8Array(sizeOrArray);
-};
-
-/**
- * Array implementation used in the browser. `Uint8Array` if supported, otherwise `Array`.
- * @type {Constructor<Uint8Array>}
- */
-util.Array = typeof Uint8Array !== "undefined" ? Uint8Array /* istanbul ignore next */ : Array;
-
-/**
- * Any compatible Long instance.
- * This is a minimal stand-alone definition of a Long instance. The actual type is that exported by long.js.
- * @interface Long
- * @property {number} low Low bits
- * @property {number} high High bits
- * @property {boolean} unsigned Whether unsigned or not
- */
-
-/**
- * Long.js's Long class if available.
- * @type {Constructor<Long>}
- */
-util.Long = /* istanbul ignore next */ util.global.dcodeIO && /* istanbul ignore next */ util.global.dcodeIO.Long
-         || /* istanbul ignore next */ util.global.Long
-         || util.inquire("long");
-
-/**
- * Regular expression used to verify 2 bit (`bool`) map keys.
- * @type {RegExp}
- * @const
- */
-util.key2Re = /^true|false|0|1$/;
-
-/**
- * Regular expression used to verify 32 bit (`int32` etc.) map keys.
- * @type {RegExp}
- * @const
- */
-util.key32Re = /^-?(?:0|[1-9][0-9]*)$/;
-
-/**
- * Regular expression used to verify 64 bit (`int64` etc.) map keys.
- * @type {RegExp}
- * @const
- */
-util.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/;
-
-/**
- * Converts a number or long to an 8 characters long hash string.
- * @param {Long|number} value Value to convert
- * @returns {string} Hash
- */
-util.longToHash = function longToHash(value) {
-    return value
-        ? util.LongBits.from(value).toHash()
-        : util.LongBits.zeroHash;
-};
-
-/**
- * Converts an 8 characters long hash string to a long or number.
- * @param {string} hash Hash
- * @param {boolean} [unsigned=false] Whether unsigned or not
- * @returns {Long|number} Original value
- */
-util.longFromHash = function longFromHash(hash, unsigned) {
-    var bits = util.LongBits.fromHash(hash);
-    if (util.Long)
-        return util.Long.fromBits(bits.lo, bits.hi, unsigned);
-    return bits.toNumber(Boolean(unsigned));
-};
-
-/**
- * Merges the properties of the source object into the destination object.
- * @memberof util
- * @param {Object.<string,*>} dst Destination object
- * @param {Object.<string,*>} src Source object
- * @param {boolean} [ifNotSet=false] Merges only if the key is not already set
- * @returns {Object.<string,*>} Destination object
- */
-function merge(dst, src, ifNotSet) { // used by converters
-    for (var keys = Object.keys(src), i = 0; i < keys.length; ++i)
-        if (dst[keys[i]] === undefined || !ifNotSet)
-            dst[keys[i]] = src[keys[i]];
-    return dst;
-}
-
-util.merge = merge;
-
-/**
- * Converts the first character of a string to lower case.
- * @param {string} str String to convert
- * @returns {string} Converted string
- */
-util.lcFirst = function lcFirst(str) {
-    return str.charAt(0).toLowerCase() + str.substring(1);
-};
-
-/**
- * Creates a custom error constructor.
- * @memberof util
- * @param {string} name Error name
- * @returns {Constructor<Error>} Custom error constructor
- */
-function newError(name) {
-
-    function CustomError(message, properties) {
-
-        if (!(this instanceof CustomError))
-            return new CustomError(message, properties);
-
-        // Error.call(this, message);
-        // ^ just returns a new error instance because the ctor can be called as a function
-
-        Object.defineProperty(this, "message", { get: function() { return message; } });
-
-        /* istanbul ignore next */
-        if (Error.captureStackTrace) // node
-            Error.captureStackTrace(this, CustomError);
-        else
-            Object.defineProperty(this, "stack", { value: new Error().stack || "" });
-
-        if (properties)
-            merge(this, properties);
-    }
-
-    (CustomError.prototype = Object.create(Error.prototype)).constructor = CustomError;
-
-    Object.defineProperty(CustomError.prototype, "name", { get: function() { return name; } });
-
-    CustomError.prototype.toString = function toString() {
-        return this.name + ": " + this.message;
-    };
-
-    return CustomError;
-}
-
-util.newError = newError;
-
-/**
- * Constructs a new protocol error.
- * @classdesc Error subclass indicating a protocol specifc error.
- * @memberof util
- * @extends Error
- * @template T extends Message<T>
- * @constructor
- * @param {string} message Error message
- * @param {Object.<string,*>} [properties] Additional properties
- * @example
- * try {
- *     MyMessage.decode(someBuffer); // throws if required fields are missing
- * } catch (e) {
- *     if (e instanceof ProtocolError && e.instance)
- *         console.log("decoded so far: " + JSON.stringify(e.instance));
- * }
- */
-util.ProtocolError = newError("ProtocolError");
-
-/**
- * So far decoded message instance.
- * @name util.ProtocolError#instance
- * @type {Message<T>}
- */
-
-/**
- * A OneOf getter as returned by {@link util.oneOfGetter}.
- * @typedef OneOfGetter
- * @type {function}
- * @returns {string|undefined} Set field name, if any
- */
-
-/**
- * Builds a getter for a oneof's present field name.
- * @param {string[]} fieldNames Field names
- * @returns {OneOfGetter} Unbound getter
- */
-util.oneOfGetter = function getOneOf(fieldNames) {
-    var fieldMap = {};
-    for (var i = 0; i < fieldNames.length; ++i)
-        fieldMap[fieldNames[i]] = 1;
-
-    /**
-     * @returns {string|undefined} Set field name, if any
-     * @this Object
-     * @ignore
-     */
-    return function() { // eslint-disable-line consistent-return
-        for (var keys = Object.keys(this), i = keys.length - 1; i > -1; --i)
-            if (fieldMap[keys[i]] === 1 && this[keys[i]] !== undefined && this[keys[i]] !== null)
-                return keys[i];
-    };
-};
-
-/**
- * A OneOf setter as returned by {@link util.oneOfSetter}.
- * @typedef OneOfSetter
- * @type {function}
- * @param {string|undefined} value Field name
- * @returns {undefined}
- */
-
-/**
- * Builds a setter for a oneof's present field name.
- * @param {string[]} fieldNames Field names
- * @returns {OneOfSetter} Unbound setter
- */
-util.oneOfSetter = function setOneOf(fieldNames) {
-
-    /**
-     * @param {string} name Field name
-     * @returns {undefined}
-     * @this Object
-     * @ignore
-     */
-    return function(name) {
-        for (var i = 0; i < fieldNames.length; ++i)
-            if (fieldNames[i] !== name)
-                delete this[fieldNames[i]];
-    };
-};
-
-/**
- * Default conversion options used for {@link Message#toJSON} implementations.
- *
- * These options are close to proto3's JSON mapping with the exception that internal types like Any are handled just like messages. More precisely:
- *
- * - Longs become strings
- * - Enums become string keys
- * - Bytes become base64 encoded strings
- * - (Sub-)Messages become plain objects
- * - Maps become plain objects with all string keys
- * - Repeated fields become arrays
- * - NaN and Infinity for float and double fields become strings
- *
- * @type {IConversionOptions}
- * @see https://developers.google.com/protocol-buffers/docs/proto3?hl=en#json
- */
-util.toJSONOptions = {
-    longs: String,
-    enums: String,
-    bytes: String,
-    json: true
-};
-
-// Sets up buffer utility according to the environment (called in index-minimal)
-util._configure = function() {
-    var Buffer = util.Buffer;
-    /* istanbul ignore if */
-    if (!Buffer) {
-        util._Buffer_from = util._Buffer_allocUnsafe = null;
-        return;
-    }
-    // because node 4.x buffers are incompatible & immutable
-    // see: https://github.com/dcodeIO/protobuf.js/pull/665
-    util._Buffer_from = Buffer.from !== Uint8Array.from && Buffer.from ||
-        /* istanbul ignore next */
-        function Buffer_from(value, encoding) {
-            return new Buffer(value, encoding);
-        };
-    util._Buffer_allocUnsafe = Buffer.allocUnsafe ||
-        /* istanbul ignore next */
-        function Buffer_allocUnsafe(size) {
-            return new Buffer(size);
-        };
-};
-
-
-/***/ }),
-
-/***/ 420:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = verifier;
-
-var Enum      = __webpack_require__(643),
-    util      = __webpack_require__(262);
-
-function invalid(field, expected) {
-    return field.name + ": " + expected + (field.repeated && expected !== "array" ? "[]" : field.map && expected !== "object" ? "{k:"+field.keyType+"}" : "") + " expected";
-}
-
-/**
- * Generates a partial value verifier.
- * @param {Codegen} gen Codegen instance
- * @param {Field} field Reflected field
- * @param {number} fieldIndex Field index
- * @param {string} ref Variable reference
- * @returns {Codegen} Codegen instance
- * @ignore
- */
-function genVerifyValue(gen, field, fieldIndex, ref) {
-    /* eslint-disable no-unexpected-multiline */
-    if (field.resolvedType) {
-        if (field.resolvedType instanceof Enum) { gen
-            ("switch(%s){", ref)
-                ("default:")
-                    ("return%j", invalid(field, "enum value"));
-            for (var keys = Object.keys(field.resolvedType.values), j = 0; j < keys.length; ++j) gen
-                ("case %i:", field.resolvedType.values[keys[j]]);
-            gen
-                    ("break")
-            ("}");
-        } else {
-            gen
-            ("{")
-                ("var e=types[%i].verify(%s);", fieldIndex, ref)
-                ("if(e)")
-                    ("return%j+e", field.name + ".")
-            ("}");
-        }
-    } else {
-        switch (field.type) {
-            case "int32":
-            case "uint32":
-            case "sint32":
-            case "fixed32":
-            case "sfixed32": gen
-                ("if(!util.isInteger(%s))", ref)
-                    ("return%j", invalid(field, "integer"));
-                break;
-            case "int64":
-            case "uint64":
-            case "sint64":
-            case "fixed64":
-            case "sfixed64": gen
-                ("if(!util.isInteger(%s)&&!(%s&&util.isInteger(%s.low)&&util.isInteger(%s.high)))", ref, ref, ref, ref)
-                    ("return%j", invalid(field, "integer|Long"));
-                break;
-            case "float":
-            case "double": gen
-                ("if(typeof %s!==\"number\")", ref)
-                    ("return%j", invalid(field, "number"));
-                break;
-            case "bool": gen
-                ("if(typeof %s!==\"boolean\")", ref)
-                    ("return%j", invalid(field, "boolean"));
-                break;
-            case "string": gen
-                ("if(!util.isString(%s))", ref)
-                    ("return%j", invalid(field, "string"));
-                break;
-            case "bytes": gen
-                ("if(!(%s&&typeof %s.length===\"number\"||util.isString(%s)))", ref, ref, ref)
-                    ("return%j", invalid(field, "buffer"));
-                break;
-        }
-    }
-    return gen;
-    /* eslint-enable no-unexpected-multiline */
-}
-
-/**
- * Generates a partial key verifier.
- * @param {Codegen} gen Codegen instance
- * @param {Field} field Reflected field
- * @param {string} ref Variable reference
- * @returns {Codegen} Codegen instance
- * @ignore
- */
-function genVerifyKey(gen, field, ref) {
-    /* eslint-disable no-unexpected-multiline */
-    switch (field.keyType) {
-        case "int32":
-        case "uint32":
-        case "sint32":
-        case "fixed32":
-        case "sfixed32": gen
-            ("if(!util.key32Re.test(%s))", ref)
-                ("return%j", invalid(field, "integer key"));
-            break;
-        case "int64":
-        case "uint64":
-        case "sint64":
-        case "fixed64":
-        case "sfixed64": gen
-            ("if(!util.key64Re.test(%s))", ref) // see comment above: x is ok, d is not
-                ("return%j", invalid(field, "integer|Long key"));
-            break;
-        case "bool": gen
-            ("if(!util.key2Re.test(%s))", ref)
-                ("return%j", invalid(field, "boolean key"));
-            break;
-    }
-    return gen;
-    /* eslint-enable no-unexpected-multiline */
-}
-
-/**
- * Generates a verifier specific to the specified message type.
- * @param {Type} mtype Message type
- * @returns {Codegen} Codegen instance
- */
-function verifier(mtype) {
-    /* eslint-disable no-unexpected-multiline */
-
-    var gen = util.codegen(["m"], mtype.name + "$verify")
-    ("if(typeof m!==\"object\"||m===null)")
-        ("return%j", "object expected");
-    var oneofs = mtype.oneofsArray,
-        seenFirstField = {};
-    if (oneofs.length) gen
-    ("var p={}");
-
-    for (var i = 0; i < /* initializes */ mtype.fieldsArray.length; ++i) {
-        var field = mtype._fieldsArray[i].resolve(),
-            ref   = "m" + util.safeProp(field.name);
-
-        if (field.optional) gen
-        ("if(%s!=null&&m.hasOwnProperty(%j)){", ref, field.name); // !== undefined && !== null
-
-        // map fields
-        if (field.map) { gen
-            ("if(!util.isObject(%s))", ref)
-                ("return%j", invalid(field, "object"))
-            ("var k=Object.keys(%s)", ref)
-            ("for(var i=0;i<k.length;++i){");
-                genVerifyKey(gen, field, "k[i]");
-                genVerifyValue(gen, field, i, ref + "[k[i]]")
-            ("}");
-
-        // repeated fields
-        } else if (field.repeated) { gen
-            ("if(!Array.isArray(%s))", ref)
-                ("return%j", invalid(field, "array"))
-            ("for(var i=0;i<%s.length;++i){", ref);
-                genVerifyValue(gen, field, i, ref + "[i]")
-            ("}");
-
-        // required or present fields
-        } else {
-            if (field.partOf) {
-                var oneofProp = util.safeProp(field.partOf.name);
-                if (seenFirstField[field.partOf.name] === 1) gen
-            ("if(p%s===1)", oneofProp)
-                ("return%j", field.partOf.name + ": multiple values");
-                seenFirstField[field.partOf.name] = 1;
-                gen
-            ("p%s=1", oneofProp);
-            }
-            genVerifyValue(gen, field, i, ref);
-        }
-        if (field.optional) gen
-        ("}");
-    }
-    return gen
-    ("return null");
-    /* eslint-enable no-unexpected-multiline */
-}
-
-/***/ }),
-
-/***/ 434:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-/**
- * Wrappers for common types.
- * @type {Object.<string,IWrapper>}
- * @const
- */
-var wrappers = exports;
-
-var Message = __webpack_require__(551);
-
-/**
- * From object converter part of an {@link IWrapper}.
- * @typedef WrapperFromObjectConverter
- * @type {function}
- * @param {Object.<string,*>} object Plain object
- * @returns {Message<{}>} Message instance
- * @this Type
- */
-
-/**
- * To object converter part of an {@link IWrapper}.
- * @typedef WrapperToObjectConverter
- * @type {function}
- * @param {Message<{}>} message Message instance
- * @param {IConversionOptions} [options] Conversion options
- * @returns {Object.<string,*>} Plain object
- * @this Type
- */
-
-/**
- * Common type wrapper part of {@link wrappers}.
- * @interface IWrapper
- * @property {WrapperFromObjectConverter} [fromObject] From object converter
- * @property {WrapperToObjectConverter} [toObject] To object converter
- */
-
-// Custom wrapper for Any
-wrappers[".google.protobuf.Any"] = {
-
-    fromObject: function(object) {
-
-        // unwrap value type if mapped
-        if (object && object["@type"]) {
-             // Only use fully qualified type name after the last '/'
-            var name = object["@type"].substring(object["@type"].lastIndexOf("/") + 1);
-            var type = this.lookup(name);
-            /* istanbul ignore else */
-            if (type) {
-                // type_url does not accept leading "."
-                var type_url = object["@type"].charAt(0) === "." ?
-                    object["@type"].substr(1) : object["@type"];
-                // type_url prefix is optional, but path seperator is required
-                if (type_url.indexOf("/") === -1) {
-                    type_url = "/" + type_url;
-                }
-                return this.create({
-                    type_url: type_url,
-                    value: type.encode(type.fromObject(object)).finish()
-                });
-            }
-        }
-
-        return this.fromObject(object);
-    },
-
-    toObject: function(message, options) {
-
-        // Default prefix
-        var googleApi = "type.googleapis.com/";
-        var prefix = "";
-        var name = "";
-
-        // decode value if requested and unmapped
-        if (options && options.json && message.type_url && message.value) {
-            // Only use fully qualified type name after the last '/'
-            name = message.type_url.substring(message.type_url.lastIndexOf("/") + 1);
-            // Separate the prefix used
-            prefix = message.type_url.substring(0, message.type_url.lastIndexOf("/") + 1);
-            var type = this.lookup(name);
-            /* istanbul ignore else */
-            if (type)
-                message = type.decode(message.value);
-        }
-
-        // wrap value if unmapped
-        if (!(message instanceof this.ctor) && message instanceof Message) {
-            var object = message.$type.toObject(message, options);
-            var messageName = message.$type.fullName[0] === "." ?
-                message.$type.fullName.substr(1) : message.$type.fullName;
-            // Default to type.googleapis.com prefix if no prefix is used
-            if (prefix === "") {
-                prefix = googleApi;
-            }
-            name = prefix + messageName;
-            object["@type"] = name;
-            return object;
-        }
-
-        return this.toObject(message, options);
-    }
-};
-
-
-/***/ }),
-
-/***/ 449:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = Writer;
-
-var util      = __webpack_require__(610);
-
-var BufferWriter; // cyclic
-
-var LongBits  = util.LongBits,
-    base64    = util.base64,
-    utf8      = util.utf8;
-
-/**
- * Constructs a new writer operation instance.
- * @classdesc Scheduled writer operation.
- * @constructor
- * @param {function(*, Uint8Array, number)} fn Function to call
- * @param {number} len Value byte length
- * @param {*} val Value to write
- * @ignore
- */
-function Op(fn, len, val) {
-
-    /**
-     * Function to call.
-     * @type {function(Uint8Array, number, *)}
-     */
-    this.fn = fn;
-
-    /**
-     * Value byte length.
-     * @type {number}
-     */
-    this.len = len;
-
-    /**
-     * Next operation.
-     * @type {Writer.Op|undefined}
-     */
-    this.next = undefined;
-
-    /**
-     * Value to write.
-     * @type {*}
-     */
-    this.val = val; // type varies
-}
-
-/* istanbul ignore next */
-function noop() {} // eslint-disable-line no-empty-function
-
-/**
- * Constructs a new writer state instance.
- * @classdesc Copied writer state.
- * @memberof Writer
- * @constructor
- * @param {Writer} writer Writer to copy state from
- * @ignore
- */
-function State(writer) {
-
-    /**
-     * Current head.
-     * @type {Writer.Op}
-     */
-    this.head = writer.head;
-
-    /**
-     * Current tail.
-     * @type {Writer.Op}
-     */
-    this.tail = writer.tail;
-
-    /**
-     * Current buffer length.
-     * @type {number}
-     */
-    this.len = writer.len;
-
-    /**
-     * Next state.
-     * @type {State|null}
-     */
-    this.next = writer.states;
-}
-
-/**
- * Constructs a new writer instance.
- * @classdesc Wire format writer using `Uint8Array` if available, otherwise `Array`.
- * @constructor
- */
-function Writer() {
-
-    /**
-     * Current length.
-     * @type {number}
-     */
-    this.len = 0;
-
-    /**
-     * Operations head.
-     * @type {Object}
-     */
-    this.head = new Op(noop, 0, 0);
-
-    /**
-     * Operations tail
-     * @type {Object}
-     */
-    this.tail = this.head;
-
-    /**
-     * Linked forked states.
-     * @type {Object|null}
-     */
-    this.states = null;
-
-    // When a value is written, the writer calculates its byte length and puts it into a linked
-    // list of operations to perform when finish() is called. This both allows us to allocate
-    // buffers of the exact required size and reduces the amount of work we have to do compared
-    // to first calculating over objects and then encoding over objects. In our case, the encoding
-    // part is just a linked list walk calling operations with already prepared values.
-}
-
-var create = function create() {
-    return util.Buffer
-        ? function create_buffer_setup() {
-            return (Writer.create = function create_buffer() {
-                return new BufferWriter();
-            })();
-        }
-        /* istanbul ignore next */
-        : function create_array() {
-            return new Writer();
-        };
-};
-
-/**
- * Creates a new writer.
- * @function
- * @returns {BufferWriter|Writer} A {@link BufferWriter} when Buffers are supported, otherwise a {@link Writer}
- */
-Writer.create = create();
-
-/**
- * Allocates a buffer of the specified size.
- * @param {number} size Buffer size
- * @returns {Uint8Array} Buffer
- */
-Writer.alloc = function alloc(size) {
-    return new util.Array(size);
-};
-
-// Use Uint8Array buffer pool in the browser, just like node does with buffers
-/* istanbul ignore else */
-if (util.Array !== Array)
-    Writer.alloc = util.pool(Writer.alloc, util.Array.prototype.subarray);
-
-/**
- * Pushes a new operation to the queue.
- * @param {function(Uint8Array, number, *)} fn Function to call
- * @param {number} len Value byte length
- * @param {number} val Value to write
- * @returns {Writer} `this`
- * @private
- */
-Writer.prototype._push = function push(fn, len, val) {
-    this.tail = this.tail.next = new Op(fn, len, val);
-    this.len += len;
-    return this;
-};
-
-function writeByte(val, buf, pos) {
-    buf[pos] = val & 255;
-}
-
-function writeVarint32(val, buf, pos) {
-    while (val > 127) {
-        buf[pos++] = val & 127 | 128;
-        val >>>= 7;
-    }
-    buf[pos] = val;
-}
-
-/**
- * Constructs a new varint writer operation instance.
- * @classdesc Scheduled varint writer operation.
- * @extends Op
- * @constructor
- * @param {number} len Value byte length
- * @param {number} val Value to write
- * @ignore
- */
-function VarintOp(len, val) {
-    this.len = len;
-    this.next = undefined;
-    this.val = val;
-}
-
-VarintOp.prototype = Object.create(Op.prototype);
-VarintOp.prototype.fn = writeVarint32;
-
-/**
- * Writes an unsigned 32 bit value as a varint.
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.uint32 = function write_uint32(value) {
-    // here, the call to this.push has been inlined and a varint specific Op subclass is used.
-    // uint32 is by far the most frequently used operation and benefits significantly from this.
-    this.len += (this.tail = this.tail.next = new VarintOp(
-        (value = value >>> 0)
-                < 128       ? 1
-        : value < 16384     ? 2
-        : value < 2097152   ? 3
-        : value < 268435456 ? 4
-        :                     5,
-    value)).len;
-    return this;
-};
-
-/**
- * Writes a signed 32 bit value as a varint.
- * @function
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.int32 = function write_int32(value) {
-    return value < 0
-        ? this._push(writeVarint64, 10, LongBits.fromNumber(value)) // 10 bytes per spec
-        : this.uint32(value);
-};
-
-/**
- * Writes a 32 bit value as a varint, zig-zag encoded.
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.sint32 = function write_sint32(value) {
-    return this.uint32((value << 1 ^ value >> 31) >>> 0);
-};
-
-function writeVarint64(val, buf, pos) {
-    while (val.hi) {
-        buf[pos++] = val.lo & 127 | 128;
-        val.lo = (val.lo >>> 7 | val.hi << 25) >>> 0;
-        val.hi >>>= 7;
-    }
-    while (val.lo > 127) {
-        buf[pos++] = val.lo & 127 | 128;
-        val.lo = val.lo >>> 7;
-    }
-    buf[pos++] = val.lo;
-}
-
-/**
- * Writes an unsigned 64 bit value as a varint.
- * @param {Long|number|string} value Value to write
- * @returns {Writer} `this`
- * @throws {TypeError} If `value` is a string and no long library is present.
- */
-Writer.prototype.uint64 = function write_uint64(value) {
-    var bits = LongBits.from(value);
-    return this._push(writeVarint64, bits.length(), bits);
-};
-
-/**
- * Writes a signed 64 bit value as a varint.
- * @function
- * @param {Long|number|string} value Value to write
- * @returns {Writer} `this`
- * @throws {TypeError} If `value` is a string and no long library is present.
- */
-Writer.prototype.int64 = Writer.prototype.uint64;
-
-/**
- * Writes a signed 64 bit value as a varint, zig-zag encoded.
- * @param {Long|number|string} value Value to write
- * @returns {Writer} `this`
- * @throws {TypeError} If `value` is a string and no long library is present.
- */
-Writer.prototype.sint64 = function write_sint64(value) {
-    var bits = LongBits.from(value).zzEncode();
-    return this._push(writeVarint64, bits.length(), bits);
-};
-
-/**
- * Writes a boolish value as a varint.
- * @param {boolean} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.bool = function write_bool(value) {
-    return this._push(writeByte, 1, value ? 1 : 0);
-};
-
-function writeFixed32(val, buf, pos) {
-    buf[pos    ] =  val         & 255;
-    buf[pos + 1] =  val >>> 8   & 255;
-    buf[pos + 2] =  val >>> 16  & 255;
-    buf[pos + 3] =  val >>> 24;
-}
-
-/**
- * Writes an unsigned 32 bit value as fixed 32 bits.
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.fixed32 = function write_fixed32(value) {
-    return this._push(writeFixed32, 4, value >>> 0);
-};
-
-/**
- * Writes a signed 32 bit value as fixed 32 bits.
- * @function
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.sfixed32 = Writer.prototype.fixed32;
-
-/**
- * Writes an unsigned 64 bit value as fixed 64 bits.
- * @param {Long|number|string} value Value to write
- * @returns {Writer} `this`
- * @throws {TypeError} If `value` is a string and no long library is present.
- */
-Writer.prototype.fixed64 = function write_fixed64(value) {
-    var bits = LongBits.from(value);
-    return this._push(writeFixed32, 4, bits.lo)._push(writeFixed32, 4, bits.hi);
-};
-
-/**
- * Writes a signed 64 bit value as fixed 64 bits.
- * @function
- * @param {Long|number|string} value Value to write
- * @returns {Writer} `this`
- * @throws {TypeError} If `value` is a string and no long library is present.
- */
-Writer.prototype.sfixed64 = Writer.prototype.fixed64;
-
-/**
- * Writes a float (32 bit).
- * @function
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.float = function write_float(value) {
-    return this._push(util.float.writeFloatLE, 4, value);
-};
-
-/**
- * Writes a double (64 bit float).
- * @function
- * @param {number} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.double = function write_double(value) {
-    return this._push(util.float.writeDoubleLE, 8, value);
-};
-
-var writeBytes = util.Array.prototype.set
-    ? function writeBytes_set(val, buf, pos) {
-        buf.set(val, pos); // also works for plain array values
-    }
-    /* istanbul ignore next */
-    : function writeBytes_for(val, buf, pos) {
-        for (var i = 0; i < val.length; ++i)
-            buf[pos + i] = val[i];
-    };
-
-/**
- * Writes a sequence of bytes.
- * @param {Uint8Array|string} value Buffer or base64 encoded string to write
- * @returns {Writer} `this`
- */
-Writer.prototype.bytes = function write_bytes(value) {
-    var len = value.length >>> 0;
-    if (!len)
-        return this._push(writeByte, 1, 0);
-    if (util.isString(value)) {
-        var buf = Writer.alloc(len = base64.length(value));
-        base64.decode(value, buf, 0);
-        value = buf;
-    }
-    return this.uint32(len)._push(writeBytes, len, value);
-};
-
-/**
- * Writes a string.
- * @param {string} value Value to write
- * @returns {Writer} `this`
- */
-Writer.prototype.string = function write_string(value) {
-    var len = utf8.length(value);
-    return len
-        ? this.uint32(len)._push(utf8.write, len, value)
-        : this._push(writeByte, 1, 0);
-};
-
-/**
- * Forks this writer's state by pushing it to a stack.
- * Calling {@link Writer#reset|reset} or {@link Writer#ldelim|ldelim} resets the writer to the previous state.
- * @returns {Writer} `this`
- */
-Writer.prototype.fork = function fork() {
-    this.states = new State(this);
-    this.head = this.tail = new Op(noop, 0, 0);
-    this.len = 0;
-    return this;
-};
-
-/**
- * Resets this instance to the last state.
- * @returns {Writer} `this`
- */
-Writer.prototype.reset = function reset() {
-    if (this.states) {
-        this.head   = this.states.head;
-        this.tail   = this.states.tail;
-        this.len    = this.states.len;
-        this.states = this.states.next;
-    } else {
-        this.head = this.tail = new Op(noop, 0, 0);
-        this.len  = 0;
-    }
-    return this;
-};
-
-/**
- * Resets to the last state and appends the fork state's current write length as a varint followed by its operations.
- * @returns {Writer} `this`
- */
-Writer.prototype.ldelim = function ldelim() {
-    var head = this.head,
-        tail = this.tail,
-        len  = this.len;
-    this.reset().uint32(len);
-    if (len) {
-        this.tail.next = head.next; // skip noop
-        this.tail = tail;
-        this.len += len;
-    }
-    return this;
-};
-
-/**
- * Finishes the write operation.
- * @returns {Uint8Array} Finished buffer
- */
-Writer.prototype.finish = function finish() {
-    var head = this.head.next, // skip noop
-        buf  = this.constructor.alloc(this.len),
-        pos  = 0;
-    while (head) {
-        head.fn(head.val, buf, pos);
-        pos += head.len;
-        head = head.next;
-    }
-    // this.head = this.tail = null;
-    return buf;
-};
-
-Writer._configure = function(BufferWriter_) {
-    BufferWriter = BufferWriter_;
-    Writer.create = create();
-    BufferWriter._configure();
-};
-
-
-/***/ }),
-
-/***/ 818:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-module.exports = BufferWriter;
-
-// extends Writer
-var Writer = __webpack_require__(449);
-(BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
-
-var util = __webpack_require__(610);
-
-/**
- * Constructs a new buffer writer instance.
- * @classdesc Wire format writer using node buffers.
- * @extends Writer
- * @constructor
- */
-function BufferWriter() {
-    Writer.call(this);
-}
-
-BufferWriter._configure = function () {
-    /**
-     * Allocates a buffer of the specified size.
-     * @function
-     * @param {number} size Buffer size
-     * @returns {Buffer} Buffer
-     */
-    BufferWriter.alloc = util._Buffer_allocUnsafe;
-
-    BufferWriter.writeBytesBuffer = util.Buffer && util.Buffer.prototype instanceof Uint8Array && util.Buffer.prototype.set.name === "set"
-        ? function writeBytesBuffer_set(val, buf, pos) {
-          buf.set(val, pos); // faster than copy (requires node >= 4 where Buffers extend Uint8Array and set is properly inherited)
-          // also works for plain array values
-        }
-        /* istanbul ignore next */
-        : function writeBytesBuffer_copy(val, buf, pos) {
-          if (val.copy) // Buffer values
-            val.copy(buf, pos, 0, val.length);
-          else for (var i = 0; i < val.length;) // plain array values
-            buf[pos++] = val[i++];
-        };
-};
-
-
-/**
- * @override
- */
-BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
-    if (util.isString(value))
-        value = util._Buffer_from(value, "base64");
-    var len = value.length >>> 0;
-    this.uint32(len);
-    if (len)
-        this._push(BufferWriter.writeBytesBuffer, len, value);
-    return this;
-};
-
-function writeStringBuffer(val, buf, pos) {
-    if (val.length < 40) // plain js is faster for short strings (probably due to redundant assertions)
-        util.utf8.write(val, buf, pos);
-    else if (buf.utf8Write)
-        buf.utf8Write(val, pos);
-    else
-        buf.write(val, pos);
-}
-
-/**
- * @override
- */
-BufferWriter.prototype.string = function write_string_buffer(value) {
-    var len = util.Buffer.byteLength(value);
-    this.uint32(len);
-    if (len)
-        this._push(writeStringBuffer, len, value);
-    return this;
-};
-
-
-/**
- * Finishes the write operation.
- * @name BufferWriter#finish
- * @function
- * @returns {Buffer} Finished buffer
- */
-
-BufferWriter._configure();
-
-
-/***/ }),
-
-/***/ 741:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-/*! *****************************************************************************
-Copyright (C) Microsoft. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-var Reflect;
-(function (Reflect) {
-    // Metadata Proposal
-    // https://rbuckton.github.io/reflect-metadata/
-    (function (factory) {
-        var root = typeof __webpack_require__.g === "object" ? __webpack_require__.g :
-            typeof self === "object" ? self :
-                typeof this === "object" ? this :
-                    Function("return this;")();
-        var exporter = makeExporter(Reflect);
-        if (typeof root.Reflect === "undefined") {
-            root.Reflect = Reflect;
-        }
-        else {
-            exporter = makeExporter(root.Reflect, exporter);
-        }
-        factory(exporter);
-        function makeExporter(target, previous) {
-            return function (key, value) {
-                if (typeof target[key] !== "function") {
-                    Object.defineProperty(target, key, { configurable: true, writable: true, value: value });
-                }
-                if (previous)
-                    previous(key, value);
-            };
-        }
-    })(function (exporter) {
-        var hasOwn = Object.prototype.hasOwnProperty;
-        // feature test for Symbol support
-        var supportsSymbol = typeof Symbol === "function";
-        var toPrimitiveSymbol = supportsSymbol && typeof Symbol.toPrimitive !== "undefined" ? Symbol.toPrimitive : "@@toPrimitive";
-        var iteratorSymbol = supportsSymbol && typeof Symbol.iterator !== "undefined" ? Symbol.iterator : "@@iterator";
-        var supportsCreate = typeof Object.create === "function"; // feature test for Object.create support
-        var supportsProto = { __proto__: [] } instanceof Array; // feature test for __proto__ support
-        var downLevel = !supportsCreate && !supportsProto;
-        var HashMap = {
-            // create an object in dictionary mode (a.k.a. "slow" mode in v8)
-            create: supportsCreate
-                ? function () { return MakeDictionary(Object.create(null)); }
-                : supportsProto
-                    ? function () { return MakeDictionary({ __proto__: null }); }
-                    : function () { return MakeDictionary({}); },
-            has: downLevel
-                ? function (map, key) { return hasOwn.call(map, key); }
-                : function (map, key) { return key in map; },
-            get: downLevel
-                ? function (map, key) { return hasOwn.call(map, key) ? map[key] : undefined; }
-                : function (map, key) { return map[key]; },
-        };
-        // Load global or shim versions of Map, Set, and WeakMap
-        var functionPrototype = Object.getPrototypeOf(Function);
-        var usePolyfill = typeof process === "object" && process.env && process.env["REFLECT_METADATA_USE_MAP_POLYFILL"] === "true";
-        var _Map = !usePolyfill && typeof Map === "function" && typeof Map.prototype.entries === "function" ? Map : CreateMapPolyfill();
-        var _Set = !usePolyfill && typeof Set === "function" && typeof Set.prototype.entries === "function" ? Set : CreateSetPolyfill();
-        var _WeakMap = !usePolyfill && typeof WeakMap === "function" ? WeakMap : CreateWeakMapPolyfill();
-        // [[Metadata]] internal slot
-        // https://rbuckton.github.io/reflect-metadata/#ordinary-object-internal-methods-and-internal-slots
-        var Metadata = new _WeakMap();
-        /**
-         * Applies a set of decorators to a property of a target object.
-         * @param decorators An array of decorators.
-         * @param target The target object.
-         * @param propertyKey (Optional) The property key to decorate.
-         * @param attributes (Optional) The property descriptor for the target key.
-         * @remarks Decorators are applied in reverse order.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     Example = Reflect.decorate(decoratorsArray, Example);
-         *
-         *     // property (on constructor)
-         *     Reflect.decorate(decoratorsArray, Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     Reflect.decorate(decoratorsArray, Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     Object.defineProperty(Example, "staticMethod",
-         *         Reflect.decorate(decoratorsArray, Example, "staticMethod",
-         *             Object.getOwnPropertyDescriptor(Example, "staticMethod")));
-         *
-         *     // method (on prototype)
-         *     Object.defineProperty(Example.prototype, "method",
-         *         Reflect.decorate(decoratorsArray, Example.prototype, "method",
-         *             Object.getOwnPropertyDescriptor(Example.prototype, "method")));
-         *
-         */
-        function decorate(decorators, target, propertyKey, attributes) {
-            if (!IsUndefined(propertyKey)) {
-                if (!IsArray(decorators))
-                    throw new TypeError();
-                if (!IsObject(target))
-                    throw new TypeError();
-                if (!IsObject(attributes) && !IsUndefined(attributes) && !IsNull(attributes))
-                    throw new TypeError();
-                if (IsNull(attributes))
-                    attributes = undefined;
-                propertyKey = ToPropertyKey(propertyKey);
-                return DecorateProperty(decorators, target, propertyKey, attributes);
-            }
-            else {
-                if (!IsArray(decorators))
-                    throw new TypeError();
-                if (!IsConstructor(target))
-                    throw new TypeError();
-                return DecorateConstructor(decorators, target);
-            }
-        }
-        exporter("decorate", decorate);
-        // 4.1.2 Reflect.metadata(metadataKey, metadataValue)
-        // https://rbuckton.github.io/reflect-metadata/#reflect.metadata
-        /**
-         * A default metadata decorator factory that can be used on a class, class member, or parameter.
-         * @param metadataKey The key for the metadata entry.
-         * @param metadataValue The value for the metadata entry.
-         * @returns A decorator function.
-         * @remarks
-         * If `metadataKey` is already defined for the target and target key, the
-         * metadataValue for that key will be overwritten.
-         * @example
-         *
-         *     // constructor
-         *     @Reflect.metadata(key, value)
-         *     class Example {
-         *     }
-         *
-         *     // property (on constructor, TypeScript only)
-         *     class Example {
-         *         @Reflect.metadata(key, value)
-         *         static staticProperty;
-         *     }
-         *
-         *     // property (on prototype, TypeScript only)
-         *     class Example {
-         *         @Reflect.metadata(key, value)
-         *         property;
-         *     }
-         *
-         *     // method (on constructor)
-         *     class Example {
-         *         @Reflect.metadata(key, value)
-         *         static staticMethod() { }
-         *     }
-         *
-         *     // method (on prototype)
-         *     class Example {
-         *         @Reflect.metadata(key, value)
-         *         method() { }
-         *     }
-         *
-         */
-        function metadata(metadataKey, metadataValue) {
-            function decorator(target, propertyKey) {
-                if (!IsObject(target))
-                    throw new TypeError();
-                if (!IsUndefined(propertyKey) && !IsPropertyKey(propertyKey))
-                    throw new TypeError();
-                OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, propertyKey);
-            }
-            return decorator;
-        }
-        exporter("metadata", metadata);
-        /**
-         * Define a unique metadata entry on the target.
-         * @param metadataKey A key used to store and retrieve metadata.
-         * @param metadataValue A value that contains attached metadata.
-         * @param target The target object on which to define metadata.
-         * @param propertyKey (Optional) The property key for the target.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     Reflect.defineMetadata("custom:annotation", options, Example);
-         *
-         *     // property (on constructor)
-         *     Reflect.defineMetadata("custom:annotation", options, Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     Reflect.defineMetadata("custom:annotation", options, Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     Reflect.defineMetadata("custom:annotation", options, Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     Reflect.defineMetadata("custom:annotation", options, Example.prototype, "method");
-         *
-         *     // decorator factory as metadata-producing annotation.
-         *     function MyAnnotation(options): Decorator {
-         *         return (target, key?) => Reflect.defineMetadata("custom:annotation", options, target, key);
-         *     }
-         *
-         */
-        function defineMetadata(metadataKey, metadataValue, target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, propertyKey);
-        }
-        exporter("defineMetadata", defineMetadata);
-        /**
-         * Gets a value indicating whether the target object or its prototype chain has the provided metadata key defined.
-         * @param metadataKey A key used to store and retrieve metadata.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns `true` if the metadata key was defined on the target object or its prototype chain; otherwise, `false`.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.hasMetadata("custom:annotation", Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.hasMetadata("custom:annotation", Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.hasMetadata("custom:annotation", Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.hasMetadata("custom:annotation", Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.hasMetadata("custom:annotation", Example.prototype, "method");
-         *
-         */
-        function hasMetadata(metadataKey, target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryHasMetadata(metadataKey, target, propertyKey);
-        }
-        exporter("hasMetadata", hasMetadata);
-        /**
-         * Gets a value indicating whether the target object has the provided metadata key defined.
-         * @param metadataKey A key used to store and retrieve metadata.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns `true` if the metadata key was defined on the target object; otherwise, `false`.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.hasOwnMetadata("custom:annotation", Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.hasOwnMetadata("custom:annotation", Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.hasOwnMetadata("custom:annotation", Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.hasOwnMetadata("custom:annotation", Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.hasOwnMetadata("custom:annotation", Example.prototype, "method");
-         *
-         */
-        function hasOwnMetadata(metadataKey, target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryHasOwnMetadata(metadataKey, target, propertyKey);
-        }
-        exporter("hasOwnMetadata", hasOwnMetadata);
-        /**
-         * Gets the metadata value for the provided metadata key on the target object or its prototype chain.
-         * @param metadataKey A key used to store and retrieve metadata.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns The metadata value for the metadata key if found; otherwise, `undefined`.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.getMetadata("custom:annotation", Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.getMetadata("custom:annotation", Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.getMetadata("custom:annotation", Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.getMetadata("custom:annotation", Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.getMetadata("custom:annotation", Example.prototype, "method");
-         *
-         */
-        function getMetadata(metadataKey, target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryGetMetadata(metadataKey, target, propertyKey);
-        }
-        exporter("getMetadata", getMetadata);
-        /**
-         * Gets the metadata value for the provided metadata key on the target object.
-         * @param metadataKey A key used to store and retrieve metadata.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns The metadata value for the metadata key if found; otherwise, `undefined`.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.getOwnMetadata("custom:annotation", Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.getOwnMetadata("custom:annotation", Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.getOwnMetadata("custom:annotation", Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.getOwnMetadata("custom:annotation", Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.getOwnMetadata("custom:annotation", Example.prototype, "method");
-         *
-         */
-        function getOwnMetadata(metadataKey, target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryGetOwnMetadata(metadataKey, target, propertyKey);
-        }
-        exporter("getOwnMetadata", getOwnMetadata);
-        /**
-         * Gets the metadata keys defined on the target object or its prototype chain.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns An array of unique metadata keys.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.getMetadataKeys(Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.getMetadataKeys(Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.getMetadataKeys(Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.getMetadataKeys(Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.getMetadataKeys(Example.prototype, "method");
-         *
-         */
-        function getMetadataKeys(target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryMetadataKeys(target, propertyKey);
-        }
-        exporter("getMetadataKeys", getMetadataKeys);
-        /**
-         * Gets the unique metadata keys defined on the target object.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns An array of unique metadata keys.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.getOwnMetadataKeys(Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.getOwnMetadataKeys(Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.getOwnMetadataKeys(Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.getOwnMetadataKeys(Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.getOwnMetadataKeys(Example.prototype, "method");
-         *
-         */
-        function getOwnMetadataKeys(target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            return OrdinaryOwnMetadataKeys(target, propertyKey);
-        }
-        exporter("getOwnMetadataKeys", getOwnMetadataKeys);
-        /**
-         * Deletes the metadata entry from the target object with the provided key.
-         * @param metadataKey A key used to store and retrieve metadata.
-         * @param target The target object on which the metadata is defined.
-         * @param propertyKey (Optional) The property key for the target.
-         * @returns `true` if the metadata entry was found and deleted; otherwise, false.
-         * @example
-         *
-         *     class Example {
-         *         // property declarations are not part of ES6, though they are valid in TypeScript:
-         *         // static staticProperty;
-         *         // property;
-         *
-         *         constructor(p) { }
-         *         static staticMethod(p) { }
-         *         method(p) { }
-         *     }
-         *
-         *     // constructor
-         *     result = Reflect.deleteMetadata("custom:annotation", Example);
-         *
-         *     // property (on constructor)
-         *     result = Reflect.deleteMetadata("custom:annotation", Example, "staticProperty");
-         *
-         *     // property (on prototype)
-         *     result = Reflect.deleteMetadata("custom:annotation", Example.prototype, "property");
-         *
-         *     // method (on constructor)
-         *     result = Reflect.deleteMetadata("custom:annotation", Example, "staticMethod");
-         *
-         *     // method (on prototype)
-         *     result = Reflect.deleteMetadata("custom:annotation", Example.prototype, "method");
-         *
-         */
-        function deleteMetadata(metadataKey, target, propertyKey) {
-            if (!IsObject(target))
-                throw new TypeError();
-            if (!IsUndefined(propertyKey))
-                propertyKey = ToPropertyKey(propertyKey);
-            var metadataMap = GetOrCreateMetadataMap(target, propertyKey, /*Create*/ false);
-            if (IsUndefined(metadataMap))
-                return false;
-            if (!metadataMap.delete(metadataKey))
-                return false;
-            if (metadataMap.size > 0)
-                return true;
-            var targetMetadata = Metadata.get(target);
-            targetMetadata.delete(propertyKey);
-            if (targetMetadata.size > 0)
-                return true;
-            Metadata.delete(target);
-            return true;
-        }
-        exporter("deleteMetadata", deleteMetadata);
-        function DecorateConstructor(decorators, target) {
-            for (var i = decorators.length - 1; i >= 0; --i) {
-                var decorator = decorators[i];
-                var decorated = decorator(target);
-                if (!IsUndefined(decorated) && !IsNull(decorated)) {
-                    if (!IsConstructor(decorated))
-                        throw new TypeError();
-                    target = decorated;
-                }
-            }
-            return target;
-        }
-        function DecorateProperty(decorators, target, propertyKey, descriptor) {
-            for (var i = decorators.length - 1; i >= 0; --i) {
-                var decorator = decorators[i];
-                var decorated = decorator(target, propertyKey, descriptor);
-                if (!IsUndefined(decorated) && !IsNull(decorated)) {
-                    if (!IsObject(decorated))
-                        throw new TypeError();
-                    descriptor = decorated;
-                }
-            }
-            return descriptor;
-        }
-        function GetOrCreateMetadataMap(O, P, Create) {
-            var targetMetadata = Metadata.get(O);
-            if (IsUndefined(targetMetadata)) {
-                if (!Create)
-                    return undefined;
-                targetMetadata = new _Map();
-                Metadata.set(O, targetMetadata);
-            }
-            var metadataMap = targetMetadata.get(P);
-            if (IsUndefined(metadataMap)) {
-                if (!Create)
-                    return undefined;
-                metadataMap = new _Map();
-                targetMetadata.set(P, metadataMap);
-            }
-            return metadataMap;
-        }
-        // 3.1.1.1 OrdinaryHasMetadata(MetadataKey, O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinaryhasmetadata
-        function OrdinaryHasMetadata(MetadataKey, O, P) {
-            var hasOwn = OrdinaryHasOwnMetadata(MetadataKey, O, P);
-            if (hasOwn)
-                return true;
-            var parent = OrdinaryGetPrototypeOf(O);
-            if (!IsNull(parent))
-                return OrdinaryHasMetadata(MetadataKey, parent, P);
-            return false;
-        }
-        // 3.1.2.1 OrdinaryHasOwnMetadata(MetadataKey, O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinaryhasownmetadata
-        function OrdinaryHasOwnMetadata(MetadataKey, O, P) {
-            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
-            if (IsUndefined(metadataMap))
-                return false;
-            return ToBoolean(metadataMap.has(MetadataKey));
-        }
-        // 3.1.3.1 OrdinaryGetMetadata(MetadataKey, O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinarygetmetadata
-        function OrdinaryGetMetadata(MetadataKey, O, P) {
-            var hasOwn = OrdinaryHasOwnMetadata(MetadataKey, O, P);
-            if (hasOwn)
-                return OrdinaryGetOwnMetadata(MetadataKey, O, P);
-            var parent = OrdinaryGetPrototypeOf(O);
-            if (!IsNull(parent))
-                return OrdinaryGetMetadata(MetadataKey, parent, P);
-            return undefined;
-        }
-        // 3.1.4.1 OrdinaryGetOwnMetadata(MetadataKey, O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinarygetownmetadata
-        function OrdinaryGetOwnMetadata(MetadataKey, O, P) {
-            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
-            if (IsUndefined(metadataMap))
-                return undefined;
-            return metadataMap.get(MetadataKey);
-        }
-        // 3.1.5.1 OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinarydefineownmetadata
-        function OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P) {
-            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ true);
-            metadataMap.set(MetadataKey, MetadataValue);
-        }
-        // 3.1.6.1 OrdinaryMetadataKeys(O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinarymetadatakeys
-        function OrdinaryMetadataKeys(O, P) {
-            var ownKeys = OrdinaryOwnMetadataKeys(O, P);
-            var parent = OrdinaryGetPrototypeOf(O);
-            if (parent === null)
-                return ownKeys;
-            var parentKeys = OrdinaryMetadataKeys(parent, P);
-            if (parentKeys.length <= 0)
-                return ownKeys;
-            if (ownKeys.length <= 0)
-                return parentKeys;
-            var set = new _Set();
-            var keys = [];
-            for (var _i = 0, ownKeys_1 = ownKeys; _i < ownKeys_1.length; _i++) {
-                var key = ownKeys_1[_i];
-                var hasKey = set.has(key);
-                if (!hasKey) {
-                    set.add(key);
-                    keys.push(key);
-                }
-            }
-            for (var _a = 0, parentKeys_1 = parentKeys; _a < parentKeys_1.length; _a++) {
-                var key = parentKeys_1[_a];
-                var hasKey = set.has(key);
-                if (!hasKey) {
-                    set.add(key);
-                    keys.push(key);
-                }
-            }
-            return keys;
-        }
-        // 3.1.7.1 OrdinaryOwnMetadataKeys(O, P)
-        // https://rbuckton.github.io/reflect-metadata/#ordinaryownmetadatakeys
-        function OrdinaryOwnMetadataKeys(O, P) {
-            var keys = [];
-            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
-            if (IsUndefined(metadataMap))
-                return keys;
-            var keysObj = metadataMap.keys();
-            var iterator = GetIterator(keysObj);
-            var k = 0;
-            while (true) {
-                var next = IteratorStep(iterator);
-                if (!next) {
-                    keys.length = k;
-                    return keys;
-                }
-                var nextValue = IteratorValue(next);
-                try {
-                    keys[k] = nextValue;
-                }
-                catch (e) {
-                    try {
-                        IteratorClose(iterator);
-                    }
-                    finally {
-                        throw e;
-                    }
-                }
-                k++;
-            }
-        }
-        // 6 ECMAScript Data Typ0es and Values
-        // https://tc39.github.io/ecma262/#sec-ecmascript-data-types-and-values
-        function Type(x) {
-            if (x === null)
-                return 1 /* Null */;
-            switch (typeof x) {
-                case "undefined": return 0 /* Undefined */;
-                case "boolean": return 2 /* Boolean */;
-                case "string": return 3 /* String */;
-                case "symbol": return 4 /* Symbol */;
-                case "number": return 5 /* Number */;
-                case "object": return x === null ? 1 /* Null */ : 6 /* Object */;
-                default: return 6 /* Object */;
-            }
-        }
-        // 6.1.1 The Undefined Type
-        // https://tc39.github.io/ecma262/#sec-ecmascript-language-types-undefined-type
-        function IsUndefined(x) {
-            return x === undefined;
-        }
-        // 6.1.2 The Null Type
-        // https://tc39.github.io/ecma262/#sec-ecmascript-language-types-null-type
-        function IsNull(x) {
-            return x === null;
-        }
-        // 6.1.5 The Symbol Type
-        // https://tc39.github.io/ecma262/#sec-ecmascript-language-types-symbol-type
-        function IsSymbol(x) {
-            return typeof x === "symbol";
-        }
-        // 6.1.7 The Object Type
-        // https://tc39.github.io/ecma262/#sec-object-type
-        function IsObject(x) {
-            return typeof x === "object" ? x !== null : typeof x === "function";
-        }
-        // 7.1 Type Conversion
-        // https://tc39.github.io/ecma262/#sec-type-conversion
-        // 7.1.1 ToPrimitive(input [, PreferredType])
-        // https://tc39.github.io/ecma262/#sec-toprimitive
-        function ToPrimitive(input, PreferredType) {
-            switch (Type(input)) {
-                case 0 /* Undefined */: return input;
-                case 1 /* Null */: return input;
-                case 2 /* Boolean */: return input;
-                case 3 /* String */: return input;
-                case 4 /* Symbol */: return input;
-                case 5 /* Number */: return input;
-            }
-            var hint = PreferredType === 3 /* String */ ? "string" : PreferredType === 5 /* Number */ ? "number" : "default";
-            var exoticToPrim = GetMethod(input, toPrimitiveSymbol);
-            if (exoticToPrim !== undefined) {
-                var result = exoticToPrim.call(input, hint);
-                if (IsObject(result))
-                    throw new TypeError();
-                return result;
-            }
-            return OrdinaryToPrimitive(input, hint === "default" ? "number" : hint);
-        }
-        // 7.1.1.1 OrdinaryToPrimitive(O, hint)
-        // https://tc39.github.io/ecma262/#sec-ordinarytoprimitive
-        function OrdinaryToPrimitive(O, hint) {
-            if (hint === "string") {
-                var toString_1 = O.toString;
-                if (IsCallable(toString_1)) {
-                    var result = toString_1.call(O);
-                    if (!IsObject(result))
-                        return result;
-                }
-                var valueOf = O.valueOf;
-                if (IsCallable(valueOf)) {
-                    var result = valueOf.call(O);
-                    if (!IsObject(result))
-                        return result;
-                }
-            }
-            else {
-                var valueOf = O.valueOf;
-                if (IsCallable(valueOf)) {
-                    var result = valueOf.call(O);
-                    if (!IsObject(result))
-                        return result;
-                }
-                var toString_2 = O.toString;
-                if (IsCallable(toString_2)) {
-                    var result = toString_2.call(O);
-                    if (!IsObject(result))
-                        return result;
-                }
-            }
-            throw new TypeError();
-        }
-        // 7.1.2 ToBoolean(argument)
-        // https://tc39.github.io/ecma262/2016/#sec-toboolean
-        function ToBoolean(argument) {
-            return !!argument;
-        }
-        // 7.1.12 ToString(argument)
-        // https://tc39.github.io/ecma262/#sec-tostring
-        function ToString(argument) {
-            return "" + argument;
-        }
-        // 7.1.14 ToPropertyKey(argument)
-        // https://tc39.github.io/ecma262/#sec-topropertykey
-        function ToPropertyKey(argument) {
-            var key = ToPrimitive(argument, 3 /* String */);
-            if (IsSymbol(key))
-                return key;
-            return ToString(key);
-        }
-        // 7.2 Testing and Comparison Operations
-        // https://tc39.github.io/ecma262/#sec-testing-and-comparison-operations
-        // 7.2.2 IsArray(argument)
-        // https://tc39.github.io/ecma262/#sec-isarray
-        function IsArray(argument) {
-            return Array.isArray
-                ? Array.isArray(argument)
-                : argument instanceof Object
-                    ? argument instanceof Array
-                    : Object.prototype.toString.call(argument) === "[object Array]";
-        }
-        // 7.2.3 IsCallable(argument)
-        // https://tc39.github.io/ecma262/#sec-iscallable
-        function IsCallable(argument) {
-            // NOTE: This is an approximation as we cannot check for [[Call]] internal method.
-            return typeof argument === "function";
-        }
-        // 7.2.4 IsConstructor(argument)
-        // https://tc39.github.io/ecma262/#sec-isconstructor
-        function IsConstructor(argument) {
-            // NOTE: This is an approximation as we cannot check for [[Construct]] internal method.
-            return typeof argument === "function";
-        }
-        // 7.2.7 IsPropertyKey(argument)
-        // https://tc39.github.io/ecma262/#sec-ispropertykey
-        function IsPropertyKey(argument) {
-            switch (Type(argument)) {
-                case 3 /* String */: return true;
-                case 4 /* Symbol */: return true;
-                default: return false;
-            }
-        }
-        // 7.3 Operations on Objects
-        // https://tc39.github.io/ecma262/#sec-operations-on-objects
-        // 7.3.9 GetMethod(V, P)
-        // https://tc39.github.io/ecma262/#sec-getmethod
-        function GetMethod(V, P) {
-            var func = V[P];
-            if (func === undefined || func === null)
-                return undefined;
-            if (!IsCallable(func))
-                throw new TypeError();
-            return func;
-        }
-        // 7.4 Operations on Iterator Objects
-        // https://tc39.github.io/ecma262/#sec-operations-on-iterator-objects
-        function GetIterator(obj) {
-            var method = GetMethod(obj, iteratorSymbol);
-            if (!IsCallable(method))
-                throw new TypeError(); // from Call
-            var iterator = method.call(obj);
-            if (!IsObject(iterator))
-                throw new TypeError();
-            return iterator;
-        }
-        // 7.4.4 IteratorValue(iterResult)
-        // https://tc39.github.io/ecma262/2016/#sec-iteratorvalue
-        function IteratorValue(iterResult) {
-            return iterResult.value;
-        }
-        // 7.4.5 IteratorStep(iterator)
-        // https://tc39.github.io/ecma262/#sec-iteratorstep
-        function IteratorStep(iterator) {
-            var result = iterator.next();
-            return result.done ? false : result;
-        }
-        // 7.4.6 IteratorClose(iterator, completion)
-        // https://tc39.github.io/ecma262/#sec-iteratorclose
-        function IteratorClose(iterator) {
-            var f = iterator["return"];
-            if (f)
-                f.call(iterator);
-        }
-        // 9.1 Ordinary Object Internal Methods and Internal Slots
-        // https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots
-        // 9.1.1.1 OrdinaryGetPrototypeOf(O)
-        // https://tc39.github.io/ecma262/#sec-ordinarygetprototypeof
-        function OrdinaryGetPrototypeOf(O) {
-            var proto = Object.getPrototypeOf(O);
-            if (typeof O !== "function" || O === functionPrototype)
-                return proto;
-            // TypeScript doesn't set __proto__ in ES5, as it's non-standard.
-            // Try to determine the superclass constructor. Compatible implementations
-            // must either set __proto__ on a subclass constructor to the superclass constructor,
-            // or ensure each class has a valid `constructor` property on its prototype that
-            // points back to the constructor.
-            // If this is not the same as Function.[[Prototype]], then this is definately inherited.
-            // This is the case when in ES6 or when using __proto__ in a compatible browser.
-            if (proto !== functionPrototype)
-                return proto;
-            // If the super prototype is Object.prototype, null, or undefined, then we cannot determine the heritage.
-            var prototype = O.prototype;
-            var prototypeProto = prototype && Object.getPrototypeOf(prototype);
-            if (prototypeProto == null || prototypeProto === Object.prototype)
-                return proto;
-            // If the constructor was not a function, then we cannot determine the heritage.
-            var constructor = prototypeProto.constructor;
-            if (typeof constructor !== "function")
-                return proto;
-            // If we have some kind of self-reference, then we cannot determine the heritage.
-            if (constructor === O)
-                return proto;
-            // we have a pretty good guess at the heritage.
-            return constructor;
-        }
-        // naive Map shim
-        function CreateMapPolyfill() {
-            var cacheSentinel = {};
-            var arraySentinel = [];
-            var MapIterator = /** @class */ (function () {
-                function MapIterator(keys, values, selector) {
-                    this._index = 0;
-                    this._keys = keys;
-                    this._values = values;
-                    this._selector = selector;
-                }
-                MapIterator.prototype["@@iterator"] = function () { return this; };
-                MapIterator.prototype[iteratorSymbol] = function () { return this; };
-                MapIterator.prototype.next = function () {
-                    var index = this._index;
-                    if (index >= 0 && index < this._keys.length) {
-                        var result = this._selector(this._keys[index], this._values[index]);
-                        if (index + 1 >= this._keys.length) {
-                            this._index = -1;
-                            this._keys = arraySentinel;
-                            this._values = arraySentinel;
-                        }
-                        else {
-                            this._index++;
-                        }
-                        return { value: result, done: false };
-                    }
-                    return { value: undefined, done: true };
-                };
-                MapIterator.prototype.throw = function (error) {
-                    if (this._index >= 0) {
-                        this._index = -1;
-                        this._keys = arraySentinel;
-                        this._values = arraySentinel;
-                    }
-                    throw error;
-                };
-                MapIterator.prototype.return = function (value) {
-                    if (this._index >= 0) {
-                        this._index = -1;
-                        this._keys = arraySentinel;
-                        this._values = arraySentinel;
-                    }
-                    return { value: value, done: true };
-                };
-                return MapIterator;
-            }());
-            return /** @class */ (function () {
-                function Map() {
-                    this._keys = [];
-                    this._values = [];
-                    this._cacheKey = cacheSentinel;
-                    this._cacheIndex = -2;
-                }
-                Object.defineProperty(Map.prototype, "size", {
-                    get: function () { return this._keys.length; },
-                    enumerable: true,
-                    configurable: true
-                });
-                Map.prototype.has = function (key) { return this._find(key, /*insert*/ false) >= 0; };
-                Map.prototype.get = function (key) {
-                    var index = this._find(key, /*insert*/ false);
-                    return index >= 0 ? this._values[index] : undefined;
-                };
-                Map.prototype.set = function (key, value) {
-                    var index = this._find(key, /*insert*/ true);
-                    this._values[index] = value;
-                    return this;
-                };
-                Map.prototype.delete = function (key) {
-                    var index = this._find(key, /*insert*/ false);
-                    if (index >= 0) {
-                        var size = this._keys.length;
-                        for (var i = index + 1; i < size; i++) {
-                            this._keys[i - 1] = this._keys[i];
-                            this._values[i - 1] = this._values[i];
-                        }
-                        this._keys.length--;
-                        this._values.length--;
-                        if (key === this._cacheKey) {
-                            this._cacheKey = cacheSentinel;
-                            this._cacheIndex = -2;
-                        }
-                        return true;
-                    }
-                    return false;
-                };
-                Map.prototype.clear = function () {
-                    this._keys.length = 0;
-                    this._values.length = 0;
-                    this._cacheKey = cacheSentinel;
-                    this._cacheIndex = -2;
-                };
-                Map.prototype.keys = function () { return new MapIterator(this._keys, this._values, getKey); };
-                Map.prototype.values = function () { return new MapIterator(this._keys, this._values, getValue); };
-                Map.prototype.entries = function () { return new MapIterator(this._keys, this._values, getEntry); };
-                Map.prototype["@@iterator"] = function () { return this.entries(); };
-                Map.prototype[iteratorSymbol] = function () { return this.entries(); };
-                Map.prototype._find = function (key, insert) {
-                    if (this._cacheKey !== key) {
-                        this._cacheIndex = this._keys.indexOf(this._cacheKey = key);
-                    }
-                    if (this._cacheIndex < 0 && insert) {
-                        this._cacheIndex = this._keys.length;
-                        this._keys.push(key);
-                        this._values.push(undefined);
-                    }
-                    return this._cacheIndex;
-                };
-                return Map;
-            }());
-            function getKey(key, _) {
-                return key;
-            }
-            function getValue(_, value) {
-                return value;
-            }
-            function getEntry(key, value) {
-                return [key, value];
-            }
-        }
-        // naive Set shim
-        function CreateSetPolyfill() {
-            return /** @class */ (function () {
-                function Set() {
-                    this._map = new _Map();
-                }
-                Object.defineProperty(Set.prototype, "size", {
-                    get: function () { return this._map.size; },
-                    enumerable: true,
-                    configurable: true
-                });
-                Set.prototype.has = function (value) { return this._map.has(value); };
-                Set.prototype.add = function (value) { return this._map.set(value, value), this; };
-                Set.prototype.delete = function (value) { return this._map.delete(value); };
-                Set.prototype.clear = function () { this._map.clear(); };
-                Set.prototype.keys = function () { return this._map.keys(); };
-                Set.prototype.values = function () { return this._map.values(); };
-                Set.prototype.entries = function () { return this._map.entries(); };
-                Set.prototype["@@iterator"] = function () { return this.keys(); };
-                Set.prototype[iteratorSymbol] = function () { return this.keys(); };
-                return Set;
-            }());
-        }
-        // naive WeakMap shim
-        function CreateWeakMapPolyfill() {
-            var UUID_SIZE = 16;
-            var keys = HashMap.create();
-            var rootKey = CreateUniqueKey();
-            return /** @class */ (function () {
-                function WeakMap() {
-                    this._key = CreateUniqueKey();
-                }
-                WeakMap.prototype.has = function (target) {
-                    var table = GetOrCreateWeakMapTable(target, /*create*/ false);
-                    return table !== undefined ? HashMap.has(table, this._key) : false;
-                };
-                WeakMap.prototype.get = function (target) {
-                    var table = GetOrCreateWeakMapTable(target, /*create*/ false);
-                    return table !== undefined ? HashMap.get(table, this._key) : undefined;
-                };
-                WeakMap.prototype.set = function (target, value) {
-                    var table = GetOrCreateWeakMapTable(target, /*create*/ true);
-                    table[this._key] = value;
-                    return this;
-                };
-                WeakMap.prototype.delete = function (target) {
-                    var table = GetOrCreateWeakMapTable(target, /*create*/ false);
-                    return table !== undefined ? delete table[this._key] : false;
-                };
-                WeakMap.prototype.clear = function () {
-                    // NOTE: not a real clear, just makes the previous data unreachable
-                    this._key = CreateUniqueKey();
-                };
-                return WeakMap;
-            }());
-            function CreateUniqueKey() {
-                var key;
-                do
-                    key = "@@WeakMap@@" + CreateUUID();
-                while (HashMap.has(keys, key));
-                keys[key] = true;
-                return key;
-            }
-            function GetOrCreateWeakMapTable(target, create) {
-                if (!hasOwn.call(target, rootKey)) {
-                    if (!create)
-                        return undefined;
-                    Object.defineProperty(target, rootKey, { value: HashMap.create() });
-                }
-                return target[rootKey];
-            }
-            function FillRandomBytes(buffer, size) {
-                for (var i = 0; i < size; ++i)
-                    buffer[i] = Math.random() * 0xff | 0;
-                return buffer;
-            }
-            function GenRandomBytes(size) {
-                if (typeof Uint8Array === "function") {
-                    if (typeof crypto !== "undefined")
-                        return crypto.getRandomValues(new Uint8Array(size));
-                    if (typeof msCrypto !== "undefined")
-                        return msCrypto.getRandomValues(new Uint8Array(size));
-                    return FillRandomBytes(new Uint8Array(size), size);
-                }
-                return FillRandomBytes(new Array(size), size);
-            }
-            function CreateUUID() {
-                var data = GenRandomBytes(UUID_SIZE);
-                // mark as random - RFC 4122 § 4.4
-                data[6] = data[6] & 0x4f | 0x40;
-                data[8] = data[8] & 0xbf | 0x80;
-                var result = "";
-                for (var offset = 0; offset < UUID_SIZE; ++offset) {
-                    var byte = data[offset];
-                    if (offset === 4 || offset === 6 || offset === 8)
-                        result += "-";
-                    if (byte < 16)
-                        result += "0";
-                    result += byte.toString(16).toLowerCase();
-                }
-                return result;
-            }
-        }
-        // uses a heuristic used by v8 and chakra to force an object into dictionary mode.
-        function MakeDictionary(obj) {
-            obj.__ = undefined;
-            delete obj.__;
-            return obj;
-        }
-    });
-})(Reflect || (Reflect = {}));
-
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
 
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/copyDefinedProperties.js
 /**
@@ -12283,332 +1356,6 @@ const createCameraKitConfigurationFactory = (configuration) => {
     });
 };
 //# sourceMappingURL=configuration.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/namedErrors.js
-// NOTE: All errors thrown in the CameraKit package have to be defined here.
-// Error types are not inferred from error factories for API doc purposes and consistency.
-/**
- * Removes the top trace line from the stack.
- */
-function cleanErrorStack(stack) {
-    const [first, _, ...rest] = stack.split("\n");
-    return [first, ...rest].join("\n");
-}
-/**
- * Creates error factory that ensures Error.prototype.name field value.
- *
- * NOTE: exported only for unit tests.
- *
- * @param name Error name.
- * @returns Error factory function.
- * @internal
- */
-function namedError(name) {
-    return (message, cause) => {
-        const error = new Error(message, { cause });
-        error.name = name;
-        error.stack = error.stack && cleanErrorStack(error.stack);
-        // Safety: we set name above and therefore sure the type of error is correct
-        return error;
-    };
-}
-/** @internal */
-const legalError = namedError("LegalError");
-/** @internal */
-const lensContentValidationError = namedError("LensContentValidationError");
-/** @internal */
-const lensError = namedError("LensError");
-/** @internal */
-const cameraKitSourceError = namedError("CameraKitSourceError");
-/** @internal */
-const lensImagePickerError = namedError("LensImagePickerError");
-/** @internal */
-const cacheKeyNotFoundError = namedError("CacheKeyNotFoundError");
-/** @internal */
-const configurationError = namedError("ConfigurationError");
-/** @internal */
-const namedErrors_webGLError = namedError("WebGLError");
-/** @internal */
-const namedErrors_benchmarkError = namedError("BenchmarkError");
-/** @internal */
-const platformNotSupportedError = namedError("PlatformNotSupportedError");
-/** @internal */
-const lensExecutionError = namedError("LensExecutionError");
-/** @internal */
-const lensAbortError = namedError("LensAbortError");
-/** @internal */
-const persistentStoreError = namedError("PersistentStoreError");
-/** @internal */
-const lensAssetError = namedError("LensAssetError");
-/** @internal */
-const bootstrapError = namedError("BootstrapError");
-//# sourceMappingURL=namedErrors.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/benchmark/webglUtils.js
-
-const webGLEntityCreationError = (name) => webGLError(`Could not create ${name}.`);
-function webglUtils_createProgram(gl, vertexSource, fragmentSource) {
-    const vertexShader = createShader(gl, vertexSource, gl.VERTEX_SHADER);
-    const fragmentShader = createShader(gl, fragmentSource, gl.FRAGMENT_SHADER);
-    const program = gl.createProgram();
-    if (!program)
-        throw webGLEntityCreationError("WebGLProgram");
-    gl.attachShader(program, vertexShader);
-    gl.deleteShader(vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.deleteShader(fragmentShader);
-    gl.linkProgram(program);
-    const success = gl.getProgramParameter(program, gl.LINK_STATUS);
-    if (!success) {
-        const message = gl.getProgramInfoLog(program);
-        gl.deleteProgram(program);
-        throw webGLError(`WebGLProgram linking failed with status: ${message}.`);
-    }
-    return program;
-}
-function createShader(gl, source, type) {
-    const shader = gl.createShader(type);
-    if (!shader)
-        throw webGLEntityCreationError(`WebGLShader (type ${type})`);
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-    const success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
-    if (!success) {
-        const message = gl.getShaderInfoLog(shader);
-        gl.deleteShader(shader);
-        throw webGLError(`WebGLShader (type ${type}) compilation failed with status: ${message}.`);
-    }
-    return shader;
-}
-function webglUtils_createTexture(gl, width, height) {
-    const texture = gl.createTexture();
-    if (!texture)
-        throw webGLEntityCreationError("WebGLTexture");
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-    return texture;
-}
-function webglUtils_createFramebuffer(gl, texture) {
-    const framebuffer = gl.createFramebuffer();
-    if (!framebuffer)
-        throw webGLEntityCreationError("WebGLFramebuffer");
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
-    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
-    return framebuffer;
-}
-function webglUtils_setUniform1i(gl, program, name, data) {
-    gl.uniform1i(gl.getUniformLocation(program, name), data);
-}
-function webglUtils_setUniform4f(gl, program, name, data) {
-    gl.uniform4f(gl.getUniformLocation(program, name), ...data);
-}
-function webglUtils_promiseSync(gl) {
-    const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
-    if (!sync)
-        throw webGLEntityCreationError("WebGLSync");
-    gl.flush();
-    return new Promise((resolve, reject) => {
-        const waitForSync = () => {
-            const glEnum = gl.clientWaitSync(sync, 0, 0);
-            switch (glEnum) {
-                case gl.TIMEOUT_EXPIRED:
-                    setTimeout(waitForSync);
-                    return;
-                case gl.WAIT_FAILED:
-                    gl.deleteSync(sync);
-                    return reject();
-                case gl.ALREADY_SIGNALED:
-                case gl.CONDITION_SATISFIED:
-                    gl.deleteSync(sync);
-                    return resolve();
-            }
-        };
-        waitForSync();
-    });
-}
-//# sourceMappingURL=webglUtils.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/benchmark/benchmarkGflops.js
-
-
-const vertexSource = (/* unused pure expression or super */ null && (`#version 300 es
-
-precision mediump float;
-precision mediump int;
-
-in vec2 pos;
-
-void main() {
-    gl_Position = vec4(pos, 0.0, 1.0);
-}
-`));
-const fragmentSource = (/* unused pure expression or super */ null && (`#version 300 es
-
-precision mediump float;
-precision mediump int;
-
-uniform int LOOP_COUNT;
-uniform vec4 v0;
-uniform vec4 v1;
-uniform vec4 v2;
-
-out vec4 fragColor;
-
-#define REPEAT_2(x) x; x
-#define REPEAT_4(x) REPEAT_2(x); REPEAT_2(x)
-#define REPEAT_8(x) REPEAT_4(x); REPEAT_4(x)
-#define REPEAT_16(x) REPEAT_8(x); REPEAT_8(x)
-#define REPEAT_32(x) REPEAT_16(x); REPEAT_16(x)
-
-void main() {
-    vec4 r = v2;
-    for (int i = 0; i < LOOP_COUNT; i++) {
-        REPEAT_32(r = r * v1 + v0);
-    }
-    fragColor = r;
-}
-`));
-const width = 1024;
-const height = 1024;
-const budgetMs = 300;
-const maxLoopCount = 1000;
-function prepareBenchmark(gl) {
-    const texture = createTexture(gl, width, height);
-    const framebuffer = createFramebuffer(gl, texture);
-    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
-    const buffer = gl.createBuffer();
-    if (!buffer) {
-        throw new Error("Failed to create WebGLBuffer.");
-    }
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, 1, -1, -1, 1, -1, 1, 1]), gl.STATIC_DRAW);
-    gl.viewport(0, 0, width, height);
-    gl.disable(gl.CULL_FACE);
-    gl.disable(gl.DEPTH_TEST);
-    const program = createProgram(gl, vertexSource, fragmentSource);
-    gl.useProgram(program);
-    const posLocation = gl.getAttribLocation(program, "pos");
-    gl.enableVertexAttribArray(posLocation);
-    gl.vertexAttribPointer(posLocation, 2, gl.FLOAT, false, 0, 0);
-    setUniform4f(gl, program, "v0", [1.15, 1.23, 1.47, 1.84]);
-    setUniform4f(gl, program, "v1", [1.65, 1.22, 1.69, 1.04]);
-    setUniform4f(gl, program, "v2", [1.05, 1.3, 1.55, 1.23]);
-    return {
-        program,
-        cleanupBenchmark: () => {
-            gl.deleteProgram(program);
-            gl.deleteBuffer(buffer);
-            gl.deleteFramebuffer(framebuffer);
-            gl.deleteTexture(texture);
-        },
-    };
-}
-function runBenchmark(gl, program) {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield promiseSync(gl);
-        const start = performance.now();
-        const flops = [];
-        let loopCount = 20;
-        while (true) {
-            setUniform1i(gl, program, "LOOP_COUNT", loopCount);
-            const iterationStart = performance.now();
-            gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
-            yield promiseSync(gl);
-            const iterationEnd = performance.now();
-            const duration = iterationEnd - iterationStart;
-            flops.push(loopCount / duration);
-            const remainingBudgetMs = budgetMs - (iterationEnd - start);
-            if (remainingBudgetMs < 0)
-                break;
-            if (loopCount < maxLoopCount) {
-                loopCount += remainingBudgetMs < duration ? 10 : (0.6 * loopCount * remainingBudgetMs) / duration;
-            }
-        }
-        const maxFlops = Math.max(...flops) * (8 * 32) * width * height;
-        return maxFlops / 1e6;
-    });
-}
-/**
- * These are obtained from historical performance data gathered from end-user devices. Keys are gflops, values are the
- * corresponding performance rating.
- *
- * To compute the performance rating given a gflops value, find the nearest key in this map and look up the rating.
- */
-const benchmarkGflops_gflopsClusterCenters = new Map([
-    [34, 1],
-    [134, 2],
-    [385, 3],
-    [783, 4],
-    [1484, 5],
-    [2313, 6],
-]);
-/**
- * This benchmark is the same that's run on non-web (e.g. native mobile) platforms, and produces results that can be
- * compared to those gathered on those platforms – this allows us to cluster results and determine a performance rating
- * based on historical data gathered elsewhere.
- *
- * @internal
- */
-function benchmarkGflops_benchmarkGflops(gl) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const { program, cleanupBenchmark } = prepareBenchmark(gl);
-        const gflops = yield runBenchmark(gl, program);
-        cleanupBenchmark();
-        return { name: "gflops", value: gflops };
-    });
-}
-//# sourceMappingURL=benchmarkGflops.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/benchmark/estimateLensPerformanceCluster.js
-
-
-
-const findNearest = (n, arr) => arr.reduce((a, b) => (Math.abs(a - n) <= Math.abs(b - n) ? a : b));
-const webglContextAttributes = {
-    alpha: false,
-    antialias: false,
-    premultipliedAlpha: false,
-    preserveDrawingBuffer: false,
-    depth: false,
-    stencil: false,
-    failIfMajorPerformanceCaveat: false,
-    powerPreference: "high-performance",
-};
-/**
- * Run benchmarks which attempt to predict expected lens performance, and assign a cluster (i.e. a performance rating)
- * which the CameraKit SDK can use to optimize certain lenses.
- *
- * @returns A rating from 1-6, indicating expected Lens performance.
- *
- * @category Bootstrapping and Configuration
- */
-function estimateLensPerformance() {
-    var _a;
-    return __awaiter(this, void 0, void 0, function* () {
-        // Prepare performance measurement.
-        const canvas = document.createElement("canvas");
-        const gl = canvas.getContext("webgl2", webglContextAttributes);
-        if (!gl)
-            throw benchmarkError("WebGL2 is required to compute performance, but it is not supported.");
-        const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
-        const webglRendererInfo = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "unknown";
-        // Measure performance (just GFLOPS for now, but could add more benchmarks in the future).
-        const gflops = yield benchmarkGflops(gl);
-        // Combine performance results and compute a performance rating. Right now we just run a single benchmark, so this
-        // is pretty trivial.
-        const nearestGflopsClusterCenter = findNearest(gflops.value, Array.from(gflopsClusterCenters.keys()));
-        // This should always find a value, but just in case something strange happens inside `findNearest`, we'll default
-        // to zero (instead of asserting .get() will always be defined).
-        const gflopsCluster = (_a = gflopsClusterCenters.get(nearestGflopsClusterCenter)) !== null && _a !== void 0 ? _a : 0;
-        return {
-            cluster: gflopsCluster,
-            benchmarks: [gflops],
-            webglRendererInfo,
-        };
-    });
-}
-//# sourceMappingURL=estimateLensPerformanceCluster.js.map
 ;// CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.mjs
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -12984,6 +1731,332 @@ function __disposeResources(env) {
   __disposeResources,
 });
 
+;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/namedErrors.js
+// NOTE: All errors thrown in the CameraKit package have to be defined here.
+// Error types are not inferred from error factories for API doc purposes and consistency.
+/**
+ * Removes the top trace line from the stack.
+ */
+function cleanErrorStack(stack) {
+    const [first, _, ...rest] = stack.split("\n");
+    return [first, ...rest].join("\n");
+}
+/**
+ * Creates error factory that ensures Error.prototype.name field value.
+ *
+ * NOTE: exported only for unit tests.
+ *
+ * @param name Error name.
+ * @returns Error factory function.
+ * @internal
+ */
+function namedError(name) {
+    return (message, cause) => {
+        const error = new Error(message, { cause });
+        error.name = name;
+        error.stack = error.stack && cleanErrorStack(error.stack);
+        // Safety: we set name above and therefore sure the type of error is correct
+        return error;
+    };
+}
+/** @internal */
+const legalError = namedError("LegalError");
+/** @internal */
+const lensContentValidationError = namedError("LensContentValidationError");
+/** @internal */
+const lensError = namedError("LensError");
+/** @internal */
+const cameraKitSourceError = namedError("CameraKitSourceError");
+/** @internal */
+const lensImagePickerError = namedError("LensImagePickerError");
+/** @internal */
+const cacheKeyNotFoundError = namedError("CacheKeyNotFoundError");
+/** @internal */
+const configurationError = namedError("ConfigurationError");
+/** @internal */
+const webGLError = namedError("WebGLError");
+/** @internal */
+const benchmarkError = namedError("BenchmarkError");
+/** @internal */
+const platformNotSupportedError = namedError("PlatformNotSupportedError");
+/** @internal */
+const lensExecutionError = namedError("LensExecutionError");
+/** @internal */
+const lensAbortError = namedError("LensAbortError");
+/** @internal */
+const persistentStoreError = namedError("PersistentStoreError");
+/** @internal */
+const lensAssetError = namedError("LensAssetError");
+/** @internal */
+const bootstrapError = namedError("BootstrapError");
+//# sourceMappingURL=namedErrors.js.map
+;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/benchmark/webglUtils.js
+
+const webGLEntityCreationError = (name) => webGLError(`Could not create ${name}.`);
+function createProgram(gl, vertexSource, fragmentSource) {
+    const vertexShader = createShader(gl, vertexSource, gl.VERTEX_SHADER);
+    const fragmentShader = createShader(gl, fragmentSource, gl.FRAGMENT_SHADER);
+    const program = gl.createProgram();
+    if (!program)
+        throw webGLEntityCreationError("WebGLProgram");
+    gl.attachShader(program, vertexShader);
+    gl.deleteShader(vertexShader);
+    gl.attachShader(program, fragmentShader);
+    gl.deleteShader(fragmentShader);
+    gl.linkProgram(program);
+    const success = gl.getProgramParameter(program, gl.LINK_STATUS);
+    if (!success) {
+        const message = gl.getProgramInfoLog(program);
+        gl.deleteProgram(program);
+        throw webGLError(`WebGLProgram linking failed with status: ${message}.`);
+    }
+    return program;
+}
+function createShader(gl, source, type) {
+    const shader = gl.createShader(type);
+    if (!shader)
+        throw webGLEntityCreationError(`WebGLShader (type ${type})`);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    const success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+    if (!success) {
+        const message = gl.getShaderInfoLog(shader);
+        gl.deleteShader(shader);
+        throw webGLError(`WebGLShader (type ${type}) compilation failed with status: ${message}.`);
+    }
+    return shader;
+}
+function createTexture(gl, width, height) {
+    const texture = gl.createTexture();
+    if (!texture)
+        throw webGLEntityCreationError("WebGLTexture");
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    return texture;
+}
+function createFramebuffer(gl, texture) {
+    const framebuffer = gl.createFramebuffer();
+    if (!framebuffer)
+        throw webGLEntityCreationError("WebGLFramebuffer");
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+    return framebuffer;
+}
+function setUniform1i(gl, program, name, data) {
+    gl.uniform1i(gl.getUniformLocation(program, name), data);
+}
+function setUniform4f(gl, program, name, data) {
+    gl.uniform4f(gl.getUniformLocation(program, name), ...data);
+}
+function promiseSync(gl) {
+    const sync = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
+    if (!sync)
+        throw webGLEntityCreationError("WebGLSync");
+    gl.flush();
+    return new Promise((resolve, reject) => {
+        const waitForSync = () => {
+            const glEnum = gl.clientWaitSync(sync, 0, 0);
+            switch (glEnum) {
+                case gl.TIMEOUT_EXPIRED:
+                    setTimeout(waitForSync);
+                    return;
+                case gl.WAIT_FAILED:
+                    gl.deleteSync(sync);
+                    return reject();
+                case gl.ALREADY_SIGNALED:
+                case gl.CONDITION_SATISFIED:
+                    gl.deleteSync(sync);
+                    return resolve();
+            }
+        };
+        waitForSync();
+    });
+}
+//# sourceMappingURL=webglUtils.js.map
+;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/benchmark/benchmarkGflops.js
+
+
+const vertexSource = `#version 300 es
+
+precision mediump float;
+precision mediump int;
+
+in vec2 pos;
+
+void main() {
+    gl_Position = vec4(pos, 0.0, 1.0);
+}
+`;
+const fragmentSource = `#version 300 es
+
+precision mediump float;
+precision mediump int;
+
+uniform int LOOP_COUNT;
+uniform vec4 v0;
+uniform vec4 v1;
+uniform vec4 v2;
+
+out vec4 fragColor;
+
+#define REPEAT_2(x) x; x
+#define REPEAT_4(x) REPEAT_2(x); REPEAT_2(x)
+#define REPEAT_8(x) REPEAT_4(x); REPEAT_4(x)
+#define REPEAT_16(x) REPEAT_8(x); REPEAT_8(x)
+#define REPEAT_32(x) REPEAT_16(x); REPEAT_16(x)
+
+void main() {
+    vec4 r = v2;
+    for (int i = 0; i < LOOP_COUNT; i++) {
+        REPEAT_32(r = r * v1 + v0);
+    }
+    fragColor = r;
+}
+`;
+const width = 1024;
+const height = 1024;
+const budgetMs = 300;
+const maxLoopCount = 1000;
+function prepareBenchmark(gl) {
+    const texture = createTexture(gl, width, height);
+    const framebuffer = createFramebuffer(gl, texture);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+    const buffer = gl.createBuffer();
+    if (!buffer) {
+        throw new Error("Failed to create WebGLBuffer.");
+    }
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, 1, -1, -1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+    gl.viewport(0, 0, width, height);
+    gl.disable(gl.CULL_FACE);
+    gl.disable(gl.DEPTH_TEST);
+    const program = createProgram(gl, vertexSource, fragmentSource);
+    gl.useProgram(program);
+    const posLocation = gl.getAttribLocation(program, "pos");
+    gl.enableVertexAttribArray(posLocation);
+    gl.vertexAttribPointer(posLocation, 2, gl.FLOAT, false, 0, 0);
+    setUniform4f(gl, program, "v0", [1.15, 1.23, 1.47, 1.84]);
+    setUniform4f(gl, program, "v1", [1.65, 1.22, 1.69, 1.04]);
+    setUniform4f(gl, program, "v2", [1.05, 1.3, 1.55, 1.23]);
+    return {
+        program,
+        cleanupBenchmark: () => {
+            gl.deleteProgram(program);
+            gl.deleteBuffer(buffer);
+            gl.deleteFramebuffer(framebuffer);
+            gl.deleteTexture(texture);
+        },
+    };
+}
+function runBenchmark(gl, program) {
+    return tslib_es6_awaiter(this, void 0, void 0, function* () {
+        yield promiseSync(gl);
+        const start = performance.now();
+        const flops = [];
+        let loopCount = 20;
+        while (true) {
+            setUniform1i(gl, program, "LOOP_COUNT", loopCount);
+            const iterationStart = performance.now();
+            gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+            yield promiseSync(gl);
+            const iterationEnd = performance.now();
+            const duration = iterationEnd - iterationStart;
+            flops.push(loopCount / duration);
+            const remainingBudgetMs = budgetMs - (iterationEnd - start);
+            if (remainingBudgetMs < 0)
+                break;
+            if (loopCount < maxLoopCount) {
+                loopCount += remainingBudgetMs < duration ? 10 : (0.6 * loopCount * remainingBudgetMs) / duration;
+            }
+        }
+        const maxFlops = Math.max(...flops) * (8 * 32) * width * height;
+        return maxFlops / 1e6;
+    });
+}
+/**
+ * These are obtained from historical performance data gathered from end-user devices. Keys are gflops, values are the
+ * corresponding performance rating.
+ *
+ * To compute the performance rating given a gflops value, find the nearest key in this map and look up the rating.
+ */
+const gflopsClusterCenters = new Map([
+    [34, 1],
+    [134, 2],
+    [385, 3],
+    [783, 4],
+    [1484, 5],
+    [2313, 6],
+]);
+/**
+ * This benchmark is the same that's run on non-web (e.g. native mobile) platforms, and produces results that can be
+ * compared to those gathered on those platforms – this allows us to cluster results and determine a performance rating
+ * based on historical data gathered elsewhere.
+ *
+ * @internal
+ */
+function benchmarkGflops(gl) {
+    return tslib_es6_awaiter(this, void 0, void 0, function* () {
+        const { program, cleanupBenchmark } = prepareBenchmark(gl);
+        const gflops = yield runBenchmark(gl, program);
+        cleanupBenchmark();
+        return { name: "gflops", value: gflops };
+    });
+}
+//# sourceMappingURL=benchmarkGflops.js.map
+;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/benchmark/estimateLensPerformanceCluster.js
+
+
+
+const findNearest = (n, arr) => arr.reduce((a, b) => (Math.abs(a - n) <= Math.abs(b - n) ? a : b));
+const webglContextAttributes = {
+    alpha: false,
+    antialias: false,
+    premultipliedAlpha: false,
+    preserveDrawingBuffer: false,
+    depth: false,
+    stencil: false,
+    failIfMajorPerformanceCaveat: false,
+    powerPreference: "high-performance",
+};
+/**
+ * Run benchmarks which attempt to predict expected lens performance, and assign a cluster (i.e. a performance rating)
+ * which the CameraKit SDK can use to optimize certain lenses.
+ *
+ * @returns A rating from 1-6, indicating expected Lens performance.
+ *
+ * @category Bootstrapping and Configuration
+ */
+function estimateLensPerformance() {
+    var _a;
+    return tslib_es6_awaiter(this, void 0, void 0, function* () {
+        // Prepare performance measurement.
+        const canvas = document.createElement("canvas");
+        const gl = canvas.getContext("webgl2", webglContextAttributes);
+        if (!gl)
+            throw benchmarkError("WebGL2 is required to compute performance, but it is not supported.");
+        const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+        const webglRendererInfo = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : "unknown";
+        // Measure performance (just GFLOPS for now, but could add more benchmarks in the future).
+        const gflops = yield benchmarkGflops(gl);
+        // Combine performance results and compute a performance rating. Right now we just run a single benchmark, so this
+        // is pretty trivial.
+        const nearestGflopsClusterCenter = findNearest(gflops.value, Array.from(gflopsClusterCenters.keys()));
+        // This should always find a value, but just in case something strange happens inside `findNearest`, we'll default
+        // to zero (instead of asserting .get() will always be defined).
+        const gflopsCluster = (_a = gflopsClusterCenters.get(nearestGflopsClusterCenter)) !== null && _a !== void 0 ? _a : 0;
+        return {
+            cluster: gflopsCluster,
+            benchmarks: [gflops],
+            webglRendererInfo,
+        };
+    });
+}
+//# sourceMappingURL=estimateLensPerformanceCluster.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/environment.js
 /* harmony default export */ const environment = ({ PACKAGE_VERSION: "0.17.0" });
 //# sourceMappingURL=environment.js.map
@@ -12995,7 +2068,7 @@ function __disposeResources(env) {
 });
 //# sourceMappingURL=lensCoreWasmVersions.js.map
 // EXTERNAL MODULE: ./node_modules/reflect-metadata/Reflect.js
-var reflect_metadata_Reflect = __webpack_require__(741);
+var reflect_metadata_Reflect = __webpack_require__(4741);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/validate.js
 
 const predicateMetadataKey = Symbol("validate");
@@ -14811,10 +3884,10 @@ const createArrayBufferParsingHandler = () => (next) => (req, metadata) => tslib
 });
 //# sourceMappingURL=arrayBufferParsingHandler.js.map
 // EXTERNAL MODULE: ./node_modules/long/src/long.js
-var src_long = __webpack_require__(570);
+var src_long = __webpack_require__(8570);
 var long_default = /*#__PURE__*/__webpack_require__.n(src_long);
 // EXTERNAL MODULE: ./node_modules/protobufjs/minimal.js
-var minimal = __webpack_require__(946);
+var minimal = __webpack_require__(6946);
 var minimal_default = /*#__PURE__*/__webpack_require__.n(minimal);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/generated-proto/pb_schema/google/protobuf/any.js
 
@@ -15949,13 +5022,13 @@ function fromIterable(iterable) {
 }
 function fromAsyncIterable(asyncIterable) {
     return new Observable_Observable(function (subscriber) {
-        main_process(asyncIterable, subscriber).catch(function (err) { return subscriber.error(err); });
+        process(asyncIterable, subscriber).catch(function (err) { return subscriber.error(err); });
     });
 }
 function fromReadableStreamLike(readableStream) {
     return fromAsyncIterable(readableStreamLikeToAsyncGenerator(readableStream));
 }
-function main_process(asyncIterable, subscriber) {
+function process(asyncIterable, subscriber) {
     var asyncIterable_1, asyncIterable_1_1;
     var e_2, _a;
     return tslib_es6_awaiter(this, void 0, void 0, function () {
@@ -18503,7 +7576,7 @@ if ((minimal_default()).util.Long !== (long_default())) {
 }
 //# sourceMappingURL=service.js.map
 // EXTERNAL MODULE: ./node_modules/@improbable-eng/grpc-web/dist/grpc-web-client.umd.js
-var grpc_web_client_umd = __webpack_require__(553);
+var grpc_web_client_umd = __webpack_require__(2553);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/result.js
 /* eslint-disable max-classes-per-file */
 class OkResult {
@@ -18749,7 +7822,7 @@ function createTsProtoClient(serviceDefinition, handler) {
 }
 //# sourceMappingURL=createTsProtoClient.js.map
 // EXTERNAL MODULE: ./node_modules/browser-headers/dist/browser-headers.umd.js
-var browser_headers_umd = __webpack_require__(18);
+var browser_headers_umd = __webpack_require__(7018);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/unionBy.js
 /**
  * Creates an array of unique values, in order, from all given arrays using a specified iteratee.
@@ -25606,7 +14679,7 @@ const lensRepositoryFactory = Injectable("LensRepository", [
  * ```
  */
 /** @internal */
-class PartialContainer_PartialContainer {
+class PartialContainer {
     constructor(injectables) {
         this.injectables = injectables;
     }
@@ -25623,7 +14696,7 @@ class PartialContainer_PartialContainer {
      * @param fn A InjectableFunction, taking dependencies as arguments, which returns the Service.
      */
     provides(fn) {
-        return new PartialContainer_PartialContainer(Object.assign(Object.assign({}, this.injectables), { [fn.token]: fn }));
+        return new PartialContainer(Object.assign(Object.assign({}, this.injectables), { [fn.token]: fn }));
     }
     /**
      * In order to create a [Container], the InjectableFunctions maintained by the PartialContainer must be memoized
@@ -25719,7 +14792,7 @@ class Container {
         // Although the `provides` method has overloads that match both members of the union type separately, it does
         // not match the union type itself, so the compiler forces us to branch and handle each type within the union
         // separately. (Maybe in the future the compiler will decide to infer this, but for now this is necessary.)
-        if (fnOrContainer instanceof PartialContainer_PartialContainer)
+        if (fnOrContainer instanceof PartialContainer)
             return new Container({}).provides(fnOrContainer);
         if (fnOrContainer instanceof Container)
             return new Container({}).provides(fnOrContainer);
@@ -25776,7 +14849,7 @@ class Container {
         return factory(this);
     }
     run(fnOrContainer) {
-        if (fnOrContainer instanceof PartialContainer_PartialContainer) {
+        if (fnOrContainer instanceof PartialContainer) {
             const runnableContainer = this.provides(fnOrContainer);
             for (const token of fnOrContainer.getTokens()) {
                 runnableContainer.get(token);
@@ -25788,8 +14861,8 @@ class Container {
         return this;
     }
     provides(fnOrContainer) {
-        if (fnOrContainer instanceof PartialContainer_PartialContainer || fnOrContainer instanceof Container) {
-            const factories = fnOrContainer instanceof PartialContainer_PartialContainer ? fnOrContainer.getFactories(this) : fnOrContainer.factories;
+        if (fnOrContainer instanceof PartialContainer || fnOrContainer instanceof Container) {
+            const factories = fnOrContainer instanceof PartialContainer ? fnOrContainer.getFactories(this) : fnOrContainer.factories;
             // Safety: `this.factories` and `factories` are both properly type checked, so merging them produces
             // a Factories object with keys from both Services and AdditionalServices. The compiler is unable to
             // infer that Factories<A> & Factories<B> == Factories<A & B>, so the cast is required.
@@ -26330,7 +15403,7 @@ const createNotAttachedError = (message) => new Error(`${message}. This CameraKi
  *
  * @category Rendering
  */
-class CameraKitSource_CameraKitSource {
+class CameraKitSource {
     constructor(sourceInfo, subscriber = {}, deviceInfo = {}) {
         this.sourceInfo = sourceInfo;
         this.subscriber = subscriber;
@@ -26376,7 +15449,7 @@ class CameraKitSource_CameraKitSource {
      * @returns The new {@link CameraKitSource}
      */
     copy(deviceInfo = {}) {
-        return new CameraKitSource_CameraKitSource(this.sourceInfo, this.subscriber, Object.assign(Object.assign({}, this.deviceInfo), deviceInfo));
+        return new CameraKitSource(this.sourceInfo, this.subscriber, Object.assign(Object.assign({}, this.deviceInfo), deviceInfo));
     }
     /**
      * Called by {@link CameraKitSession} when it must remove this source.
@@ -26439,13 +15512,13 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", Promise)
-], CameraKitSource_CameraKitSource.prototype, "setRenderSize", null);
+], CameraKitSource.prototype, "setRenderSize", null);
 __decorate([
     validate_validate,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Transform2D]),
     __metadata("design:returntype", Promise)
-], CameraKitSource_CameraKitSource.prototype, "setTransform", null);
+], CameraKitSource.prototype, "setTransform", null);
 //# sourceMappingURL=CameraKitSource.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/media-sources/MediaStreamSource.js
 
@@ -26507,7 +15580,7 @@ function createMediaStreamSource(stream, options = {}) {
         });
         microphoneRecorderUrl = URL.createObjectURL(microphoneRecorderBlob);
     }
-    return new CameraKitSource_CameraKitSource({ media: stream }, {
+    return new CameraKitSource({ media: stream }, {
         onAttach: (source, lensCore, reportError) => tslib_es6_awaiter(this, void 0, void 0, function* () {
             yield source.setTransform(optionsWithDefaults.transform);
             if (enableSourceAudio) {
@@ -26602,7 +15675,7 @@ const VideoSource_defaultOptions = Object.assign(Object.assign({}, defaultDevice
 function createVideoSource(video, options = {}) {
     const { trackingData } = Object.assign(Object.assign({}, VideoSource_defaultOptions), copyDefinedProperties(options));
     const replayTrackingData = trackingData.byteLength > 0 ? { buffer: trackingData } : undefined;
-    return new CameraKitSource_CameraKitSource({
+    return new CameraKitSource({
         media: video,
         replayTrackingData,
     }, {}, options);
@@ -33794,7 +22867,7 @@ const reportPlatformCapabilities = Injectable("reportPlatformCapabilities", [met
  * The businessEventsReporter is special, it doesn't create any of its own metrics, it simply listens to the global
  * metricsEventTarget and reports metrics emitted there to our backend.
  */
-const reportGloballyScopedMetrics = new PartialContainer_PartialContainer({})
+const reportGloballyScopedMetrics = new PartialContainer({})
     .provides(reportHttpMetrics)
     .provides(reportBenchmarks)
     .provides(reportLensAndAssetDownload)
@@ -33804,7 +22877,7 @@ const reportGloballyScopedMetrics = new PartialContainer_PartialContainer({})
  * These metrics reporters must be run once for each CameraKitSession DI container created. They may depend on services
  * which are only available at the session scope (e.g. the CameraKitSession itself).
  */
-const reportSessionScopedMetrics = new PartialContainer_PartialContainer({})
+const reportSessionScopedMetrics = new PartialContainer({})
     .provides(reportUserSession)
     .provides(reportLensView)
     .provides(reportLensWait)
@@ -34578,7 +23651,7 @@ const registerLogEntriesSubscriber = Injectable("registerLogEntriesSubscriber", 
 const lensesClientFactory = Injectable("lensesClient", [grpcHandlerFactory.token], (grpcHandler) => createTsProtoClient(LensesDefinition, grpcHandler));
 //# sourceMappingURL=lensesClient.js.map
 // EXTERNAL MODULE: ./node_modules/protobufjs/index.js
-var protobufjs = __webpack_require__(549);
+var protobufjs = __webpack_require__(2549);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/lens/cameraKitLensSource.js
 
 
@@ -34925,7 +23998,7 @@ const extensionRequestContext = getExtensionRequestContext();
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/media-sources/FunctionSource.js
 
 
-const getYUVImageData = (canvas, lensCore) => __awaiter(void 0, void 0, void 0, function* () {
+const getYUVImageData = (canvas, lensCore) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     const { width, height } = canvas;
     // A YUV buffer has lower-res UV channels, so the total number of bytes works out like so:
     const outputBuffer = new ArrayBuffer((width * height * 3) / 2);
@@ -34939,7 +24012,7 @@ const getRGBImageData = (output, imageReader2D) => {
     imageReader2D.drawImage(output, 0, 0);
     return imageReader2D.getImageData(0, 0, output.width, output.height);
 };
-const getImageBitmap = (imageData, format) => __awaiter(void 0, void 0, void 0, function* () {
+const getImageBitmap = (imageData, format) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     switch (format) {
         case "nv12":
         case "yuv":
@@ -34981,14 +24054,14 @@ const createFunctionSource = (sourceFunction, options = {}) => {
                 live: outputs[lensCore.CanvasType.Preview.value],
                 capture: outputs[lensCore.CanvasType.Capture.value],
             };
-            const processFrame = (source, lensCore, reportError) => requestAnimationFrame(() => __awaiter(void 0, void 0, void 0, function* () {
+            const processFrame = (source, lensCore, reportError) => requestAnimationFrame(() => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
                 var _a;
                 if (!shouldProcessFrame)
                     return;
                 try {
                     yield sourceFunction(({ format, imageData, timestampMillis }) => {
                         // TODO: with processFrame promisified, we don't really need to create a wrapper promise
-                        const frameOutput = new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
+                        const frameOutput = new Promise((resolve, reject) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
                             const inputFrame = yield getImageBitmap(imageData, format !== null && format !== void 0 ? format : "rgb");
                             if (inputFrame.width !== width || inputFrame.height !== height) {
                                 width = imageReaderCanvas.width = inputFrame.width;
@@ -35000,7 +24073,7 @@ const createFunctionSource = (sourceFunction, options = {}) => {
                             }
                             lensCore
                                 .processFrame({ inputFrame, timestampMillis })
-                                .then(() => __awaiter(void 0, void 0, void 0, function* () {
+                                .then(() => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
                                 // Closing releases graphics resources associated with the frame, now that is
                                 // has been processed.
                                 inputFrame.close();
@@ -35105,45 +24178,11136 @@ function createImageSource(image, options = {}) {
 
 
 //# sourceMappingURL=index.js.map
-;// CONCATENATED MODULE: ./src/main.js
+
+/***/ }),
+
+/***/ 7018:
+/***/ (function(module) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else { var i, a; }
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_536__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_536__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__nested_webpack_require_536__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__nested_webpack_require_536__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__nested_webpack_require_536__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__nested_webpack_require_536__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_536__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__nested_webpack_require_536__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__nested_webpack_require_536__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__nested_webpack_require_536__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__nested_webpack_require_536__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __nested_webpack_require_536__(__nested_webpack_require_536__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __nested_webpack_require_2975__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var util_1 = __nested_webpack_require_2975__(3);
+function isBrowserHeaders(arg) {
+    return typeof arg === "object" && typeof arg.headersMap === "object" && typeof arg.forEach === "function";
+}
+var BrowserHeaders = (function () {
+    function BrowserHeaders(init, options) {
+        if (init === void 0) { init = {}; }
+        if (options === void 0) { options = { splitValues: false }; }
+        var _this = this;
+        this.headersMap = {};
+        if (init) {
+            if (typeof Headers !== "undefined" && init instanceof Headers) {
+                var keys = util_1.getHeaderKeys(init);
+                keys.forEach(function (key) {
+                    var values = util_1.getHeaderValues(init, key);
+                    values.forEach(function (value) {
+                        if (options.splitValues) {
+                            _this.append(key, util_1.splitHeaderValue(value));
+                        }
+                        else {
+                            _this.append(key, value);
+                        }
+                    });
+                });
+            }
+            else if (isBrowserHeaders(init)) {
+                init.forEach(function (key, values) {
+                    _this.append(key, values);
+                });
+            }
+            else if (typeof Map !== "undefined" && init instanceof Map) {
+                var asMap = init;
+                asMap.forEach(function (value, key) {
+                    _this.append(key, value);
+                });
+            }
+            else if (typeof init === "string") {
+                this.appendFromString(init);
+            }
+            else if (typeof init === "object") {
+                Object.getOwnPropertyNames(init).forEach(function (key) {
+                    var asObject = init;
+                    var values = asObject[key];
+                    if (Array.isArray(values)) {
+                        values.forEach(function (value) {
+                            _this.append(key, value);
+                        });
+                    }
+                    else {
+                        _this.append(key, values);
+                    }
+                });
+            }
+        }
+    }
+    BrowserHeaders.prototype.appendFromString = function (str) {
+        var pairs = str.split("\r\n");
+        for (var i = 0; i < pairs.length; i++) {
+            var p = pairs[i];
+            var index = p.indexOf(":");
+            if (index > 0) {
+                var key = p.substring(0, index).trim();
+                var value = p.substring(index + 1).trim();
+                this.append(key, value);
+            }
+        }
+    };
+    BrowserHeaders.prototype.delete = function (key, value) {
+        var normalizedKey = util_1.normalizeName(key);
+        if (value === undefined) {
+            delete this.headersMap[normalizedKey];
+        }
+        else {
+            var existing = this.headersMap[normalizedKey];
+            if (existing) {
+                var index = existing.indexOf(value);
+                if (index >= 0) {
+                    existing.splice(index, 1);
+                }
+                if (existing.length === 0) {
+                    delete this.headersMap[normalizedKey];
+                }
+            }
+        }
+    };
+    BrowserHeaders.prototype.append = function (key, value) {
+        var _this = this;
+        var normalizedKey = util_1.normalizeName(key);
+        if (!Array.isArray(this.headersMap[normalizedKey])) {
+            this.headersMap[normalizedKey] = [];
+        }
+        if (Array.isArray(value)) {
+            value.forEach(function (arrayValue) {
+                _this.headersMap[normalizedKey].push(util_1.normalizeValue(arrayValue));
+            });
+        }
+        else {
+            this.headersMap[normalizedKey].push(util_1.normalizeValue(value));
+        }
+    };
+    BrowserHeaders.prototype.set = function (key, value) {
+        var normalizedKey = util_1.normalizeName(key);
+        if (Array.isArray(value)) {
+            var normalized_1 = [];
+            value.forEach(function (arrayValue) {
+                normalized_1.push(util_1.normalizeValue(arrayValue));
+            });
+            this.headersMap[normalizedKey] = normalized_1;
+        }
+        else {
+            this.headersMap[normalizedKey] = [util_1.normalizeValue(value)];
+        }
+    };
+    BrowserHeaders.prototype.has = function (key, value) {
+        var keyArray = this.headersMap[util_1.normalizeName(key)];
+        var keyExists = Array.isArray(keyArray);
+        if (!keyExists) {
+            return false;
+        }
+        if (value !== undefined) {
+            var normalizedValue = util_1.normalizeValue(value);
+            return keyArray.indexOf(normalizedValue) >= 0;
+        }
+        else {
+            return true;
+        }
+    };
+    BrowserHeaders.prototype.get = function (key) {
+        var values = this.headersMap[util_1.normalizeName(key)];
+        if (values !== undefined) {
+            return values.concat();
+        }
+        return [];
+    };
+    BrowserHeaders.prototype.forEach = function (callback) {
+        var _this = this;
+        Object.getOwnPropertyNames(this.headersMap)
+            .forEach(function (key) {
+            callback(key, _this.headersMap[key]);
+        }, this);
+    };
+    BrowserHeaders.prototype.toHeaders = function () {
+        if (typeof Headers !== "undefined") {
+            var headers_1 = new Headers();
+            this.forEach(function (key, values) {
+                values.forEach(function (value) {
+                    headers_1.append(key, value);
+                });
+            });
+            return headers_1;
+        }
+        else {
+            throw new Error("Headers class is not defined");
+        }
+    };
+    return BrowserHeaders;
+}());
+exports.BrowserHeaders = BrowserHeaders;
 
 
-(async function () {
-  const cameraKit = await bootstrapCameraKit({ 
-    apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzE4OTg3ODg3LCJzdWIiOiJkN2UwNWJjYS02ODVkLTQ0ZGItODE0Mi01ZDg0YTA3YjRlYWJ-UFJPRFVDVElPTn41NTEzNzczNi02YzA2LTRkMjktYjg0YS0wN2Y1MTlhZGRjZGUifQ.sECS_i5kKnojrBmdFNF0r5P8HMnebLJx8P6Xex9VcSE' });
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __nested_webpack_require_8924__) {
 
-const session = await cameraKit.createSession();
+"use strict";
 
-document.getElementById('canvas').replaceWith(session.output.capture);
+Object.defineProperty(exports, "__esModule", { value: true });
+var BrowserHeaders_1 = __nested_webpack_require_8924__(0);
+exports.BrowserHeaders = BrowserHeaders_1.BrowserHeaders;
 
-const lens = await cameraKit.lensRepository.loadLens(
-    'af6a7504-79ba-499c-8e0d-53b9e785eb36',
-    '1ab5269b-f2b0-4570-a30f-74a123521727'
-  );
 
-const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video:{
-    width: { min: 1024, ideal: 1280, max: 1920 },
-    height: { min: 576, ideal: 720, max: 1080 },
-    facingMode: { exact: "environment" },
-  },
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function iterateHeaders(headers, callback) {
+    var iterator = headers[Symbol.iterator]();
+    var entry = iterator.next();
+    while (!entry.done) {
+        callback(entry.value[0]);
+        entry = iterator.next();
+    }
+}
+exports.iterateHeaders = iterateHeaders;
+function iterateHeadersKeys(headers, callback) {
+    var iterator = headers.keys();
+    var entry = iterator.next();
+    while (!entry.done) {
+        callback(entry.value);
+        entry = iterator.next();
+    }
+}
+exports.iterateHeadersKeys = iterateHeadersKeys;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __nested_webpack_require_9870__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var iterateHeaders_1 = __nested_webpack_require_9870__(2);
+function normalizeName(name) {
+    if (typeof name !== "string") {
+        name = String(name);
+    }
+    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+        throw new TypeError("Invalid character in header field name");
+    }
+    return name.toLowerCase();
+}
+exports.normalizeName = normalizeName;
+function normalizeValue(value) {
+    if (typeof value !== "string") {
+        value = String(value);
+    }
+    return value;
+}
+exports.normalizeValue = normalizeValue;
+function getHeaderValues(headersAsNative, key) {
+    var headers = toWindowHeaders(headersAsNative);
+    if (headers instanceof Headers && headers.getAll) {
+        return headers.getAll(key);
+    }
+    var getValue = headers.get(key);
+    if (getValue && typeof getValue === "string") {
+        return [getValue];
+    }
+    return getValue;
+}
+exports.getHeaderValues = getHeaderValues;
+function toWindowHeaders(headersAsNative) {
+    return headersAsNative;
+}
+function getHeaderKeys(headersAsNative) {
+    var headers = toWindowHeaders(headersAsNative);
+    var asMap = {};
+    var keys = [];
+    if (headers.keys) {
+        iterateHeaders_1.iterateHeadersKeys(headers, function (key) {
+            if (!asMap[key]) {
+                asMap[key] = true;
+                keys.push(key);
+            }
+        });
+    }
+    else if (headers.forEach) {
+        headers.forEach(function (_, key) {
+            if (!asMap[key]) {
+                asMap[key] = true;
+                keys.push(key);
+            }
+        });
+    }
+    else {
+        iterateHeaders_1.iterateHeaders(headers, function (entry) {
+            var key = entry[0];
+            if (!asMap[key]) {
+                asMap[key] = true;
+                keys.push(key);
+            }
+        });
+    }
+    return keys;
+}
+exports.getHeaderKeys = getHeaderKeys;
+function splitHeaderValue(str) {
+    var values = [];
+    var commaSpaceValues = str.split(", ");
+    commaSpaceValues.forEach(function (commaSpaceValue) {
+        commaSpaceValue.split(",").forEach(function (commaValue) {
+            values.push(commaValue);
+        });
+    });
+    return values;
+}
+exports.splitHeaderValue = splitHeaderValue;
+
+
+/***/ })
+/******/ ]);
 });
 
-const source = createMediaStreamSource(mediaStream, { cameraType: 'environment' 
-})
+/***/ }),
 
-await session.setSource(source);
+/***/ 8570:
+/***/ ((module) => {
 
-//source.setRenderSize(window.innerWidth, window.innerHeight)
+module.exports = Long;
 
-session.play('capture');
+/**
+ * wasm optimizations, to do native i64 multiplication and divide
+ */
+var wasm = null;
 
-await session.applyLens(lens);
+try {
+  wasm = new WebAssembly.Instance(new WebAssembly.Module(new Uint8Array([
+    0, 97, 115, 109, 1, 0, 0, 0, 1, 13, 2, 96, 0, 1, 127, 96, 4, 127, 127, 127, 127, 1, 127, 3, 7, 6, 0, 1, 1, 1, 1, 1, 6, 6, 1, 127, 1, 65, 0, 11, 7, 50, 6, 3, 109, 117, 108, 0, 1, 5, 100, 105, 118, 95, 115, 0, 2, 5, 100, 105, 118, 95, 117, 0, 3, 5, 114, 101, 109, 95, 115, 0, 4, 5, 114, 101, 109, 95, 117, 0, 5, 8, 103, 101, 116, 95, 104, 105, 103, 104, 0, 0, 10, 191, 1, 6, 4, 0, 35, 0, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 126, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 127, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 128, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 129, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11, 36, 1, 1, 126, 32, 0, 173, 32, 1, 173, 66, 32, 134, 132, 32, 2, 173, 32, 3, 173, 66, 32, 134, 132, 130, 34, 4, 66, 32, 135, 167, 36, 0, 32, 4, 167, 11
+  ])), {}).exports;
+} catch (e) {
+  // no wasm support :(
+}
 
-bindRecorder();
+/**
+ * Constructs a 64 bit two's-complement integer, given its low and high 32 bit values as *signed* integers.
+ *  See the from* functions below for more convenient ways of constructing Longs.
+ * @exports Long
+ * @class A Long class for representing a 64 bit two's-complement integer value.
+ * @param {number} low The low (signed) 32 bits of the long
+ * @param {number} high The high (signed) 32 bits of the long
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @constructor
+ */
+function Long(low, high, unsigned) {
 
+    /**
+     * The low 32 bits as a signed value.
+     * @type {number}
+     */
+    this.low = low | 0;
+
+    /**
+     * The high 32 bits as a signed value.
+     * @type {number}
+     */
+    this.high = high | 0;
+
+    /**
+     * Whether unsigned or not.
+     * @type {boolean}
+     */
+    this.unsigned = !!unsigned;
+}
+
+// The internal representation of a long is the two given signed, 32-bit values.
+// We use 32-bit pieces because these are the size of integers on which
+// Javascript performs bit-operations.  For operations like addition and
+// multiplication, we split each number into 16 bit pieces, which can easily be
+// multiplied within Javascript's floating-point representation without overflow
+// or change in sign.
+//
+// In the algorithms below, we frequently reduce the negative case to the
+// positive case by negating the input(s) and then post-processing the result.
+// Note that we must ALWAYS check specially whether those values are MIN_VALUE
+// (-2^63) because -MIN_VALUE == MIN_VALUE (since 2^63 cannot be represented as
+// a positive number, it overflows back into a negative).  Not handling this
+// case would often result in infinite recursion.
+//
+// Common constant values ZERO, ONE, NEG_ONE, etc. are defined below the from*
+// methods on which they depend.
+
+/**
+ * An indicator used to reliably determine if an object is a Long or not.
+ * @type {boolean}
+ * @const
+ * @private
+ */
+Long.prototype.__isLong__;
+
+Object.defineProperty(Long.prototype, "__isLong__", { value: true });
+
+/**
+ * @function
+ * @param {*} obj Object
+ * @returns {boolean}
+ * @inner
+ */
+function isLong(obj) {
+    return (obj && obj["__isLong__"]) === true;
+}
+
+/**
+ * Tests if the specified object is a Long.
+ * @function
+ * @param {*} obj Object
+ * @returns {boolean}
+ */
+Long.isLong = isLong;
+
+/**
+ * A cache of the Long representations of small integer values.
+ * @type {!Object}
+ * @inner
+ */
+var INT_CACHE = {};
+
+/**
+ * A cache of the Long representations of small unsigned integer values.
+ * @type {!Object}
+ * @inner
+ */
+var UINT_CACHE = {};
+
+/**
+ * @param {number} value
+ * @param {boolean=} unsigned
+ * @returns {!Long}
+ * @inner
+ */
+function fromInt(value, unsigned) {
+    var obj, cachedObj, cache;
+    if (unsigned) {
+        value >>>= 0;
+        if (cache = (0 <= value && value < 256)) {
+            cachedObj = UINT_CACHE[value];
+            if (cachedObj)
+                return cachedObj;
+        }
+        obj = fromBits(value, (value | 0) < 0 ? -1 : 0, true);
+        if (cache)
+            UINT_CACHE[value] = obj;
+        return obj;
+    } else {
+        value |= 0;
+        if (cache = (-128 <= value && value < 128)) {
+            cachedObj = INT_CACHE[value];
+            if (cachedObj)
+                return cachedObj;
+        }
+        obj = fromBits(value, value < 0 ? -1 : 0, false);
+        if (cache)
+            INT_CACHE[value] = obj;
+        return obj;
+    }
+}
+
+/**
+ * Returns a Long representing the given 32 bit integer value.
+ * @function
+ * @param {number} value The 32 bit integer in question
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @returns {!Long} The corresponding Long value
+ */
+Long.fromInt = fromInt;
+
+/**
+ * @param {number} value
+ * @param {boolean=} unsigned
+ * @returns {!Long}
+ * @inner
+ */
+function fromNumber(value, unsigned) {
+    if (isNaN(value))
+        return unsigned ? UZERO : ZERO;
+    if (unsigned) {
+        if (value < 0)
+            return UZERO;
+        if (value >= TWO_PWR_64_DBL)
+            return MAX_UNSIGNED_VALUE;
+    } else {
+        if (value <= -TWO_PWR_63_DBL)
+            return MIN_VALUE;
+        if (value + 1 >= TWO_PWR_63_DBL)
+            return MAX_VALUE;
+    }
+    if (value < 0)
+        return fromNumber(-value, unsigned).neg();
+    return fromBits((value % TWO_PWR_32_DBL) | 0, (value / TWO_PWR_32_DBL) | 0, unsigned);
+}
+
+/**
+ * Returns a Long representing the given value, provided that it is a finite number. Otherwise, zero is returned.
+ * @function
+ * @param {number} value The number in question
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @returns {!Long} The corresponding Long value
+ */
+Long.fromNumber = fromNumber;
+
+/**
+ * @param {number} lowBits
+ * @param {number} highBits
+ * @param {boolean=} unsigned
+ * @returns {!Long}
+ * @inner
+ */
+function fromBits(lowBits, highBits, unsigned) {
+    return new Long(lowBits, highBits, unsigned);
+}
+
+/**
+ * Returns a Long representing the 64 bit integer that comes by concatenating the given low and high bits. Each is
+ *  assumed to use 32 bits.
+ * @function
+ * @param {number} lowBits The low 32 bits
+ * @param {number} highBits The high 32 bits
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @returns {!Long} The corresponding Long value
+ */
+Long.fromBits = fromBits;
+
+/**
+ * @function
+ * @param {number} base
+ * @param {number} exponent
+ * @returns {number}
+ * @inner
+ */
+var pow_dbl = Math.pow; // Used 4 times (4*8 to 15+4)
+
+/**
+ * @param {string} str
+ * @param {(boolean|number)=} unsigned
+ * @param {number=} radix
+ * @returns {!Long}
+ * @inner
+ */
+function fromString(str, unsigned, radix) {
+    if (str.length === 0)
+        throw Error('empty string');
+    if (str === "NaN" || str === "Infinity" || str === "+Infinity" || str === "-Infinity")
+        return ZERO;
+    if (typeof unsigned === 'number') {
+        // For goog.math.long compatibility
+        radix = unsigned,
+        unsigned = false;
+    } else {
+        unsigned = !! unsigned;
+    }
+    radix = radix || 10;
+    if (radix < 2 || 36 < radix)
+        throw RangeError('radix');
+
+    var p;
+    if ((p = str.indexOf('-')) > 0)
+        throw Error('interior hyphen');
+    else if (p === 0) {
+        return fromString(str.substring(1), unsigned, radix).neg();
+    }
+
+    // Do several (8) digits each time through the loop, so as to
+    // minimize the calls to the very expensive emulated div.
+    var radixToPower = fromNumber(pow_dbl(radix, 8));
+
+    var result = ZERO;
+    for (var i = 0; i < str.length; i += 8) {
+        var size = Math.min(8, str.length - i),
+            value = parseInt(str.substring(i, i + size), radix);
+        if (size < 8) {
+            var power = fromNumber(pow_dbl(radix, size));
+            result = result.mul(power).add(fromNumber(value));
+        } else {
+            result = result.mul(radixToPower);
+            result = result.add(fromNumber(value));
+        }
+    }
+    result.unsigned = unsigned;
+    return result;
+}
+
+/**
+ * Returns a Long representation of the given string, written using the specified radix.
+ * @function
+ * @param {string} str The textual representation of the Long
+ * @param {(boolean|number)=} unsigned Whether unsigned or not, defaults to signed
+ * @param {number=} radix The radix in which the text is written (2-36), defaults to 10
+ * @returns {!Long} The corresponding Long value
+ */
+Long.fromString = fromString;
+
+/**
+ * @function
+ * @param {!Long|number|string|!{low: number, high: number, unsigned: boolean}} val
+ * @param {boolean=} unsigned
+ * @returns {!Long}
+ * @inner
+ */
+function fromValue(val, unsigned) {
+    if (typeof val === 'number')
+        return fromNumber(val, unsigned);
+    if (typeof val === 'string')
+        return fromString(val, unsigned);
+    // Throws for non-objects, converts non-instanceof Long:
+    return fromBits(val.low, val.high, typeof unsigned === 'boolean' ? unsigned : val.unsigned);
+}
+
+/**
+ * Converts the specified value to a Long using the appropriate from* function for its type.
+ * @function
+ * @param {!Long|number|string|!{low: number, high: number, unsigned: boolean}} val Value
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @returns {!Long}
+ */
+Long.fromValue = fromValue;
+
+// NOTE: the compiler should inline these constant values below and then remove these variables, so there should be
+// no runtime penalty for these.
+
+/**
+ * @type {number}
+ * @const
+ * @inner
+ */
+var TWO_PWR_16_DBL = 1 << 16;
+
+/**
+ * @type {number}
+ * @const
+ * @inner
+ */
+var TWO_PWR_24_DBL = 1 << 24;
+
+/**
+ * @type {number}
+ * @const
+ * @inner
+ */
+var TWO_PWR_32_DBL = TWO_PWR_16_DBL * TWO_PWR_16_DBL;
+
+/**
+ * @type {number}
+ * @const
+ * @inner
+ */
+var TWO_PWR_64_DBL = TWO_PWR_32_DBL * TWO_PWR_32_DBL;
+
+/**
+ * @type {number}
+ * @const
+ * @inner
+ */
+var TWO_PWR_63_DBL = TWO_PWR_64_DBL / 2;
+
+/**
+ * @type {!Long}
+ * @const
+ * @inner
+ */
+var TWO_PWR_24 = fromInt(TWO_PWR_24_DBL);
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var ZERO = fromInt(0);
+
+/**
+ * Signed zero.
+ * @type {!Long}
+ */
+Long.ZERO = ZERO;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var UZERO = fromInt(0, true);
+
+/**
+ * Unsigned zero.
+ * @type {!Long}
+ */
+Long.UZERO = UZERO;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var ONE = fromInt(1);
+
+/**
+ * Signed one.
+ * @type {!Long}
+ */
+Long.ONE = ONE;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var UONE = fromInt(1, true);
+
+/**
+ * Unsigned one.
+ * @type {!Long}
+ */
+Long.UONE = UONE;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var NEG_ONE = fromInt(-1);
+
+/**
+ * Signed negative one.
+ * @type {!Long}
+ */
+Long.NEG_ONE = NEG_ONE;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var MAX_VALUE = fromBits(0xFFFFFFFF|0, 0x7FFFFFFF|0, false);
+
+/**
+ * Maximum signed value.
+ * @type {!Long}
+ */
+Long.MAX_VALUE = MAX_VALUE;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var MAX_UNSIGNED_VALUE = fromBits(0xFFFFFFFF|0, 0xFFFFFFFF|0, true);
+
+/**
+ * Maximum unsigned value.
+ * @type {!Long}
+ */
+Long.MAX_UNSIGNED_VALUE = MAX_UNSIGNED_VALUE;
+
+/**
+ * @type {!Long}
+ * @inner
+ */
+var MIN_VALUE = fromBits(0, 0x80000000|0, false);
+
+/**
+ * Minimum signed value.
+ * @type {!Long}
+ */
+Long.MIN_VALUE = MIN_VALUE;
+
+/**
+ * @alias Long.prototype
+ * @inner
+ */
+var LongPrototype = Long.prototype;
+
+/**
+ * Converts the Long to a 32 bit integer, assuming it is a 32 bit integer.
+ * @returns {number}
+ */
+LongPrototype.toInt = function toInt() {
+    return this.unsigned ? this.low >>> 0 : this.low;
+};
+
+/**
+ * Converts the Long to a the nearest floating-point representation of this value (double, 53 bit mantissa).
+ * @returns {number}
+ */
+LongPrototype.toNumber = function toNumber() {
+    if (this.unsigned)
+        return ((this.high >>> 0) * TWO_PWR_32_DBL) + (this.low >>> 0);
+    return this.high * TWO_PWR_32_DBL + (this.low >>> 0);
+};
+
+/**
+ * Converts the Long to a string written in the specified radix.
+ * @param {number=} radix Radix (2-36), defaults to 10
+ * @returns {string}
+ * @override
+ * @throws {RangeError} If `radix` is out of range
+ */
+LongPrototype.toString = function toString(radix) {
+    radix = radix || 10;
+    if (radix < 2 || 36 < radix)
+        throw RangeError('radix');
+    if (this.isZero())
+        return '0';
+    if (this.isNegative()) { // Unsigned Longs are never negative
+        if (this.eq(MIN_VALUE)) {
+            // We need to change the Long value before it can be negated, so we remove
+            // the bottom-most digit in this base and then recurse to do the rest.
+            var radixLong = fromNumber(radix),
+                div = this.div(radixLong),
+                rem1 = div.mul(radixLong).sub(this);
+            return div.toString(radix) + rem1.toInt().toString(radix);
+        } else
+            return '-' + this.neg().toString(radix);
+    }
+
+    // Do several (6) digits each time through the loop, so as to
+    // minimize the calls to the very expensive emulated div.
+    var radixToPower = fromNumber(pow_dbl(radix, 6), this.unsigned),
+        rem = this;
+    var result = '';
+    while (true) {
+        var remDiv = rem.div(radixToPower),
+            intval = rem.sub(remDiv.mul(radixToPower)).toInt() >>> 0,
+            digits = intval.toString(radix);
+        rem = remDiv;
+        if (rem.isZero())
+            return digits + result;
+        else {
+            while (digits.length < 6)
+                digits = '0' + digits;
+            result = '' + digits + result;
+        }
+    }
+};
+
+/**
+ * Gets the high 32 bits as a signed integer.
+ * @returns {number} Signed high bits
+ */
+LongPrototype.getHighBits = function getHighBits() {
+    return this.high;
+};
+
+/**
+ * Gets the high 32 bits as an unsigned integer.
+ * @returns {number} Unsigned high bits
+ */
+LongPrototype.getHighBitsUnsigned = function getHighBitsUnsigned() {
+    return this.high >>> 0;
+};
+
+/**
+ * Gets the low 32 bits as a signed integer.
+ * @returns {number} Signed low bits
+ */
+LongPrototype.getLowBits = function getLowBits() {
+    return this.low;
+};
+
+/**
+ * Gets the low 32 bits as an unsigned integer.
+ * @returns {number} Unsigned low bits
+ */
+LongPrototype.getLowBitsUnsigned = function getLowBitsUnsigned() {
+    return this.low >>> 0;
+};
+
+/**
+ * Gets the number of bits needed to represent the absolute value of this Long.
+ * @returns {number}
+ */
+LongPrototype.getNumBitsAbs = function getNumBitsAbs() {
+    if (this.isNegative()) // Unsigned Longs are never negative
+        return this.eq(MIN_VALUE) ? 64 : this.neg().getNumBitsAbs();
+    var val = this.high != 0 ? this.high : this.low;
+    for (var bit = 31; bit > 0; bit--)
+        if ((val & (1 << bit)) != 0)
+            break;
+    return this.high != 0 ? bit + 33 : bit + 1;
+};
+
+/**
+ * Tests if this Long's value equals zero.
+ * @returns {boolean}
+ */
+LongPrototype.isZero = function isZero() {
+    return this.high === 0 && this.low === 0;
+};
+
+/**
+ * Tests if this Long's value equals zero. This is an alias of {@link Long#isZero}.
+ * @returns {boolean}
+ */
+LongPrototype.eqz = LongPrototype.isZero;
+
+/**
+ * Tests if this Long's value is negative.
+ * @returns {boolean}
+ */
+LongPrototype.isNegative = function isNegative() {
+    return !this.unsigned && this.high < 0;
+};
+
+/**
+ * Tests if this Long's value is positive.
+ * @returns {boolean}
+ */
+LongPrototype.isPositive = function isPositive() {
+    return this.unsigned || this.high >= 0;
+};
+
+/**
+ * Tests if this Long's value is odd.
+ * @returns {boolean}
+ */
+LongPrototype.isOdd = function isOdd() {
+    return (this.low & 1) === 1;
+};
+
+/**
+ * Tests if this Long's value is even.
+ * @returns {boolean}
+ */
+LongPrototype.isEven = function isEven() {
+    return (this.low & 1) === 0;
+};
+
+/**
+ * Tests if this Long's value equals the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.equals = function equals(other) {
+    if (!isLong(other))
+        other = fromValue(other);
+    if (this.unsigned !== other.unsigned && (this.high >>> 31) === 1 && (other.high >>> 31) === 1)
+        return false;
+    return this.high === other.high && this.low === other.low;
+};
+
+/**
+ * Tests if this Long's value equals the specified's. This is an alias of {@link Long#equals}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.eq = LongPrototype.equals;
+
+/**
+ * Tests if this Long's value differs from the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.notEquals = function notEquals(other) {
+    return !this.eq(/* validates */ other);
+};
+
+/**
+ * Tests if this Long's value differs from the specified's. This is an alias of {@link Long#notEquals}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.neq = LongPrototype.notEquals;
+
+/**
+ * Tests if this Long's value differs from the specified's. This is an alias of {@link Long#notEquals}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.ne = LongPrototype.notEquals;
+
+/**
+ * Tests if this Long's value is less than the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.lessThan = function lessThan(other) {
+    return this.comp(/* validates */ other) < 0;
+};
+
+/**
+ * Tests if this Long's value is less than the specified's. This is an alias of {@link Long#lessThan}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.lt = LongPrototype.lessThan;
+
+/**
+ * Tests if this Long's value is less than or equal the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.lessThanOrEqual = function lessThanOrEqual(other) {
+    return this.comp(/* validates */ other) <= 0;
+};
+
+/**
+ * Tests if this Long's value is less than or equal the specified's. This is an alias of {@link Long#lessThanOrEqual}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.lte = LongPrototype.lessThanOrEqual;
+
+/**
+ * Tests if this Long's value is less than or equal the specified's. This is an alias of {@link Long#lessThanOrEqual}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.le = LongPrototype.lessThanOrEqual;
+
+/**
+ * Tests if this Long's value is greater than the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.greaterThan = function greaterThan(other) {
+    return this.comp(/* validates */ other) > 0;
+};
+
+/**
+ * Tests if this Long's value is greater than the specified's. This is an alias of {@link Long#greaterThan}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.gt = LongPrototype.greaterThan;
+
+/**
+ * Tests if this Long's value is greater than or equal the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.greaterThanOrEqual = function greaterThanOrEqual(other) {
+    return this.comp(/* validates */ other) >= 0;
+};
+
+/**
+ * Tests if this Long's value is greater than or equal the specified's. This is an alias of {@link Long#greaterThanOrEqual}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.gte = LongPrototype.greaterThanOrEqual;
+
+/**
+ * Tests if this Long's value is greater than or equal the specified's. This is an alias of {@link Long#greaterThanOrEqual}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {boolean}
+ */
+LongPrototype.ge = LongPrototype.greaterThanOrEqual;
+
+/**
+ * Compares this Long's value with the specified's.
+ * @param {!Long|number|string} other Other value
+ * @returns {number} 0 if they are the same, 1 if the this is greater and -1
+ *  if the given one is greater
+ */
+LongPrototype.compare = function compare(other) {
+    if (!isLong(other))
+        other = fromValue(other);
+    if (this.eq(other))
+        return 0;
+    var thisNeg = this.isNegative(),
+        otherNeg = other.isNegative();
+    if (thisNeg && !otherNeg)
+        return -1;
+    if (!thisNeg && otherNeg)
+        return 1;
+    // At this point the sign bits are the same
+    if (!this.unsigned)
+        return this.sub(other).isNegative() ? -1 : 1;
+    // Both are positive if at least one is unsigned
+    return (other.high >>> 0) > (this.high >>> 0) || (other.high === this.high && (other.low >>> 0) > (this.low >>> 0)) ? -1 : 1;
+};
+
+/**
+ * Compares this Long's value with the specified's. This is an alias of {@link Long#compare}.
+ * @function
+ * @param {!Long|number|string} other Other value
+ * @returns {number} 0 if they are the same, 1 if the this is greater and -1
+ *  if the given one is greater
+ */
+LongPrototype.comp = LongPrototype.compare;
+
+/**
+ * Negates this Long's value.
+ * @returns {!Long} Negated Long
+ */
+LongPrototype.negate = function negate() {
+    if (!this.unsigned && this.eq(MIN_VALUE))
+        return MIN_VALUE;
+    return this.not().add(ONE);
+};
+
+/**
+ * Negates this Long's value. This is an alias of {@link Long#negate}.
+ * @function
+ * @returns {!Long} Negated Long
+ */
+LongPrototype.neg = LongPrototype.negate;
+
+/**
+ * Returns the sum of this and the specified Long.
+ * @param {!Long|number|string} addend Addend
+ * @returns {!Long} Sum
+ */
+LongPrototype.add = function add(addend) {
+    if (!isLong(addend))
+        addend = fromValue(addend);
+
+    // Divide each number into 4 chunks of 16 bits, and then sum the chunks.
+
+    var a48 = this.high >>> 16;
+    var a32 = this.high & 0xFFFF;
+    var a16 = this.low >>> 16;
+    var a00 = this.low & 0xFFFF;
+
+    var b48 = addend.high >>> 16;
+    var b32 = addend.high & 0xFFFF;
+    var b16 = addend.low >>> 16;
+    var b00 = addend.low & 0xFFFF;
+
+    var c48 = 0, c32 = 0, c16 = 0, c00 = 0;
+    c00 += a00 + b00;
+    c16 += c00 >>> 16;
+    c00 &= 0xFFFF;
+    c16 += a16 + b16;
+    c32 += c16 >>> 16;
+    c16 &= 0xFFFF;
+    c32 += a32 + b32;
+    c48 += c32 >>> 16;
+    c32 &= 0xFFFF;
+    c48 += a48 + b48;
+    c48 &= 0xFFFF;
+    return fromBits((c16 << 16) | c00, (c48 << 16) | c32, this.unsigned);
+};
+
+/**
+ * Returns the difference of this and the specified Long.
+ * @param {!Long|number|string} subtrahend Subtrahend
+ * @returns {!Long} Difference
+ */
+LongPrototype.subtract = function subtract(subtrahend) {
+    if (!isLong(subtrahend))
+        subtrahend = fromValue(subtrahend);
+    return this.add(subtrahend.neg());
+};
+
+/**
+ * Returns the difference of this and the specified Long. This is an alias of {@link Long#subtract}.
+ * @function
+ * @param {!Long|number|string} subtrahend Subtrahend
+ * @returns {!Long} Difference
+ */
+LongPrototype.sub = LongPrototype.subtract;
+
+/**
+ * Returns the product of this and the specified Long.
+ * @param {!Long|number|string} multiplier Multiplier
+ * @returns {!Long} Product
+ */
+LongPrototype.multiply = function multiply(multiplier) {
+    if (this.isZero())
+        return ZERO;
+    if (!isLong(multiplier))
+        multiplier = fromValue(multiplier);
+
+    // use wasm support if present
+    if (wasm) {
+        var low = wasm.mul(this.low,
+                           this.high,
+                           multiplier.low,
+                           multiplier.high);
+        return fromBits(low, wasm.get_high(), this.unsigned);
+    }
+
+    if (multiplier.isZero())
+        return ZERO;
+    if (this.eq(MIN_VALUE))
+        return multiplier.isOdd() ? MIN_VALUE : ZERO;
+    if (multiplier.eq(MIN_VALUE))
+        return this.isOdd() ? MIN_VALUE : ZERO;
+
+    if (this.isNegative()) {
+        if (multiplier.isNegative())
+            return this.neg().mul(multiplier.neg());
+        else
+            return this.neg().mul(multiplier).neg();
+    } else if (multiplier.isNegative())
+        return this.mul(multiplier.neg()).neg();
+
+    // If both longs are small, use float multiplication
+    if (this.lt(TWO_PWR_24) && multiplier.lt(TWO_PWR_24))
+        return fromNumber(this.toNumber() * multiplier.toNumber(), this.unsigned);
+
+    // Divide each long into 4 chunks of 16 bits, and then add up 4x4 products.
+    // We can skip products that would overflow.
+
+    var a48 = this.high >>> 16;
+    var a32 = this.high & 0xFFFF;
+    var a16 = this.low >>> 16;
+    var a00 = this.low & 0xFFFF;
+
+    var b48 = multiplier.high >>> 16;
+    var b32 = multiplier.high & 0xFFFF;
+    var b16 = multiplier.low >>> 16;
+    var b00 = multiplier.low & 0xFFFF;
+
+    var c48 = 0, c32 = 0, c16 = 0, c00 = 0;
+    c00 += a00 * b00;
+    c16 += c00 >>> 16;
+    c00 &= 0xFFFF;
+    c16 += a16 * b00;
+    c32 += c16 >>> 16;
+    c16 &= 0xFFFF;
+    c16 += a00 * b16;
+    c32 += c16 >>> 16;
+    c16 &= 0xFFFF;
+    c32 += a32 * b00;
+    c48 += c32 >>> 16;
+    c32 &= 0xFFFF;
+    c32 += a16 * b16;
+    c48 += c32 >>> 16;
+    c32 &= 0xFFFF;
+    c32 += a00 * b32;
+    c48 += c32 >>> 16;
+    c32 &= 0xFFFF;
+    c48 += a48 * b00 + a32 * b16 + a16 * b32 + a00 * b48;
+    c48 &= 0xFFFF;
+    return fromBits((c16 << 16) | c00, (c48 << 16) | c32, this.unsigned);
+};
+
+/**
+ * Returns the product of this and the specified Long. This is an alias of {@link Long#multiply}.
+ * @function
+ * @param {!Long|number|string} multiplier Multiplier
+ * @returns {!Long} Product
+ */
+LongPrototype.mul = LongPrototype.multiply;
+
+/**
+ * Returns this Long divided by the specified. The result is signed if this Long is signed or
+ *  unsigned if this Long is unsigned.
+ * @param {!Long|number|string} divisor Divisor
+ * @returns {!Long} Quotient
+ */
+LongPrototype.divide = function divide(divisor) {
+    if (!isLong(divisor))
+        divisor = fromValue(divisor);
+    if (divisor.isZero())
+        throw Error('division by zero');
+
+    // use wasm support if present
+    if (wasm) {
+        // guard against signed division overflow: the largest
+        // negative number / -1 would be 1 larger than the largest
+        // positive number, due to two's complement.
+        if (!this.unsigned &&
+            this.high === -0x80000000 &&
+            divisor.low === -1 && divisor.high === -1) {
+            // be consistent with non-wasm code path
+            return this;
+        }
+        var low = (this.unsigned ? wasm.div_u : wasm.div_s)(
+            this.low,
+            this.high,
+            divisor.low,
+            divisor.high
+        );
+        return fromBits(low, wasm.get_high(), this.unsigned);
+    }
+
+    if (this.isZero())
+        return this.unsigned ? UZERO : ZERO;
+    var approx, rem, res;
+    if (!this.unsigned) {
+        // This section is only relevant for signed longs and is derived from the
+        // closure library as a whole.
+        if (this.eq(MIN_VALUE)) {
+            if (divisor.eq(ONE) || divisor.eq(NEG_ONE))
+                return MIN_VALUE;  // recall that -MIN_VALUE == MIN_VALUE
+            else if (divisor.eq(MIN_VALUE))
+                return ONE;
+            else {
+                // At this point, we have |other| >= 2, so |this/other| < |MIN_VALUE|.
+                var halfThis = this.shr(1);
+                approx = halfThis.div(divisor).shl(1);
+                if (approx.eq(ZERO)) {
+                    return divisor.isNegative() ? ONE : NEG_ONE;
+                } else {
+                    rem = this.sub(divisor.mul(approx));
+                    res = approx.add(rem.div(divisor));
+                    return res;
+                }
+            }
+        } else if (divisor.eq(MIN_VALUE))
+            return this.unsigned ? UZERO : ZERO;
+        if (this.isNegative()) {
+            if (divisor.isNegative())
+                return this.neg().div(divisor.neg());
+            return this.neg().div(divisor).neg();
+        } else if (divisor.isNegative())
+            return this.div(divisor.neg()).neg();
+        res = ZERO;
+    } else {
+        // The algorithm below has not been made for unsigned longs. It's therefore
+        // required to take special care of the MSB prior to running it.
+        if (!divisor.unsigned)
+            divisor = divisor.toUnsigned();
+        if (divisor.gt(this))
+            return UZERO;
+        if (divisor.gt(this.shru(1))) // 15 >>> 1 = 7 ; with divisor = 8 ; true
+            return UONE;
+        res = UZERO;
+    }
+
+    // Repeat the following until the remainder is less than other:  find a
+    // floating-point that approximates remainder / other *from below*, add this
+    // into the result, and subtract it from the remainder.  It is critical that
+    // the approximate value is less than or equal to the real value so that the
+    // remainder never becomes negative.
+    rem = this;
+    while (rem.gte(divisor)) {
+        // Approximate the result of division. This may be a little greater or
+        // smaller than the actual value.
+        approx = Math.max(1, Math.floor(rem.toNumber() / divisor.toNumber()));
+
+        // We will tweak the approximate result by changing it in the 48-th digit or
+        // the smallest non-fractional digit, whichever is larger.
+        var log2 = Math.ceil(Math.log(approx) / Math.LN2),
+            delta = (log2 <= 48) ? 1 : pow_dbl(2, log2 - 48),
+
+        // Decrease the approximation until it is smaller than the remainder.  Note
+        // that if it is too large, the product overflows and is negative.
+            approxRes = fromNumber(approx),
+            approxRem = approxRes.mul(divisor);
+        while (approxRem.isNegative() || approxRem.gt(rem)) {
+            approx -= delta;
+            approxRes = fromNumber(approx, this.unsigned);
+            approxRem = approxRes.mul(divisor);
+        }
+
+        // We know the answer can't be zero... and actually, zero would cause
+        // infinite recursion since we would make no progress.
+        if (approxRes.isZero())
+            approxRes = ONE;
+
+        res = res.add(approxRes);
+        rem = rem.sub(approxRem);
+    }
+    return res;
+};
+
+/**
+ * Returns this Long divided by the specified. This is an alias of {@link Long#divide}.
+ * @function
+ * @param {!Long|number|string} divisor Divisor
+ * @returns {!Long} Quotient
+ */
+LongPrototype.div = LongPrototype.divide;
+
+/**
+ * Returns this Long modulo the specified.
+ * @param {!Long|number|string} divisor Divisor
+ * @returns {!Long} Remainder
+ */
+LongPrototype.modulo = function modulo(divisor) {
+    if (!isLong(divisor))
+        divisor = fromValue(divisor);
+
+    // use wasm support if present
+    if (wasm) {
+        var low = (this.unsigned ? wasm.rem_u : wasm.rem_s)(
+            this.low,
+            this.high,
+            divisor.low,
+            divisor.high
+        );
+        return fromBits(low, wasm.get_high(), this.unsigned);
+    }
+
+    return this.sub(this.div(divisor).mul(divisor));
+};
+
+/**
+ * Returns this Long modulo the specified. This is an alias of {@link Long#modulo}.
+ * @function
+ * @param {!Long|number|string} divisor Divisor
+ * @returns {!Long} Remainder
+ */
+LongPrototype.mod = LongPrototype.modulo;
+
+/**
+ * Returns this Long modulo the specified. This is an alias of {@link Long#modulo}.
+ * @function
+ * @param {!Long|number|string} divisor Divisor
+ * @returns {!Long} Remainder
+ */
+LongPrototype.rem = LongPrototype.modulo;
+
+/**
+ * Returns the bitwise NOT of this Long.
+ * @returns {!Long}
+ */
+LongPrototype.not = function not() {
+    return fromBits(~this.low, ~this.high, this.unsigned);
+};
+
+/**
+ * Returns the bitwise AND of this Long and the specified.
+ * @param {!Long|number|string} other Other Long
+ * @returns {!Long}
+ */
+LongPrototype.and = function and(other) {
+    if (!isLong(other))
+        other = fromValue(other);
+    return fromBits(this.low & other.low, this.high & other.high, this.unsigned);
+};
+
+/**
+ * Returns the bitwise OR of this Long and the specified.
+ * @param {!Long|number|string} other Other Long
+ * @returns {!Long}
+ */
+LongPrototype.or = function or(other) {
+    if (!isLong(other))
+        other = fromValue(other);
+    return fromBits(this.low | other.low, this.high | other.high, this.unsigned);
+};
+
+/**
+ * Returns the bitwise XOR of this Long and the given one.
+ * @param {!Long|number|string} other Other Long
+ * @returns {!Long}
+ */
+LongPrototype.xor = function xor(other) {
+    if (!isLong(other))
+        other = fromValue(other);
+    return fromBits(this.low ^ other.low, this.high ^ other.high, this.unsigned);
+};
+
+/**
+ * Returns this Long with bits shifted to the left by the given amount.
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shiftLeft = function shiftLeft(numBits) {
+    if (isLong(numBits))
+        numBits = numBits.toInt();
+    if ((numBits &= 63) === 0)
+        return this;
+    else if (numBits < 32)
+        return fromBits(this.low << numBits, (this.high << numBits) | (this.low >>> (32 - numBits)), this.unsigned);
+    else
+        return fromBits(0, this.low << (numBits - 32), this.unsigned);
+};
+
+/**
+ * Returns this Long with bits shifted to the left by the given amount. This is an alias of {@link Long#shiftLeft}.
+ * @function
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shl = LongPrototype.shiftLeft;
+
+/**
+ * Returns this Long with bits arithmetically shifted to the right by the given amount.
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shiftRight = function shiftRight(numBits) {
+    if (isLong(numBits))
+        numBits = numBits.toInt();
+    if ((numBits &= 63) === 0)
+        return this;
+    else if (numBits < 32)
+        return fromBits((this.low >>> numBits) | (this.high << (32 - numBits)), this.high >> numBits, this.unsigned);
+    else
+        return fromBits(this.high >> (numBits - 32), this.high >= 0 ? 0 : -1, this.unsigned);
+};
+
+/**
+ * Returns this Long with bits arithmetically shifted to the right by the given amount. This is an alias of {@link Long#shiftRight}.
+ * @function
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shr = LongPrototype.shiftRight;
+
+/**
+ * Returns this Long with bits logically shifted to the right by the given amount.
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shiftRightUnsigned = function shiftRightUnsigned(numBits) {
+    if (isLong(numBits))
+        numBits = numBits.toInt();
+    numBits &= 63;
+    if (numBits === 0)
+        return this;
+    else {
+        var high = this.high;
+        if (numBits < 32) {
+            var low = this.low;
+            return fromBits((low >>> numBits) | (high << (32 - numBits)), high >>> numBits, this.unsigned);
+        } else if (numBits === 32)
+            return fromBits(high, 0, this.unsigned);
+        else
+            return fromBits(high >>> (numBits - 32), 0, this.unsigned);
+    }
+};
+
+/**
+ * Returns this Long with bits logically shifted to the right by the given amount. This is an alias of {@link Long#shiftRightUnsigned}.
+ * @function
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shru = LongPrototype.shiftRightUnsigned;
+
+/**
+ * Returns this Long with bits logically shifted to the right by the given amount. This is an alias of {@link Long#shiftRightUnsigned}.
+ * @function
+ * @param {number|!Long} numBits Number of bits
+ * @returns {!Long} Shifted Long
+ */
+LongPrototype.shr_u = LongPrototype.shiftRightUnsigned;
+
+/**
+ * Converts this Long to signed.
+ * @returns {!Long} Signed long
+ */
+LongPrototype.toSigned = function toSigned() {
+    if (!this.unsigned)
+        return this;
+    return fromBits(this.low, this.high, false);
+};
+
+/**
+ * Converts this Long to unsigned.
+ * @returns {!Long} Unsigned long
+ */
+LongPrototype.toUnsigned = function toUnsigned() {
+    if (this.unsigned)
+        return this;
+    return fromBits(this.low, this.high, true);
+};
+
+/**
+ * Converts this Long to its byte representation.
+ * @param {boolean=} le Whether little or big endian, defaults to big endian
+ * @returns {!Array.<number>} Byte representation
+ */
+LongPrototype.toBytes = function toBytes(le) {
+    return le ? this.toBytesLE() : this.toBytesBE();
+};
+
+/**
+ * Converts this Long to its little endian byte representation.
+ * @returns {!Array.<number>} Little endian byte representation
+ */
+LongPrototype.toBytesLE = function toBytesLE() {
+    var hi = this.high,
+        lo = this.low;
+    return [
+        lo        & 0xff,
+        lo >>>  8 & 0xff,
+        lo >>> 16 & 0xff,
+        lo >>> 24       ,
+        hi        & 0xff,
+        hi >>>  8 & 0xff,
+        hi >>> 16 & 0xff,
+        hi >>> 24
+    ];
+};
+
+/**
+ * Converts this Long to its big endian byte representation.
+ * @returns {!Array.<number>} Big endian byte representation
+ */
+LongPrototype.toBytesBE = function toBytesBE() {
+    var hi = this.high,
+        lo = this.low;
+    return [
+        hi >>> 24       ,
+        hi >>> 16 & 0xff,
+        hi >>>  8 & 0xff,
+        hi        & 0xff,
+        lo >>> 24       ,
+        lo >>> 16 & 0xff,
+        lo >>>  8 & 0xff,
+        lo        & 0xff
+    ];
+};
+
+/**
+ * Creates a Long from its byte representation.
+ * @param {!Array.<number>} bytes Byte representation
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @param {boolean=} le Whether little or big endian, defaults to big endian
+ * @returns {Long} The corresponding Long value
+ */
+Long.fromBytes = function fromBytes(bytes, unsigned, le) {
+    return le ? Long.fromBytesLE(bytes, unsigned) : Long.fromBytesBE(bytes, unsigned);
+};
+
+/**
+ * Creates a Long from its little endian byte representation.
+ * @param {!Array.<number>} bytes Little endian byte representation
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @returns {Long} The corresponding Long value
+ */
+Long.fromBytesLE = function fromBytesLE(bytes, unsigned) {
+    return new Long(
+        bytes[0]       |
+        bytes[1] <<  8 |
+        bytes[2] << 16 |
+        bytes[3] << 24,
+        bytes[4]       |
+        bytes[5] <<  8 |
+        bytes[6] << 16 |
+        bytes[7] << 24,
+        unsigned
+    );
+};
+
+/**
+ * Creates a Long from its big endian byte representation.
+ * @param {!Array.<number>} bytes Big endian byte representation
+ * @param {boolean=} unsigned Whether unsigned or not, defaults to signed
+ * @returns {Long} The corresponding Long value
+ */
+Long.fromBytesBE = function fromBytesBE(bytes, unsigned) {
+    return new Long(
+        bytes[4] << 24 |
+        bytes[5] << 16 |
+        bytes[6] <<  8 |
+        bytes[7],
+        bytes[0] << 24 |
+        bytes[1] << 16 |
+        bytes[2] <<  8 |
+        bytes[3],
+        unsigned
+    );
+};
+
+
+/***/ }),
+
+/***/ 2549:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+// full library entry point.
+
+
+module.exports = __webpack_require__(9100);
+
+
+/***/ }),
+
+/***/ 6946:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+// minimal library entry point.
+
+
+module.exports = __webpack_require__(4394);
+
+
+/***/ }),
+
+/***/ 5095:
+/***/ ((module) => {
+
+"use strict";
+
+module.exports = common;
+
+var commonRe = /\/|\./;
+
+/**
+ * Provides common type definitions.
+ * Can also be used to provide additional google types or your own custom types.
+ * @param {string} name Short name as in `google/protobuf/[name].proto` or full file name
+ * @param {Object.<string,*>} json JSON definition within `google.protobuf` if a short name, otherwise the file's root definition
+ * @returns {undefined}
+ * @property {INamespace} google/protobuf/any.proto Any
+ * @property {INamespace} google/protobuf/duration.proto Duration
+ * @property {INamespace} google/protobuf/empty.proto Empty
+ * @property {INamespace} google/protobuf/field_mask.proto FieldMask
+ * @property {INamespace} google/protobuf/struct.proto Struct, Value, NullValue and ListValue
+ * @property {INamespace} google/protobuf/timestamp.proto Timestamp
+ * @property {INamespace} google/protobuf/wrappers.proto Wrappers
+ * @example
+ * // manually provides descriptor.proto (assumes google/protobuf/ namespace and .proto extension)
+ * protobuf.common("descriptor", descriptorJson);
+ *
+ * // manually provides a custom definition (uses my.foo namespace)
+ * protobuf.common("my/foo/bar.proto", myFooBarJson);
+ */
+function common(name, json) {
+    if (!commonRe.test(name)) {
+        name = "google/protobuf/" + name + ".proto";
+        json = { nested: { google: { nested: { protobuf: { nested: json } } } } };
+    }
+    common[name] = json;
+}
+
+// Not provided because of limited use (feel free to discuss or to provide yourself):
+//
+// google/protobuf/descriptor.proto
+// google/protobuf/source_context.proto
+// google/protobuf/type.proto
+//
+// Stripped and pre-parsed versions of these non-bundled files are instead available as part of
+// the repository or package within the google/protobuf directory.
+
+common("any", {
+
+    /**
+     * Properties of a google.protobuf.Any message.
+     * @interface IAny
+     * @type {Object}
+     * @property {string} [typeUrl]
+     * @property {Uint8Array} [bytes]
+     * @memberof common
+     */
+    Any: {
+        fields: {
+            type_url: {
+                type: "string",
+                id: 1
+            },
+            value: {
+                type: "bytes",
+                id: 2
+            }
+        }
+    }
+});
+
+var timeType;
+
+common("duration", {
+
+    /**
+     * Properties of a google.protobuf.Duration message.
+     * @interface IDuration
+     * @type {Object}
+     * @property {number|Long} [seconds]
+     * @property {number} [nanos]
+     * @memberof common
+     */
+    Duration: timeType = {
+        fields: {
+            seconds: {
+                type: "int64",
+                id: 1
+            },
+            nanos: {
+                type: "int32",
+                id: 2
+            }
+        }
+    }
+});
+
+common("timestamp", {
+
+    /**
+     * Properties of a google.protobuf.Timestamp message.
+     * @interface ITimestamp
+     * @type {Object}
+     * @property {number|Long} [seconds]
+     * @property {number} [nanos]
+     * @memberof common
+     */
+    Timestamp: timeType
+});
+
+common("empty", {
+
+    /**
+     * Properties of a google.protobuf.Empty message.
+     * @interface IEmpty
+     * @memberof common
+     */
+    Empty: {
+        fields: {}
+    }
+});
+
+common("struct", {
+
+    /**
+     * Properties of a google.protobuf.Struct message.
+     * @interface IStruct
+     * @type {Object}
+     * @property {Object.<string,IValue>} [fields]
+     * @memberof common
+     */
+    Struct: {
+        fields: {
+            fields: {
+                keyType: "string",
+                type: "Value",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Value message.
+     * @interface IValue
+     * @type {Object}
+     * @property {string} [kind]
+     * @property {0} [nullValue]
+     * @property {number} [numberValue]
+     * @property {string} [stringValue]
+     * @property {boolean} [boolValue]
+     * @property {IStruct} [structValue]
+     * @property {IListValue} [listValue]
+     * @memberof common
+     */
+    Value: {
+        oneofs: {
+            kind: {
+                oneof: [
+                    "nullValue",
+                    "numberValue",
+                    "stringValue",
+                    "boolValue",
+                    "structValue",
+                    "listValue"
+                ]
+            }
+        },
+        fields: {
+            nullValue: {
+                type: "NullValue",
+                id: 1
+            },
+            numberValue: {
+                type: "double",
+                id: 2
+            },
+            stringValue: {
+                type: "string",
+                id: 3
+            },
+            boolValue: {
+                type: "bool",
+                id: 4
+            },
+            structValue: {
+                type: "Struct",
+                id: 5
+            },
+            listValue: {
+                type: "ListValue",
+                id: 6
+            }
+        }
+    },
+
+    NullValue: {
+        values: {
+            NULL_VALUE: 0
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.ListValue message.
+     * @interface IListValue
+     * @type {Object}
+     * @property {Array.<IValue>} [values]
+     * @memberof common
+     */
+    ListValue: {
+        fields: {
+            values: {
+                rule: "repeated",
+                type: "Value",
+                id: 1
+            }
+        }
+    }
+});
+
+common("wrappers", {
+
+    /**
+     * Properties of a google.protobuf.DoubleValue message.
+     * @interface IDoubleValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    DoubleValue: {
+        fields: {
+            value: {
+                type: "double",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.FloatValue message.
+     * @interface IFloatValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    FloatValue: {
+        fields: {
+            value: {
+                type: "float",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Int64Value message.
+     * @interface IInt64Value
+     * @type {Object}
+     * @property {number|Long} [value]
+     * @memberof common
+     */
+    Int64Value: {
+        fields: {
+            value: {
+                type: "int64",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.UInt64Value message.
+     * @interface IUInt64Value
+     * @type {Object}
+     * @property {number|Long} [value]
+     * @memberof common
+     */
+    UInt64Value: {
+        fields: {
+            value: {
+                type: "uint64",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.Int32Value message.
+     * @interface IInt32Value
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    Int32Value: {
+        fields: {
+            value: {
+                type: "int32",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.UInt32Value message.
+     * @interface IUInt32Value
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    UInt32Value: {
+        fields: {
+            value: {
+                type: "uint32",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.BoolValue message.
+     * @interface IBoolValue
+     * @type {Object}
+     * @property {boolean} [value]
+     * @memberof common
+     */
+    BoolValue: {
+        fields: {
+            value: {
+                type: "bool",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.StringValue message.
+     * @interface IStringValue
+     * @type {Object}
+     * @property {string} [value]
+     * @memberof common
+     */
+    StringValue: {
+        fields: {
+            value: {
+                type: "string",
+                id: 1
+            }
+        }
+    },
+
+    /**
+     * Properties of a google.protobuf.BytesValue message.
+     * @interface IBytesValue
+     * @type {Object}
+     * @property {Uint8Array} [value]
+     * @memberof common
+     */
+    BytesValue: {
+        fields: {
+            value: {
+                type: "bytes",
+                id: 1
+            }
+        }
+    }
+});
+
+common("field_mask", {
+
+    /**
+     * Properties of a google.protobuf.FieldMask message.
+     * @interface IDoubleValue
+     * @type {Object}
+     * @property {number} [value]
+     * @memberof common
+     */
+    FieldMask: {
+        fields: {
+            paths: {
+                rule: "repeated",
+                type: "string",
+                id: 1
+            }
+        }
+    }
+});
+
+/**
+ * Gets the root definition of the specified common proto file.
+ *
+ * Bundled definitions are:
+ * - google/protobuf/any.proto
+ * - google/protobuf/duration.proto
+ * - google/protobuf/empty.proto
+ * - google/protobuf/field_mask.proto
+ * - google/protobuf/struct.proto
+ * - google/protobuf/timestamp.proto
+ * - google/protobuf/wrappers.proto
+ *
+ * @param {string} file Proto file name
+ * @returns {INamespace|null} Root definition or `null` if not defined
+ */
+common.get = function get(file) {
+    return common[file] || null;
+};
+
+
+/***/ }),
+
+/***/ 744:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+/**
+ * Runtime message from/to plain object converters.
+ * @namespace
+ */
+var converter = exports;
+
+var Enum = __webpack_require__(5643),
+    util = __webpack_require__(3262);
+
+/**
+ * Generates a partial value fromObject conveter.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} prop Property reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genValuePartial_fromObject(gen, field, fieldIndex, prop) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    if (field.resolvedType) {
+        if (field.resolvedType instanceof Enum) { gen
+            ("switch(d%s){", prop);
+            for (var values = field.resolvedType.values, keys = Object.keys(values), i = 0; i < keys.length; ++i) {
+                if (field.repeated && values[keys[i]] === field.typeDefault) gen
+                ("default:");
+                gen
+                ("case%j:", keys[i])
+                ("case %i:", values[keys[i]])
+                    ("m%s=%j", prop, values[keys[i]])
+                    ("break");
+            } gen
+            ("}");
+        } else gen
+            ("if(typeof d%s!==\"object\")", prop)
+                ("throw TypeError(%j)", field.fullName + ": object expected")
+            ("m%s=types[%i].fromObject(d%s)", prop, fieldIndex, prop);
+    } else {
+        var isUnsigned = false;
+        switch (field.type) {
+            case "double":
+            case "float": gen
+                ("m%s=Number(d%s)", prop, prop); // also catches "NaN", "Infinity"
+                break;
+            case "uint32":
+            case "fixed32": gen
+                ("m%s=d%s>>>0", prop, prop);
+                break;
+            case "int32":
+            case "sint32":
+            case "sfixed32": gen
+                ("m%s=d%s|0", prop, prop);
+                break;
+            case "uint64":
+                isUnsigned = true;
+                // eslint-disable-line no-fallthrough
+            case "int64":
+            case "sint64":
+            case "fixed64":
+            case "sfixed64": gen
+                ("if(util.Long)")
+                    ("(m%s=util.Long.fromValue(d%s)).unsigned=%j", prop, prop, isUnsigned)
+                ("else if(typeof d%s===\"string\")", prop)
+                    ("m%s=parseInt(d%s,10)", prop, prop)
+                ("else if(typeof d%s===\"number\")", prop)
+                    ("m%s=d%s", prop, prop)
+                ("else if(typeof d%s===\"object\")", prop)
+                    ("m%s=new util.LongBits(d%s.low>>>0,d%s.high>>>0).toNumber(%s)", prop, prop, prop, isUnsigned ? "true" : "");
+                break;
+            case "bytes": gen
+                ("if(typeof d%s===\"string\")", prop)
+                    ("util.base64.decode(d%s,m%s=util.newBuffer(util.base64.length(d%s)),0)", prop, prop, prop)
+                ("else if(d%s.length)", prop)
+                    ("m%s=d%s", prop, prop);
+                break;
+            case "string": gen
+                ("m%s=String(d%s)", prop, prop);
+                break;
+            case "bool": gen
+                ("m%s=Boolean(d%s)", prop, prop);
+                break;
+            /* default: gen
+                ("m%s=d%s", prop, prop);
+                break; */
+        }
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+}
+
+/**
+ * Generates a plain object to runtime message converter specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+converter.fromObject = function fromObject(mtype) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    var fields = mtype.fieldsArray;
+    var gen = util.codegen(["d"], mtype.name + "$fromObject")
+    ("if(d instanceof this.ctor)")
+        ("return d");
+    if (!fields.length) return gen
+    ("return new this.ctor");
+    gen
+    ("var m=new this.ctor");
+    for (var i = 0; i < fields.length; ++i) {
+        var field  = fields[i].resolve(),
+            prop   = util.safeProp(field.name);
+
+        // Map fields
+        if (field.map) { gen
+    ("if(d%s){", prop)
+        ("if(typeof d%s!==\"object\")", prop)
+            ("throw TypeError(%j)", field.fullName + ": object expected")
+        ("m%s={}", prop)
+        ("for(var ks=Object.keys(d%s),i=0;i<ks.length;++i){", prop);
+            genValuePartial_fromObject(gen, field, /* not sorted */ i, prop + "[ks[i]]")
+        ("}")
+    ("}");
+
+        // Repeated fields
+        } else if (field.repeated) { gen
+    ("if(d%s){", prop)
+        ("if(!Array.isArray(d%s))", prop)
+            ("throw TypeError(%j)", field.fullName + ": array expected")
+        ("m%s=[]", prop)
+        ("for(var i=0;i<d%s.length;++i){", prop);
+            genValuePartial_fromObject(gen, field, /* not sorted */ i, prop + "[i]")
+        ("}")
+    ("}");
+
+        // Non-repeated fields
+        } else {
+            if (!(field.resolvedType instanceof Enum)) gen // no need to test for null/undefined if an enum (uses switch)
+    ("if(d%s!=null){", prop); // !== undefined && !== null
+        genValuePartial_fromObject(gen, field, /* not sorted */ i, prop);
+            if (!(field.resolvedType instanceof Enum)) gen
+    ("}");
+        }
+    } return gen
+    ("return m");
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+};
+
+/**
+ * Generates a partial value toObject converter.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} prop Property reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genValuePartial_toObject(gen, field, fieldIndex, prop) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    if (field.resolvedType) {
+        if (field.resolvedType instanceof Enum) gen
+            ("d%s=o.enums===String?types[%i].values[m%s]:m%s", prop, fieldIndex, prop, prop);
+        else gen
+            ("d%s=types[%i].toObject(m%s,o)", prop, fieldIndex, prop);
+    } else {
+        var isUnsigned = false;
+        switch (field.type) {
+            case "double":
+            case "float": gen
+            ("d%s=o.json&&!isFinite(m%s)?String(m%s):m%s", prop, prop, prop, prop);
+                break;
+            case "uint64":
+                isUnsigned = true;
+                // eslint-disable-line no-fallthrough
+            case "int64":
+            case "sint64":
+            case "fixed64":
+            case "sfixed64": gen
+            ("if(typeof m%s===\"number\")", prop)
+                ("d%s=o.longs===String?String(m%s):m%s", prop, prop, prop)
+            ("else") // Long-like
+                ("d%s=o.longs===String?util.Long.prototype.toString.call(m%s):o.longs===Number?new util.LongBits(m%s.low>>>0,m%s.high>>>0).toNumber(%s):m%s", prop, prop, prop, prop, isUnsigned ? "true": "", prop);
+                break;
+            case "bytes": gen
+            ("d%s=o.bytes===String?util.base64.encode(m%s,0,m%s.length):o.bytes===Array?Array.prototype.slice.call(m%s):m%s", prop, prop, prop, prop, prop);
+                break;
+            default: gen
+            ("d%s=m%s", prop, prop);
+                break;
+        }
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+}
+
+/**
+ * Generates a runtime message to plain object converter specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+converter.toObject = function toObject(mtype) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    var fields = mtype.fieldsArray.slice().sort(util.compareFieldsById);
+    if (!fields.length)
+        return util.codegen()("return {}");
+    var gen = util.codegen(["m", "o"], mtype.name + "$toObject")
+    ("if(!o)")
+        ("o={}")
+    ("var d={}");
+
+    var repeatedFields = [],
+        mapFields = [],
+        normalFields = [],
+        i = 0;
+    for (; i < fields.length; ++i)
+        if (!fields[i].partOf)
+            ( fields[i].resolve().repeated ? repeatedFields
+            : fields[i].map ? mapFields
+            : normalFields).push(fields[i]);
+
+    if (repeatedFields.length) { gen
+    ("if(o.arrays||o.defaults){");
+        for (i = 0; i < repeatedFields.length; ++i) gen
+        ("d%s=[]", util.safeProp(repeatedFields[i].name));
+        gen
+    ("}");
+    }
+
+    if (mapFields.length) { gen
+    ("if(o.objects||o.defaults){");
+        for (i = 0; i < mapFields.length; ++i) gen
+        ("d%s={}", util.safeProp(mapFields[i].name));
+        gen
+    ("}");
+    }
+
+    if (normalFields.length) { gen
+    ("if(o.defaults){");
+        for (i = 0; i < normalFields.length; ++i) {
+            var field = normalFields[i],
+                prop  = util.safeProp(field.name);
+            if (field.resolvedType instanceof Enum) gen
+        ("d%s=o.enums===String?%j:%j", prop, field.resolvedType.valuesById[field.typeDefault], field.typeDefault);
+            else if (field.long) gen
+        ("if(util.Long){")
+            ("var n=new util.Long(%i,%i,%j)", field.typeDefault.low, field.typeDefault.high, field.typeDefault.unsigned)
+            ("d%s=o.longs===String?n.toString():o.longs===Number?n.toNumber():n", prop)
+        ("}else")
+            ("d%s=o.longs===String?%j:%i", prop, field.typeDefault.toString(), field.typeDefault.toNumber());
+            else if (field.bytes) {
+                var arrayDefault = "[" + Array.prototype.slice.call(field.typeDefault).join(",") + "]";
+                gen
+        ("if(o.bytes===String)d%s=%j", prop, String.fromCharCode.apply(String, field.typeDefault))
+        ("else{")
+            ("d%s=%s", prop, arrayDefault)
+            ("if(o.bytes!==Array)d%s=util.newBuffer(d%s)", prop, prop)
+        ("}");
+            } else gen
+        ("d%s=%j", prop, field.typeDefault); // also messages (=null)
+        } gen
+    ("}");
+    }
+    var hasKs2 = false;
+    for (i = 0; i < fields.length; ++i) {
+        var field = fields[i],
+            index = mtype._fieldsArray.indexOf(field),
+            prop  = util.safeProp(field.name);
+        if (field.map) {
+            if (!hasKs2) { hasKs2 = true; gen
+    ("var ks2");
+            } gen
+    ("if(m%s&&(ks2=Object.keys(m%s)).length){", prop, prop)
+        ("d%s={}", prop)
+        ("for(var j=0;j<ks2.length;++j){");
+            genValuePartial_toObject(gen, field, /* sorted */ index, prop + "[ks2[j]]")
+        ("}");
+        } else if (field.repeated) { gen
+    ("if(m%s&&m%s.length){", prop, prop)
+        ("d%s=[]", prop)
+        ("for(var j=0;j<m%s.length;++j){", prop);
+            genValuePartial_toObject(gen, field, /* sorted */ index, prop + "[j]")
+        ("}");
+        } else { gen
+    ("if(m%s!=null&&m.hasOwnProperty(%j)){", prop, field.name); // !== undefined && !== null
+        genValuePartial_toObject(gen, field, /* sorted */ index, prop);
+        if (field.partOf) gen
+        ("if(o.oneofs)")
+            ("d%s=%j", util.safeProp(field.partOf.name), field.name);
+        }
+        gen
+    ("}");
+    }
+    return gen
+    ("return d");
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+};
+
+
+/***/ }),
+
+/***/ 7728:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = decoder;
+
+var Enum    = __webpack_require__(5643),
+    types   = __webpack_require__(361),
+    util    = __webpack_require__(3262);
+
+function missing(field) {
+    return "missing required '" + field.name + "'";
+}
+
+/**
+ * Generates a decoder specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+function decoder(mtype) {
+    /* eslint-disable no-unexpected-multiline */
+    var gen = util.codegen(["r", "l"], mtype.name + "$decode")
+    ("if(!(r instanceof Reader))")
+        ("r=Reader.create(r)")
+    ("var c=l===undefined?r.len:r.pos+l,m=new this.ctor" + (mtype.fieldsArray.filter(function(field) { return field.map; }).length ? ",k,value" : ""))
+    ("while(r.pos<c){")
+        ("var t=r.uint32()");
+    if (mtype.group) gen
+        ("if((t&7)===4)")
+            ("break");
+    gen
+        ("switch(t>>>3){");
+
+    var i = 0;
+    for (; i < /* initializes */ mtype.fieldsArray.length; ++i) {
+        var field = mtype._fieldsArray[i].resolve(),
+            type  = field.resolvedType instanceof Enum ? "int32" : field.type,
+            ref   = "m" + util.safeProp(field.name); gen
+            ("case %i:", field.id);
+
+        // Map fields
+        if (field.map) { gen
+                ("if(%s===util.emptyObject)", ref)
+                    ("%s={}", ref)
+                ("var c2 = r.uint32()+r.pos");
+
+            if (types.defaults[field.keyType] !== undefined) gen
+                ("k=%j", types.defaults[field.keyType]);
+            else gen
+                ("k=null");
+
+            if (types.defaults[type] !== undefined) gen
+                ("value=%j", types.defaults[type]);
+            else gen
+                ("value=null");
+
+            gen
+                ("while(r.pos<c2){")
+                    ("var tag2=r.uint32()")
+                    ("switch(tag2>>>3){")
+                        ("case 1: k=r.%s(); break", field.keyType)
+                        ("case 2:");
+
+            if (types.basic[type] === undefined) gen
+                            ("value=types[%i].decode(r,r.uint32())", i); // can't be groups
+            else gen
+                            ("value=r.%s()", type);
+
+            gen
+                            ("break")
+                        ("default:")
+                            ("r.skipType(tag2&7)")
+                            ("break")
+                    ("}")
+                ("}");
+
+            if (types.long[field.keyType] !== undefined) gen
+                ("%s[typeof k===\"object\"?util.longToHash(k):k]=value", ref);
+            else gen
+                ("%s[k]=value", ref);
+
+        // Repeated fields
+        } else if (field.repeated) { gen
+
+                ("if(!(%s&&%s.length))", ref, ref)
+                    ("%s=[]", ref);
+
+            // Packable (always check for forward and backward compatiblity)
+            if (types.packed[type] !== undefined) gen
+                ("if((t&7)===2){")
+                    ("var c2=r.uint32()+r.pos")
+                    ("while(r.pos<c2)")
+                        ("%s.push(r.%s())", ref, type)
+                ("}else");
+
+            // Non-packed
+            if (types.basic[type] === undefined) gen(field.resolvedType.group
+                    ? "%s.push(types[%i].decode(r))"
+                    : "%s.push(types[%i].decode(r,r.uint32()))", ref, i);
+            else gen
+                    ("%s.push(r.%s())", ref, type);
+
+        // Non-repeated
+        } else if (types.basic[type] === undefined) gen(field.resolvedType.group
+                ? "%s=types[%i].decode(r)"
+                : "%s=types[%i].decode(r,r.uint32())", ref, i);
+        else gen
+                ("%s=r.%s()", ref, type);
+        gen
+                ("break");
+    // Unknown fields
+    } gen
+            ("default:")
+                ("r.skipType(t&7)")
+                ("break")
+
+        ("}")
+    ("}");
+
+    // Field presence
+    for (i = 0; i < mtype._fieldsArray.length; ++i) {
+        var rfield = mtype._fieldsArray[i];
+        if (rfield.required) gen
+    ("if(!m.hasOwnProperty(%j))", rfield.name)
+        ("throw util.ProtocolError(%j,{instance:m})", missing(rfield));
+    }
+
+    return gen
+    ("return m");
+    /* eslint-enable no-unexpected-multiline */
+}
+
+
+/***/ }),
+
+/***/ 1080:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = encoder;
+
+var Enum     = __webpack_require__(5643),
+    types    = __webpack_require__(361),
+    util     = __webpack_require__(3262);
+
+/**
+ * Generates a partial message type encoder.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} ref Variable reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genTypePartial(gen, field, fieldIndex, ref) {
+    return field.resolvedType.group
+        ? gen("types[%i].encode(%s,w.uint32(%i)).uint32(%i)", fieldIndex, ref, (field.id << 3 | 3) >>> 0, (field.id << 3 | 4) >>> 0)
+        : gen("types[%i].encode(%s,w.uint32(%i).fork()).ldelim()", fieldIndex, ref, (field.id << 3 | 2) >>> 0);
+}
+
+/**
+ * Generates an encoder specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+function encoder(mtype) {
+    /* eslint-disable no-unexpected-multiline, block-scoped-var, no-redeclare */
+    var gen = util.codegen(["m", "w"], mtype.name + "$encode")
+    ("if(!w)")
+        ("w=Writer.create()");
+
+    var i, ref;
+
+    // "when a message is serialized its known fields should be written sequentially by field number"
+    var fields = /* initializes */ mtype.fieldsArray.slice().sort(util.compareFieldsById);
+
+    for (var i = 0; i < fields.length; ++i) {
+        var field    = fields[i].resolve(),
+            index    = mtype._fieldsArray.indexOf(field),
+            type     = field.resolvedType instanceof Enum ? "int32" : field.type,
+            wireType = types.basic[type];
+            ref      = "m" + util.safeProp(field.name);
+
+        // Map fields
+        if (field.map) {
+            gen
+    ("if(%s!=null&&Object.hasOwnProperty.call(m,%j)){", ref, field.name) // !== undefined && !== null
+        ("for(var ks=Object.keys(%s),i=0;i<ks.length;++i){", ref)
+            ("w.uint32(%i).fork().uint32(%i).%s(ks[i])", (field.id << 3 | 2) >>> 0, 8 | types.mapKey[field.keyType], field.keyType);
+            if (wireType === undefined) gen
+            ("types[%i].encode(%s[ks[i]],w.uint32(18).fork()).ldelim().ldelim()", index, ref); // can't be groups
+            else gen
+            (".uint32(%i).%s(%s[ks[i]]).ldelim()", 16 | wireType, type, ref);
+            gen
+        ("}")
+    ("}");
+
+            // Repeated fields
+        } else if (field.repeated) { gen
+    ("if(%s!=null&&%s.length){", ref, ref); // !== undefined && !== null
+
+            // Packed repeated
+            if (field.packed && types.packed[type] !== undefined) { gen
+
+        ("w.uint32(%i).fork()", (field.id << 3 | 2) >>> 0)
+        ("for(var i=0;i<%s.length;++i)", ref)
+            ("w.%s(%s[i])", type, ref)
+        ("w.ldelim()");
+
+            // Non-packed
+            } else { gen
+
+        ("for(var i=0;i<%s.length;++i)", ref);
+                if (wireType === undefined)
+            genTypePartial(gen, field, index, ref + "[i]");
+                else gen
+            ("w.uint32(%i).%s(%s[i])", (field.id << 3 | wireType) >>> 0, type, ref);
+
+            } gen
+    ("}");
+
+        // Non-repeated
+        } else {
+            if (field.optional) gen
+    ("if(%s!=null&&Object.hasOwnProperty.call(m,%j))", ref, field.name); // !== undefined && !== null
+
+            if (wireType === undefined)
+        genTypePartial(gen, field, index, ref);
+            else gen
+        ("w.uint32(%i).%s(%s)", (field.id << 3 | wireType) >>> 0, type, ref);
+
+        }
+    }
+
+    return gen
+    ("return w");
+    /* eslint-enable no-unexpected-multiline, block-scoped-var, no-redeclare */
+}
+
+
+/***/ }),
+
+/***/ 5643:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Enum;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(7209);
+((Enum.prototype = Object.create(ReflectionObject.prototype)).constructor = Enum).className = "Enum";
+
+var Namespace = __webpack_require__(8923),
+    util = __webpack_require__(3262);
+
+/**
+ * Constructs a new enum instance.
+ * @classdesc Reflected enum.
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {Object.<string,number>} [values] Enum values as an object, by name
+ * @param {Object.<string,*>} [options] Declared options
+ * @param {string} [comment] The comment for this enum
+ * @param {Object.<string,string>} [comments] The value comments for this enum
+ */
+function Enum(name, values, options, comment, comments) {
+    ReflectionObject.call(this, name, options);
+
+    if (values && typeof values !== "object")
+        throw TypeError("values must be an object");
+
+    /**
+     * Enum values by id.
+     * @type {Object.<number,string>}
+     */
+    this.valuesById = {};
+
+    /**
+     * Enum values by name.
+     * @type {Object.<string,number>}
+     */
+    this.values = Object.create(this.valuesById); // toJSON, marker
+
+    /**
+     * Enum comment text.
+     * @type {string|null}
+     */
+    this.comment = comment;
+
+    /**
+     * Value comment texts, if any.
+     * @type {Object.<string,string>}
+     */
+    this.comments = comments || {};
+
+    /**
+     * Reserved ranges, if any.
+     * @type {Array.<number[]|string>}
+     */
+    this.reserved = undefined; // toJSON
+
+    // Note that values inherit valuesById on their prototype which makes them a TypeScript-
+    // compatible enum. This is used by pbts to write actual enum definitions that work for
+    // static and reflection code alike instead of emitting generic object definitions.
+
+    if (values)
+        for (var keys = Object.keys(values), i = 0; i < keys.length; ++i)
+            if (typeof values[keys[i]] === "number") // use forward entries only
+                this.valuesById[ this.values[keys[i]] = values[keys[i]] ] = keys[i];
+}
+
+/**
+ * Enum descriptor.
+ * @interface IEnum
+ * @property {Object.<string,number>} values Enum values
+ * @property {Object.<string,*>} [options] Enum options
+ */
+
+/**
+ * Constructs an enum from an enum descriptor.
+ * @param {string} name Enum name
+ * @param {IEnum} json Enum descriptor
+ * @returns {Enum} Created enum
+ * @throws {TypeError} If arguments are invalid
+ */
+Enum.fromJSON = function fromJSON(name, json) {
+    var enm = new Enum(name, json.values, json.options, json.comment, json.comments);
+    enm.reserved = json.reserved;
+    return enm;
+};
+
+/**
+ * Converts this enum to an enum descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IEnum} Enum descriptor
+ */
+Enum.prototype.toJSON = function toJSON(toJSONOptions) {
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "options"  , this.options,
+        "values"   , this.values,
+        "reserved" , this.reserved && this.reserved.length ? this.reserved : undefined,
+        "comment"  , keepComments ? this.comment : undefined,
+        "comments" , keepComments ? this.comments : undefined
+    ]);
+};
+
+/**
+ * Adds a value to this enum.
+ * @param {string} name Value name
+ * @param {number} id Value id
+ * @param {string} [comment] Comment, if any
+ * @returns {Enum} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If there is already a value with this name or id
+ */
+Enum.prototype.add = function add(name, id, comment) {
+    // utilized by the parser but not by .fromJSON
+
+    if (!util.isString(name))
+        throw TypeError("name must be a string");
+
+    if (!util.isInteger(id))
+        throw TypeError("id must be an integer");
+
+    if (this.values[name] !== undefined)
+        throw Error("duplicate name '" + name + "' in " + this);
+
+    if (this.isReservedId(id))
+        throw Error("id " + id + " is reserved in " + this);
+
+    if (this.isReservedName(name))
+        throw Error("name '" + name + "' is reserved in " + this);
+
+    if (this.valuesById[id] !== undefined) {
+        if (!(this.options && this.options.allow_alias))
+            throw Error("duplicate id " + id + " in " + this);
+        this.values[name] = id;
+    } else
+        this.valuesById[this.values[name] = id] = name;
+
+    this.comments[name] = comment || null;
+    return this;
+};
+
+/**
+ * Removes a value from this enum
+ * @param {string} name Value name
+ * @returns {Enum} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If `name` is not a name of this enum
+ */
+Enum.prototype.remove = function remove(name) {
+
+    if (!util.isString(name))
+        throw TypeError("name must be a string");
+
+    var val = this.values[name];
+    if (val == null)
+        throw Error("name '" + name + "' does not exist in " + this);
+
+    delete this.valuesById[val];
+    delete this.values[name];
+    delete this.comments[name];
+
+    return this;
+};
+
+/**
+ * Tests if the specified id is reserved.
+ * @param {number} id Id to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Enum.prototype.isReservedId = function isReservedId(id) {
+    return Namespace.isReservedId(this.reserved, id);
+};
+
+/**
+ * Tests if the specified name is reserved.
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Enum.prototype.isReservedName = function isReservedName(name) {
+    return Namespace.isReservedName(this.reserved, name);
+};
+
+
+/***/ }),
+
+/***/ 1344:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Field;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(7209);
+((Field.prototype = Object.create(ReflectionObject.prototype)).constructor = Field).className = "Field";
+
+var Enum  = __webpack_require__(5643),
+    types = __webpack_require__(361),
+    util  = __webpack_require__(3262);
+
+var Type; // cyclic
+
+var ruleRe = /^required|optional|repeated$/;
+
+/**
+ * Constructs a new message field instance. Note that {@link MapField|map fields} have their own class.
+ * @name Field
+ * @classdesc Reflected message field.
+ * @extends FieldBase
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {number} id Unique id within its namespace
+ * @param {string} type Value type
+ * @param {string|Object.<string,*>} [rule="optional"] Field rule
+ * @param {string|Object.<string,*>} [extend] Extended type if different from parent
+ * @param {Object.<string,*>} [options] Declared options
+ */
+
+/**
+ * Constructs a field from a field descriptor.
+ * @param {string} name Field name
+ * @param {IField} json Field descriptor
+ * @returns {Field} Created field
+ * @throws {TypeError} If arguments are invalid
+ */
+Field.fromJSON = function fromJSON(name, json) {
+    return new Field(name, json.id, json.type, json.rule, json.extend, json.options, json.comment);
+};
+
+/**
+ * Not an actual constructor. Use {@link Field} instead.
+ * @classdesc Base class of all reflected message fields. This is not an actual class but here for the sake of having consistent type definitions.
+ * @exports FieldBase
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {number} id Unique id within its namespace
+ * @param {string} type Value type
+ * @param {string|Object.<string,*>} [rule="optional"] Field rule
+ * @param {string|Object.<string,*>} [extend] Extended type if different from parent
+ * @param {Object.<string,*>} [options] Declared options
+ * @param {string} [comment] Comment associated with this field
+ */
+function Field(name, id, type, rule, extend, options, comment) {
+
+    if (util.isObject(rule)) {
+        comment = extend;
+        options = rule;
+        rule = extend = undefined;
+    } else if (util.isObject(extend)) {
+        comment = options;
+        options = extend;
+        extend = undefined;
+    }
+
+    ReflectionObject.call(this, name, options);
+
+    if (!util.isInteger(id) || id < 0)
+        throw TypeError("id must be a non-negative integer");
+
+    if (!util.isString(type))
+        throw TypeError("type must be a string");
+
+    if (rule !== undefined && !ruleRe.test(rule = rule.toString().toLowerCase()))
+        throw TypeError("rule must be a string rule");
+
+    if (extend !== undefined && !util.isString(extend))
+        throw TypeError("extend must be a string");
+
+    if (rule === "proto3_optional") {
+        rule = "optional";
+    }
+    /**
+     * Field rule, if any.
+     * @type {string|undefined}
+     */
+    this.rule = rule && rule !== "optional" ? rule : undefined; // toJSON
+
+    /**
+     * Field type.
+     * @type {string}
+     */
+    this.type = type; // toJSON
+
+    /**
+     * Unique field id.
+     * @type {number}
+     */
+    this.id = id; // toJSON, marker
+
+    /**
+     * Extended type if different from parent.
+     * @type {string|undefined}
+     */
+    this.extend = extend || undefined; // toJSON
+
+    /**
+     * Whether this field is required.
+     * @type {boolean}
+     */
+    this.required = rule === "required";
+
+    /**
+     * Whether this field is optional.
+     * @type {boolean}
+     */
+    this.optional = !this.required;
+
+    /**
+     * Whether this field is repeated.
+     * @type {boolean}
+     */
+    this.repeated = rule === "repeated";
+
+    /**
+     * Whether this field is a map or not.
+     * @type {boolean}
+     */
+    this.map = false;
+
+    /**
+     * Message this field belongs to.
+     * @type {Type|null}
+     */
+    this.message = null;
+
+    /**
+     * OneOf this field belongs to, if any,
+     * @type {OneOf|null}
+     */
+    this.partOf = null;
+
+    /**
+     * The field type's default value.
+     * @type {*}
+     */
+    this.typeDefault = null;
+
+    /**
+     * The field's default value on prototypes.
+     * @type {*}
+     */
+    this.defaultValue = null;
+
+    /**
+     * Whether this field's value should be treated as a long.
+     * @type {boolean}
+     */
+    this.long = util.Long ? types.long[type] !== undefined : /* istanbul ignore next */ false;
+
+    /**
+     * Whether this field's value is a buffer.
+     * @type {boolean}
+     */
+    this.bytes = type === "bytes";
+
+    /**
+     * Resolved type if not a basic type.
+     * @type {Type|Enum|null}
+     */
+    this.resolvedType = null;
+
+    /**
+     * Sister-field within the extended type if a declaring extension field.
+     * @type {Field|null}
+     */
+    this.extensionField = null;
+
+    /**
+     * Sister-field within the declaring namespace if an extended field.
+     * @type {Field|null}
+     */
+    this.declaringField = null;
+
+    /**
+     * Internally remembers whether this field is packed.
+     * @type {boolean|null}
+     * @private
+     */
+    this._packed = null;
+
+    /**
+     * Comment for this field.
+     * @type {string|null}
+     */
+    this.comment = comment;
+}
+
+/**
+ * Determines whether this field is packed. Only relevant when repeated and working with proto2.
+ * @name Field#packed
+ * @type {boolean}
+ * @readonly
+ */
+Object.defineProperty(Field.prototype, "packed", {
+    get: function() {
+        // defaults to packed=true if not explicity set to false
+        if (this._packed === null)
+            this._packed = this.getOption("packed") !== false;
+        return this._packed;
+    }
+});
+
+/**
+ * @override
+ */
+Field.prototype.setOption = function setOption(name, value, ifNotSet) {
+    if (name === "packed") // clear cached before setting
+        this._packed = null;
+    return ReflectionObject.prototype.setOption.call(this, name, value, ifNotSet);
+};
+
+/**
+ * Field descriptor.
+ * @interface IField
+ * @property {string} [rule="optional"] Field rule
+ * @property {string} type Field type
+ * @property {number} id Field id
+ * @property {Object.<string,*>} [options] Field options
+ */
+
+/**
+ * Extension field descriptor.
+ * @interface IExtensionField
+ * @extends IField
+ * @property {string} extend Extended type
+ */
+
+/**
+ * Converts this field to a field descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IField} Field descriptor
+ */
+Field.prototype.toJSON = function toJSON(toJSONOptions) {
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "rule"    , this.rule !== "optional" && this.rule || undefined,
+        "type"    , this.type,
+        "id"      , this.id,
+        "extend"  , this.extend,
+        "options" , this.options,
+        "comment" , keepComments ? this.comment : undefined
+    ]);
+};
+
+/**
+ * Resolves this field's type references.
+ * @returns {Field} `this`
+ * @throws {Error} If any reference cannot be resolved
+ */
+Field.prototype.resolve = function resolve() {
+
+    if (this.resolved)
+        return this;
+
+    if ((this.typeDefault = types.defaults[this.type]) === undefined) { // if not a basic type, resolve it
+        this.resolvedType = (this.declaringField ? this.declaringField.parent : this.parent).lookupTypeOrEnum(this.type);
+        if (this.resolvedType instanceof Type)
+            this.typeDefault = null;
+        else // instanceof Enum
+            this.typeDefault = this.resolvedType.values[Object.keys(this.resolvedType.values)[0]]; // first defined
+    }
+
+    // use explicitly set default value if present
+    if (this.options && this.options["default"] != null) {
+        this.typeDefault = this.options["default"];
+        if (this.resolvedType instanceof Enum && typeof this.typeDefault === "string")
+            this.typeDefault = this.resolvedType.values[this.typeDefault];
+    }
+
+    // remove unnecessary options
+    if (this.options) {
+        if (this.options.packed === true || this.options.packed !== undefined && this.resolvedType && !(this.resolvedType instanceof Enum))
+            delete this.options.packed;
+        if (!Object.keys(this.options).length)
+            this.options = undefined;
+    }
+
+    // convert to internal data type if necesssary
+    if (this.long) {
+        this.typeDefault = util.Long.fromNumber(this.typeDefault, this.type.charAt(0) === "u");
+
+        /* istanbul ignore else */
+        if (Object.freeze)
+            Object.freeze(this.typeDefault); // long instances are meant to be immutable anyway (i.e. use small int cache that even requires it)
+
+    } else if (this.bytes && typeof this.typeDefault === "string") {
+        var buf;
+        if (util.base64.test(this.typeDefault))
+            util.base64.decode(this.typeDefault, buf = util.newBuffer(util.base64.length(this.typeDefault)), 0);
+        else
+            util.utf8.write(this.typeDefault, buf = util.newBuffer(util.utf8.length(this.typeDefault)), 0);
+        this.typeDefault = buf;
+    }
+
+    // take special care of maps and repeated fields
+    if (this.map)
+        this.defaultValue = util.emptyObject;
+    else if (this.repeated)
+        this.defaultValue = util.emptyArray;
+    else
+        this.defaultValue = this.typeDefault;
+
+    // ensure proper value on prototype
+    if (this.parent instanceof Type)
+        this.parent.ctor.prototype[this.name] = this.defaultValue;
+
+    return ReflectionObject.prototype.resolve.call(this);
+};
+
+/**
+ * Decorator function as returned by {@link Field.d} and {@link MapField.d} (TypeScript).
+ * @typedef FieldDecorator
+ * @type {function}
+ * @param {Object} prototype Target prototype
+ * @param {string} fieldName Field name
+ * @returns {undefined}
+ */
+
+/**
+ * Field decorator (TypeScript).
+ * @name Field.d
+ * @function
+ * @param {number} fieldId Field id
+ * @param {"double"|"float"|"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"string"|"bool"|"bytes"|Object} fieldType Field type
+ * @param {"optional"|"required"|"repeated"} [fieldRule="optional"] Field rule
+ * @param {T} [defaultValue] Default value
+ * @returns {FieldDecorator} Decorator function
+ * @template T extends number | number[] | Long | Long[] | string | string[] | boolean | boolean[] | Uint8Array | Uint8Array[] | Buffer | Buffer[]
+ */
+Field.d = function decorateField(fieldId, fieldType, fieldRule, defaultValue) {
+
+    // submessage: decorate the submessage and use its name as the type
+    if (typeof fieldType === "function")
+        fieldType = util.decorateType(fieldType).name;
+
+    // enum reference: create a reflected copy of the enum and keep reuseing it
+    else if (fieldType && typeof fieldType === "object")
+        fieldType = util.decorateEnum(fieldType).name;
+
+    return function fieldDecorator(prototype, fieldName) {
+        util.decorateType(prototype.constructor)
+            .add(new Field(fieldName, fieldId, fieldType, fieldRule, { "default": defaultValue }));
+    };
+};
+
+/**
+ * Field decorator (TypeScript).
+ * @name Field.d
+ * @function
+ * @param {number} fieldId Field id
+ * @param {Constructor<T>|string} fieldType Field type
+ * @param {"optional"|"required"|"repeated"} [fieldRule="optional"] Field rule
+ * @returns {FieldDecorator} Decorator function
+ * @template T extends Message<T>
+ * @variation 2
+ */
+// like Field.d but without a default value
+
+// Sets up cyclic dependencies (called in index-light)
+Field._configure = function configure(Type_) {
+    Type = Type_;
+};
+
+
+/***/ }),
+
+/***/ 5325:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var protobuf = module.exports = __webpack_require__(4394);
+
+protobuf.build = "light";
+
+/**
+ * A node-style callback as used by {@link load} and {@link Root#load}.
+ * @typedef LoadCallback
+ * @type {function}
+ * @param {Error|null} error Error, if any, otherwise `null`
+ * @param {Root} [root] Root, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} root Root namespace, defaults to create a new one if omitted.
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @see {@link Root#load}
+ */
+function load(filename, root, callback) {
+    if (typeof root === "function") {
+        callback = root;
+        root = new protobuf.Root();
+    } else if (!root)
+        root = new protobuf.Root();
+    return root.load(filename, callback);
+}
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and calls the callback.
+ * @name load
+ * @function
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @see {@link Root#load}
+ * @variation 2
+ */
+// function load(filename:string, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into a common root namespace and returns a promise.
+ * @name load
+ * @function
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
+ * @returns {Promise<Root>} Promise
+ * @see {@link Root#load}
+ * @variation 3
+ */
+// function load(filename:string, [root:Root]):Promise<Root>
+
+protobuf.load = load;
+
+/**
+ * Synchronously loads one or multiple .proto or preprocessed .json files into a common root namespace (node only).
+ * @param {string|string[]} filename One or multiple files to load
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted.
+ * @returns {Root} Root namespace
+ * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
+ * @see {@link Root#loadSync}
+ */
+function loadSync(filename, root) {
+    if (!root)
+        root = new protobuf.Root();
+    return root.loadSync(filename);
+}
+
+protobuf.loadSync = loadSync;
+
+// Serialization
+protobuf.encoder          = __webpack_require__(1080);
+protobuf.decoder          = __webpack_require__(7728);
+protobuf.verifier         = __webpack_require__(420);
+protobuf.converter        = __webpack_require__(744);
+
+// Reflection
+protobuf.ReflectionObject = __webpack_require__(7209);
+protobuf.Namespace        = __webpack_require__(8923);
+protobuf.Root             = __webpack_require__(5330);
+protobuf.Enum             = __webpack_require__(5643);
+protobuf.Type             = __webpack_require__(7882);
+protobuf.Field            = __webpack_require__(1344);
+protobuf.OneOf            = __webpack_require__(1457);
+protobuf.MapField         = __webpack_require__(8252);
+protobuf.Service          = __webpack_require__(9687);
+protobuf.Method           = __webpack_require__(8811);
+
+// Runtime
+protobuf.Message          = __webpack_require__(2551);
+protobuf.wrappers         = __webpack_require__(6434);
+
+// Utility
+protobuf.types            = __webpack_require__(361);
+protobuf.util             = __webpack_require__(3262);
+
+// Set up possibly cyclic reflection dependencies
+protobuf.ReflectionObject._configure(protobuf.Root);
+protobuf.Namespace._configure(protobuf.Type, protobuf.Service, protobuf.Enum);
+protobuf.Root._configure(protobuf.Type);
+protobuf.Field._configure(protobuf.Type);
+
+
+/***/ }),
+
+/***/ 4394:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+var protobuf = exports;
+
+/**
+ * Build type, one of `"full"`, `"light"` or `"minimal"`.
+ * @name build
+ * @type {string}
+ * @const
+ */
+protobuf.build = "minimal";
+
+// Serialization
+protobuf.Writer       = __webpack_require__(3449);
+protobuf.BufferWriter = __webpack_require__(818);
+protobuf.Reader       = __webpack_require__(6237);
+protobuf.BufferReader = __webpack_require__(3158);
+
+// Utility
+protobuf.util         = __webpack_require__(3610);
+protobuf.rpc          = __webpack_require__(5047);
+protobuf.roots        = __webpack_require__(4529);
+protobuf.configure    = configure;
+
+/* istanbul ignore next */
+/**
+ * Reconfigures the library according to the environment.
+ * @returns {undefined}
+ */
+function configure() {
+    protobuf.util._configure();
+    protobuf.Writer._configure(protobuf.BufferWriter);
+    protobuf.Reader._configure(protobuf.BufferReader);
+}
+
+// Set up buffer utility according to the environment
+configure();
+
+
+/***/ }),
+
+/***/ 9100:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var protobuf = module.exports = __webpack_require__(5325);
+
+protobuf.build = "full";
+
+// Parser
+protobuf.tokenize         = __webpack_require__(527);
+protobuf.parse            = __webpack_require__(4863);
+protobuf.common           = __webpack_require__(5095);
+
+// Configure parser
+protobuf.Root._configure(protobuf.Type, protobuf.parse, protobuf.common);
+
+
+/***/ }),
+
+/***/ 8252:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = MapField;
+
+// extends Field
+var Field = __webpack_require__(1344);
+((MapField.prototype = Object.create(Field.prototype)).constructor = MapField).className = "MapField";
+
+var types   = __webpack_require__(361),
+    util    = __webpack_require__(3262);
+
+/**
+ * Constructs a new map field instance.
+ * @classdesc Reflected map field.
+ * @extends FieldBase
+ * @constructor
+ * @param {string} name Unique name within its namespace
+ * @param {number} id Unique id within its namespace
+ * @param {string} keyType Key type
+ * @param {string} type Value type
+ * @param {Object.<string,*>} [options] Declared options
+ * @param {string} [comment] Comment associated with this field
+ */
+function MapField(name, id, keyType, type, options, comment) {
+    Field.call(this, name, id, type, undefined, undefined, options, comment);
+
+    /* istanbul ignore if */
+    if (!util.isString(keyType))
+        throw TypeError("keyType must be a string");
+
+    /**
+     * Key type.
+     * @type {string}
+     */
+    this.keyType = keyType; // toJSON, marker
+
+    /**
+     * Resolved key type if not a basic type.
+     * @type {ReflectionObject|null}
+     */
+    this.resolvedKeyType = null;
+
+    // Overrides Field#map
+    this.map = true;
+}
+
+/**
+ * Map field descriptor.
+ * @interface IMapField
+ * @extends {IField}
+ * @property {string} keyType Key type
+ */
+
+/**
+ * Extension map field descriptor.
+ * @interface IExtensionMapField
+ * @extends IMapField
+ * @property {string} extend Extended type
+ */
+
+/**
+ * Constructs a map field from a map field descriptor.
+ * @param {string} name Field name
+ * @param {IMapField} json Map field descriptor
+ * @returns {MapField} Created map field
+ * @throws {TypeError} If arguments are invalid
+ */
+MapField.fromJSON = function fromJSON(name, json) {
+    return new MapField(name, json.id, json.keyType, json.type, json.options, json.comment);
+};
+
+/**
+ * Converts this map field to a map field descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IMapField} Map field descriptor
+ */
+MapField.prototype.toJSON = function toJSON(toJSONOptions) {
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "keyType" , this.keyType,
+        "type"    , this.type,
+        "id"      , this.id,
+        "extend"  , this.extend,
+        "options" , this.options,
+        "comment" , keepComments ? this.comment : undefined
+    ]);
+};
+
+/**
+ * @override
+ */
+MapField.prototype.resolve = function resolve() {
+    if (this.resolved)
+        return this;
+
+    // Besides a value type, map fields have a key type that may be "any scalar type except for floating point types and bytes"
+    if (types.mapKey[this.keyType] === undefined)
+        throw Error("invalid key type: " + this.keyType);
+
+    return Field.prototype.resolve.call(this);
+};
+
+/**
+ * Map field decorator (TypeScript).
+ * @name MapField.d
+ * @function
+ * @param {number} fieldId Field id
+ * @param {"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"bool"|"string"} fieldKeyType Field key type
+ * @param {"double"|"float"|"int32"|"uint32"|"sint32"|"fixed32"|"sfixed32"|"int64"|"uint64"|"sint64"|"fixed64"|"sfixed64"|"bool"|"string"|"bytes"|Object|Constructor<{}>} fieldValueType Field value type
+ * @returns {FieldDecorator} Decorator function
+ * @template T extends { [key: string]: number | Long | string | boolean | Uint8Array | Buffer | number[] | Message<{}> }
+ */
+MapField.d = function decorateMapField(fieldId, fieldKeyType, fieldValueType) {
+
+    // submessage value: decorate the submessage and use its name as the type
+    if (typeof fieldValueType === "function")
+        fieldValueType = util.decorateType(fieldValueType).name;
+
+    // enum reference value: create a reflected copy of the enum and keep reuseing it
+    else if (fieldValueType && typeof fieldValueType === "object")
+        fieldValueType = util.decorateEnum(fieldValueType).name;
+
+    return function mapFieldDecorator(prototype, fieldName) {
+        util.decorateType(prototype.constructor)
+            .add(new MapField(fieldName, fieldId, fieldKeyType, fieldValueType));
+    };
+};
+
+
+/***/ }),
+
+/***/ 2551:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Message;
+
+var util = __webpack_require__(3610);
+
+/**
+ * Constructs a new message instance.
+ * @classdesc Abstract runtime message.
+ * @constructor
+ * @param {Properties<T>} [properties] Properties to set
+ * @template T extends object = object
+ */
+function Message(properties) {
+    // not used internally
+    if (properties)
+        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+            this[keys[i]] = properties[keys[i]];
+}
+
+/**
+ * Reference to the reflected type.
+ * @name Message.$type
+ * @type {Type}
+ * @readonly
+ */
+
+/**
+ * Reference to the reflected type.
+ * @name Message#$type
+ * @type {Type}
+ * @readonly
+ */
+
+/*eslint-disable valid-jsdoc*/
+
+/**
+ * Creates a new message of this type using the specified properties.
+ * @param {Object.<string,*>} [properties] Properties to set
+ * @returns {Message<T>} Message instance
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.create = function create(properties) {
+    return this.$type.create(properties);
+};
+
+/**
+ * Encodes a message of this type.
+ * @param {T|Object.<string,*>} message Message to encode
+ * @param {Writer} [writer] Writer to use
+ * @returns {Writer} Writer
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.encode = function encode(message, writer) {
+    return this.$type.encode(message, writer);
+};
+
+/**
+ * Encodes a message of this type preceeded by its length as a varint.
+ * @param {T|Object.<string,*>} message Message to encode
+ * @param {Writer} [writer] Writer to use
+ * @returns {Writer} Writer
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.$type.encodeDelimited(message, writer);
+};
+
+/**
+ * Decodes a message of this type.
+ * @name Message.decode
+ * @function
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode
+ * @returns {T} Decoded message
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.decode = function decode(reader) {
+    return this.$type.decode(reader);
+};
+
+/**
+ * Decodes a message of this type preceeded by its length as a varint.
+ * @name Message.decodeDelimited
+ * @function
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode
+ * @returns {T} Decoded message
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.decodeDelimited = function decodeDelimited(reader) {
+    return this.$type.decodeDelimited(reader);
+};
+
+/**
+ * Verifies a message of this type.
+ * @name Message.verify
+ * @function
+ * @param {Object.<string,*>} message Plain object to verify
+ * @returns {string|null} `null` if valid, otherwise the reason why it is not
+ */
+Message.verify = function verify(message) {
+    return this.$type.verify(message);
+};
+
+/**
+ * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
+ * @param {Object.<string,*>} object Plain object
+ * @returns {T} Message instance
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.fromObject = function fromObject(object) {
+    return this.$type.fromObject(object);
+};
+
+/**
+ * Creates a plain object from a message of this type. Also converts values to other types if specified.
+ * @param {T} message Message instance
+ * @param {IConversionOptions} [options] Conversion options
+ * @returns {Object.<string,*>} Plain object
+ * @template T extends Message<T>
+ * @this Constructor<T>
+ */
+Message.toObject = function toObject(message, options) {
+    return this.$type.toObject(message, options);
+};
+
+/**
+ * Converts this message to JSON.
+ * @returns {Object.<string,*>} JSON object
+ */
+Message.prototype.toJSON = function toJSON() {
+    return this.$type.toObject(this, util.toJSONOptions);
+};
+
+/*eslint-enable valid-jsdoc*/
+
+/***/ }),
+
+/***/ 8811:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Method;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(7209);
+((Method.prototype = Object.create(ReflectionObject.prototype)).constructor = Method).className = "Method";
+
+var util = __webpack_require__(3262);
+
+/**
+ * Constructs a new service method instance.
+ * @classdesc Reflected service method.
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Method name
+ * @param {string|undefined} type Method type, usually `"rpc"`
+ * @param {string} requestType Request message type
+ * @param {string} responseType Response message type
+ * @param {boolean|Object.<string,*>} [requestStream] Whether the request is streamed
+ * @param {boolean|Object.<string,*>} [responseStream] Whether the response is streamed
+ * @param {Object.<string,*>} [options] Declared options
+ * @param {string} [comment] The comment for this method
+ * @param {Object.<string,*>} [parsedOptions] Declared options, properly parsed into an object
+ */
+function Method(name, type, requestType, responseType, requestStream, responseStream, options, comment, parsedOptions) {
+
+    /* istanbul ignore next */
+    if (util.isObject(requestStream)) {
+        options = requestStream;
+        requestStream = responseStream = undefined;
+    } else if (util.isObject(responseStream)) {
+        options = responseStream;
+        responseStream = undefined;
+    }
+
+    /* istanbul ignore if */
+    if (!(type === undefined || util.isString(type)))
+        throw TypeError("type must be a string");
+
+    /* istanbul ignore if */
+    if (!util.isString(requestType))
+        throw TypeError("requestType must be a string");
+
+    /* istanbul ignore if */
+    if (!util.isString(responseType))
+        throw TypeError("responseType must be a string");
+
+    ReflectionObject.call(this, name, options);
+
+    /**
+     * Method type.
+     * @type {string}
+     */
+    this.type = type || "rpc"; // toJSON
+
+    /**
+     * Request type.
+     * @type {string}
+     */
+    this.requestType = requestType; // toJSON, marker
+
+    /**
+     * Whether requests are streamed or not.
+     * @type {boolean|undefined}
+     */
+    this.requestStream = requestStream ? true : undefined; // toJSON
+
+    /**
+     * Response type.
+     * @type {string}
+     */
+    this.responseType = responseType; // toJSON
+
+    /**
+     * Whether responses are streamed or not.
+     * @type {boolean|undefined}
+     */
+    this.responseStream = responseStream ? true : undefined; // toJSON
+
+    /**
+     * Resolved request type.
+     * @type {Type|null}
+     */
+    this.resolvedRequestType = null;
+
+    /**
+     * Resolved response type.
+     * @type {Type|null}
+     */
+    this.resolvedResponseType = null;
+
+    /**
+     * Comment for this method
+     * @type {string|null}
+     */
+    this.comment = comment;
+
+    /**
+     * Options properly parsed into an object
+     */
+    this.parsedOptions = parsedOptions;
+}
+
+/**
+ * Method descriptor.
+ * @interface IMethod
+ * @property {string} [type="rpc"] Method type
+ * @property {string} requestType Request type
+ * @property {string} responseType Response type
+ * @property {boolean} [requestStream=false] Whether requests are streamed
+ * @property {boolean} [responseStream=false] Whether responses are streamed
+ * @property {Object.<string,*>} [options] Method options
+ * @property {string} comment Method comments
+ * @property {Object.<string,*>} [parsedOptions] Method options properly parsed into an object
+ */
+
+/**
+ * Constructs a method from a method descriptor.
+ * @param {string} name Method name
+ * @param {IMethod} json Method descriptor
+ * @returns {Method} Created method
+ * @throws {TypeError} If arguments are invalid
+ */
+Method.fromJSON = function fromJSON(name, json) {
+    return new Method(name, json.type, json.requestType, json.responseType, json.requestStream, json.responseStream, json.options, json.comment, json.parsedOptions);
+};
+
+/**
+ * Converts this method to a method descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IMethod} Method descriptor
+ */
+Method.prototype.toJSON = function toJSON(toJSONOptions) {
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "type"           , this.type !== "rpc" && /* istanbul ignore next */ this.type || undefined,
+        "requestType"    , this.requestType,
+        "requestStream"  , this.requestStream,
+        "responseType"   , this.responseType,
+        "responseStream" , this.responseStream,
+        "options"        , this.options,
+        "comment"        , keepComments ? this.comment : undefined,
+        "parsedOptions"  , this.parsedOptions,
+    ]);
+};
+
+/**
+ * @override
+ */
+Method.prototype.resolve = function resolve() {
+
+    /* istanbul ignore if */
+    if (this.resolved)
+        return this;
+
+    this.resolvedRequestType = this.parent.lookupType(this.requestType);
+    this.resolvedResponseType = this.parent.lookupType(this.responseType);
+
+    return ReflectionObject.prototype.resolve.call(this);
+};
+
+
+/***/ }),
+
+/***/ 8923:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Namespace;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(7209);
+((Namespace.prototype = Object.create(ReflectionObject.prototype)).constructor = Namespace).className = "Namespace";
+
+var Field    = __webpack_require__(1344),
+    OneOf    = __webpack_require__(1457),
+    util     = __webpack_require__(3262);
+
+var Type,    // cyclic
+    Service,
+    Enum;
+
+/**
+ * Constructs a new namespace instance.
+ * @name Namespace
+ * @classdesc Reflected namespace.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {string} name Namespace name
+ * @param {Object.<string,*>} [options] Declared options
+ */
+
+/**
+ * Constructs a namespace from JSON.
+ * @memberof Namespace
+ * @function
+ * @param {string} name Namespace name
+ * @param {Object.<string,*>} json JSON object
+ * @returns {Namespace} Created namespace
+ * @throws {TypeError} If arguments are invalid
+ */
+Namespace.fromJSON = function fromJSON(name, json) {
+    return new Namespace(name, json.options).addJSON(json.nested);
+};
+
+/**
+ * Converts an array of reflection objects to JSON.
+ * @memberof Namespace
+ * @param {ReflectionObject[]} array Object array
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {Object.<string,*>|undefined} JSON object or `undefined` when array is empty
+ */
+function arrayToJSON(array, toJSONOptions) {
+    if (!(array && array.length))
+        return undefined;
+    var obj = {};
+    for (var i = 0; i < array.length; ++i)
+        obj[array[i].name] = array[i].toJSON(toJSONOptions);
+    return obj;
+}
+
+Namespace.arrayToJSON = arrayToJSON;
+
+/**
+ * Tests if the specified id is reserved.
+ * @param {Array.<number[]|string>|undefined} reserved Array of reserved ranges and names
+ * @param {number} id Id to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Namespace.isReservedId = function isReservedId(reserved, id) {
+    if (reserved)
+        for (var i = 0; i < reserved.length; ++i)
+            if (typeof reserved[i] !== "string" && reserved[i][0] <= id && reserved[i][1] > id)
+                return true;
+    return false;
+};
+
+/**
+ * Tests if the specified name is reserved.
+ * @param {Array.<number[]|string>|undefined} reserved Array of reserved ranges and names
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Namespace.isReservedName = function isReservedName(reserved, name) {
+    if (reserved)
+        for (var i = 0; i < reserved.length; ++i)
+            if (reserved[i] === name)
+                return true;
+    return false;
+};
+
+/**
+ * Not an actual constructor. Use {@link Namespace} instead.
+ * @classdesc Base class of all reflection objects containing nested objects. This is not an actual class but here for the sake of having consistent type definitions.
+ * @exports NamespaceBase
+ * @extends ReflectionObject
+ * @abstract
+ * @constructor
+ * @param {string} name Namespace name
+ * @param {Object.<string,*>} [options] Declared options
+ * @see {@link Namespace}
+ */
+function Namespace(name, options) {
+    ReflectionObject.call(this, name, options);
+
+    /**
+     * Nested objects by name.
+     * @type {Object.<string,ReflectionObject>|undefined}
+     */
+    this.nested = undefined; // toJSON
+
+    /**
+     * Cached nested objects as an array.
+     * @type {ReflectionObject[]|null}
+     * @private
+     */
+    this._nestedArray = null;
+}
+
+function clearCache(namespace) {
+    namespace._nestedArray = null;
+    return namespace;
+}
+
+/**
+ * Nested objects of this namespace as an array for iteration.
+ * @name NamespaceBase#nestedArray
+ * @type {ReflectionObject[]}
+ * @readonly
+ */
+Object.defineProperty(Namespace.prototype, "nestedArray", {
+    get: function() {
+        return this._nestedArray || (this._nestedArray = util.toArray(this.nested));
+    }
+});
+
+/**
+ * Namespace descriptor.
+ * @interface INamespace
+ * @property {Object.<string,*>} [options] Namespace options
+ * @property {Object.<string,AnyNestedObject>} [nested] Nested object descriptors
+ */
+
+/**
+ * Any extension field descriptor.
+ * @typedef AnyExtensionField
+ * @type {IExtensionField|IExtensionMapField}
+ */
+
+/**
+ * Any nested object descriptor.
+ * @typedef AnyNestedObject
+ * @type {IEnum|IType|IService|AnyExtensionField|INamespace}
+ */
+// ^ BEWARE: VSCode hangs forever when using more than 5 types (that's why AnyExtensionField exists in the first place)
+
+/**
+ * Converts this namespace to a namespace descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {INamespace} Namespace descriptor
+ */
+Namespace.prototype.toJSON = function toJSON(toJSONOptions) {
+    return util.toObject([
+        "options" , this.options,
+        "nested"  , arrayToJSON(this.nestedArray, toJSONOptions)
+    ]);
+};
+
+/**
+ * Adds nested objects to this namespace from nested object descriptors.
+ * @param {Object.<string,AnyNestedObject>} nestedJson Any nested object descriptors
+ * @returns {Namespace} `this`
+ */
+Namespace.prototype.addJSON = function addJSON(nestedJson) {
+    var ns = this;
+    /* istanbul ignore else */
+    if (nestedJson) {
+        for (var names = Object.keys(nestedJson), i = 0, nested; i < names.length; ++i) {
+            nested = nestedJson[names[i]];
+            ns.add( // most to least likely
+                ( nested.fields !== undefined
+                ? Type.fromJSON
+                : nested.values !== undefined
+                ? Enum.fromJSON
+                : nested.methods !== undefined
+                ? Service.fromJSON
+                : nested.id !== undefined
+                ? Field.fromJSON
+                : Namespace.fromJSON )(names[i], nested)
+            );
+        }
+    }
+    return this;
+};
+
+/**
+ * Gets the nested object of the specified name.
+ * @param {string} name Nested object name
+ * @returns {ReflectionObject|null} The reflection object or `null` if it doesn't exist
+ */
+Namespace.prototype.get = function get(name) {
+    return this.nested && this.nested[name]
+        || null;
+};
+
+/**
+ * Gets the values of the nested {@link Enum|enum} of the specified name.
+ * This methods differs from {@link Namespace#get|get} in that it returns an enum's values directly and throws instead of returning `null`.
+ * @param {string} name Nested enum name
+ * @returns {Object.<string,number>} Enum values
+ * @throws {Error} If there is no such enum
+ */
+Namespace.prototype.getEnum = function getEnum(name) {
+    if (this.nested && this.nested[name] instanceof Enum)
+        return this.nested[name].values;
+    throw Error("no such enum: " + name);
+};
+
+/**
+ * Adds a nested object to this namespace.
+ * @param {ReflectionObject} object Nested object to add
+ * @returns {Namespace} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If there is already a nested object with this name
+ */
+Namespace.prototype.add = function add(object) {
+
+    if (!(object instanceof Field && object.extend !== undefined || object instanceof Type || object instanceof Enum || object instanceof Service || object instanceof Namespace || object instanceof OneOf))
+        throw TypeError("object must be a valid nested object");
+
+    if (!this.nested)
+        this.nested = {};
+    else {
+        var prev = this.get(object.name);
+        if (prev) {
+            if (prev instanceof Namespace && object instanceof Namespace && !(prev instanceof Type || prev instanceof Service)) {
+                // replace plain namespace but keep existing nested elements and options
+                var nested = prev.nestedArray;
+                for (var i = 0; i < nested.length; ++i)
+                    object.add(nested[i]);
+                this.remove(prev);
+                if (!this.nested)
+                    this.nested = {};
+                object.setOptions(prev.options, true);
+
+            } else
+                throw Error("duplicate name '" + object.name + "' in " + this);
+        }
+    }
+    this.nested[object.name] = object;
+    object.onAdd(this);
+    return clearCache(this);
+};
+
+/**
+ * Removes a nested object from this namespace.
+ * @param {ReflectionObject} object Nested object to remove
+ * @returns {Namespace} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If `object` is not a member of this namespace
+ */
+Namespace.prototype.remove = function remove(object) {
+
+    if (!(object instanceof ReflectionObject))
+        throw TypeError("object must be a ReflectionObject");
+    if (object.parent !== this)
+        throw Error(object + " is not a member of " + this);
+
+    delete this.nested[object.name];
+    if (!Object.keys(this.nested).length)
+        this.nested = undefined;
+
+    object.onRemove(this);
+    return clearCache(this);
+};
+
+/**
+ * Defines additial namespaces within this one if not yet existing.
+ * @param {string|string[]} path Path to create
+ * @param {*} [json] Nested types to create from JSON
+ * @returns {Namespace} Pointer to the last namespace created or `this` if path is empty
+ */
+Namespace.prototype.define = function define(path, json) {
+
+    if (util.isString(path))
+        path = path.split(".");
+    else if (!Array.isArray(path))
+        throw TypeError("illegal path");
+    if (path && path.length && path[0] === "")
+        throw Error("path must be relative");
+
+    var ptr = this;
+    while (path.length > 0) {
+        var part = path.shift();
+        if (ptr.nested && ptr.nested[part]) {
+            ptr = ptr.nested[part];
+            if (!(ptr instanceof Namespace))
+                throw Error("path conflicts with non-namespace objects");
+        } else
+            ptr.add(ptr = new Namespace(part));
+    }
+    if (json)
+        ptr.addJSON(json);
+    return ptr;
+};
+
+/**
+ * Resolves this namespace's and all its nested objects' type references. Useful to validate a reflection tree, but comes at a cost.
+ * @returns {Namespace} `this`
+ */
+Namespace.prototype.resolveAll = function resolveAll() {
+    var nested = this.nestedArray, i = 0;
+    while (i < nested.length)
+        if (nested[i] instanceof Namespace)
+            nested[i++].resolveAll();
+        else
+            nested[i++].resolve();
+    return this.resolve();
+};
+
+/**
+ * Recursively looks up the reflection object matching the specified path in the scope of this namespace.
+ * @param {string|string[]} path Path to look up
+ * @param {*|Array.<*>} filterTypes Filter types, any combination of the constructors of `protobuf.Type`, `protobuf.Enum`, `protobuf.Service` etc.
+ * @param {boolean} [parentAlreadyChecked=false] If known, whether the parent has already been checked
+ * @returns {ReflectionObject|null} Looked up object or `null` if none could be found
+ */
+Namespace.prototype.lookup = function lookup(path, filterTypes, parentAlreadyChecked) {
+
+    /* istanbul ignore next */
+    if (typeof filterTypes === "boolean") {
+        parentAlreadyChecked = filterTypes;
+        filterTypes = undefined;
+    } else if (filterTypes && !Array.isArray(filterTypes))
+        filterTypes = [ filterTypes ];
+
+    if (util.isString(path) && path.length) {
+        if (path === ".")
+            return this.root;
+        path = path.split(".");
+    } else if (!path.length)
+        return this;
+
+    // Start at root if path is absolute
+    if (path[0] === "")
+        return this.root.lookup(path.slice(1), filterTypes);
+
+    // Test if the first part matches any nested object, and if so, traverse if path contains more
+    var found = this.get(path[0]);
+    if (found) {
+        if (path.length === 1) {
+            if (!filterTypes || filterTypes.indexOf(found.constructor) > -1)
+                return found;
+        } else if (found instanceof Namespace && (found = found.lookup(path.slice(1), filterTypes, true)))
+            return found;
+
+    // Otherwise try each nested namespace
+    } else
+        for (var i = 0; i < this.nestedArray.length; ++i)
+            if (this._nestedArray[i] instanceof Namespace && (found = this._nestedArray[i].lookup(path, filterTypes, true)))
+                return found;
+
+    // If there hasn't been a match, try again at the parent
+    if (this.parent === null || parentAlreadyChecked)
+        return null;
+    return this.parent.lookup(path, filterTypes);
+};
+
+/**
+ * Looks up the reflection object at the specified path, relative to this namespace.
+ * @name NamespaceBase#lookup
+ * @function
+ * @param {string|string[]} path Path to look up
+ * @param {boolean} [parentAlreadyChecked=false] Whether the parent has already been checked
+ * @returns {ReflectionObject|null} Looked up object or `null` if none could be found
+ * @variation 2
+ */
+// lookup(path: string, [parentAlreadyChecked: boolean])
+
+/**
+ * Looks up the {@link Type|type} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Type} Looked up type
+ * @throws {Error} If `path` does not point to a type
+ */
+Namespace.prototype.lookupType = function lookupType(path) {
+    var found = this.lookup(path, [ Type ]);
+    if (!found)
+        throw Error("no such type: " + path);
+    return found;
+};
+
+/**
+ * Looks up the values of the {@link Enum|enum} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Enum} Looked up enum
+ * @throws {Error} If `path` does not point to an enum
+ */
+Namespace.prototype.lookupEnum = function lookupEnum(path) {
+    var found = this.lookup(path, [ Enum ]);
+    if (!found)
+        throw Error("no such Enum '" + path + "' in " + this);
+    return found;
+};
+
+/**
+ * Looks up the {@link Type|type} or {@link Enum|enum} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Type} Looked up type or enum
+ * @throws {Error} If `path` does not point to a type or enum
+ */
+Namespace.prototype.lookupTypeOrEnum = function lookupTypeOrEnum(path) {
+    var found = this.lookup(path, [ Type, Enum ]);
+    if (!found)
+        throw Error("no such Type or Enum '" + path + "' in " + this);
+    return found;
+};
+
+/**
+ * Looks up the {@link Service|service} at the specified path, relative to this namespace.
+ * Besides its signature, this methods differs from {@link Namespace#lookup|lookup} in that it throws instead of returning `null`.
+ * @param {string|string[]} path Path to look up
+ * @returns {Service} Looked up service
+ * @throws {Error} If `path` does not point to a service
+ */
+Namespace.prototype.lookupService = function lookupService(path) {
+    var found = this.lookup(path, [ Service ]);
+    if (!found)
+        throw Error("no such Service '" + path + "' in " + this);
+    return found;
+};
+
+// Sets up cyclic dependencies (called in index-light)
+Namespace._configure = function(Type_, Service_, Enum_) {
+    Type    = Type_;
+    Service = Service_;
+    Enum    = Enum_;
+};
+
+
+/***/ }),
+
+/***/ 7209:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = ReflectionObject;
+
+ReflectionObject.className = "ReflectionObject";
+
+var util = __webpack_require__(3262);
+
+var Root; // cyclic
+
+/**
+ * Constructs a new reflection object instance.
+ * @classdesc Base class of all reflection objects.
+ * @constructor
+ * @param {string} name Object name
+ * @param {Object.<string,*>} [options] Declared options
+ * @abstract
+ */
+function ReflectionObject(name, options) {
+
+    if (!util.isString(name))
+        throw TypeError("name must be a string");
+
+    if (options && !util.isObject(options))
+        throw TypeError("options must be an object");
+
+    /**
+     * Options.
+     * @type {Object.<string,*>|undefined}
+     */
+    this.options = options; // toJSON
+
+    /**
+     * Parsed Options.
+     * @type {Array.<Object.<string,*>>|undefined}
+     */
+    this.parsedOptions = null;
+
+    /**
+     * Unique name within its namespace.
+     * @type {string}
+     */
+    this.name = name;
+
+    /**
+     * Parent namespace.
+     * @type {Namespace|null}
+     */
+    this.parent = null;
+
+    /**
+     * Whether already resolved or not.
+     * @type {boolean}
+     */
+    this.resolved = false;
+
+    /**
+     * Comment text, if any.
+     * @type {string|null}
+     */
+    this.comment = null;
+
+    /**
+     * Defining file name.
+     * @type {string|null}
+     */
+    this.filename = null;
+}
+
+Object.defineProperties(ReflectionObject.prototype, {
+
+    /**
+     * Reference to the root namespace.
+     * @name ReflectionObject#root
+     * @type {Root}
+     * @readonly
+     */
+    root: {
+        get: function() {
+            var ptr = this;
+            while (ptr.parent !== null)
+                ptr = ptr.parent;
+            return ptr;
+        }
+    },
+
+    /**
+     * Full name including leading dot.
+     * @name ReflectionObject#fullName
+     * @type {string}
+     * @readonly
+     */
+    fullName: {
+        get: function() {
+            var path = [ this.name ],
+                ptr = this.parent;
+            while (ptr) {
+                path.unshift(ptr.name);
+                ptr = ptr.parent;
+            }
+            return path.join(".");
+        }
+    }
+});
+
+/**
+ * Converts this reflection object to its descriptor representation.
+ * @returns {Object.<string,*>} Descriptor
+ * @abstract
+ */
+ReflectionObject.prototype.toJSON = /* istanbul ignore next */ function toJSON() {
+    throw Error(); // not implemented, shouldn't happen
+};
+
+/**
+ * Called when this object is added to a parent.
+ * @param {ReflectionObject} parent Parent added to
+ * @returns {undefined}
+ */
+ReflectionObject.prototype.onAdd = function onAdd(parent) {
+    if (this.parent && this.parent !== parent)
+        this.parent.remove(this);
+    this.parent = parent;
+    this.resolved = false;
+    var root = parent.root;
+    if (root instanceof Root)
+        root._handleAdd(this);
+};
+
+/**
+ * Called when this object is removed from a parent.
+ * @param {ReflectionObject} parent Parent removed from
+ * @returns {undefined}
+ */
+ReflectionObject.prototype.onRemove = function onRemove(parent) {
+    var root = parent.root;
+    if (root instanceof Root)
+        root._handleRemove(this);
+    this.parent = null;
+    this.resolved = false;
+};
+
+/**
+ * Resolves this objects type references.
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.resolve = function resolve() {
+    if (this.resolved)
+        return this;
+    if (this.root instanceof Root)
+        this.resolved = true; // only if part of a root
+    return this;
+};
+
+/**
+ * Gets an option value.
+ * @param {string} name Option name
+ * @returns {*} Option value or `undefined` if not set
+ */
+ReflectionObject.prototype.getOption = function getOption(name) {
+    if (this.options)
+        return this.options[name];
+    return undefined;
+};
+
+/**
+ * Sets an option.
+ * @param {string} name Option name
+ * @param {*} value Option value
+ * @param {boolean} [ifNotSet] Sets the option only if it isn't currently set
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.setOption = function setOption(name, value, ifNotSet) {
+    if (!ifNotSet || !this.options || this.options[name] === undefined)
+        (this.options || (this.options = {}))[name] = value;
+    return this;
+};
+
+/**
+ * Sets a parsed option.
+ * @param {string} name parsed Option name
+ * @param {*} value Option value
+ * @param {string} propName dot '.' delimited full path of property within the option to set. if undefined\empty, will add a new option with that value
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.setParsedOption = function setParsedOption(name, value, propName) {
+    if (!this.parsedOptions) {
+        this.parsedOptions = [];
+    }
+    var parsedOptions = this.parsedOptions;
+    if (propName) {
+        // If setting a sub property of an option then try to merge it
+        // with an existing option
+        var opt = parsedOptions.find(function (opt) {
+            return Object.prototype.hasOwnProperty.call(opt, name);
+        });
+        if (opt) {
+            // If we found an existing option - just merge the property value
+            var newValue = opt[name];
+            util.setProperty(newValue, propName, value);
+        } else {
+            // otherwise, create a new option, set it's property and add it to the list
+            opt = {};
+            opt[name] = util.setProperty({}, propName, value);
+            parsedOptions.push(opt);
+        }
+    } else {
+        // Always create a new option when setting the value of the option itself
+        var newOpt = {};
+        newOpt[name] = value;
+        parsedOptions.push(newOpt);
+    }
+    return this;
+};
+
+/**
+ * Sets multiple options.
+ * @param {Object.<string,*>} options Options to set
+ * @param {boolean} [ifNotSet] Sets an option only if it isn't currently set
+ * @returns {ReflectionObject} `this`
+ */
+ReflectionObject.prototype.setOptions = function setOptions(options, ifNotSet) {
+    if (options)
+        for (var keys = Object.keys(options), i = 0; i < keys.length; ++i)
+            this.setOption(keys[i], options[keys[i]], ifNotSet);
+    return this;
+};
+
+/**
+ * Converts this instance to its string representation.
+ * @returns {string} Class name[, space, full name]
+ */
+ReflectionObject.prototype.toString = function toString() {
+    var className = this.constructor.className,
+        fullName  = this.fullName;
+    if (fullName.length)
+        return className + " " + fullName;
+    return className;
+};
+
+// Sets up cyclic dependencies (called in index-light)
+ReflectionObject._configure = function(Root_) {
+    Root = Root_;
+};
+
+
+/***/ }),
+
+/***/ 1457:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = OneOf;
+
+// extends ReflectionObject
+var ReflectionObject = __webpack_require__(7209);
+((OneOf.prototype = Object.create(ReflectionObject.prototype)).constructor = OneOf).className = "OneOf";
+
+var Field = __webpack_require__(1344),
+    util  = __webpack_require__(3262);
+
+/**
+ * Constructs a new oneof instance.
+ * @classdesc Reflected oneof.
+ * @extends ReflectionObject
+ * @constructor
+ * @param {string} name Oneof name
+ * @param {string[]|Object.<string,*>} [fieldNames] Field names
+ * @param {Object.<string,*>} [options] Declared options
+ * @param {string} [comment] Comment associated with this field
+ */
+function OneOf(name, fieldNames, options, comment) {
+    if (!Array.isArray(fieldNames)) {
+        options = fieldNames;
+        fieldNames = undefined;
+    }
+    ReflectionObject.call(this, name, options);
+
+    /* istanbul ignore if */
+    if (!(fieldNames === undefined || Array.isArray(fieldNames)))
+        throw TypeError("fieldNames must be an Array");
+
+    /**
+     * Field names that belong to this oneof.
+     * @type {string[]}
+     */
+    this.oneof = fieldNames || []; // toJSON, marker
+
+    /**
+     * Fields that belong to this oneof as an array for iteration.
+     * @type {Field[]}
+     * @readonly
+     */
+    this.fieldsArray = []; // declared readonly for conformance, possibly not yet added to parent
+
+    /**
+     * Comment for this field.
+     * @type {string|null}
+     */
+    this.comment = comment;
+}
+
+/**
+ * Oneof descriptor.
+ * @interface IOneOf
+ * @property {Array.<string>} oneof Oneof field names
+ * @property {Object.<string,*>} [options] Oneof options
+ */
+
+/**
+ * Constructs a oneof from a oneof descriptor.
+ * @param {string} name Oneof name
+ * @param {IOneOf} json Oneof descriptor
+ * @returns {OneOf} Created oneof
+ * @throws {TypeError} If arguments are invalid
+ */
+OneOf.fromJSON = function fromJSON(name, json) {
+    return new OneOf(name, json.oneof, json.options, json.comment);
+};
+
+/**
+ * Converts this oneof to a oneof descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IOneOf} Oneof descriptor
+ */
+OneOf.prototype.toJSON = function toJSON(toJSONOptions) {
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "options" , this.options,
+        "oneof"   , this.oneof,
+        "comment" , keepComments ? this.comment : undefined
+    ]);
+};
+
+/**
+ * Adds the fields of the specified oneof to the parent if not already done so.
+ * @param {OneOf} oneof The oneof
+ * @returns {undefined}
+ * @inner
+ * @ignore
+ */
+function addFieldsToParent(oneof) {
+    if (oneof.parent)
+        for (var i = 0; i < oneof.fieldsArray.length; ++i)
+            if (!oneof.fieldsArray[i].parent)
+                oneof.parent.add(oneof.fieldsArray[i]);
+}
+
+/**
+ * Adds a field to this oneof and removes it from its current parent, if any.
+ * @param {Field} field Field to add
+ * @returns {OneOf} `this`
+ */
+OneOf.prototype.add = function add(field) {
+
+    /* istanbul ignore if */
+    if (!(field instanceof Field))
+        throw TypeError("field must be a Field");
+
+    if (field.parent && field.parent !== this.parent)
+        field.parent.remove(field);
+    this.oneof.push(field.name);
+    this.fieldsArray.push(field);
+    field.partOf = this; // field.parent remains null
+    addFieldsToParent(this);
+    return this;
+};
+
+/**
+ * Removes a field from this oneof and puts it back to the oneof's parent.
+ * @param {Field} field Field to remove
+ * @returns {OneOf} `this`
+ */
+OneOf.prototype.remove = function remove(field) {
+
+    /* istanbul ignore if */
+    if (!(field instanceof Field))
+        throw TypeError("field must be a Field");
+
+    var index = this.fieldsArray.indexOf(field);
+
+    /* istanbul ignore if */
+    if (index < 0)
+        throw Error(field + " is not a member of " + this);
+
+    this.fieldsArray.splice(index, 1);
+    index = this.oneof.indexOf(field.name);
+
+    /* istanbul ignore else */
+    if (index > -1) // theoretical
+        this.oneof.splice(index, 1);
+
+    field.partOf = null;
+    return this;
+};
+
+/**
+ * @override
+ */
+OneOf.prototype.onAdd = function onAdd(parent) {
+    ReflectionObject.prototype.onAdd.call(this, parent);
+    var self = this;
+    // Collect present fields
+    for (var i = 0; i < this.oneof.length; ++i) {
+        var field = parent.get(this.oneof[i]);
+        if (field && !field.partOf) {
+            field.partOf = self;
+            self.fieldsArray.push(field);
+        }
+    }
+    // Add not yet present fields
+    addFieldsToParent(this);
+};
+
+/**
+ * @override
+ */
+OneOf.prototype.onRemove = function onRemove(parent) {
+    for (var i = 0, field; i < this.fieldsArray.length; ++i)
+        if ((field = this.fieldsArray[i]).parent)
+            field.parent.remove(field);
+    ReflectionObject.prototype.onRemove.call(this, parent);
+};
+
+/**
+ * Decorator function as returned by {@link OneOf.d} (TypeScript).
+ * @typedef OneOfDecorator
+ * @type {function}
+ * @param {Object} prototype Target prototype
+ * @param {string} oneofName OneOf name
+ * @returns {undefined}
+ */
+
+/**
+ * OneOf decorator (TypeScript).
+ * @function
+ * @param {...string} fieldNames Field names
+ * @returns {OneOfDecorator} Decorator function
+ * @template T extends string
+ */
+OneOf.d = function decorateOneOf() {
+    var fieldNames = new Array(arguments.length),
+        index = 0;
+    while (index < arguments.length)
+        fieldNames[index] = arguments[index++];
+    return function oneOfDecorator(prototype, oneofName) {
+        util.decorateType(prototype.constructor)
+            .add(new OneOf(oneofName, fieldNames));
+        Object.defineProperty(prototype, oneofName, {
+            get: util.oneOfGetter(fieldNames),
+            set: util.oneOfSetter(fieldNames)
+        });
+    };
+};
+
+
+/***/ }),
+
+/***/ 4863:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = parse;
+
+parse.filename = null;
+parse.defaults = { keepCase: false };
+
+var tokenize  = __webpack_require__(527),
+    Root      = __webpack_require__(5330),
+    Type      = __webpack_require__(7882),
+    Field     = __webpack_require__(1344),
+    MapField  = __webpack_require__(8252),
+    OneOf     = __webpack_require__(1457),
+    Enum      = __webpack_require__(5643),
+    Service   = __webpack_require__(9687),
+    Method    = __webpack_require__(8811),
+    types     = __webpack_require__(361),
+    util      = __webpack_require__(3262);
+
+var base10Re    = /^[1-9][0-9]*$/,
+    base10NegRe = /^-?[1-9][0-9]*$/,
+    base16Re    = /^0[x][0-9a-fA-F]+$/,
+    base16NegRe = /^-?0[x][0-9a-fA-F]+$/,
+    base8Re     = /^0[0-7]+$/,
+    base8NegRe  = /^-?0[0-7]+$/,
+    numberRe    = /^(?![eE])[0-9]*(?:\.[0-9]*)?(?:[eE][+-]?[0-9]+)?$/,
+    nameRe      = /^[a-zA-Z_][a-zA-Z_0-9]*$/,
+    typeRefRe   = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)(?:\.[a-zA-Z_][a-zA-Z_0-9]*)*$/,
+    fqTypeRefRe = /^(?:\.[a-zA-Z_][a-zA-Z_0-9]*)+$/;
+
+/**
+ * Result object returned from {@link parse}.
+ * @interface IParserResult
+ * @property {string|undefined} package Package name, if declared
+ * @property {string[]|undefined} imports Imports, if any
+ * @property {string[]|undefined} weakImports Weak imports, if any
+ * @property {string|undefined} syntax Syntax, if specified (either `"proto2"` or `"proto3"`)
+ * @property {Root} root Populated root instance
+ */
+
+/**
+ * Options modifying the behavior of {@link parse}.
+ * @interface IParseOptions
+ * @property {boolean} [keepCase=false] Keeps field casing instead of converting to camel case
+ * @property {boolean} [alternateCommentMode=false] Recognize double-slash comments in addition to doc-block comments.
+ * @property {boolean} [preferTrailingComment=false] Use trailing comment when both leading comment and trailing comment exist.
+ */
+
+/**
+ * Options modifying the behavior of JSON serialization.
+ * @interface IToJSONOptions
+ * @property {boolean} [keepComments=false] Serializes comments.
+ */
+
+/**
+ * Parses the given .proto source and returns an object with the parsed contents.
+ * @param {string} source Source contents
+ * @param {Root} root Root to populate
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {IParserResult} Parser result
+ * @property {string} filename=null Currently processing file name for error reporting, if known
+ * @property {IParseOptions} defaults Default {@link IParseOptions}
+ */
+function parse(source, root, options) {
+    /* eslint-disable callback-return */
+    if (!(root instanceof Root)) {
+        options = root;
+        root = new Root();
+    }
+    if (!options)
+        options = parse.defaults;
+
+    var preferTrailingComment = options.preferTrailingComment || false;
+    var tn = tokenize(source, options.alternateCommentMode || false),
+        next = tn.next,
+        push = tn.push,
+        peek = tn.peek,
+        skip = tn.skip,
+        cmnt = tn.cmnt;
+
+    var head = true,
+        pkg,
+        imports,
+        weakImports,
+        syntax,
+        isProto3 = false;
+
+    var ptr = root;
+
+    var applyCase = options.keepCase ? function(name) { return name; } : util.camelCase;
+
+    /* istanbul ignore next */
+    function illegal(token, name, insideTryCatch) {
+        var filename = parse.filename;
+        if (!insideTryCatch)
+            parse.filename = null;
+        return Error("illegal " + (name || "token") + " '" + token + "' (" + (filename ? filename + ", " : "") + "line " + tn.line + ")");
+    }
+
+    function readString() {
+        var values = [],
+            token;
+        do {
+            /* istanbul ignore if */
+            if ((token = next()) !== "\"" && token !== "'")
+                throw illegal(token);
+
+            values.push(next());
+            skip(token);
+            token = peek();
+        } while (token === "\"" || token === "'");
+        return values.join("");
+    }
+
+    function readValue(acceptTypeRef) {
+        var token = next();
+        switch (token) {
+            case "'":
+            case "\"":
+                push(token);
+                return readString();
+            case "true": case "TRUE":
+                return true;
+            case "false": case "FALSE":
+                return false;
+        }
+        try {
+            return parseNumber(token, /* insideTryCatch */ true);
+        } catch (e) {
+
+            /* istanbul ignore else */
+            if (acceptTypeRef && typeRefRe.test(token))
+                return token;
+
+            /* istanbul ignore next */
+            throw illegal(token, "value");
+        }
+    }
+
+    function readRanges(target, acceptStrings) {
+        var token, start;
+        do {
+            if (acceptStrings && ((token = peek()) === "\"" || token === "'"))
+                target.push(readString());
+            else
+                target.push([ start = parseId(next()), skip("to", true) ? parseId(next()) : start ]);
+        } while (skip(",", true));
+        skip(";");
+    }
+
+    function parseNumber(token, insideTryCatch) {
+        var sign = 1;
+        if (token.charAt(0) === "-") {
+            sign = -1;
+            token = token.substring(1);
+        }
+        switch (token) {
+            case "inf": case "INF": case "Inf":
+                return sign * Infinity;
+            case "nan": case "NAN": case "Nan": case "NaN":
+                return NaN;
+            case "0":
+                return 0;
+        }
+        if (base10Re.test(token))
+            return sign * parseInt(token, 10);
+        if (base16Re.test(token))
+            return sign * parseInt(token, 16);
+        if (base8Re.test(token))
+            return sign * parseInt(token, 8);
+
+        /* istanbul ignore else */
+        if (numberRe.test(token))
+            return sign * parseFloat(token);
+
+        /* istanbul ignore next */
+        throw illegal(token, "number", insideTryCatch);
+    }
+
+    function parseId(token, acceptNegative) {
+        switch (token) {
+            case "max": case "MAX": case "Max":
+                return 536870911;
+            case "0":
+                return 0;
+        }
+
+        /* istanbul ignore if */
+        if (!acceptNegative && token.charAt(0) === "-")
+            throw illegal(token, "id");
+
+        if (base10NegRe.test(token))
+            return parseInt(token, 10);
+        if (base16NegRe.test(token))
+            return parseInt(token, 16);
+
+        /* istanbul ignore else */
+        if (base8NegRe.test(token))
+            return parseInt(token, 8);
+
+        /* istanbul ignore next */
+        throw illegal(token, "id");
+    }
+
+    function parsePackage() {
+
+        /* istanbul ignore if */
+        if (pkg !== undefined)
+            throw illegal("package");
+
+        pkg = next();
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(pkg))
+            throw illegal(pkg, "name");
+
+        ptr = ptr.define(pkg);
+        skip(";");
+    }
+
+    function parseImport() {
+        var token = peek();
+        var whichImports;
+        switch (token) {
+            case "weak":
+                whichImports = weakImports || (weakImports = []);
+                next();
+                break;
+            case "public":
+                next();
+                // eslint-disable-line no-fallthrough
+            default:
+                whichImports = imports || (imports = []);
+                break;
+        }
+        token = readString();
+        skip(";");
+        whichImports.push(token);
+    }
+
+    function parseSyntax() {
+        skip("=");
+        syntax = readString();
+        isProto3 = syntax === "proto3";
+
+        /* istanbul ignore if */
+        if (!isProto3 && syntax !== "proto2")
+            throw illegal(syntax, "syntax");
+
+        skip(";");
+    }
+
+    function parseCommon(parent, token) {
+        switch (token) {
+
+            case "option":
+                parseOption(parent, token);
+                skip(";");
+                return true;
+
+            case "message":
+                parseType(parent, token);
+                return true;
+
+            case "enum":
+                parseEnum(parent, token);
+                return true;
+
+            case "service":
+                parseService(parent, token);
+                return true;
+
+            case "extend":
+                parseExtension(parent, token);
+                return true;
+        }
+        return false;
+    }
+
+    function ifBlock(obj, fnIf, fnElse) {
+        var trailingLine = tn.line;
+        if (obj) {
+            if(typeof obj.comment !== "string") {
+              obj.comment = cmnt(); // try block-type comment
+            }
+            obj.filename = parse.filename;
+        }
+        if (skip("{", true)) {
+            var token;
+            while ((token = next()) !== "}")
+                fnIf(token);
+            skip(";", true);
+        } else {
+            if (fnElse)
+                fnElse();
+            skip(";");
+            if (obj && (typeof obj.comment !== "string" || preferTrailingComment))
+                obj.comment = cmnt(trailingLine) || obj.comment; // try line-type comment
+        }
+    }
+
+    function parseType(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "type name");
+
+        var type = new Type(token);
+        ifBlock(type, function parseType_block(token) {
+            if (parseCommon(type, token))
+                return;
+
+            switch (token) {
+
+                case "map":
+                    parseMapField(type, token);
+                    break;
+
+                case "required":
+                case "repeated":
+                    parseField(type, token);
+                    break;
+
+                case "optional":
+                    /* istanbul ignore if */
+                    if (isProto3) {
+                        parseField(type, "proto3_optional");
+                    } else {
+                        parseField(type, "optional");
+                    }
+                    break;
+
+                case "oneof":
+                    parseOneOf(type, token);
+                    break;
+
+                case "extensions":
+                    readRanges(type.extensions || (type.extensions = []));
+                    break;
+
+                case "reserved":
+                    readRanges(type.reserved || (type.reserved = []), true);
+                    break;
+
+                default:
+                    /* istanbul ignore if */
+                    if (!isProto3 || !typeRefRe.test(token))
+                        throw illegal(token);
+
+                    push(token);
+                    parseField(type, "optional");
+                    break;
+            }
+        });
+        parent.add(type);
+    }
+
+    function parseField(parent, rule, extend) {
+        var type = next();
+        if (type === "group") {
+            parseGroup(parent, rule);
+            return;
+        }
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(type))
+            throw illegal(type, "type");
+
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        name = applyCase(name);
+        skip("=");
+
+        var field = new Field(name, parseId(next()), type, rule, extend);
+        ifBlock(field, function parseField_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(field, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseField_line() {
+            parseInlineOptions(field);
+        });
+
+        if (rule === "proto3_optional") {
+            // for proto3 optional fields, we create a single-member Oneof to mimic "optional" behavior
+            var oneof = new OneOf("_" + name);
+            field.setOption("proto3_optional", true);
+            oneof.add(field);
+            parent.add(oneof);
+        } else {
+            parent.add(field);
+        }
+
+        // JSON defaults to packed=true if not set so we have to set packed=false explicity when
+        // parsing proto2 descriptors without the option, where applicable. This must be done for
+        // all known packable types and anything that could be an enum (= is not a basic type).
+        if (!isProto3 && field.repeated && (types.packed[type] !== undefined || types.basic[type] === undefined))
+            field.setOption("packed", false, /* ifNotSet */ true);
+    }
+
+    function parseGroup(parent, rule) {
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        var fieldName = util.lcFirst(name);
+        if (name === fieldName)
+            name = util.ucFirst(name);
+        skip("=");
+        var id = parseId(next());
+        var type = new Type(name);
+        type.group = true;
+        var field = new Field(fieldName, id, name, rule);
+        field.filename = parse.filename;
+        ifBlock(type, function parseGroup_block(token) {
+            switch (token) {
+
+                case "option":
+                    parseOption(type, token);
+                    skip(";");
+                    break;
+
+                case "required":
+                case "repeated":
+                    parseField(type, token);
+                    break;
+
+                case "optional":
+                    /* istanbul ignore if */
+                    if (isProto3) {
+                        parseField(type, "proto3_optional");
+                    } else {
+                        parseField(type, "optional");
+                    }
+                    break;
+
+                /* istanbul ignore next */
+                default:
+                    throw illegal(token); // there are no groups with proto3 semantics
+            }
+        });
+        parent.add(type)
+              .add(field);
+    }
+
+    function parseMapField(parent) {
+        skip("<");
+        var keyType = next();
+
+        /* istanbul ignore if */
+        if (types.mapKey[keyType] === undefined)
+            throw illegal(keyType, "type");
+
+        skip(",");
+        var valueType = next();
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(valueType))
+            throw illegal(valueType, "type");
+
+        skip(">");
+        var name = next();
+
+        /* istanbul ignore if */
+        if (!nameRe.test(name))
+            throw illegal(name, "name");
+
+        skip("=");
+        var field = new MapField(applyCase(name), parseId(next()), keyType, valueType);
+        ifBlock(field, function parseMapField_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(field, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseMapField_line() {
+            parseInlineOptions(field);
+        });
+        parent.add(field);
+    }
+
+    function parseOneOf(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var oneof = new OneOf(applyCase(token));
+        ifBlock(oneof, function parseOneOf_block(token) {
+            if (token === "option") {
+                parseOption(oneof, token);
+                skip(";");
+            } else {
+                push(token);
+                parseField(oneof, "optional");
+            }
+        });
+        parent.add(oneof);
+    }
+
+    function parseEnum(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var enm = new Enum(token);
+        ifBlock(enm, function parseEnum_block(token) {
+          switch(token) {
+            case "option":
+              parseOption(enm, token);
+              skip(";");
+              break;
+
+            case "reserved":
+              readRanges(enm.reserved || (enm.reserved = []), true);
+              break;
+
+            default:
+              parseEnumValue(enm, token);
+          }
+        });
+        parent.add(enm);
+    }
+
+    function parseEnumValue(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token))
+            throw illegal(token, "name");
+
+        skip("=");
+        var value = parseId(next(), true),
+            dummy = {};
+        ifBlock(dummy, function parseEnumValue_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(dummy, token); // skip
+                skip(";");
+            } else
+                throw illegal(token);
+
+        }, function parseEnumValue_line() {
+            parseInlineOptions(dummy); // skip
+        });
+        parent.add(token, value, dummy.comment);
+    }
+
+    function parseOption(parent, token) {
+        var isCustom = skip("(", true);
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var name = token;
+        var option = name;
+        var propName;
+
+        if (isCustom) {
+            skip(")");
+            name = "(" + name + ")";
+            option = name;
+            token = peek();
+            if (fqTypeRefRe.test(token)) {
+                propName = token.substr(1); //remove '.' before property name
+                name += token;
+                next();
+            }
+        }
+        skip("=");
+        var optionValue = parseOptionValue(parent, name);
+        setParsedOption(parent, option, optionValue, propName);
+    }
+
+    function parseOptionValue(parent, name) {
+        if (skip("{", true)) { // { a: "foo" b { c: "bar" } }
+            var result = {};
+            while (!skip("}", true)) {
+                /* istanbul ignore if */
+                if (!nameRe.test(token = next()))
+                    throw illegal(token, "name");
+
+                var value;
+                var propName = token;
+                if (peek() === "{")
+                    value = parseOptionValue(parent, name + "." + token);
+                else {
+                    skip(":");
+                    if (peek() === "{")
+                        value = parseOptionValue(parent, name + "." + token);
+                    else {
+                        value = readValue(true);
+                        setOption(parent, name + "." + token, value);
+                    }
+                }
+                var prevValue = result[propName];
+                if (prevValue)
+                    value = [].concat(prevValue).concat(value);
+                result[propName] = value;
+                skip(",", true);
+            }
+            return result;
+        }
+
+        var simpleValue = readValue(true);
+        setOption(parent, name, simpleValue);
+        return simpleValue;
+        // Does not enforce a delimiter to be universal
+    }
+
+    function setOption(parent, name, value) {
+        if (parent.setOption)
+            parent.setOption(name, value);
+    }
+
+    function setParsedOption(parent, name, value, propName) {
+        if (parent.setParsedOption)
+            parent.setParsedOption(name, value, propName);
+    }
+
+    function parseInlineOptions(parent) {
+        if (skip("[", true)) {
+            do {
+                parseOption(parent, "option");
+            } while (skip(",", true));
+            skip("]");
+        }
+        return parent;
+    }
+
+    function parseService(parent, token) {
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "service name");
+
+        var service = new Service(token);
+        ifBlock(service, function parseService_block(token) {
+            if (parseCommon(service, token))
+                return;
+
+            /* istanbul ignore else */
+            if (token === "rpc")
+                parseMethod(service, token);
+            else
+                throw illegal(token);
+        });
+        parent.add(service);
+    }
+
+    function parseMethod(parent, token) {
+        // Get the comment of the preceding line now (if one exists) in case the
+        // method is defined across multiple lines.
+        var commentText = cmnt();
+
+        var type = token;
+
+        /* istanbul ignore if */
+        if (!nameRe.test(token = next()))
+            throw illegal(token, "name");
+
+        var name = token,
+            requestType, requestStream,
+            responseType, responseStream;
+
+        skip("(");
+        if (skip("stream", true))
+            requestStream = true;
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token);
+
+        requestType = token;
+        skip(")"); skip("returns"); skip("(");
+        if (skip("stream", true))
+            responseStream = true;
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token);
+
+        responseType = token;
+        skip(")");
+
+        var method = new Method(name, type, requestType, responseType, requestStream, responseStream);
+        method.comment = commentText;
+        ifBlock(method, function parseMethod_block(token) {
+
+            /* istanbul ignore else */
+            if (token === "option") {
+                parseOption(method, token);
+                skip(";");
+            } else
+                throw illegal(token);
+
+        });
+        parent.add(method);
+    }
+
+    function parseExtension(parent, token) {
+
+        /* istanbul ignore if */
+        if (!typeRefRe.test(token = next()))
+            throw illegal(token, "reference");
+
+        var reference = token;
+        ifBlock(null, function parseExtension_block(token) {
+            switch (token) {
+
+                case "required":
+                case "repeated":
+                    parseField(parent, token, reference);
+                    break;
+
+                case "optional":
+                    /* istanbul ignore if */
+                    if (isProto3) {
+                        parseField(parent, "proto3_optional", reference);
+                    } else {
+                        parseField(parent, "optional", reference);
+                    }
+                    break;
+
+                default:
+                    /* istanbul ignore if */
+                    if (!isProto3 || !typeRefRe.test(token))
+                        throw illegal(token);
+                    push(token);
+                    parseField(parent, "optional", reference);
+                    break;
+            }
+        });
+    }
+
+    var token;
+    while ((token = next()) !== null) {
+        switch (token) {
+
+            case "package":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parsePackage();
+                break;
+
+            case "import":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseImport();
+                break;
+
+            case "syntax":
+
+                /* istanbul ignore if */
+                if (!head)
+                    throw illegal(token);
+
+                parseSyntax();
+                break;
+
+            case "option":
+
+                parseOption(ptr, token);
+                skip(";");
+                break;
+
+            default:
+
+                /* istanbul ignore else */
+                if (parseCommon(ptr, token)) {
+                    head = false;
+                    continue;
+                }
+
+                /* istanbul ignore next */
+                throw illegal(token);
+        }
+    }
+
+    parse.filename = null;
+    return {
+        "package"     : pkg,
+        "imports"     : imports,
+         weakImports  : weakImports,
+         syntax       : syntax,
+         root         : root
+    };
+}
+
+/**
+ * Parses the given .proto source and returns an object with the parsed contents.
+ * @name parse
+ * @function
+ * @param {string} source Source contents
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {IParserResult} Parser result
+ * @property {string} filename=null Currently processing file name for error reporting, if known
+ * @property {IParseOptions} defaults Default {@link IParseOptions}
+ * @variation 2
+ */
+
+
+/***/ }),
+
+/***/ 6237:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Reader;
+
+var util      = __webpack_require__(3610);
+
+var BufferReader; // cyclic
+
+var LongBits  = util.LongBits,
+    utf8      = util.utf8;
+
+/* istanbul ignore next */
+function indexOutOfRange(reader, writeLength) {
+    return RangeError("index out of range: " + reader.pos + " + " + (writeLength || 1) + " > " + reader.len);
+}
+
+/**
+ * Constructs a new reader instance using the specified buffer.
+ * @classdesc Wire format reader using `Uint8Array` if available, otherwise `Array`.
+ * @constructor
+ * @param {Uint8Array} buffer Buffer to read from
+ */
+function Reader(buffer) {
+
+    /**
+     * Read buffer.
+     * @type {Uint8Array}
+     */
+    this.buf = buffer;
+
+    /**
+     * Read buffer position.
+     * @type {number}
+     */
+    this.pos = 0;
+
+    /**
+     * Read buffer length.
+     * @type {number}
+     */
+    this.len = buffer.length;
+}
+
+var create_array = typeof Uint8Array !== "undefined"
+    ? function create_typed_array(buffer) {
+        if (buffer instanceof Uint8Array || Array.isArray(buffer))
+            return new Reader(buffer);
+        throw Error("illegal buffer");
+    }
+    /* istanbul ignore next */
+    : function create_array(buffer) {
+        if (Array.isArray(buffer))
+            return new Reader(buffer);
+        throw Error("illegal buffer");
+    };
+
+var create = function create() {
+    return util.Buffer
+        ? function create_buffer_setup(buffer) {
+            return (Reader.create = function create_buffer(buffer) {
+                return util.Buffer.isBuffer(buffer)
+                    ? new BufferReader(buffer)
+                    /* istanbul ignore next */
+                    : create_array(buffer);
+            })(buffer);
+        }
+        /* istanbul ignore next */
+        : create_array;
+};
+
+/**
+ * Creates a new reader using the specified buffer.
+ * @function
+ * @param {Uint8Array|Buffer} buffer Buffer to read from
+ * @returns {Reader|BufferReader} A {@link BufferReader} if `buffer` is a Buffer, otherwise a {@link Reader}
+ * @throws {Error} If `buffer` is not a valid buffer
+ */
+Reader.create = create();
+
+Reader.prototype._slice = util.Array.prototype.subarray || /* istanbul ignore next */ util.Array.prototype.slice;
+
+/**
+ * Reads a varint as an unsigned 32 bit value.
+ * @function
+ * @returns {number} Value read
+ */
+Reader.prototype.uint32 = (function read_uint32_setup() {
+    var value = 4294967295; // optimizer type-hint, tends to deopt otherwise (?!)
+    return function read_uint32() {
+        value = (         this.buf[this.pos] & 127       ) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] & 127) <<  7) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] & 127) << 14) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] & 127) << 21) >>> 0; if (this.buf[this.pos++] < 128) return value;
+        value = (value | (this.buf[this.pos] &  15) << 28) >>> 0; if (this.buf[this.pos++] < 128) return value;
+
+        /* istanbul ignore if */
+        if ((this.pos += 5) > this.len) {
+            this.pos = this.len;
+            throw indexOutOfRange(this, 10);
+        }
+        return value;
+    };
 })();
+
+/**
+ * Reads a varint as a signed 32 bit value.
+ * @returns {number} Value read
+ */
+Reader.prototype.int32 = function read_int32() {
+    return this.uint32() | 0;
+};
+
+/**
+ * Reads a zig-zag encoded varint as a signed 32 bit value.
+ * @returns {number} Value read
+ */
+Reader.prototype.sint32 = function read_sint32() {
+    var value = this.uint32();
+    return value >>> 1 ^ -(value & 1) | 0;
+};
+
+/* eslint-disable no-invalid-this */
+
+function readLongVarint() {
+    // tends to deopt with local vars for octet etc.
+    var bits = new LongBits(0, 0);
+    var i = 0;
+    if (this.len - this.pos > 4) { // fast route (lo)
+        for (; i < 4; ++i) {
+            // 1st..4th
+            bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+        // 5th
+        bits.lo = (bits.lo | (this.buf[this.pos] & 127) << 28) >>> 0;
+        bits.hi = (bits.hi | (this.buf[this.pos] & 127) >>  4) >>> 0;
+        if (this.buf[this.pos++] < 128)
+            return bits;
+        i = 0;
+    } else {
+        for (; i < 3; ++i) {
+            /* istanbul ignore if */
+            if (this.pos >= this.len)
+                throw indexOutOfRange(this);
+            // 1st..3th
+            bits.lo = (bits.lo | (this.buf[this.pos] & 127) << i * 7) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+        // 4th
+        bits.lo = (bits.lo | (this.buf[this.pos++] & 127) << i * 7) >>> 0;
+        return bits;
+    }
+    if (this.len - this.pos > 4) { // fast route (hi)
+        for (; i < 5; ++i) {
+            // 6th..10th
+            bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+    } else {
+        for (; i < 5; ++i) {
+            /* istanbul ignore if */
+            if (this.pos >= this.len)
+                throw indexOutOfRange(this);
+            // 6th..10th
+            bits.hi = (bits.hi | (this.buf[this.pos] & 127) << i * 7 + 3) >>> 0;
+            if (this.buf[this.pos++] < 128)
+                return bits;
+        }
+    }
+    /* istanbul ignore next */
+    throw Error("invalid varint encoding");
+}
+
+/* eslint-enable no-invalid-this */
+
+/**
+ * Reads a varint as a signed 64 bit value.
+ * @name Reader#int64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a varint as an unsigned 64 bit value.
+ * @name Reader#uint64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a zig-zag encoded varint as a signed 64 bit value.
+ * @name Reader#sint64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a varint as a boolean.
+ * @returns {boolean} Value read
+ */
+Reader.prototype.bool = function read_bool() {
+    return this.uint32() !== 0;
+};
+
+function readFixed32_end(buf, end) { // note that this uses `end`, not `pos`
+    return (buf[end - 4]
+          | buf[end - 3] << 8
+          | buf[end - 2] << 16
+          | buf[end - 1] << 24) >>> 0;
+}
+
+/**
+ * Reads fixed 32 bits as an unsigned 32 bit integer.
+ * @returns {number} Value read
+ */
+Reader.prototype.fixed32 = function read_fixed32() {
+
+    /* istanbul ignore if */
+    if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    return readFixed32_end(this.buf, this.pos += 4);
+};
+
+/**
+ * Reads fixed 32 bits as a signed 32 bit integer.
+ * @returns {number} Value read
+ */
+Reader.prototype.sfixed32 = function read_sfixed32() {
+
+    /* istanbul ignore if */
+    if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    return readFixed32_end(this.buf, this.pos += 4) | 0;
+};
+
+/* eslint-disable no-invalid-this */
+
+function readFixed64(/* this: Reader */) {
+
+    /* istanbul ignore if */
+    if (this.pos + 8 > this.len)
+        throw indexOutOfRange(this, 8);
+
+    return new LongBits(readFixed32_end(this.buf, this.pos += 4), readFixed32_end(this.buf, this.pos += 4));
+}
+
+/* eslint-enable no-invalid-this */
+
+/**
+ * Reads fixed 64 bits.
+ * @name Reader#fixed64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads zig-zag encoded fixed 64 bits.
+ * @name Reader#sfixed64
+ * @function
+ * @returns {Long} Value read
+ */
+
+/**
+ * Reads a float (32 bit) as a number.
+ * @function
+ * @returns {number} Value read
+ */
+Reader.prototype.float = function read_float() {
+
+    /* istanbul ignore if */
+    if (this.pos + 4 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    var value = util.float.readFloatLE(this.buf, this.pos);
+    this.pos += 4;
+    return value;
+};
+
+/**
+ * Reads a double (64 bit float) as a number.
+ * @function
+ * @returns {number} Value read
+ */
+Reader.prototype.double = function read_double() {
+
+    /* istanbul ignore if */
+    if (this.pos + 8 > this.len)
+        throw indexOutOfRange(this, 4);
+
+    var value = util.float.readDoubleLE(this.buf, this.pos);
+    this.pos += 8;
+    return value;
+};
+
+/**
+ * Reads a sequence of bytes preceeded by its length as a varint.
+ * @returns {Uint8Array} Value read
+ */
+Reader.prototype.bytes = function read_bytes() {
+    var length = this.uint32(),
+        start  = this.pos,
+        end    = this.pos + length;
+
+    /* istanbul ignore if */
+    if (end > this.len)
+        throw indexOutOfRange(this, length);
+
+    this.pos += length;
+    if (Array.isArray(this.buf)) // plain array
+        return this.buf.slice(start, end);
+    return start === end // fix for IE 10/Win8 and others' subarray returning array of size 1
+        ? new this.buf.constructor(0)
+        : this._slice.call(this.buf, start, end);
+};
+
+/**
+ * Reads a string preceeded by its byte length as a varint.
+ * @returns {string} Value read
+ */
+Reader.prototype.string = function read_string() {
+    var bytes = this.bytes();
+    return utf8.read(bytes, 0, bytes.length);
+};
+
+/**
+ * Skips the specified number of bytes if specified, otherwise skips a varint.
+ * @param {number} [length] Length if known, otherwise a varint is assumed
+ * @returns {Reader} `this`
+ */
+Reader.prototype.skip = function skip(length) {
+    if (typeof length === "number") {
+        /* istanbul ignore if */
+        if (this.pos + length > this.len)
+            throw indexOutOfRange(this, length);
+        this.pos += length;
+    } else {
+        do {
+            /* istanbul ignore if */
+            if (this.pos >= this.len)
+                throw indexOutOfRange(this);
+        } while (this.buf[this.pos++] & 128);
+    }
+    return this;
+};
+
+/**
+ * Skips the next element of the specified wire type.
+ * @param {number} wireType Wire type received
+ * @returns {Reader} `this`
+ */
+Reader.prototype.skipType = function(wireType) {
+    switch (wireType) {
+        case 0:
+            this.skip();
+            break;
+        case 1:
+            this.skip(8);
+            break;
+        case 2:
+            this.skip(this.uint32());
+            break;
+        case 3:
+            while ((wireType = this.uint32() & 7) !== 4) {
+                this.skipType(wireType);
+            }
+            break;
+        case 5:
+            this.skip(4);
+            break;
+
+        /* istanbul ignore next */
+        default:
+            throw Error("invalid wire type " + wireType + " at offset " + this.pos);
+    }
+    return this;
+};
+
+Reader._configure = function(BufferReader_) {
+    BufferReader = BufferReader_;
+    Reader.create = create();
+    BufferReader._configure();
+
+    var fn = util.Long ? "toLong" : /* istanbul ignore next */ "toNumber";
+    util.merge(Reader.prototype, {
+
+        int64: function read_int64() {
+            return readLongVarint.call(this)[fn](false);
+        },
+
+        uint64: function read_uint64() {
+            return readLongVarint.call(this)[fn](true);
+        },
+
+        sint64: function read_sint64() {
+            return readLongVarint.call(this).zzDecode()[fn](false);
+        },
+
+        fixed64: function read_fixed64() {
+            return readFixed64.call(this)[fn](true);
+        },
+
+        sfixed64: function read_sfixed64() {
+            return readFixed64.call(this)[fn](false);
+        }
+
+    });
+};
+
+
+/***/ }),
+
+/***/ 3158:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = BufferReader;
+
+// extends Reader
+var Reader = __webpack_require__(6237);
+(BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
+
+var util = __webpack_require__(3610);
+
+/**
+ * Constructs a new buffer reader instance.
+ * @classdesc Wire format reader using node buffers.
+ * @extends Reader
+ * @constructor
+ * @param {Buffer} buffer Buffer to read from
+ */
+function BufferReader(buffer) {
+    Reader.call(this, buffer);
+
+    /**
+     * Read buffer.
+     * @name BufferReader#buf
+     * @type {Buffer}
+     */
+}
+
+BufferReader._configure = function () {
+    /* istanbul ignore else */
+    if (util.Buffer)
+        BufferReader.prototype._slice = util.Buffer.prototype.slice;
+};
+
+
+/**
+ * @override
+ */
+BufferReader.prototype.string = function read_string_buffer() {
+    var len = this.uint32(); // modifies pos
+    return this.buf.utf8Slice
+        ? this.buf.utf8Slice(this.pos, this.pos = Math.min(this.pos + len, this.len))
+        : this.buf.toString("utf-8", this.pos, this.pos = Math.min(this.pos + len, this.len));
+};
+
+/**
+ * Reads a sequence of bytes preceeded by its length as a varint.
+ * @name BufferReader#bytes
+ * @function
+ * @returns {Buffer} Value read
+ */
+
+BufferReader._configure();
+
+
+/***/ }),
+
+/***/ 5330:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Root;
+
+// extends Namespace
+var Namespace = __webpack_require__(8923);
+((Root.prototype = Object.create(Namespace.prototype)).constructor = Root).className = "Root";
+
+var Field   = __webpack_require__(1344),
+    Enum    = __webpack_require__(5643),
+    OneOf   = __webpack_require__(1457),
+    util    = __webpack_require__(3262);
+
+var Type,   // cyclic
+    parse,  // might be excluded
+    common; // "
+
+/**
+ * Constructs a new root namespace instance.
+ * @classdesc Root namespace wrapping all types, enums, services, sub-namespaces etc. that belong together.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {Object.<string,*>} [options] Top level options
+ */
+function Root(options) {
+    Namespace.call(this, "", options);
+
+    /**
+     * Deferred extension fields.
+     * @type {Field[]}
+     */
+    this.deferred = [];
+
+    /**
+     * Resolved file names of loaded files.
+     * @type {string[]}
+     */
+    this.files = [];
+}
+
+/**
+ * Loads a namespace descriptor into a root namespace.
+ * @param {INamespace} json Nameespace descriptor
+ * @param {Root} [root] Root namespace, defaults to create a new one if omitted
+ * @returns {Root} Root namespace
+ */
+Root.fromJSON = function fromJSON(json, root) {
+    if (!root)
+        root = new Root();
+    if (json.options)
+        root.setOptions(json.options);
+    return root.addJSON(json.nested);
+};
+
+/**
+ * Resolves the path of an imported file, relative to the importing origin.
+ * This method exists so you can override it with your own logic in case your imports are scattered over multiple directories.
+ * @function
+ * @param {string} origin The file name of the importing file
+ * @param {string} target The file name being imported
+ * @returns {string|null} Resolved path to `target` or `null` to skip the file
+ */
+Root.prototype.resolvePath = util.path.resolve;
+
+/**
+ * Fetch content from file path or url
+ * This method exists so you can override it with your own logic.
+ * @function
+ * @param {string} path File path or url
+ * @param {FetchCallback} callback Callback function
+ * @returns {undefined}
+ */
+Root.prototype.fetch = util.fetch;
+
+// A symbol-like function to safely signal synchronous loading
+/* istanbul ignore next */
+function SYNC() {} // eslint-disable-line no-empty-function
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into this root namespace and calls the callback.
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {IParseOptions} options Parse options
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ */
+Root.prototype.load = function load(filename, options, callback) {
+    if (typeof options === "function") {
+        callback = options;
+        options = undefined;
+    }
+    var self = this;
+    if (!callback)
+        return util.asPromise(load, self, filename, options);
+
+    var sync = callback === SYNC; // undocumented
+
+    // Finishes loading by calling the callback (exactly once)
+    function finish(err, root) {
+        /* istanbul ignore if */
+        if (!callback)
+            return;
+        var cb = callback;
+        callback = null;
+        if (sync)
+            throw err;
+        cb(err, root);
+    }
+
+    // Bundled definition existence checking
+    function getBundledFileName(filename) {
+        var idx = filename.lastIndexOf("google/protobuf/");
+        if (idx > -1) {
+            var altname = filename.substring(idx);
+            if (altname in common) return altname;
+        }
+        return null;
+    }
+
+    // Processes a single file
+    function process(filename, source) {
+        try {
+            if (util.isString(source) && source.charAt(0) === "{")
+                source = JSON.parse(source);
+            if (!util.isString(source))
+                self.setOptions(source.options).addJSON(source.nested);
+            else {
+                parse.filename = filename;
+                var parsed = parse(source, self, options),
+                    resolved,
+                    i = 0;
+                if (parsed.imports)
+                    for (; i < parsed.imports.length; ++i)
+                        if (resolved = getBundledFileName(parsed.imports[i]) || self.resolvePath(filename, parsed.imports[i]))
+                            fetch(resolved);
+                if (parsed.weakImports)
+                    for (i = 0; i < parsed.weakImports.length; ++i)
+                        if (resolved = getBundledFileName(parsed.weakImports[i]) || self.resolvePath(filename, parsed.weakImports[i]))
+                            fetch(resolved, true);
+            }
+        } catch (err) {
+            finish(err);
+        }
+        if (!sync && !queued)
+            finish(null, self); // only once anyway
+    }
+
+    // Fetches a single file
+    function fetch(filename, weak) {
+
+        // Skip if already loaded / attempted
+        if (self.files.indexOf(filename) > -1)
+            return;
+        self.files.push(filename);
+
+        // Shortcut bundled definitions
+        if (filename in common) {
+            if (sync)
+                process(filename, common[filename]);
+            else {
+                ++queued;
+                setTimeout(function() {
+                    --queued;
+                    process(filename, common[filename]);
+                });
+            }
+            return;
+        }
+
+        // Otherwise fetch from disk or network
+        if (sync) {
+            var source;
+            try {
+                source = util.fs.readFileSync(filename).toString("utf8");
+            } catch (err) {
+                if (!weak)
+                    finish(err);
+                return;
+            }
+            process(filename, source);
+        } else {
+            ++queued;
+            self.fetch(filename, function(err, source) {
+                --queued;
+                /* istanbul ignore if */
+                if (!callback)
+                    return; // terminated meanwhile
+                if (err) {
+                    /* istanbul ignore else */
+                    if (!weak)
+                        finish(err);
+                    else if (!queued) // can't be covered reliably
+                        finish(null, self);
+                    return;
+                }
+                process(filename, source);
+            });
+        }
+    }
+    var queued = 0;
+
+    // Assembling the root namespace doesn't require working type
+    // references anymore, so we can load everything in parallel
+    if (util.isString(filename))
+        filename = [ filename ];
+    for (var i = 0, resolved; i < filename.length; ++i)
+        if (resolved = self.resolvePath("", filename[i]))
+            fetch(resolved);
+
+    if (sync)
+        return self;
+    if (!queued)
+        finish(null, self);
+    return undefined;
+};
+// function load(filename:string, options:IParseOptions, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into this root namespace and calls the callback.
+ * @function Root#load
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {LoadCallback} callback Callback function
+ * @returns {undefined}
+ * @variation 2
+ */
+// function load(filename:string, callback:LoadCallback):undefined
+
+/**
+ * Loads one or multiple .proto or preprocessed .json files into this root namespace and returns a promise.
+ * @function Root#load
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {Promise<Root>} Promise
+ * @variation 3
+ */
+// function load(filename:string, [options:IParseOptions]):Promise<Root>
+
+/**
+ * Synchronously loads one or multiple .proto or preprocessed .json files into this root namespace (node only).
+ * @function Root#loadSync
+ * @param {string|string[]} filename Names of one or multiple files to load
+ * @param {IParseOptions} [options] Parse options. Defaults to {@link parse.defaults} when omitted.
+ * @returns {Root} Root namespace
+ * @throws {Error} If synchronous fetching is not supported (i.e. in browsers) or if a file's syntax is invalid
+ */
+Root.prototype.loadSync = function loadSync(filename, options) {
+    if (!util.isNode)
+        throw Error("not supported");
+    return this.load(filename, options, SYNC);
+};
+
+/**
+ * @override
+ */
+Root.prototype.resolveAll = function resolveAll() {
+    if (this.deferred.length)
+        throw Error("unresolvable extensions: " + this.deferred.map(function(field) {
+            return "'extend " + field.extend + "' in " + field.parent.fullName;
+        }).join(", "));
+    return Namespace.prototype.resolveAll.call(this);
+};
+
+// only uppercased (and thus conflict-free) children are exposed, see below
+var exposeRe = /^[A-Z]/;
+
+/**
+ * Handles a deferred declaring extension field by creating a sister field to represent it within its extended type.
+ * @param {Root} root Root instance
+ * @param {Field} field Declaring extension field witin the declaring type
+ * @returns {boolean} `true` if successfully added to the extended type, `false` otherwise
+ * @inner
+ * @ignore
+ */
+function tryHandleExtension(root, field) {
+    var extendedType = field.parent.lookup(field.extend);
+    if (extendedType) {
+        var sisterField = new Field(field.fullName, field.id, field.type, field.rule, undefined, field.options);
+        sisterField.declaringField = field;
+        field.extensionField = sisterField;
+        extendedType.add(sisterField);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Called when any object is added to this root or its sub-namespaces.
+ * @param {ReflectionObject} object Object added
+ * @returns {undefined}
+ * @private
+ */
+Root.prototype._handleAdd = function _handleAdd(object) {
+    if (object instanceof Field) {
+
+        if (/* an extension field (implies not part of a oneof) */ object.extend !== undefined && /* not already handled */ !object.extensionField)
+            if (!tryHandleExtension(this, object))
+                this.deferred.push(object);
+
+    } else if (object instanceof Enum) {
+
+        if (exposeRe.test(object.name))
+            object.parent[object.name] = object.values; // expose enum values as property of its parent
+
+    } else if (!(object instanceof OneOf)) /* everything else is a namespace */ {
+
+        if (object instanceof Type) // Try to handle any deferred extensions
+            for (var i = 0; i < this.deferred.length;)
+                if (tryHandleExtension(this, this.deferred[i]))
+                    this.deferred.splice(i, 1);
+                else
+                    ++i;
+        for (var j = 0; j < /* initializes */ object.nestedArray.length; ++j) // recurse into the namespace
+            this._handleAdd(object._nestedArray[j]);
+        if (exposeRe.test(object.name))
+            object.parent[object.name] = object; // expose namespace as property of its parent
+    }
+
+    // The above also adds uppercased (and thus conflict-free) nested types, services and enums as
+    // properties of namespaces just like static code does. This allows using a .d.ts generated for
+    // a static module with reflection-based solutions where the condition is met.
+};
+
+/**
+ * Called when any object is removed from this root or its sub-namespaces.
+ * @param {ReflectionObject} object Object removed
+ * @returns {undefined}
+ * @private
+ */
+Root.prototype._handleRemove = function _handleRemove(object) {
+    if (object instanceof Field) {
+
+        if (/* an extension field */ object.extend !== undefined) {
+            if (/* already handled */ object.extensionField) { // remove its sister field
+                object.extensionField.parent.remove(object.extensionField);
+                object.extensionField = null;
+            } else { // cancel the extension
+                var index = this.deferred.indexOf(object);
+                /* istanbul ignore else */
+                if (index > -1)
+                    this.deferred.splice(index, 1);
+            }
+        }
+
+    } else if (object instanceof Enum) {
+
+        if (exposeRe.test(object.name))
+            delete object.parent[object.name]; // unexpose enum values
+
+    } else if (object instanceof Namespace) {
+
+        for (var i = 0; i < /* initializes */ object.nestedArray.length; ++i) // recurse into the namespace
+            this._handleRemove(object._nestedArray[i]);
+
+        if (exposeRe.test(object.name))
+            delete object.parent[object.name]; // unexpose namespaces
+
+    }
+};
+
+// Sets up cyclic dependencies (called in index-light)
+Root._configure = function(Type_, parse_, common_) {
+    Type   = Type_;
+    parse  = parse_;
+    common = common_;
+};
+
+
+/***/ }),
+
+/***/ 4529:
+/***/ ((module) => {
+
+"use strict";
+
+module.exports = {};
+
+/**
+ * Named roots.
+ * This is where pbjs stores generated structures (the option `-r, --root` specifies a name).
+ * Can also be used manually to make roots available accross modules.
+ * @name roots
+ * @type {Object.<string,Root>}
+ * @example
+ * // pbjs -r myroot -o compiled.js ...
+ *
+ * // in another module:
+ * require("./compiled.js");
+ *
+ * // in any subsequent module:
+ * var root = protobuf.roots["myroot"];
+ */
+
+
+/***/ }),
+
+/***/ 5047:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+/**
+ * Streaming RPC helpers.
+ * @namespace
+ */
+var rpc = exports;
+
+/**
+ * RPC implementation passed to {@link Service#create} performing a service request on network level, i.e. by utilizing http requests or websockets.
+ * @typedef RPCImpl
+ * @type {function}
+ * @param {Method|rpc.ServiceMethod<Message<{}>,Message<{}>>} method Reflected or static method being called
+ * @param {Uint8Array} requestData Request data
+ * @param {RPCImplCallback} callback Callback function
+ * @returns {undefined}
+ * @example
+ * function rpcImpl(method, requestData, callback) {
+ *     if (protobuf.util.lcFirst(method.name) !== "myMethod") // compatible with static code
+ *         throw Error("no such method");
+ *     asynchronouslyObtainAResponse(requestData, function(err, responseData) {
+ *         callback(err, responseData);
+ *     });
+ * }
+ */
+
+/**
+ * Node-style callback as used by {@link RPCImpl}.
+ * @typedef RPCImplCallback
+ * @type {function}
+ * @param {Error|null} error Error, if any, otherwise `null`
+ * @param {Uint8Array|null} [response] Response data or `null` to signal end of stream, if there hasn't been an error
+ * @returns {undefined}
+ */
+
+rpc.Service = __webpack_require__(7595);
+
+
+/***/ }),
+
+/***/ 7595:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Service;
+
+var util = __webpack_require__(3610);
+
+// Extends EventEmitter
+(Service.prototype = Object.create(util.EventEmitter.prototype)).constructor = Service;
+
+/**
+ * A service method callback as used by {@link rpc.ServiceMethod|ServiceMethod}.
+ *
+ * Differs from {@link RPCImplCallback} in that it is an actual callback of a service method which may not return `response = null`.
+ * @typedef rpc.ServiceMethodCallback
+ * @template TRes extends Message<TRes>
+ * @type {function}
+ * @param {Error|null} error Error, if any
+ * @param {TRes} [response] Response message
+ * @returns {undefined}
+ */
+
+/**
+ * A service method part of a {@link rpc.Service} as created by {@link Service.create}.
+ * @typedef rpc.ServiceMethod
+ * @template TReq extends Message<TReq>
+ * @template TRes extends Message<TRes>
+ * @type {function}
+ * @param {TReq|Properties<TReq>} request Request message or plain object
+ * @param {rpc.ServiceMethodCallback<TRes>} [callback] Node-style callback called with the error, if any, and the response message
+ * @returns {Promise<Message<TRes>>} Promise if `callback` has been omitted, otherwise `undefined`
+ */
+
+/**
+ * Constructs a new RPC service instance.
+ * @classdesc An RPC service as returned by {@link Service#create}.
+ * @exports rpc.Service
+ * @extends util.EventEmitter
+ * @constructor
+ * @param {RPCImpl} rpcImpl RPC implementation
+ * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+ * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+ */
+function Service(rpcImpl, requestDelimited, responseDelimited) {
+
+    if (typeof rpcImpl !== "function")
+        throw TypeError("rpcImpl must be a function");
+
+    util.EventEmitter.call(this);
+
+    /**
+     * RPC implementation. Becomes `null` once the service is ended.
+     * @type {RPCImpl|null}
+     */
+    this.rpcImpl = rpcImpl;
+
+    /**
+     * Whether requests are length-delimited.
+     * @type {boolean}
+     */
+    this.requestDelimited = Boolean(requestDelimited);
+
+    /**
+     * Whether responses are length-delimited.
+     * @type {boolean}
+     */
+    this.responseDelimited = Boolean(responseDelimited);
+}
+
+/**
+ * Calls a service method through {@link rpc.Service#rpcImpl|rpcImpl}.
+ * @param {Method|rpc.ServiceMethod<TReq,TRes>} method Reflected or static method
+ * @param {Constructor<TReq>} requestCtor Request constructor
+ * @param {Constructor<TRes>} responseCtor Response constructor
+ * @param {TReq|Properties<TReq>} request Request message or plain object
+ * @param {rpc.ServiceMethodCallback<TRes>} callback Service callback
+ * @returns {undefined}
+ * @template TReq extends Message<TReq>
+ * @template TRes extends Message<TRes>
+ */
+Service.prototype.rpcCall = function rpcCall(method, requestCtor, responseCtor, request, callback) {
+
+    if (!request)
+        throw TypeError("request must be specified");
+
+    var self = this;
+    if (!callback)
+        return util.asPromise(rpcCall, self, method, requestCtor, responseCtor, request);
+
+    if (!self.rpcImpl) {
+        setTimeout(function() { callback(Error("already ended")); }, 0);
+        return undefined;
+    }
+
+    try {
+        return self.rpcImpl(
+            method,
+            requestCtor[self.requestDelimited ? "encodeDelimited" : "encode"](request).finish(),
+            function rpcCallback(err, response) {
+
+                if (err) {
+                    self.emit("error", err, method);
+                    return callback(err);
+                }
+
+                if (response === null) {
+                    self.end(/* endedByRPC */ true);
+                    return undefined;
+                }
+
+                if (!(response instanceof responseCtor)) {
+                    try {
+                        response = responseCtor[self.responseDelimited ? "decodeDelimited" : "decode"](response);
+                    } catch (err) {
+                        self.emit("error", err, method);
+                        return callback(err);
+                    }
+                }
+
+                self.emit("data", response, method);
+                return callback(null, response);
+            }
+        );
+    } catch (err) {
+        self.emit("error", err, method);
+        setTimeout(function() { callback(err); }, 0);
+        return undefined;
+    }
+};
+
+/**
+ * Ends this service and emits the `end` event.
+ * @param {boolean} [endedByRPC=false] Whether the service has been ended by the RPC implementation.
+ * @returns {rpc.Service} `this`
+ */
+Service.prototype.end = function end(endedByRPC) {
+    if (this.rpcImpl) {
+        if (!endedByRPC) // signal end to rpcImpl
+            this.rpcImpl(null, null, null);
+        this.rpcImpl = null;
+        this.emit("end").off();
+    }
+    return this;
+};
+
+
+/***/ }),
+
+/***/ 9687:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Service;
+
+// extends Namespace
+var Namespace = __webpack_require__(8923);
+((Service.prototype = Object.create(Namespace.prototype)).constructor = Service).className = "Service";
+
+var Method = __webpack_require__(8811),
+    util   = __webpack_require__(3262),
+    rpc    = __webpack_require__(5047);
+
+/**
+ * Constructs a new service instance.
+ * @classdesc Reflected service.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {string} name Service name
+ * @param {Object.<string,*>} [options] Service options
+ * @throws {TypeError} If arguments are invalid
+ */
+function Service(name, options) {
+    Namespace.call(this, name, options);
+
+    /**
+     * Service methods.
+     * @type {Object.<string,Method>}
+     */
+    this.methods = {}; // toJSON, marker
+
+    /**
+     * Cached methods as an array.
+     * @type {Method[]|null}
+     * @private
+     */
+    this._methodsArray = null;
+}
+
+/**
+ * Service descriptor.
+ * @interface IService
+ * @extends INamespace
+ * @property {Object.<string,IMethod>} methods Method descriptors
+ */
+
+/**
+ * Constructs a service from a service descriptor.
+ * @param {string} name Service name
+ * @param {IService} json Service descriptor
+ * @returns {Service} Created service
+ * @throws {TypeError} If arguments are invalid
+ */
+Service.fromJSON = function fromJSON(name, json) {
+    var service = new Service(name, json.options);
+    /* istanbul ignore else */
+    if (json.methods)
+        for (var names = Object.keys(json.methods), i = 0; i < names.length; ++i)
+            service.add(Method.fromJSON(names[i], json.methods[names[i]]));
+    if (json.nested)
+        service.addJSON(json.nested);
+    service.comment = json.comment;
+    return service;
+};
+
+/**
+ * Converts this service to a service descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IService} Service descriptor
+ */
+Service.prototype.toJSON = function toJSON(toJSONOptions) {
+    var inherited = Namespace.prototype.toJSON.call(this, toJSONOptions);
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "options" , inherited && inherited.options || undefined,
+        "methods" , Namespace.arrayToJSON(this.methodsArray, toJSONOptions) || /* istanbul ignore next */ {},
+        "nested"  , inherited && inherited.nested || undefined,
+        "comment" , keepComments ? this.comment : undefined
+    ]);
+};
+
+/**
+ * Methods of this service as an array for iteration.
+ * @name Service#methodsArray
+ * @type {Method[]}
+ * @readonly
+ */
+Object.defineProperty(Service.prototype, "methodsArray", {
+    get: function() {
+        return this._methodsArray || (this._methodsArray = util.toArray(this.methods));
+    }
+});
+
+function clearCache(service) {
+    service._methodsArray = null;
+    return service;
+}
+
+/**
+ * @override
+ */
+Service.prototype.get = function get(name) {
+    return this.methods[name]
+        || Namespace.prototype.get.call(this, name);
+};
+
+/**
+ * @override
+ */
+Service.prototype.resolveAll = function resolveAll() {
+    var methods = this.methodsArray;
+    for (var i = 0; i < methods.length; ++i)
+        methods[i].resolve();
+    return Namespace.prototype.resolve.call(this);
+};
+
+/**
+ * @override
+ */
+Service.prototype.add = function add(object) {
+
+    /* istanbul ignore if */
+    if (this.get(object.name))
+        throw Error("duplicate name '" + object.name + "' in " + this);
+
+    if (object instanceof Method) {
+        this.methods[object.name] = object;
+        object.parent = this;
+        return clearCache(this);
+    }
+    return Namespace.prototype.add.call(this, object);
+};
+
+/**
+ * @override
+ */
+Service.prototype.remove = function remove(object) {
+    if (object instanceof Method) {
+
+        /* istanbul ignore if */
+        if (this.methods[object.name] !== object)
+            throw Error(object + " is not a member of " + this);
+
+        delete this.methods[object.name];
+        object.parent = null;
+        return clearCache(this);
+    }
+    return Namespace.prototype.remove.call(this, object);
+};
+
+/**
+ * Creates a runtime service using the specified rpc implementation.
+ * @param {RPCImpl} rpcImpl RPC implementation
+ * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
+ * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
+ * @returns {rpc.Service} RPC service. Useful where requests and/or responses are streamed.
+ */
+Service.prototype.create = function create(rpcImpl, requestDelimited, responseDelimited) {
+    var rpcService = new rpc.Service(rpcImpl, requestDelimited, responseDelimited);
+    for (var i = 0, method; i < /* initializes */ this.methodsArray.length; ++i) {
+        var methodName = util.lcFirst((method = this._methodsArray[i]).resolve().name).replace(/[^$\w_]/g, "");
+        rpcService[methodName] = util.codegen(["r","c"], util.isReserved(methodName) ? methodName + "_" : methodName)("return this.rpcCall(m,q,s,r,c)")({
+            m: method,
+            q: method.resolvedRequestType.ctor,
+            s: method.resolvedResponseType.ctor
+        });
+    }
+    return rpcService;
+};
+
+
+/***/ }),
+
+/***/ 527:
+/***/ ((module) => {
+
+"use strict";
+
+module.exports = tokenize;
+
+var delimRe        = /[\s{}=;:[\],'"()<>]/g,
+    stringDoubleRe = /(?:"([^"\\]*(?:\\.[^"\\]*)*)")/g,
+    stringSingleRe = /(?:'([^'\\]*(?:\\.[^'\\]*)*)')/g;
+
+var setCommentRe = /^ *[*/]+ */,
+    setCommentAltRe = /^\s*\*?\/*/,
+    setCommentSplitRe = /\n/g,
+    whitespaceRe = /\s/,
+    unescapeRe = /\\(.?)/g;
+
+var unescapeMap = {
+    "0": "\0",
+    "r": "\r",
+    "n": "\n",
+    "t": "\t"
+};
+
+/**
+ * Unescapes a string.
+ * @param {string} str String to unescape
+ * @returns {string} Unescaped string
+ * @property {Object.<string,string>} map Special characters map
+ * @memberof tokenize
+ */
+function unescape(str) {
+    return str.replace(unescapeRe, function($0, $1) {
+        switch ($1) {
+            case "\\":
+            case "":
+                return $1;
+            default:
+                return unescapeMap[$1] || "";
+        }
+    });
+}
+
+tokenize.unescape = unescape;
+
+/**
+ * Gets the next token and advances.
+ * @typedef TokenizerHandleNext
+ * @type {function}
+ * @returns {string|null} Next token or `null` on eof
+ */
+
+/**
+ * Peeks for the next token.
+ * @typedef TokenizerHandlePeek
+ * @type {function}
+ * @returns {string|null} Next token or `null` on eof
+ */
+
+/**
+ * Pushes a token back to the stack.
+ * @typedef TokenizerHandlePush
+ * @type {function}
+ * @param {string} token Token
+ * @returns {undefined}
+ */
+
+/**
+ * Skips the next token.
+ * @typedef TokenizerHandleSkip
+ * @type {function}
+ * @param {string} expected Expected token
+ * @param {boolean} [optional=false] If optional
+ * @returns {boolean} Whether the token matched
+ * @throws {Error} If the token didn't match and is not optional
+ */
+
+/**
+ * Gets the comment on the previous line or, alternatively, the line comment on the specified line.
+ * @typedef TokenizerHandleCmnt
+ * @type {function}
+ * @param {number} [line] Line number
+ * @returns {string|null} Comment text or `null` if none
+ */
+
+/**
+ * Handle object returned from {@link tokenize}.
+ * @interface ITokenizerHandle
+ * @property {TokenizerHandleNext} next Gets the next token and advances (`null` on eof)
+ * @property {TokenizerHandlePeek} peek Peeks for the next token (`null` on eof)
+ * @property {TokenizerHandlePush} push Pushes a token back to the stack
+ * @property {TokenizerHandleSkip} skip Skips a token, returns its presence and advances or, if non-optional and not present, throws
+ * @property {TokenizerHandleCmnt} cmnt Gets the comment on the previous line or the line comment on the specified line, if any
+ * @property {number} line Current line number
+ */
+
+/**
+ * Tokenizes the given .proto source and returns an object with useful utility functions.
+ * @param {string} source Source contents
+ * @param {boolean} alternateCommentMode Whether we should activate alternate comment parsing mode.
+ * @returns {ITokenizerHandle} Tokenizer handle
+ */
+function tokenize(source, alternateCommentMode) {
+    /* eslint-disable callback-return */
+    source = source.toString();
+
+    var offset = 0,
+        length = source.length,
+        line = 1,
+        commentType = null,
+        commentText = null,
+        commentLine = 0,
+        commentLineEmpty = false,
+        commentIsLeading = false;
+
+    var stack = [];
+
+    var stringDelim = null;
+
+    /* istanbul ignore next */
+    /**
+     * Creates an error for illegal syntax.
+     * @param {string} subject Subject
+     * @returns {Error} Error created
+     * @inner
+     */
+    function illegal(subject) {
+        return Error("illegal " + subject + " (line " + line + ")");
+    }
+
+    /**
+     * Reads a string till its end.
+     * @returns {string} String read
+     * @inner
+     */
+    function readString() {
+        var re = stringDelim === "'" ? stringSingleRe : stringDoubleRe;
+        re.lastIndex = offset - 1;
+        var match = re.exec(source);
+        if (!match)
+            throw illegal("string");
+        offset = re.lastIndex;
+        push(stringDelim);
+        stringDelim = null;
+        return unescape(match[1]);
+    }
+
+    /**
+     * Gets the character at `pos` within the source.
+     * @param {number} pos Position
+     * @returns {string} Character
+     * @inner
+     */
+    function charAt(pos) {
+        return source.charAt(pos);
+    }
+
+    /**
+     * Sets the current comment text.
+     * @param {number} start Start offset
+     * @param {number} end End offset
+     * @param {boolean} isLeading set if a leading comment
+     * @returns {undefined}
+     * @inner
+     */
+    function setComment(start, end, isLeading) {
+        commentType = source.charAt(start++);
+        commentLine = line;
+        commentLineEmpty = false;
+        commentIsLeading = isLeading;
+        var lookback;
+        if (alternateCommentMode) {
+            lookback = 2;  // alternate comment parsing: "//" or "/*"
+        } else {
+            lookback = 3;  // "///" or "/**"
+        }
+        var commentOffset = start - lookback,
+            c;
+        do {
+            if (--commentOffset < 0 ||
+                    (c = source.charAt(commentOffset)) === "\n") {
+                commentLineEmpty = true;
+                break;
+            }
+        } while (c === " " || c === "\t");
+        var lines = source
+            .substring(start, end)
+            .split(setCommentSplitRe);
+        for (var i = 0; i < lines.length; ++i)
+            lines[i] = lines[i]
+                .replace(alternateCommentMode ? setCommentAltRe : setCommentRe, "")
+                .trim();
+        commentText = lines
+            .join("\n")
+            .trim();
+    }
+
+    function isDoubleSlashCommentLine(startOffset) {
+        var endOffset = findEndOfLine(startOffset);
+
+        // see if remaining line matches comment pattern
+        var lineText = source.substring(startOffset, endOffset);
+        // look for 1 or 2 slashes since startOffset would already point past
+        // the first slash that started the comment.
+        var isComment = /^\s*\/{1,2}/.test(lineText);
+        return isComment;
+    }
+
+    function findEndOfLine(cursor) {
+        // find end of cursor's line
+        var endOffset = cursor;
+        while (endOffset < length && charAt(endOffset) !== "\n") {
+            endOffset++;
+        }
+        return endOffset;
+    }
+
+    /**
+     * Obtains the next token.
+     * @returns {string|null} Next token or `null` on eof
+     * @inner
+     */
+    function next() {
+        if (stack.length > 0)
+            return stack.shift();
+        if (stringDelim)
+            return readString();
+        var repeat,
+            prev,
+            curr,
+            start,
+            isDoc,
+            isLeadingComment = offset === 0;
+        do {
+            if (offset === length)
+                return null;
+            repeat = false;
+            while (whitespaceRe.test(curr = charAt(offset))) {
+                if (curr === "\n") {
+                    isLeadingComment = true;
+                    ++line;
+                }
+                if (++offset === length)
+                    return null;
+            }
+
+            if (charAt(offset) === "/") {
+                if (++offset === length) {
+                    throw illegal("comment");
+                }
+                if (charAt(offset) === "/") { // Line
+                    if (!alternateCommentMode) {
+                        // check for triple-slash comment
+                        isDoc = charAt(start = offset + 1) === "/";
+
+                        while (charAt(++offset) !== "\n") {
+                            if (offset === length) {
+                                return null;
+                            }
+                        }
+                        ++offset;
+                        if (isDoc) {
+                            setComment(start, offset - 1, isLeadingComment);
+                        }
+                        ++line;
+                        repeat = true;
+                    } else {
+                        // check for double-slash comments, consolidating consecutive lines
+                        start = offset;
+                        isDoc = false;
+                        if (isDoubleSlashCommentLine(offset)) {
+                            isDoc = true;
+                            do {
+                                offset = findEndOfLine(offset);
+                                if (offset === length) {
+                                    break;
+                                }
+                                offset++;
+                            } while (isDoubleSlashCommentLine(offset));
+                        } else {
+                            offset = Math.min(length, findEndOfLine(offset) + 1);
+                        }
+                        if (isDoc) {
+                            setComment(start, offset, isLeadingComment);
+                        }
+                        line++;
+                        repeat = true;
+                    }
+                } else if ((curr = charAt(offset)) === "*") { /* Block */
+                    // check for /** (regular comment mode) or /* (alternate comment mode)
+                    start = offset + 1;
+                    isDoc = alternateCommentMode || charAt(start) === "*";
+                    do {
+                        if (curr === "\n") {
+                            ++line;
+                        }
+                        if (++offset === length) {
+                            throw illegal("comment");
+                        }
+                        prev = curr;
+                        curr = charAt(offset);
+                    } while (prev !== "*" || curr !== "/");
+                    ++offset;
+                    if (isDoc) {
+                        setComment(start, offset - 2, isLeadingComment);
+                    }
+                    repeat = true;
+                } else {
+                    return "/";
+                }
+            }
+        } while (repeat);
+
+        // offset !== length if we got here
+
+        var end = offset;
+        delimRe.lastIndex = 0;
+        var delim = delimRe.test(charAt(end++));
+        if (!delim)
+            while (end < length && !delimRe.test(charAt(end)))
+                ++end;
+        var token = source.substring(offset, offset = end);
+        if (token === "\"" || token === "'")
+            stringDelim = token;
+        return token;
+    }
+
+    /**
+     * Pushes a token back to the stack.
+     * @param {string} token Token
+     * @returns {undefined}
+     * @inner
+     */
+    function push(token) {
+        stack.push(token);
+    }
+
+    /**
+     * Peeks for the next token.
+     * @returns {string|null} Token or `null` on eof
+     * @inner
+     */
+    function peek() {
+        if (!stack.length) {
+            var token = next();
+            if (token === null)
+                return null;
+            push(token);
+        }
+        return stack[0];
+    }
+
+    /**
+     * Skips a token.
+     * @param {string} expected Expected token
+     * @param {boolean} [optional=false] Whether the token is optional
+     * @returns {boolean} `true` when skipped, `false` if not
+     * @throws {Error} When a required token is not present
+     * @inner
+     */
+    function skip(expected, optional) {
+        var actual = peek(),
+            equals = actual === expected;
+        if (equals) {
+            next();
+            return true;
+        }
+        if (!optional)
+            throw illegal("token '" + actual + "', '" + expected + "' expected");
+        return false;
+    }
+
+    /**
+     * Gets a comment.
+     * @param {number} [trailingLine] Line number if looking for a trailing comment
+     * @returns {string|null} Comment text
+     * @inner
+     */
+    function cmnt(trailingLine) {
+        var ret = null;
+        if (trailingLine === undefined) {
+            if (commentLine === line - 1 && (alternateCommentMode || commentType === "*" || commentLineEmpty)) {
+                ret = commentIsLeading ? commentText : null;
+            }
+        } else {
+            /* istanbul ignore else */
+            if (commentLine < trailingLine) {
+                peek();
+            }
+            if (commentLine === trailingLine && !commentLineEmpty && (alternateCommentMode || commentType === "/")) {
+                ret = commentIsLeading ? null : commentText;
+            }
+        }
+        return ret;
+    }
+
+    return Object.defineProperty({
+        next: next,
+        peek: peek,
+        push: push,
+        skip: skip,
+        cmnt: cmnt
+    }, "line", {
+        get: function() { return line; }
+    });
+    /* eslint-enable callback-return */
+}
+
+
+/***/ }),
+
+/***/ 7882:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Type;
+
+// extends Namespace
+var Namespace = __webpack_require__(8923);
+((Type.prototype = Object.create(Namespace.prototype)).constructor = Type).className = "Type";
+
+var Enum      = __webpack_require__(5643),
+    OneOf     = __webpack_require__(1457),
+    Field     = __webpack_require__(1344),
+    MapField  = __webpack_require__(8252),
+    Service   = __webpack_require__(9687),
+    Message   = __webpack_require__(2551),
+    Reader    = __webpack_require__(6237),
+    Writer    = __webpack_require__(3449),
+    util      = __webpack_require__(3262),
+    encoder   = __webpack_require__(1080),
+    decoder   = __webpack_require__(7728),
+    verifier  = __webpack_require__(420),
+    converter = __webpack_require__(744),
+    wrappers  = __webpack_require__(6434);
+
+/**
+ * Constructs a new reflected message type instance.
+ * @classdesc Reflected message type.
+ * @extends NamespaceBase
+ * @constructor
+ * @param {string} name Message name
+ * @param {Object.<string,*>} [options] Declared options
+ */
+function Type(name, options) {
+    Namespace.call(this, name, options);
+
+    /**
+     * Message fields.
+     * @type {Object.<string,Field>}
+     */
+    this.fields = {};  // toJSON, marker
+
+    /**
+     * Oneofs declared within this namespace, if any.
+     * @type {Object.<string,OneOf>}
+     */
+    this.oneofs = undefined; // toJSON
+
+    /**
+     * Extension ranges, if any.
+     * @type {number[][]}
+     */
+    this.extensions = undefined; // toJSON
+
+    /**
+     * Reserved ranges, if any.
+     * @type {Array.<number[]|string>}
+     */
+    this.reserved = undefined; // toJSON
+
+    /*?
+     * Whether this type is a legacy group.
+     * @type {boolean|undefined}
+     */
+    this.group = undefined; // toJSON
+
+    /**
+     * Cached fields by id.
+     * @type {Object.<number,Field>|null}
+     * @private
+     */
+    this._fieldsById = null;
+
+    /**
+     * Cached fields as an array.
+     * @type {Field[]|null}
+     * @private
+     */
+    this._fieldsArray = null;
+
+    /**
+     * Cached oneofs as an array.
+     * @type {OneOf[]|null}
+     * @private
+     */
+    this._oneofsArray = null;
+
+    /**
+     * Cached constructor.
+     * @type {Constructor<{}>}
+     * @private
+     */
+    this._ctor = null;
+}
+
+Object.defineProperties(Type.prototype, {
+
+    /**
+     * Message fields by id.
+     * @name Type#fieldsById
+     * @type {Object.<number,Field>}
+     * @readonly
+     */
+    fieldsById: {
+        get: function() {
+
+            /* istanbul ignore if */
+            if (this._fieldsById)
+                return this._fieldsById;
+
+            this._fieldsById = {};
+            for (var names = Object.keys(this.fields), i = 0; i < names.length; ++i) {
+                var field = this.fields[names[i]],
+                    id = field.id;
+
+                /* istanbul ignore if */
+                if (this._fieldsById[id])
+                    throw Error("duplicate id " + id + " in " + this);
+
+                this._fieldsById[id] = field;
+            }
+            return this._fieldsById;
+        }
+    },
+
+    /**
+     * Fields of this message as an array for iteration.
+     * @name Type#fieldsArray
+     * @type {Field[]}
+     * @readonly
+     */
+    fieldsArray: {
+        get: function() {
+            return this._fieldsArray || (this._fieldsArray = util.toArray(this.fields));
+        }
+    },
+
+    /**
+     * Oneofs of this message as an array for iteration.
+     * @name Type#oneofsArray
+     * @type {OneOf[]}
+     * @readonly
+     */
+    oneofsArray: {
+        get: function() {
+            return this._oneofsArray || (this._oneofsArray = util.toArray(this.oneofs));
+        }
+    },
+
+    /**
+     * The registered constructor, if any registered, otherwise a generic constructor.
+     * Assigning a function replaces the internal constructor. If the function does not extend {@link Message} yet, its prototype will be setup accordingly and static methods will be populated. If it already extends {@link Message}, it will just replace the internal constructor.
+     * @name Type#ctor
+     * @type {Constructor<{}>}
+     */
+    ctor: {
+        get: function() {
+            return this._ctor || (this.ctor = Type.generateConstructor(this)());
+        },
+        set: function(ctor) {
+
+            // Ensure proper prototype
+            var prototype = ctor.prototype;
+            if (!(prototype instanceof Message)) {
+                (ctor.prototype = new Message()).constructor = ctor;
+                util.merge(ctor.prototype, prototype);
+            }
+
+            // Classes and messages reference their reflected type
+            ctor.$type = ctor.prototype.$type = this;
+
+            // Mix in static methods
+            util.merge(ctor, Message, true);
+
+            this._ctor = ctor;
+
+            // Messages have non-enumerable default values on their prototype
+            var i = 0;
+            for (; i < /* initializes */ this.fieldsArray.length; ++i)
+                this._fieldsArray[i].resolve(); // ensures a proper value
+
+            // Messages have non-enumerable getters and setters for each virtual oneof field
+            var ctorProperties = {};
+            for (i = 0; i < /* initializes */ this.oneofsArray.length; ++i)
+                ctorProperties[this._oneofsArray[i].resolve().name] = {
+                    get: util.oneOfGetter(this._oneofsArray[i].oneof),
+                    set: util.oneOfSetter(this._oneofsArray[i].oneof)
+                };
+            if (i)
+                Object.defineProperties(ctor.prototype, ctorProperties);
+        }
+    }
+});
+
+/**
+ * Generates a constructor function for the specified type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+Type.generateConstructor = function generateConstructor(mtype) {
+    /* eslint-disable no-unexpected-multiline */
+    var gen = util.codegen(["p"], mtype.name);
+    // explicitly initialize mutable object/array fields so that these aren't just inherited from the prototype
+    for (var i = 0, field; i < mtype.fieldsArray.length; ++i)
+        if ((field = mtype._fieldsArray[i]).map) gen
+            ("this%s={}", util.safeProp(field.name));
+        else if (field.repeated) gen
+            ("this%s=[]", util.safeProp(field.name));
+    return gen
+    ("if(p)for(var ks=Object.keys(p),i=0;i<ks.length;++i)if(p[ks[i]]!=null)") // omit undefined or null
+        ("this[ks[i]]=p[ks[i]]");
+    /* eslint-enable no-unexpected-multiline */
+};
+
+function clearCache(type) {
+    type._fieldsById = type._fieldsArray = type._oneofsArray = null;
+    delete type.encode;
+    delete type.decode;
+    delete type.verify;
+    return type;
+}
+
+/**
+ * Message type descriptor.
+ * @interface IType
+ * @extends INamespace
+ * @property {Object.<string,IOneOf>} [oneofs] Oneof descriptors
+ * @property {Object.<string,IField>} fields Field descriptors
+ * @property {number[][]} [extensions] Extension ranges
+ * @property {number[][]} [reserved] Reserved ranges
+ * @property {boolean} [group=false] Whether a legacy group or not
+ */
+
+/**
+ * Creates a message type from a message type descriptor.
+ * @param {string} name Message name
+ * @param {IType} json Message type descriptor
+ * @returns {Type} Created message type
+ */
+Type.fromJSON = function fromJSON(name, json) {
+    var type = new Type(name, json.options);
+    type.extensions = json.extensions;
+    type.reserved = json.reserved;
+    var names = Object.keys(json.fields),
+        i = 0;
+    for (; i < names.length; ++i)
+        type.add(
+            ( typeof json.fields[names[i]].keyType !== "undefined"
+            ? MapField.fromJSON
+            : Field.fromJSON )(names[i], json.fields[names[i]])
+        );
+    if (json.oneofs)
+        for (names = Object.keys(json.oneofs), i = 0; i < names.length; ++i)
+            type.add(OneOf.fromJSON(names[i], json.oneofs[names[i]]));
+    if (json.nested)
+        for (names = Object.keys(json.nested), i = 0; i < names.length; ++i) {
+            var nested = json.nested[names[i]];
+            type.add( // most to least likely
+                ( nested.id !== undefined
+                ? Field.fromJSON
+                : nested.fields !== undefined
+                ? Type.fromJSON
+                : nested.values !== undefined
+                ? Enum.fromJSON
+                : nested.methods !== undefined
+                ? Service.fromJSON
+                : Namespace.fromJSON )(names[i], nested)
+            );
+        }
+    if (json.extensions && json.extensions.length)
+        type.extensions = json.extensions;
+    if (json.reserved && json.reserved.length)
+        type.reserved = json.reserved;
+    if (json.group)
+        type.group = true;
+    if (json.comment)
+        type.comment = json.comment;
+    return type;
+};
+
+/**
+ * Converts this message type to a message type descriptor.
+ * @param {IToJSONOptions} [toJSONOptions] JSON conversion options
+ * @returns {IType} Message type descriptor
+ */
+Type.prototype.toJSON = function toJSON(toJSONOptions) {
+    var inherited = Namespace.prototype.toJSON.call(this, toJSONOptions);
+    var keepComments = toJSONOptions ? Boolean(toJSONOptions.keepComments) : false;
+    return util.toObject([
+        "options"    , inherited && inherited.options || undefined,
+        "oneofs"     , Namespace.arrayToJSON(this.oneofsArray, toJSONOptions),
+        "fields"     , Namespace.arrayToJSON(this.fieldsArray.filter(function(obj) { return !obj.declaringField; }), toJSONOptions) || {},
+        "extensions" , this.extensions && this.extensions.length ? this.extensions : undefined,
+        "reserved"   , this.reserved && this.reserved.length ? this.reserved : undefined,
+        "group"      , this.group || undefined,
+        "nested"     , inherited && inherited.nested || undefined,
+        "comment"    , keepComments ? this.comment : undefined
+    ]);
+};
+
+/**
+ * @override
+ */
+Type.prototype.resolveAll = function resolveAll() {
+    var fields = this.fieldsArray, i = 0;
+    while (i < fields.length)
+        fields[i++].resolve();
+    var oneofs = this.oneofsArray; i = 0;
+    while (i < oneofs.length)
+        oneofs[i++].resolve();
+    return Namespace.prototype.resolveAll.call(this);
+};
+
+/**
+ * @override
+ */
+Type.prototype.get = function get(name) {
+    return this.fields[name]
+        || this.oneofs && this.oneofs[name]
+        || this.nested && this.nested[name]
+        || null;
+};
+
+/**
+ * Adds a nested object to this type.
+ * @param {ReflectionObject} object Nested object to add
+ * @returns {Type} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If there is already a nested object with this name or, if a field, when there is already a field with this id
+ */
+Type.prototype.add = function add(object) {
+
+    if (this.get(object.name))
+        throw Error("duplicate name '" + object.name + "' in " + this);
+
+    if (object instanceof Field && object.extend === undefined) {
+        // NOTE: Extension fields aren't actual fields on the declaring type, but nested objects.
+        // The root object takes care of adding distinct sister-fields to the respective extended
+        // type instead.
+
+        // avoids calling the getter if not absolutely necessary because it's called quite frequently
+        if (this._fieldsById ? /* istanbul ignore next */ this._fieldsById[object.id] : this.fieldsById[object.id])
+            throw Error("duplicate id " + object.id + " in " + this);
+        if (this.isReservedId(object.id))
+            throw Error("id " + object.id + " is reserved in " + this);
+        if (this.isReservedName(object.name))
+            throw Error("name '" + object.name + "' is reserved in " + this);
+
+        if (object.parent)
+            object.parent.remove(object);
+        this.fields[object.name] = object;
+        object.message = this;
+        object.onAdd(this);
+        return clearCache(this);
+    }
+    if (object instanceof OneOf) {
+        if (!this.oneofs)
+            this.oneofs = {};
+        this.oneofs[object.name] = object;
+        object.onAdd(this);
+        return clearCache(this);
+    }
+    return Namespace.prototype.add.call(this, object);
+};
+
+/**
+ * Removes a nested object from this type.
+ * @param {ReflectionObject} object Nested object to remove
+ * @returns {Type} `this`
+ * @throws {TypeError} If arguments are invalid
+ * @throws {Error} If `object` is not a member of this type
+ */
+Type.prototype.remove = function remove(object) {
+    if (object instanceof Field && object.extend === undefined) {
+        // See Type#add for the reason why extension fields are excluded here.
+
+        /* istanbul ignore if */
+        if (!this.fields || this.fields[object.name] !== object)
+            throw Error(object + " is not a member of " + this);
+
+        delete this.fields[object.name];
+        object.parent = null;
+        object.onRemove(this);
+        return clearCache(this);
+    }
+    if (object instanceof OneOf) {
+
+        /* istanbul ignore if */
+        if (!this.oneofs || this.oneofs[object.name] !== object)
+            throw Error(object + " is not a member of " + this);
+
+        delete this.oneofs[object.name];
+        object.parent = null;
+        object.onRemove(this);
+        return clearCache(this);
+    }
+    return Namespace.prototype.remove.call(this, object);
+};
+
+/**
+ * Tests if the specified id is reserved.
+ * @param {number} id Id to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Type.prototype.isReservedId = function isReservedId(id) {
+    return Namespace.isReservedId(this.reserved, id);
+};
+
+/**
+ * Tests if the specified name is reserved.
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+Type.prototype.isReservedName = function isReservedName(name) {
+    return Namespace.isReservedName(this.reserved, name);
+};
+
+/**
+ * Creates a new message of this type using the specified properties.
+ * @param {Object.<string,*>} [properties] Properties to set
+ * @returns {Message<{}>} Message instance
+ */
+Type.prototype.create = function create(properties) {
+    return new this.ctor(properties);
+};
+
+/**
+ * Sets up {@link Type#encode|encode}, {@link Type#decode|decode} and {@link Type#verify|verify}.
+ * @returns {Type} `this`
+ */
+Type.prototype.setup = function setup() {
+    // Sets up everything at once so that the prototype chain does not have to be re-evaluated
+    // multiple times (V8, soft-deopt prototype-check).
+
+    var fullName = this.fullName,
+        types    = [];
+    for (var i = 0; i < /* initializes */ this.fieldsArray.length; ++i)
+        types.push(this._fieldsArray[i].resolve().resolvedType);
+
+    // Replace setup methods with type-specific generated functions
+    this.encode = encoder(this)({
+        Writer : Writer,
+        types  : types,
+        util   : util
+    });
+    this.decode = decoder(this)({
+        Reader : Reader,
+        types  : types,
+        util   : util
+    });
+    this.verify = verifier(this)({
+        types : types,
+        util  : util
+    });
+    this.fromObject = converter.fromObject(this)({
+        types : types,
+        util  : util
+    });
+    this.toObject = converter.toObject(this)({
+        types : types,
+        util  : util
+    });
+
+    // Inject custom wrappers for common types
+    var wrapper = wrappers[fullName];
+    if (wrapper) {
+        var originalThis = Object.create(this);
+        // if (wrapper.fromObject) {
+            originalThis.fromObject = this.fromObject;
+            this.fromObject = wrapper.fromObject.bind(originalThis);
+        // }
+        // if (wrapper.toObject) {
+            originalThis.toObject = this.toObject;
+            this.toObject = wrapper.toObject.bind(originalThis);
+        // }
+    }
+
+    return this;
+};
+
+/**
+ * Encodes a message of this type. Does not implicitly {@link Type#verify|verify} messages.
+ * @param {Message<{}>|Object.<string,*>} message Message instance or plain object
+ * @param {Writer} [writer] Writer to encode to
+ * @returns {Writer} writer
+ */
+Type.prototype.encode = function encode_setup(message, writer) {
+    return this.setup().encode(message, writer); // overrides this method
+};
+
+/**
+ * Encodes a message of this type preceeded by its byte length as a varint. Does not implicitly {@link Type#verify|verify} messages.
+ * @param {Message<{}>|Object.<string,*>} message Message instance or plain object
+ * @param {Writer} [writer] Writer to encode to
+ * @returns {Writer} writer
+ */
+Type.prototype.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+};
+
+/**
+ * Decodes a message of this type.
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode from
+ * @param {number} [length] Length of the message, if known beforehand
+ * @returns {Message<{}>} Decoded message
+ * @throws {Error} If the payload is not a reader or valid buffer
+ * @throws {util.ProtocolError<{}>} If required fields are missing
+ */
+Type.prototype.decode = function decode_setup(reader, length) {
+    return this.setup().decode(reader, length); // overrides this method
+};
+
+/**
+ * Decodes a message of this type preceeded by its byte length as a varint.
+ * @param {Reader|Uint8Array} reader Reader or buffer to decode from
+ * @returns {Message<{}>} Decoded message
+ * @throws {Error} If the payload is not a reader or valid buffer
+ * @throws {util.ProtocolError} If required fields are missing
+ */
+Type.prototype.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof Reader))
+        reader = Reader.create(reader);
+    return this.decode(reader, reader.uint32());
+};
+
+/**
+ * Verifies that field values are valid and that required fields are present.
+ * @param {Object.<string,*>} message Plain object to verify
+ * @returns {null|string} `null` if valid, otherwise the reason why it is not
+ */
+Type.prototype.verify = function verify_setup(message) {
+    return this.setup().verify(message); // overrides this method
+};
+
+/**
+ * Creates a new message of this type from a plain object. Also converts values to their respective internal types.
+ * @param {Object.<string,*>} object Plain object to convert
+ * @returns {Message<{}>} Message instance
+ */
+Type.prototype.fromObject = function fromObject(object) {
+    return this.setup().fromObject(object);
+};
+
+/**
+ * Conversion options as used by {@link Type#toObject} and {@link Message.toObject}.
+ * @interface IConversionOptions
+ * @property {Function} [longs] Long conversion type.
+ * Valid values are `String` and `Number` (the global types).
+ * Defaults to copy the present value, which is a possibly unsafe number without and a {@link Long} with a long library.
+ * @property {Function} [enums] Enum value conversion type.
+ * Only valid value is `String` (the global type).
+ * Defaults to copy the present value, which is the numeric id.
+ * @property {Function} [bytes] Bytes value conversion type.
+ * Valid values are `Array` and (a base64 encoded) `String` (the global types).
+ * Defaults to copy the present value, which usually is a Buffer under node and an Uint8Array in the browser.
+ * @property {boolean} [defaults=false] Also sets default values on the resulting object
+ * @property {boolean} [arrays=false] Sets empty arrays for missing repeated fields even if `defaults=false`
+ * @property {boolean} [objects=false] Sets empty objects for missing map fields even if `defaults=false`
+ * @property {boolean} [oneofs=false] Includes virtual oneof properties set to the present field's name, if any
+ * @property {boolean} [json=false] Performs additional JSON compatibility conversions, i.e. NaN and Infinity to strings
+ */
+
+/**
+ * Creates a plain object from a message of this type. Also converts values to other types if specified.
+ * @param {Message<{}>} message Message instance
+ * @param {IConversionOptions} [options] Conversion options
+ * @returns {Object.<string,*>} Plain object
+ */
+Type.prototype.toObject = function toObject(message, options) {
+    return this.setup().toObject(message, options);
+};
+
+/**
+ * Decorator function as returned by {@link Type.d} (TypeScript).
+ * @typedef TypeDecorator
+ * @type {function}
+ * @param {Constructor<T>} target Target constructor
+ * @returns {undefined}
+ * @template T extends Message<T>
+ */
+
+/**
+ * Type decorator (TypeScript).
+ * @param {string} [typeName] Type name, defaults to the constructor's name
+ * @returns {TypeDecorator<T>} Decorator function
+ * @template T extends Message<T>
+ */
+Type.d = function decorateType(typeName) {
+    return function typeDecorator(target) {
+        util.decorateType(target, typeName);
+    };
+};
+
+
+/***/ }),
+
+/***/ 361:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+/**
+ * Common type constants.
+ * @namespace
+ */
+var types = exports;
+
+var util = __webpack_require__(3262);
+
+var s = [
+    "double",   // 0
+    "float",    // 1
+    "int32",    // 2
+    "uint32",   // 3
+    "sint32",   // 4
+    "fixed32",  // 5
+    "sfixed32", // 6
+    "int64",    // 7
+    "uint64",   // 8
+    "sint64",   // 9
+    "fixed64",  // 10
+    "sfixed64", // 11
+    "bool",     // 12
+    "string",   // 13
+    "bytes"     // 14
+];
+
+function bake(values, offset) {
+    var i = 0, o = {};
+    offset |= 0;
+    while (i < values.length) o[s[i + offset]] = values[i++];
+    return o;
+}
+
+/**
+ * Basic type wire types.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} double=1 Fixed64 wire type
+ * @property {number} float=5 Fixed32 wire type
+ * @property {number} int32=0 Varint wire type
+ * @property {number} uint32=0 Varint wire type
+ * @property {number} sint32=0 Varint wire type
+ * @property {number} fixed32=5 Fixed32 wire type
+ * @property {number} sfixed32=5 Fixed32 wire type
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ * @property {number} bool=0 Varint wire type
+ * @property {number} string=2 Ldelim wire type
+ * @property {number} bytes=2 Ldelim wire type
+ */
+types.basic = bake([
+    /* double   */ 1,
+    /* float    */ 5,
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 5,
+    /* sfixed32 */ 5,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1,
+    /* bool     */ 0,
+    /* string   */ 2,
+    /* bytes    */ 2
+]);
+
+/**
+ * Basic type defaults.
+ * @type {Object.<string,*>}
+ * @const
+ * @property {number} double=0 Double default
+ * @property {number} float=0 Float default
+ * @property {number} int32=0 Int32 default
+ * @property {number} uint32=0 Uint32 default
+ * @property {number} sint32=0 Sint32 default
+ * @property {number} fixed32=0 Fixed32 default
+ * @property {number} sfixed32=0 Sfixed32 default
+ * @property {number} int64=0 Int64 default
+ * @property {number} uint64=0 Uint64 default
+ * @property {number} sint64=0 Sint32 default
+ * @property {number} fixed64=0 Fixed64 default
+ * @property {number} sfixed64=0 Sfixed64 default
+ * @property {boolean} bool=false Bool default
+ * @property {string} string="" String default
+ * @property {Array.<number>} bytes=Array(0) Bytes default
+ * @property {null} message=null Message default
+ */
+types.defaults = bake([
+    /* double   */ 0,
+    /* float    */ 0,
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 0,
+    /* sfixed32 */ 0,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 0,
+    /* sfixed64 */ 0,
+    /* bool     */ false,
+    /* string   */ "",
+    /* bytes    */ util.emptyArray,
+    /* message  */ null
+]);
+
+/**
+ * Basic long type wire types.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ */
+types.long = bake([
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1
+], 7);
+
+/**
+ * Allowed types for map keys with their associated wire type.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} int32=0 Varint wire type
+ * @property {number} uint32=0 Varint wire type
+ * @property {number} sint32=0 Varint wire type
+ * @property {number} fixed32=5 Fixed32 wire type
+ * @property {number} sfixed32=5 Fixed32 wire type
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ * @property {number} bool=0 Varint wire type
+ * @property {number} string=2 Ldelim wire type
+ */
+types.mapKey = bake([
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 5,
+    /* sfixed32 */ 5,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1,
+    /* bool     */ 0,
+    /* string   */ 2
+], 2);
+
+/**
+ * Allowed types for packed repeated fields with their associated wire type.
+ * @type {Object.<string,number>}
+ * @const
+ * @property {number} double=1 Fixed64 wire type
+ * @property {number} float=5 Fixed32 wire type
+ * @property {number} int32=0 Varint wire type
+ * @property {number} uint32=0 Varint wire type
+ * @property {number} sint32=0 Varint wire type
+ * @property {number} fixed32=5 Fixed32 wire type
+ * @property {number} sfixed32=5 Fixed32 wire type
+ * @property {number} int64=0 Varint wire type
+ * @property {number} uint64=0 Varint wire type
+ * @property {number} sint64=0 Varint wire type
+ * @property {number} fixed64=1 Fixed64 wire type
+ * @property {number} sfixed64=1 Fixed64 wire type
+ * @property {number} bool=0 Varint wire type
+ */
+types.packed = bake([
+    /* double   */ 1,
+    /* float    */ 5,
+    /* int32    */ 0,
+    /* uint32   */ 0,
+    /* sint32   */ 0,
+    /* fixed32  */ 5,
+    /* sfixed32 */ 5,
+    /* int64    */ 0,
+    /* uint64   */ 0,
+    /* sint64   */ 0,
+    /* fixed64  */ 1,
+    /* sfixed64 */ 1,
+    /* bool     */ 0
+]);
+
+
+/***/ }),
+
+/***/ 3262:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+/**
+ * Various utility functions.
+ * @namespace
+ */
+var util = module.exports = __webpack_require__(3610);
+
+var roots = __webpack_require__(4529);
+
+var Type, // cyclic
+    Enum;
+
+util.codegen = __webpack_require__(8561);
+util.fetch   = __webpack_require__(5212);
+util.path    = __webpack_require__(9207);
+
+/**
+ * Node's fs module if available.
+ * @type {Object.<string,*>}
+ */
+util.fs = util.inquire("fs");
+
+/**
+ * Converts an object's values to an array.
+ * @param {Object.<string,*>} object Object to convert
+ * @returns {Array.<*>} Converted array
+ */
+util.toArray = function toArray(object) {
+    if (object) {
+        var keys  = Object.keys(object),
+            array = new Array(keys.length),
+            index = 0;
+        while (index < keys.length)
+            array[index] = object[keys[index++]];
+        return array;
+    }
+    return [];
+};
+
+/**
+ * Converts an array of keys immediately followed by their respective value to an object, omitting undefined values.
+ * @param {Array.<*>} array Array to convert
+ * @returns {Object.<string,*>} Converted object
+ */
+util.toObject = function toObject(array) {
+    var object = {},
+        index  = 0;
+    while (index < array.length) {
+        var key = array[index++],
+            val = array[index++];
+        if (val !== undefined)
+            object[key] = val;
+    }
+    return object;
+};
+
+var safePropBackslashRe = /\\/g,
+    safePropQuoteRe     = /"/g;
+
+/**
+ * Tests whether the specified name is a reserved word in JS.
+ * @param {string} name Name to test
+ * @returns {boolean} `true` if reserved, otherwise `false`
+ */
+util.isReserved = function isReserved(name) {
+    return /^(?:do|if|in|for|let|new|try|var|case|else|enum|eval|false|null|this|true|void|with|break|catch|class|const|super|throw|while|yield|delete|export|import|public|return|static|switch|typeof|default|extends|finally|package|private|continue|debugger|function|arguments|interface|protected|implements|instanceof)$/.test(name);
+};
+
+/**
+ * Returns a safe property accessor for the specified property name.
+ * @param {string} prop Property name
+ * @returns {string} Safe accessor
+ */
+util.safeProp = function safeProp(prop) {
+    if (!/^[$\w_]+$/.test(prop) || util.isReserved(prop))
+        return "[\"" + prop.replace(safePropBackslashRe, "\\\\").replace(safePropQuoteRe, "\\\"") + "\"]";
+    return "." + prop;
+};
+
+/**
+ * Converts the first character of a string to upper case.
+ * @param {string} str String to convert
+ * @returns {string} Converted string
+ */
+util.ucFirst = function ucFirst(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+};
+
+var camelCaseRe = /_([a-z])/g;
+
+/**
+ * Converts a string to camel case.
+ * @param {string} str String to convert
+ * @returns {string} Converted string
+ */
+util.camelCase = function camelCase(str) {
+    return str.substring(0, 1)
+         + str.substring(1)
+               .replace(camelCaseRe, function($0, $1) { return $1.toUpperCase(); });
+};
+
+/**
+ * Compares reflected fields by id.
+ * @param {Field} a First field
+ * @param {Field} b Second field
+ * @returns {number} Comparison value
+ */
+util.compareFieldsById = function compareFieldsById(a, b) {
+    return a.id - b.id;
+};
+
+/**
+ * Decorator helper for types (TypeScript).
+ * @param {Constructor<T>} ctor Constructor function
+ * @param {string} [typeName] Type name, defaults to the constructor's name
+ * @returns {Type} Reflected type
+ * @template T extends Message<T>
+ * @property {Root} root Decorators root
+ */
+util.decorateType = function decorateType(ctor, typeName) {
+
+    /* istanbul ignore if */
+    if (ctor.$type) {
+        if (typeName && ctor.$type.name !== typeName) {
+            util.decorateRoot.remove(ctor.$type);
+            ctor.$type.name = typeName;
+            util.decorateRoot.add(ctor.$type);
+        }
+        return ctor.$type;
+    }
+
+    /* istanbul ignore next */
+    if (!Type)
+        Type = __webpack_require__(7882);
+
+    var type = new Type(typeName || ctor.name);
+    util.decorateRoot.add(type);
+    type.ctor = ctor; // sets up .encode, .decode etc.
+    Object.defineProperty(ctor, "$type", { value: type, enumerable: false });
+    Object.defineProperty(ctor.prototype, "$type", { value: type, enumerable: false });
+    return type;
+};
+
+var decorateEnumIndex = 0;
+
+/**
+ * Decorator helper for enums (TypeScript).
+ * @param {Object} object Enum object
+ * @returns {Enum} Reflected enum
+ */
+util.decorateEnum = function decorateEnum(object) {
+
+    /* istanbul ignore if */
+    if (object.$type)
+        return object.$type;
+
+    /* istanbul ignore next */
+    if (!Enum)
+        Enum = __webpack_require__(5643);
+
+    var enm = new Enum("Enum" + decorateEnumIndex++, object);
+    util.decorateRoot.add(enm);
+    Object.defineProperty(object, "$type", { value: enm, enumerable: false });
+    return enm;
+};
+
+
+/**
+ * Sets the value of a property by property path. If a value already exists, it is turned to an array
+ * @param {Object.<string,*>} dst Destination object
+ * @param {string} path dot '.' delimited path of the property to set
+ * @param {Object} value the value to set
+ * @returns {Object.<string,*>} Destination object
+ */
+util.setProperty = function setProperty(dst, path, value) {
+    function setProp(dst, path, value) {
+        var part = path.shift();
+        if (part === "__proto__" || part === "prototype") {
+          return dst;
+        }
+        if (path.length > 0) {
+            dst[part] = setProp(dst[part] || {}, path, value);
+        } else {
+            var prevValue = dst[part];
+            if (prevValue)
+                value = [].concat(prevValue).concat(value);
+            dst[part] = value;
+        }
+        return dst;
+    }
+
+    if (typeof dst !== "object")
+        throw TypeError("dst must be an object");
+    if (!path)
+        throw TypeError("path must be specified");
+
+    path = path.split(".");
+    return setProp(dst, path, value);
+};
+
+/**
+ * Decorator root (TypeScript).
+ * @name util.decorateRoot
+ * @type {Root}
+ * @readonly
+ */
+Object.defineProperty(util, "decorateRoot", {
+    get: function() {
+        return roots["decorated"] || (roots["decorated"] = new (__webpack_require__(5330))());
+    }
+});
+
+
+/***/ }),
+
+/***/ 2239:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = LongBits;
+
+var util = __webpack_require__(3610);
+
+/**
+ * Constructs new long bits.
+ * @classdesc Helper class for working with the low and high bits of a 64 bit value.
+ * @memberof util
+ * @constructor
+ * @param {number} lo Low 32 bits, unsigned
+ * @param {number} hi High 32 bits, unsigned
+ */
+function LongBits(lo, hi) {
+
+    // note that the casts below are theoretically unnecessary as of today, but older statically
+    // generated converter code might still call the ctor with signed 32bits. kept for compat.
+
+    /**
+     * Low bits.
+     * @type {number}
+     */
+    this.lo = lo >>> 0;
+
+    /**
+     * High bits.
+     * @type {number}
+     */
+    this.hi = hi >>> 0;
+}
+
+/**
+ * Zero bits.
+ * @memberof util.LongBits
+ * @type {util.LongBits}
+ */
+var zero = LongBits.zero = new LongBits(0, 0);
+
+zero.toNumber = function() { return 0; };
+zero.zzEncode = zero.zzDecode = function() { return this; };
+zero.length = function() { return 1; };
+
+/**
+ * Zero hash.
+ * @memberof util.LongBits
+ * @type {string}
+ */
+var zeroHash = LongBits.zeroHash = "\0\0\0\0\0\0\0\0";
+
+/**
+ * Constructs new long bits from the specified number.
+ * @param {number} value Value
+ * @returns {util.LongBits} Instance
+ */
+LongBits.fromNumber = function fromNumber(value) {
+    if (value === 0)
+        return zero;
+    var sign = value < 0;
+    if (sign)
+        value = -value;
+    var lo = value >>> 0,
+        hi = (value - lo) / 4294967296 >>> 0;
+    if (sign) {
+        hi = ~hi >>> 0;
+        lo = ~lo >>> 0;
+        if (++lo > 4294967295) {
+            lo = 0;
+            if (++hi > 4294967295)
+                hi = 0;
+        }
+    }
+    return new LongBits(lo, hi);
+};
+
+/**
+ * Constructs new long bits from a number, long or string.
+ * @param {Long|number|string} value Value
+ * @returns {util.LongBits} Instance
+ */
+LongBits.from = function from(value) {
+    if (typeof value === "number")
+        return LongBits.fromNumber(value);
+    if (util.isString(value)) {
+        /* istanbul ignore else */
+        if (util.Long)
+            value = util.Long.fromString(value);
+        else
+            return LongBits.fromNumber(parseInt(value, 10));
+    }
+    return value.low || value.high ? new LongBits(value.low >>> 0, value.high >>> 0) : zero;
+};
+
+/**
+ * Converts this long bits to a possibly unsafe JavaScript number.
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {number} Possibly unsafe number
+ */
+LongBits.prototype.toNumber = function toNumber(unsigned) {
+    if (!unsigned && this.hi >>> 31) {
+        var lo = ~this.lo + 1 >>> 0,
+            hi = ~this.hi     >>> 0;
+        if (!lo)
+            hi = hi + 1 >>> 0;
+        return -(lo + hi * 4294967296);
+    }
+    return this.lo + this.hi * 4294967296;
+};
+
+/**
+ * Converts this long bits to a long.
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {Long} Long
+ */
+LongBits.prototype.toLong = function toLong(unsigned) {
+    return util.Long
+        ? new util.Long(this.lo | 0, this.hi | 0, Boolean(unsigned))
+        /* istanbul ignore next */
+        : { low: this.lo | 0, high: this.hi | 0, unsigned: Boolean(unsigned) };
+};
+
+var charCodeAt = String.prototype.charCodeAt;
+
+/**
+ * Constructs new long bits from the specified 8 characters long hash.
+ * @param {string} hash Hash
+ * @returns {util.LongBits} Bits
+ */
+LongBits.fromHash = function fromHash(hash) {
+    if (hash === zeroHash)
+        return zero;
+    return new LongBits(
+        ( charCodeAt.call(hash, 0)
+        | charCodeAt.call(hash, 1) << 8
+        | charCodeAt.call(hash, 2) << 16
+        | charCodeAt.call(hash, 3) << 24) >>> 0
+    ,
+        ( charCodeAt.call(hash, 4)
+        | charCodeAt.call(hash, 5) << 8
+        | charCodeAt.call(hash, 6) << 16
+        | charCodeAt.call(hash, 7) << 24) >>> 0
+    );
+};
+
+/**
+ * Converts this long bits to a 8 characters long hash.
+ * @returns {string} Hash
+ */
+LongBits.prototype.toHash = function toHash() {
+    return String.fromCharCode(
+        this.lo        & 255,
+        this.lo >>> 8  & 255,
+        this.lo >>> 16 & 255,
+        this.lo >>> 24      ,
+        this.hi        & 255,
+        this.hi >>> 8  & 255,
+        this.hi >>> 16 & 255,
+        this.hi >>> 24
+    );
+};
+
+/**
+ * Zig-zag encodes this long bits.
+ * @returns {util.LongBits} `this`
+ */
+LongBits.prototype.zzEncode = function zzEncode() {
+    var mask =   this.hi >> 31;
+    this.hi  = ((this.hi << 1 | this.lo >>> 31) ^ mask) >>> 0;
+    this.lo  = ( this.lo << 1                   ^ mask) >>> 0;
+    return this;
+};
+
+/**
+ * Zig-zag decodes this long bits.
+ * @returns {util.LongBits} `this`
+ */
+LongBits.prototype.zzDecode = function zzDecode() {
+    var mask = -(this.lo & 1);
+    this.lo  = ((this.lo >>> 1 | this.hi << 31) ^ mask) >>> 0;
+    this.hi  = ( this.hi >>> 1                  ^ mask) >>> 0;
+    return this;
+};
+
+/**
+ * Calculates the length of this longbits when encoded as a varint.
+ * @returns {number} Length
+ */
+LongBits.prototype.length = function length() {
+    var part0 =  this.lo,
+        part1 = (this.lo >>> 28 | this.hi << 4) >>> 0,
+        part2 =  this.hi >>> 24;
+    return part2 === 0
+         ? part1 === 0
+           ? part0 < 16384
+             ? part0 < 128 ? 1 : 2
+             : part0 < 2097152 ? 3 : 4
+           : part1 < 16384
+             ? part1 < 128 ? 5 : 6
+             : part1 < 2097152 ? 7 : 8
+         : part2 < 128 ? 9 : 10;
+};
+
+
+/***/ }),
+
+/***/ 3610:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var util = exports;
+
+// used to return a Promise where callback is omitted
+util.asPromise = __webpack_require__(8045);
+
+// converts to / from base64 encoded strings
+util.base64 = __webpack_require__(8839);
+
+// base class of rpc.Service
+util.EventEmitter = __webpack_require__(4358);
+
+// float handling accross browsers
+util.float = __webpack_require__(9410);
+
+// requires modules optionally and hides the call from bundlers
+util.inquire = __webpack_require__(4153);
+
+// converts to / from utf8 encoded strings
+util.utf8 = __webpack_require__(1447);
+
+// provides a node-like buffer pool in the browser
+util.pool = __webpack_require__(9390);
+
+// utility to work with the low and high bits of a 64 bit value
+util.LongBits = __webpack_require__(2239);
+
+/**
+ * Whether running within node or not.
+ * @memberof util
+ * @type {boolean}
+ */
+util.isNode = Boolean(typeof __webpack_require__.g !== "undefined"
+                   && __webpack_require__.g
+                   && __webpack_require__.g.process
+                   && __webpack_require__.g.process.versions
+                   && __webpack_require__.g.process.versions.node);
+
+/**
+ * Global object reference.
+ * @memberof util
+ * @type {Object}
+ */
+util.global = util.isNode && __webpack_require__.g
+           || typeof window !== "undefined" && window
+           || typeof self   !== "undefined" && self
+           || this; // eslint-disable-line no-invalid-this
+
+/**
+ * An immuable empty array.
+ * @memberof util
+ * @type {Array.<*>}
+ * @const
+ */
+util.emptyArray = Object.freeze ? Object.freeze([]) : /* istanbul ignore next */ []; // used on prototypes
+
+/**
+ * An immutable empty object.
+ * @type {Object}
+ * @const
+ */
+util.emptyObject = Object.freeze ? Object.freeze({}) : /* istanbul ignore next */ {}; // used on prototypes
+
+/**
+ * Tests if the specified value is an integer.
+ * @function
+ * @param {*} value Value to test
+ * @returns {boolean} `true` if the value is an integer
+ */
+util.isInteger = Number.isInteger || /* istanbul ignore next */ function isInteger(value) {
+    return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+};
+
+/**
+ * Tests if the specified value is a string.
+ * @param {*} value Value to test
+ * @returns {boolean} `true` if the value is a string
+ */
+util.isString = function isString(value) {
+    return typeof value === "string" || value instanceof String;
+};
+
+/**
+ * Tests if the specified value is a non-null object.
+ * @param {*} value Value to test
+ * @returns {boolean} `true` if the value is a non-null object
+ */
+util.isObject = function isObject(value) {
+    return value && typeof value === "object";
+};
+
+/**
+ * Checks if a property on a message is considered to be present.
+ * This is an alias of {@link util.isSet}.
+ * @function
+ * @param {Object} obj Plain object or message instance
+ * @param {string} prop Property name
+ * @returns {boolean} `true` if considered to be present, otherwise `false`
+ */
+util.isset =
+
+/**
+ * Checks if a property on a message is considered to be present.
+ * @param {Object} obj Plain object or message instance
+ * @param {string} prop Property name
+ * @returns {boolean} `true` if considered to be present, otherwise `false`
+ */
+util.isSet = function isSet(obj, prop) {
+    var value = obj[prop];
+    if (value != null && obj.hasOwnProperty(prop)) // eslint-disable-line eqeqeq, no-prototype-builtins
+        return typeof value !== "object" || (Array.isArray(value) ? value.length : Object.keys(value).length) > 0;
+    return false;
+};
+
+/**
+ * Any compatible Buffer instance.
+ * This is a minimal stand-alone definition of a Buffer instance. The actual type is that exported by node's typings.
+ * @interface Buffer
+ * @extends Uint8Array
+ */
+
+/**
+ * Node's Buffer class if available.
+ * @type {Constructor<Buffer>}
+ */
+util.Buffer = (function() {
+    try {
+        var Buffer = util.inquire("buffer").Buffer;
+        // refuse to use non-node buffers if not explicitly assigned (perf reasons):
+        return Buffer.prototype.utf8Write ? Buffer : /* istanbul ignore next */ null;
+    } catch (e) {
+        /* istanbul ignore next */
+        return null;
+    }
 })();
 
+// Internal alias of or polyfull for Buffer.from.
+util._Buffer_from = null;
+
+// Internal alias of or polyfill for Buffer.allocUnsafe.
+util._Buffer_allocUnsafe = null;
+
+/**
+ * Creates a new buffer of whatever type supported by the environment.
+ * @param {number|number[]} [sizeOrArray=0] Buffer size or number array
+ * @returns {Uint8Array|Buffer} Buffer
+ */
+util.newBuffer = function newBuffer(sizeOrArray) {
+    /* istanbul ignore next */
+    return typeof sizeOrArray === "number"
+        ? util.Buffer
+            ? util._Buffer_allocUnsafe(sizeOrArray)
+            : new util.Array(sizeOrArray)
+        : util.Buffer
+            ? util._Buffer_from(sizeOrArray)
+            : typeof Uint8Array === "undefined"
+                ? sizeOrArray
+                : new Uint8Array(sizeOrArray);
+};
+
+/**
+ * Array implementation used in the browser. `Uint8Array` if supported, otherwise `Array`.
+ * @type {Constructor<Uint8Array>}
+ */
+util.Array = typeof Uint8Array !== "undefined" ? Uint8Array /* istanbul ignore next */ : Array;
+
+/**
+ * Any compatible Long instance.
+ * This is a minimal stand-alone definition of a Long instance. The actual type is that exported by long.js.
+ * @interface Long
+ * @property {number} low Low bits
+ * @property {number} high High bits
+ * @property {boolean} unsigned Whether unsigned or not
+ */
+
+/**
+ * Long.js's Long class if available.
+ * @type {Constructor<Long>}
+ */
+util.Long = /* istanbul ignore next */ util.global.dcodeIO && /* istanbul ignore next */ util.global.dcodeIO.Long
+         || /* istanbul ignore next */ util.global.Long
+         || util.inquire("long");
+
+/**
+ * Regular expression used to verify 2 bit (`bool`) map keys.
+ * @type {RegExp}
+ * @const
+ */
+util.key2Re = /^true|false|0|1$/;
+
+/**
+ * Regular expression used to verify 32 bit (`int32` etc.) map keys.
+ * @type {RegExp}
+ * @const
+ */
+util.key32Re = /^-?(?:0|[1-9][0-9]*)$/;
+
+/**
+ * Regular expression used to verify 64 bit (`int64` etc.) map keys.
+ * @type {RegExp}
+ * @const
+ */
+util.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/;
+
+/**
+ * Converts a number or long to an 8 characters long hash string.
+ * @param {Long|number} value Value to convert
+ * @returns {string} Hash
+ */
+util.longToHash = function longToHash(value) {
+    return value
+        ? util.LongBits.from(value).toHash()
+        : util.LongBits.zeroHash;
+};
+
+/**
+ * Converts an 8 characters long hash string to a long or number.
+ * @param {string} hash Hash
+ * @param {boolean} [unsigned=false] Whether unsigned or not
+ * @returns {Long|number} Original value
+ */
+util.longFromHash = function longFromHash(hash, unsigned) {
+    var bits = util.LongBits.fromHash(hash);
+    if (util.Long)
+        return util.Long.fromBits(bits.lo, bits.hi, unsigned);
+    return bits.toNumber(Boolean(unsigned));
+};
+
+/**
+ * Merges the properties of the source object into the destination object.
+ * @memberof util
+ * @param {Object.<string,*>} dst Destination object
+ * @param {Object.<string,*>} src Source object
+ * @param {boolean} [ifNotSet=false] Merges only if the key is not already set
+ * @returns {Object.<string,*>} Destination object
+ */
+function merge(dst, src, ifNotSet) { // used by converters
+    for (var keys = Object.keys(src), i = 0; i < keys.length; ++i)
+        if (dst[keys[i]] === undefined || !ifNotSet)
+            dst[keys[i]] = src[keys[i]];
+    return dst;
+}
+
+util.merge = merge;
+
+/**
+ * Converts the first character of a string to lower case.
+ * @param {string} str String to convert
+ * @returns {string} Converted string
+ */
+util.lcFirst = function lcFirst(str) {
+    return str.charAt(0).toLowerCase() + str.substring(1);
+};
+
+/**
+ * Creates a custom error constructor.
+ * @memberof util
+ * @param {string} name Error name
+ * @returns {Constructor<Error>} Custom error constructor
+ */
+function newError(name) {
+
+    function CustomError(message, properties) {
+
+        if (!(this instanceof CustomError))
+            return new CustomError(message, properties);
+
+        // Error.call(this, message);
+        // ^ just returns a new error instance because the ctor can be called as a function
+
+        Object.defineProperty(this, "message", { get: function() { return message; } });
+
+        /* istanbul ignore next */
+        if (Error.captureStackTrace) // node
+            Error.captureStackTrace(this, CustomError);
+        else
+            Object.defineProperty(this, "stack", { value: new Error().stack || "" });
+
+        if (properties)
+            merge(this, properties);
+    }
+
+    (CustomError.prototype = Object.create(Error.prototype)).constructor = CustomError;
+
+    Object.defineProperty(CustomError.prototype, "name", { get: function() { return name; } });
+
+    CustomError.prototype.toString = function toString() {
+        return this.name + ": " + this.message;
+    };
+
+    return CustomError;
+}
+
+util.newError = newError;
+
+/**
+ * Constructs a new protocol error.
+ * @classdesc Error subclass indicating a protocol specifc error.
+ * @memberof util
+ * @extends Error
+ * @template T extends Message<T>
+ * @constructor
+ * @param {string} message Error message
+ * @param {Object.<string,*>} [properties] Additional properties
+ * @example
+ * try {
+ *     MyMessage.decode(someBuffer); // throws if required fields are missing
+ * } catch (e) {
+ *     if (e instanceof ProtocolError && e.instance)
+ *         console.log("decoded so far: " + JSON.stringify(e.instance));
+ * }
+ */
+util.ProtocolError = newError("ProtocolError");
+
+/**
+ * So far decoded message instance.
+ * @name util.ProtocolError#instance
+ * @type {Message<T>}
+ */
+
+/**
+ * A OneOf getter as returned by {@link util.oneOfGetter}.
+ * @typedef OneOfGetter
+ * @type {function}
+ * @returns {string|undefined} Set field name, if any
+ */
+
+/**
+ * Builds a getter for a oneof's present field name.
+ * @param {string[]} fieldNames Field names
+ * @returns {OneOfGetter} Unbound getter
+ */
+util.oneOfGetter = function getOneOf(fieldNames) {
+    var fieldMap = {};
+    for (var i = 0; i < fieldNames.length; ++i)
+        fieldMap[fieldNames[i]] = 1;
+
+    /**
+     * @returns {string|undefined} Set field name, if any
+     * @this Object
+     * @ignore
+     */
+    return function() { // eslint-disable-line consistent-return
+        for (var keys = Object.keys(this), i = keys.length - 1; i > -1; --i)
+            if (fieldMap[keys[i]] === 1 && this[keys[i]] !== undefined && this[keys[i]] !== null)
+                return keys[i];
+    };
+};
+
+/**
+ * A OneOf setter as returned by {@link util.oneOfSetter}.
+ * @typedef OneOfSetter
+ * @type {function}
+ * @param {string|undefined} value Field name
+ * @returns {undefined}
+ */
+
+/**
+ * Builds a setter for a oneof's present field name.
+ * @param {string[]} fieldNames Field names
+ * @returns {OneOfSetter} Unbound setter
+ */
+util.oneOfSetter = function setOneOf(fieldNames) {
+
+    /**
+     * @param {string} name Field name
+     * @returns {undefined}
+     * @this Object
+     * @ignore
+     */
+    return function(name) {
+        for (var i = 0; i < fieldNames.length; ++i)
+            if (fieldNames[i] !== name)
+                delete this[fieldNames[i]];
+    };
+};
+
+/**
+ * Default conversion options used for {@link Message#toJSON} implementations.
+ *
+ * These options are close to proto3's JSON mapping with the exception that internal types like Any are handled just like messages. More precisely:
+ *
+ * - Longs become strings
+ * - Enums become string keys
+ * - Bytes become base64 encoded strings
+ * - (Sub-)Messages become plain objects
+ * - Maps become plain objects with all string keys
+ * - Repeated fields become arrays
+ * - NaN and Infinity for float and double fields become strings
+ *
+ * @type {IConversionOptions}
+ * @see https://developers.google.com/protocol-buffers/docs/proto3?hl=en#json
+ */
+util.toJSONOptions = {
+    longs: String,
+    enums: String,
+    bytes: String,
+    json: true
+};
+
+// Sets up buffer utility according to the environment (called in index-minimal)
+util._configure = function() {
+    var Buffer = util.Buffer;
+    /* istanbul ignore if */
+    if (!Buffer) {
+        util._Buffer_from = util._Buffer_allocUnsafe = null;
+        return;
+    }
+    // because node 4.x buffers are incompatible & immutable
+    // see: https://github.com/dcodeIO/protobuf.js/pull/665
+    util._Buffer_from = Buffer.from !== Uint8Array.from && Buffer.from ||
+        /* istanbul ignore next */
+        function Buffer_from(value, encoding) {
+            return new Buffer(value, encoding);
+        };
+    util._Buffer_allocUnsafe = Buffer.allocUnsafe ||
+        /* istanbul ignore next */
+        function Buffer_allocUnsafe(size) {
+            return new Buffer(size);
+        };
+};
+
+
+/***/ }),
+
+/***/ 420:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = verifier;
+
+var Enum      = __webpack_require__(5643),
+    util      = __webpack_require__(3262);
+
+function invalid(field, expected) {
+    return field.name + ": " + expected + (field.repeated && expected !== "array" ? "[]" : field.map && expected !== "object" ? "{k:"+field.keyType+"}" : "") + " expected";
+}
+
+/**
+ * Generates a partial value verifier.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {number} fieldIndex Field index
+ * @param {string} ref Variable reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genVerifyValue(gen, field, fieldIndex, ref) {
+    /* eslint-disable no-unexpected-multiline */
+    if (field.resolvedType) {
+        if (field.resolvedType instanceof Enum) { gen
+            ("switch(%s){", ref)
+                ("default:")
+                    ("return%j", invalid(field, "enum value"));
+            for (var keys = Object.keys(field.resolvedType.values), j = 0; j < keys.length; ++j) gen
+                ("case %i:", field.resolvedType.values[keys[j]]);
+            gen
+                    ("break")
+            ("}");
+        } else {
+            gen
+            ("{")
+                ("var e=types[%i].verify(%s);", fieldIndex, ref)
+                ("if(e)")
+                    ("return%j+e", field.name + ".")
+            ("}");
+        }
+    } else {
+        switch (field.type) {
+            case "int32":
+            case "uint32":
+            case "sint32":
+            case "fixed32":
+            case "sfixed32": gen
+                ("if(!util.isInteger(%s))", ref)
+                    ("return%j", invalid(field, "integer"));
+                break;
+            case "int64":
+            case "uint64":
+            case "sint64":
+            case "fixed64":
+            case "sfixed64": gen
+                ("if(!util.isInteger(%s)&&!(%s&&util.isInteger(%s.low)&&util.isInteger(%s.high)))", ref, ref, ref, ref)
+                    ("return%j", invalid(field, "integer|Long"));
+                break;
+            case "float":
+            case "double": gen
+                ("if(typeof %s!==\"number\")", ref)
+                    ("return%j", invalid(field, "number"));
+                break;
+            case "bool": gen
+                ("if(typeof %s!==\"boolean\")", ref)
+                    ("return%j", invalid(field, "boolean"));
+                break;
+            case "string": gen
+                ("if(!util.isString(%s))", ref)
+                    ("return%j", invalid(field, "string"));
+                break;
+            case "bytes": gen
+                ("if(!(%s&&typeof %s.length===\"number\"||util.isString(%s)))", ref, ref, ref)
+                    ("return%j", invalid(field, "buffer"));
+                break;
+        }
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline */
+}
+
+/**
+ * Generates a partial key verifier.
+ * @param {Codegen} gen Codegen instance
+ * @param {Field} field Reflected field
+ * @param {string} ref Variable reference
+ * @returns {Codegen} Codegen instance
+ * @ignore
+ */
+function genVerifyKey(gen, field, ref) {
+    /* eslint-disable no-unexpected-multiline */
+    switch (field.keyType) {
+        case "int32":
+        case "uint32":
+        case "sint32":
+        case "fixed32":
+        case "sfixed32": gen
+            ("if(!util.key32Re.test(%s))", ref)
+                ("return%j", invalid(field, "integer key"));
+            break;
+        case "int64":
+        case "uint64":
+        case "sint64":
+        case "fixed64":
+        case "sfixed64": gen
+            ("if(!util.key64Re.test(%s))", ref) // see comment above: x is ok, d is not
+                ("return%j", invalid(field, "integer|Long key"));
+            break;
+        case "bool": gen
+            ("if(!util.key2Re.test(%s))", ref)
+                ("return%j", invalid(field, "boolean key"));
+            break;
+    }
+    return gen;
+    /* eslint-enable no-unexpected-multiline */
+}
+
+/**
+ * Generates a verifier specific to the specified message type.
+ * @param {Type} mtype Message type
+ * @returns {Codegen} Codegen instance
+ */
+function verifier(mtype) {
+    /* eslint-disable no-unexpected-multiline */
+
+    var gen = util.codegen(["m"], mtype.name + "$verify")
+    ("if(typeof m!==\"object\"||m===null)")
+        ("return%j", "object expected");
+    var oneofs = mtype.oneofsArray,
+        seenFirstField = {};
+    if (oneofs.length) gen
+    ("var p={}");
+
+    for (var i = 0; i < /* initializes */ mtype.fieldsArray.length; ++i) {
+        var field = mtype._fieldsArray[i].resolve(),
+            ref   = "m" + util.safeProp(field.name);
+
+        if (field.optional) gen
+        ("if(%s!=null&&m.hasOwnProperty(%j)){", ref, field.name); // !== undefined && !== null
+
+        // map fields
+        if (field.map) { gen
+            ("if(!util.isObject(%s))", ref)
+                ("return%j", invalid(field, "object"))
+            ("var k=Object.keys(%s)", ref)
+            ("for(var i=0;i<k.length;++i){");
+                genVerifyKey(gen, field, "k[i]");
+                genVerifyValue(gen, field, i, ref + "[k[i]]")
+            ("}");
+
+        // repeated fields
+        } else if (field.repeated) { gen
+            ("if(!Array.isArray(%s))", ref)
+                ("return%j", invalid(field, "array"))
+            ("for(var i=0;i<%s.length;++i){", ref);
+                genVerifyValue(gen, field, i, ref + "[i]")
+            ("}");
+
+        // required or present fields
+        } else {
+            if (field.partOf) {
+                var oneofProp = util.safeProp(field.partOf.name);
+                if (seenFirstField[field.partOf.name] === 1) gen
+            ("if(p%s===1)", oneofProp)
+                ("return%j", field.partOf.name + ": multiple values");
+                seenFirstField[field.partOf.name] = 1;
+                gen
+            ("p%s=1", oneofProp);
+            }
+            genVerifyValue(gen, field, i, ref);
+        }
+        if (field.optional) gen
+        ("}");
+    }
+    return gen
+    ("return null");
+    /* eslint-enable no-unexpected-multiline */
+}
+
+/***/ }),
+
+/***/ 6434:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+/**
+ * Wrappers for common types.
+ * @type {Object.<string,IWrapper>}
+ * @const
+ */
+var wrappers = exports;
+
+var Message = __webpack_require__(2551);
+
+/**
+ * From object converter part of an {@link IWrapper}.
+ * @typedef WrapperFromObjectConverter
+ * @type {function}
+ * @param {Object.<string,*>} object Plain object
+ * @returns {Message<{}>} Message instance
+ * @this Type
+ */
+
+/**
+ * To object converter part of an {@link IWrapper}.
+ * @typedef WrapperToObjectConverter
+ * @type {function}
+ * @param {Message<{}>} message Message instance
+ * @param {IConversionOptions} [options] Conversion options
+ * @returns {Object.<string,*>} Plain object
+ * @this Type
+ */
+
+/**
+ * Common type wrapper part of {@link wrappers}.
+ * @interface IWrapper
+ * @property {WrapperFromObjectConverter} [fromObject] From object converter
+ * @property {WrapperToObjectConverter} [toObject] To object converter
+ */
+
+// Custom wrapper for Any
+wrappers[".google.protobuf.Any"] = {
+
+    fromObject: function(object) {
+
+        // unwrap value type if mapped
+        if (object && object["@type"]) {
+             // Only use fully qualified type name after the last '/'
+            var name = object["@type"].substring(object["@type"].lastIndexOf("/") + 1);
+            var type = this.lookup(name);
+            /* istanbul ignore else */
+            if (type) {
+                // type_url does not accept leading "."
+                var type_url = object["@type"].charAt(0) === "." ?
+                    object["@type"].substr(1) : object["@type"];
+                // type_url prefix is optional, but path seperator is required
+                if (type_url.indexOf("/") === -1) {
+                    type_url = "/" + type_url;
+                }
+                return this.create({
+                    type_url: type_url,
+                    value: type.encode(type.fromObject(object)).finish()
+                });
+            }
+        }
+
+        return this.fromObject(object);
+    },
+
+    toObject: function(message, options) {
+
+        // Default prefix
+        var googleApi = "type.googleapis.com/";
+        var prefix = "";
+        var name = "";
+
+        // decode value if requested and unmapped
+        if (options && options.json && message.type_url && message.value) {
+            // Only use fully qualified type name after the last '/'
+            name = message.type_url.substring(message.type_url.lastIndexOf("/") + 1);
+            // Separate the prefix used
+            prefix = message.type_url.substring(0, message.type_url.lastIndexOf("/") + 1);
+            var type = this.lookup(name);
+            /* istanbul ignore else */
+            if (type)
+                message = type.decode(message.value);
+        }
+
+        // wrap value if unmapped
+        if (!(message instanceof this.ctor) && message instanceof Message) {
+            var object = message.$type.toObject(message, options);
+            var messageName = message.$type.fullName[0] === "." ?
+                message.$type.fullName.substr(1) : message.$type.fullName;
+            // Default to type.googleapis.com prefix if no prefix is used
+            if (prefix === "") {
+                prefix = googleApi;
+            }
+            name = prefix + messageName;
+            object["@type"] = name;
+            return object;
+        }
+
+        return this.toObject(message, options);
+    }
+};
+
+
+/***/ }),
+
+/***/ 3449:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = Writer;
+
+var util      = __webpack_require__(3610);
+
+var BufferWriter; // cyclic
+
+var LongBits  = util.LongBits,
+    base64    = util.base64,
+    utf8      = util.utf8;
+
+/**
+ * Constructs a new writer operation instance.
+ * @classdesc Scheduled writer operation.
+ * @constructor
+ * @param {function(*, Uint8Array, number)} fn Function to call
+ * @param {number} len Value byte length
+ * @param {*} val Value to write
+ * @ignore
+ */
+function Op(fn, len, val) {
+
+    /**
+     * Function to call.
+     * @type {function(Uint8Array, number, *)}
+     */
+    this.fn = fn;
+
+    /**
+     * Value byte length.
+     * @type {number}
+     */
+    this.len = len;
+
+    /**
+     * Next operation.
+     * @type {Writer.Op|undefined}
+     */
+    this.next = undefined;
+
+    /**
+     * Value to write.
+     * @type {*}
+     */
+    this.val = val; // type varies
+}
+
+/* istanbul ignore next */
+function noop() {} // eslint-disable-line no-empty-function
+
+/**
+ * Constructs a new writer state instance.
+ * @classdesc Copied writer state.
+ * @memberof Writer
+ * @constructor
+ * @param {Writer} writer Writer to copy state from
+ * @ignore
+ */
+function State(writer) {
+
+    /**
+     * Current head.
+     * @type {Writer.Op}
+     */
+    this.head = writer.head;
+
+    /**
+     * Current tail.
+     * @type {Writer.Op}
+     */
+    this.tail = writer.tail;
+
+    /**
+     * Current buffer length.
+     * @type {number}
+     */
+    this.len = writer.len;
+
+    /**
+     * Next state.
+     * @type {State|null}
+     */
+    this.next = writer.states;
+}
+
+/**
+ * Constructs a new writer instance.
+ * @classdesc Wire format writer using `Uint8Array` if available, otherwise `Array`.
+ * @constructor
+ */
+function Writer() {
+
+    /**
+     * Current length.
+     * @type {number}
+     */
+    this.len = 0;
+
+    /**
+     * Operations head.
+     * @type {Object}
+     */
+    this.head = new Op(noop, 0, 0);
+
+    /**
+     * Operations tail
+     * @type {Object}
+     */
+    this.tail = this.head;
+
+    /**
+     * Linked forked states.
+     * @type {Object|null}
+     */
+    this.states = null;
+
+    // When a value is written, the writer calculates its byte length and puts it into a linked
+    // list of operations to perform when finish() is called. This both allows us to allocate
+    // buffers of the exact required size and reduces the amount of work we have to do compared
+    // to first calculating over objects and then encoding over objects. In our case, the encoding
+    // part is just a linked list walk calling operations with already prepared values.
+}
+
+var create = function create() {
+    return util.Buffer
+        ? function create_buffer_setup() {
+            return (Writer.create = function create_buffer() {
+                return new BufferWriter();
+            })();
+        }
+        /* istanbul ignore next */
+        : function create_array() {
+            return new Writer();
+        };
+};
+
+/**
+ * Creates a new writer.
+ * @function
+ * @returns {BufferWriter|Writer} A {@link BufferWriter} when Buffers are supported, otherwise a {@link Writer}
+ */
+Writer.create = create();
+
+/**
+ * Allocates a buffer of the specified size.
+ * @param {number} size Buffer size
+ * @returns {Uint8Array} Buffer
+ */
+Writer.alloc = function alloc(size) {
+    return new util.Array(size);
+};
+
+// Use Uint8Array buffer pool in the browser, just like node does with buffers
+/* istanbul ignore else */
+if (util.Array !== Array)
+    Writer.alloc = util.pool(Writer.alloc, util.Array.prototype.subarray);
+
+/**
+ * Pushes a new operation to the queue.
+ * @param {function(Uint8Array, number, *)} fn Function to call
+ * @param {number} len Value byte length
+ * @param {number} val Value to write
+ * @returns {Writer} `this`
+ * @private
+ */
+Writer.prototype._push = function push(fn, len, val) {
+    this.tail = this.tail.next = new Op(fn, len, val);
+    this.len += len;
+    return this;
+};
+
+function writeByte(val, buf, pos) {
+    buf[pos] = val & 255;
+}
+
+function writeVarint32(val, buf, pos) {
+    while (val > 127) {
+        buf[pos++] = val & 127 | 128;
+        val >>>= 7;
+    }
+    buf[pos] = val;
+}
+
+/**
+ * Constructs a new varint writer operation instance.
+ * @classdesc Scheduled varint writer operation.
+ * @extends Op
+ * @constructor
+ * @param {number} len Value byte length
+ * @param {number} val Value to write
+ * @ignore
+ */
+function VarintOp(len, val) {
+    this.len = len;
+    this.next = undefined;
+    this.val = val;
+}
+
+VarintOp.prototype = Object.create(Op.prototype);
+VarintOp.prototype.fn = writeVarint32;
+
+/**
+ * Writes an unsigned 32 bit value as a varint.
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.uint32 = function write_uint32(value) {
+    // here, the call to this.push has been inlined and a varint specific Op subclass is used.
+    // uint32 is by far the most frequently used operation and benefits significantly from this.
+    this.len += (this.tail = this.tail.next = new VarintOp(
+        (value = value >>> 0)
+                < 128       ? 1
+        : value < 16384     ? 2
+        : value < 2097152   ? 3
+        : value < 268435456 ? 4
+        :                     5,
+    value)).len;
+    return this;
+};
+
+/**
+ * Writes a signed 32 bit value as a varint.
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.int32 = function write_int32(value) {
+    return value < 0
+        ? this._push(writeVarint64, 10, LongBits.fromNumber(value)) // 10 bytes per spec
+        : this.uint32(value);
+};
+
+/**
+ * Writes a 32 bit value as a varint, zig-zag encoded.
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.sint32 = function write_sint32(value) {
+    return this.uint32((value << 1 ^ value >> 31) >>> 0);
+};
+
+function writeVarint64(val, buf, pos) {
+    while (val.hi) {
+        buf[pos++] = val.lo & 127 | 128;
+        val.lo = (val.lo >>> 7 | val.hi << 25) >>> 0;
+        val.hi >>>= 7;
+    }
+    while (val.lo > 127) {
+        buf[pos++] = val.lo & 127 | 128;
+        val.lo = val.lo >>> 7;
+    }
+    buf[pos++] = val.lo;
+}
+
+/**
+ * Writes an unsigned 64 bit value as a varint.
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.uint64 = function write_uint64(value) {
+    var bits = LongBits.from(value);
+    return this._push(writeVarint64, bits.length(), bits);
+};
+
+/**
+ * Writes a signed 64 bit value as a varint.
+ * @function
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.int64 = Writer.prototype.uint64;
+
+/**
+ * Writes a signed 64 bit value as a varint, zig-zag encoded.
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.sint64 = function write_sint64(value) {
+    var bits = LongBits.from(value).zzEncode();
+    return this._push(writeVarint64, bits.length(), bits);
+};
+
+/**
+ * Writes a boolish value as a varint.
+ * @param {boolean} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.bool = function write_bool(value) {
+    return this._push(writeByte, 1, value ? 1 : 0);
+};
+
+function writeFixed32(val, buf, pos) {
+    buf[pos    ] =  val         & 255;
+    buf[pos + 1] =  val >>> 8   & 255;
+    buf[pos + 2] =  val >>> 16  & 255;
+    buf[pos + 3] =  val >>> 24;
+}
+
+/**
+ * Writes an unsigned 32 bit value as fixed 32 bits.
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.fixed32 = function write_fixed32(value) {
+    return this._push(writeFixed32, 4, value >>> 0);
+};
+
+/**
+ * Writes a signed 32 bit value as fixed 32 bits.
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.sfixed32 = Writer.prototype.fixed32;
+
+/**
+ * Writes an unsigned 64 bit value as fixed 64 bits.
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.fixed64 = function write_fixed64(value) {
+    var bits = LongBits.from(value);
+    return this._push(writeFixed32, 4, bits.lo)._push(writeFixed32, 4, bits.hi);
+};
+
+/**
+ * Writes a signed 64 bit value as fixed 64 bits.
+ * @function
+ * @param {Long|number|string} value Value to write
+ * @returns {Writer} `this`
+ * @throws {TypeError} If `value` is a string and no long library is present.
+ */
+Writer.prototype.sfixed64 = Writer.prototype.fixed64;
+
+/**
+ * Writes a float (32 bit).
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.float = function write_float(value) {
+    return this._push(util.float.writeFloatLE, 4, value);
+};
+
+/**
+ * Writes a double (64 bit float).
+ * @function
+ * @param {number} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.double = function write_double(value) {
+    return this._push(util.float.writeDoubleLE, 8, value);
+};
+
+var writeBytes = util.Array.prototype.set
+    ? function writeBytes_set(val, buf, pos) {
+        buf.set(val, pos); // also works for plain array values
+    }
+    /* istanbul ignore next */
+    : function writeBytes_for(val, buf, pos) {
+        for (var i = 0; i < val.length; ++i)
+            buf[pos + i] = val[i];
+    };
+
+/**
+ * Writes a sequence of bytes.
+ * @param {Uint8Array|string} value Buffer or base64 encoded string to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.bytes = function write_bytes(value) {
+    var len = value.length >>> 0;
+    if (!len)
+        return this._push(writeByte, 1, 0);
+    if (util.isString(value)) {
+        var buf = Writer.alloc(len = base64.length(value));
+        base64.decode(value, buf, 0);
+        value = buf;
+    }
+    return this.uint32(len)._push(writeBytes, len, value);
+};
+
+/**
+ * Writes a string.
+ * @param {string} value Value to write
+ * @returns {Writer} `this`
+ */
+Writer.prototype.string = function write_string(value) {
+    var len = utf8.length(value);
+    return len
+        ? this.uint32(len)._push(utf8.write, len, value)
+        : this._push(writeByte, 1, 0);
+};
+
+/**
+ * Forks this writer's state by pushing it to a stack.
+ * Calling {@link Writer#reset|reset} or {@link Writer#ldelim|ldelim} resets the writer to the previous state.
+ * @returns {Writer} `this`
+ */
+Writer.prototype.fork = function fork() {
+    this.states = new State(this);
+    this.head = this.tail = new Op(noop, 0, 0);
+    this.len = 0;
+    return this;
+};
+
+/**
+ * Resets this instance to the last state.
+ * @returns {Writer} `this`
+ */
+Writer.prototype.reset = function reset() {
+    if (this.states) {
+        this.head   = this.states.head;
+        this.tail   = this.states.tail;
+        this.len    = this.states.len;
+        this.states = this.states.next;
+    } else {
+        this.head = this.tail = new Op(noop, 0, 0);
+        this.len  = 0;
+    }
+    return this;
+};
+
+/**
+ * Resets to the last state and appends the fork state's current write length as a varint followed by its operations.
+ * @returns {Writer} `this`
+ */
+Writer.prototype.ldelim = function ldelim() {
+    var head = this.head,
+        tail = this.tail,
+        len  = this.len;
+    this.reset().uint32(len);
+    if (len) {
+        this.tail.next = head.next; // skip noop
+        this.tail = tail;
+        this.len += len;
+    }
+    return this;
+};
+
+/**
+ * Finishes the write operation.
+ * @returns {Uint8Array} Finished buffer
+ */
+Writer.prototype.finish = function finish() {
+    var head = this.head.next, // skip noop
+        buf  = this.constructor.alloc(this.len),
+        pos  = 0;
+    while (head) {
+        head.fn(head.val, buf, pos);
+        pos += head.len;
+        head = head.next;
+    }
+    // this.head = this.tail = null;
+    return buf;
+};
+
+Writer._configure = function(BufferWriter_) {
+    BufferWriter = BufferWriter_;
+    Writer.create = create();
+    BufferWriter._configure();
+};
+
+
+/***/ }),
+
+/***/ 818:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+module.exports = BufferWriter;
+
+// extends Writer
+var Writer = __webpack_require__(3449);
+(BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
+
+var util = __webpack_require__(3610);
+
+/**
+ * Constructs a new buffer writer instance.
+ * @classdesc Wire format writer using node buffers.
+ * @extends Writer
+ * @constructor
+ */
+function BufferWriter() {
+    Writer.call(this);
+}
+
+BufferWriter._configure = function () {
+    /**
+     * Allocates a buffer of the specified size.
+     * @function
+     * @param {number} size Buffer size
+     * @returns {Buffer} Buffer
+     */
+    BufferWriter.alloc = util._Buffer_allocUnsafe;
+
+    BufferWriter.writeBytesBuffer = util.Buffer && util.Buffer.prototype instanceof Uint8Array && util.Buffer.prototype.set.name === "set"
+        ? function writeBytesBuffer_set(val, buf, pos) {
+          buf.set(val, pos); // faster than copy (requires node >= 4 where Buffers extend Uint8Array and set is properly inherited)
+          // also works for plain array values
+        }
+        /* istanbul ignore next */
+        : function writeBytesBuffer_copy(val, buf, pos) {
+          if (val.copy) // Buffer values
+            val.copy(buf, pos, 0, val.length);
+          else for (var i = 0; i < val.length;) // plain array values
+            buf[pos++] = val[i++];
+        };
+};
+
+
+/**
+ * @override
+ */
+BufferWriter.prototype.bytes = function write_bytes_buffer(value) {
+    if (util.isString(value))
+        value = util._Buffer_from(value, "base64");
+    var len = value.length >>> 0;
+    this.uint32(len);
+    if (len)
+        this._push(BufferWriter.writeBytesBuffer, len, value);
+    return this;
+};
+
+function writeStringBuffer(val, buf, pos) {
+    if (val.length < 40) // plain js is faster for short strings (probably due to redundant assertions)
+        util.utf8.write(val, buf, pos);
+    else if (buf.utf8Write)
+        buf.utf8Write(val, pos);
+    else
+        buf.write(val, pos);
+}
+
+/**
+ * @override
+ */
+BufferWriter.prototype.string = function write_string_buffer(value) {
+    var len = util.Buffer.byteLength(value);
+    this.uint32(len);
+    if (len)
+        this._push(writeStringBuffer, len, value);
+    return this;
+};
+
+
+/**
+ * Finishes the write operation.
+ * @name BufferWriter#finish
+ * @function
+ * @returns {Buffer} Finished buffer
+ */
+
+BufferWriter._configure();
+
+
+/***/ }),
+
+/***/ 4741:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/*! *****************************************************************************
+Copyright (C) Microsoft. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+var Reflect;
+(function (Reflect) {
+    // Metadata Proposal
+    // https://rbuckton.github.io/reflect-metadata/
+    (function (factory) {
+        var root = typeof __webpack_require__.g === "object" ? __webpack_require__.g :
+            typeof self === "object" ? self :
+                typeof this === "object" ? this :
+                    Function("return this;")();
+        var exporter = makeExporter(Reflect);
+        if (typeof root.Reflect === "undefined") {
+            root.Reflect = Reflect;
+        }
+        else {
+            exporter = makeExporter(root.Reflect, exporter);
+        }
+        factory(exporter);
+        function makeExporter(target, previous) {
+            return function (key, value) {
+                if (typeof target[key] !== "function") {
+                    Object.defineProperty(target, key, { configurable: true, writable: true, value: value });
+                }
+                if (previous)
+                    previous(key, value);
+            };
+        }
+    })(function (exporter) {
+        var hasOwn = Object.prototype.hasOwnProperty;
+        // feature test for Symbol support
+        var supportsSymbol = typeof Symbol === "function";
+        var toPrimitiveSymbol = supportsSymbol && typeof Symbol.toPrimitive !== "undefined" ? Symbol.toPrimitive : "@@toPrimitive";
+        var iteratorSymbol = supportsSymbol && typeof Symbol.iterator !== "undefined" ? Symbol.iterator : "@@iterator";
+        var supportsCreate = typeof Object.create === "function"; // feature test for Object.create support
+        var supportsProto = { __proto__: [] } instanceof Array; // feature test for __proto__ support
+        var downLevel = !supportsCreate && !supportsProto;
+        var HashMap = {
+            // create an object in dictionary mode (a.k.a. "slow" mode in v8)
+            create: supportsCreate
+                ? function () { return MakeDictionary(Object.create(null)); }
+                : supportsProto
+                    ? function () { return MakeDictionary({ __proto__: null }); }
+                    : function () { return MakeDictionary({}); },
+            has: downLevel
+                ? function (map, key) { return hasOwn.call(map, key); }
+                : function (map, key) { return key in map; },
+            get: downLevel
+                ? function (map, key) { return hasOwn.call(map, key) ? map[key] : undefined; }
+                : function (map, key) { return map[key]; },
+        };
+        // Load global or shim versions of Map, Set, and WeakMap
+        var functionPrototype = Object.getPrototypeOf(Function);
+        var usePolyfill = typeof process === "object" && process.env && process.env["REFLECT_METADATA_USE_MAP_POLYFILL"] === "true";
+        var _Map = !usePolyfill && typeof Map === "function" && typeof Map.prototype.entries === "function" ? Map : CreateMapPolyfill();
+        var _Set = !usePolyfill && typeof Set === "function" && typeof Set.prototype.entries === "function" ? Set : CreateSetPolyfill();
+        var _WeakMap = !usePolyfill && typeof WeakMap === "function" ? WeakMap : CreateWeakMapPolyfill();
+        // [[Metadata]] internal slot
+        // https://rbuckton.github.io/reflect-metadata/#ordinary-object-internal-methods-and-internal-slots
+        var Metadata = new _WeakMap();
+        /**
+         * Applies a set of decorators to a property of a target object.
+         * @param decorators An array of decorators.
+         * @param target The target object.
+         * @param propertyKey (Optional) The property key to decorate.
+         * @param attributes (Optional) The property descriptor for the target key.
+         * @remarks Decorators are applied in reverse order.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     Example = Reflect.decorate(decoratorsArray, Example);
+         *
+         *     // property (on constructor)
+         *     Reflect.decorate(decoratorsArray, Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     Reflect.decorate(decoratorsArray, Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     Object.defineProperty(Example, "staticMethod",
+         *         Reflect.decorate(decoratorsArray, Example, "staticMethod",
+         *             Object.getOwnPropertyDescriptor(Example, "staticMethod")));
+         *
+         *     // method (on prototype)
+         *     Object.defineProperty(Example.prototype, "method",
+         *         Reflect.decorate(decoratorsArray, Example.prototype, "method",
+         *             Object.getOwnPropertyDescriptor(Example.prototype, "method")));
+         *
+         */
+        function decorate(decorators, target, propertyKey, attributes) {
+            if (!IsUndefined(propertyKey)) {
+                if (!IsArray(decorators))
+                    throw new TypeError();
+                if (!IsObject(target))
+                    throw new TypeError();
+                if (!IsObject(attributes) && !IsUndefined(attributes) && !IsNull(attributes))
+                    throw new TypeError();
+                if (IsNull(attributes))
+                    attributes = undefined;
+                propertyKey = ToPropertyKey(propertyKey);
+                return DecorateProperty(decorators, target, propertyKey, attributes);
+            }
+            else {
+                if (!IsArray(decorators))
+                    throw new TypeError();
+                if (!IsConstructor(target))
+                    throw new TypeError();
+                return DecorateConstructor(decorators, target);
+            }
+        }
+        exporter("decorate", decorate);
+        // 4.1.2 Reflect.metadata(metadataKey, metadataValue)
+        // https://rbuckton.github.io/reflect-metadata/#reflect.metadata
+        /**
+         * A default metadata decorator factory that can be used on a class, class member, or parameter.
+         * @param metadataKey The key for the metadata entry.
+         * @param metadataValue The value for the metadata entry.
+         * @returns A decorator function.
+         * @remarks
+         * If `metadataKey` is already defined for the target and target key, the
+         * metadataValue for that key will be overwritten.
+         * @example
+         *
+         *     // constructor
+         *     @Reflect.metadata(key, value)
+         *     class Example {
+         *     }
+         *
+         *     // property (on constructor, TypeScript only)
+         *     class Example {
+         *         @Reflect.metadata(key, value)
+         *         static staticProperty;
+         *     }
+         *
+         *     // property (on prototype, TypeScript only)
+         *     class Example {
+         *         @Reflect.metadata(key, value)
+         *         property;
+         *     }
+         *
+         *     // method (on constructor)
+         *     class Example {
+         *         @Reflect.metadata(key, value)
+         *         static staticMethod() { }
+         *     }
+         *
+         *     // method (on prototype)
+         *     class Example {
+         *         @Reflect.metadata(key, value)
+         *         method() { }
+         *     }
+         *
+         */
+        function metadata(metadataKey, metadataValue) {
+            function decorator(target, propertyKey) {
+                if (!IsObject(target))
+                    throw new TypeError();
+                if (!IsUndefined(propertyKey) && !IsPropertyKey(propertyKey))
+                    throw new TypeError();
+                OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, propertyKey);
+            }
+            return decorator;
+        }
+        exporter("metadata", metadata);
+        /**
+         * Define a unique metadata entry on the target.
+         * @param metadataKey A key used to store and retrieve metadata.
+         * @param metadataValue A value that contains attached metadata.
+         * @param target The target object on which to define metadata.
+         * @param propertyKey (Optional) The property key for the target.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     Reflect.defineMetadata("custom:annotation", options, Example);
+         *
+         *     // property (on constructor)
+         *     Reflect.defineMetadata("custom:annotation", options, Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     Reflect.defineMetadata("custom:annotation", options, Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     Reflect.defineMetadata("custom:annotation", options, Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     Reflect.defineMetadata("custom:annotation", options, Example.prototype, "method");
+         *
+         *     // decorator factory as metadata-producing annotation.
+         *     function MyAnnotation(options): Decorator {
+         *         return (target, key?) => Reflect.defineMetadata("custom:annotation", options, target, key);
+         *     }
+         *
+         */
+        function defineMetadata(metadataKey, metadataValue, target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, propertyKey);
+        }
+        exporter("defineMetadata", defineMetadata);
+        /**
+         * Gets a value indicating whether the target object or its prototype chain has the provided metadata key defined.
+         * @param metadataKey A key used to store and retrieve metadata.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns `true` if the metadata key was defined on the target object or its prototype chain; otherwise, `false`.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.hasMetadata("custom:annotation", Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.hasMetadata("custom:annotation", Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.hasMetadata("custom:annotation", Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.hasMetadata("custom:annotation", Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.hasMetadata("custom:annotation", Example.prototype, "method");
+         *
+         */
+        function hasMetadata(metadataKey, target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryHasMetadata(metadataKey, target, propertyKey);
+        }
+        exporter("hasMetadata", hasMetadata);
+        /**
+         * Gets a value indicating whether the target object has the provided metadata key defined.
+         * @param metadataKey A key used to store and retrieve metadata.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns `true` if the metadata key was defined on the target object; otherwise, `false`.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.hasOwnMetadata("custom:annotation", Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.hasOwnMetadata("custom:annotation", Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.hasOwnMetadata("custom:annotation", Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.hasOwnMetadata("custom:annotation", Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.hasOwnMetadata("custom:annotation", Example.prototype, "method");
+         *
+         */
+        function hasOwnMetadata(metadataKey, target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryHasOwnMetadata(metadataKey, target, propertyKey);
+        }
+        exporter("hasOwnMetadata", hasOwnMetadata);
+        /**
+         * Gets the metadata value for the provided metadata key on the target object or its prototype chain.
+         * @param metadataKey A key used to store and retrieve metadata.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns The metadata value for the metadata key if found; otherwise, `undefined`.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.getMetadata("custom:annotation", Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.getMetadata("custom:annotation", Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.getMetadata("custom:annotation", Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.getMetadata("custom:annotation", Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.getMetadata("custom:annotation", Example.prototype, "method");
+         *
+         */
+        function getMetadata(metadataKey, target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryGetMetadata(metadataKey, target, propertyKey);
+        }
+        exporter("getMetadata", getMetadata);
+        /**
+         * Gets the metadata value for the provided metadata key on the target object.
+         * @param metadataKey A key used to store and retrieve metadata.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns The metadata value for the metadata key if found; otherwise, `undefined`.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.getOwnMetadata("custom:annotation", Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.getOwnMetadata("custom:annotation", Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.getOwnMetadata("custom:annotation", Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.getOwnMetadata("custom:annotation", Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.getOwnMetadata("custom:annotation", Example.prototype, "method");
+         *
+         */
+        function getOwnMetadata(metadataKey, target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryGetOwnMetadata(metadataKey, target, propertyKey);
+        }
+        exporter("getOwnMetadata", getOwnMetadata);
+        /**
+         * Gets the metadata keys defined on the target object or its prototype chain.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns An array of unique metadata keys.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.getMetadataKeys(Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.getMetadataKeys(Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.getMetadataKeys(Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.getMetadataKeys(Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.getMetadataKeys(Example.prototype, "method");
+         *
+         */
+        function getMetadataKeys(target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryMetadataKeys(target, propertyKey);
+        }
+        exporter("getMetadataKeys", getMetadataKeys);
+        /**
+         * Gets the unique metadata keys defined on the target object.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns An array of unique metadata keys.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.getOwnMetadataKeys(Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.getOwnMetadataKeys(Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.getOwnMetadataKeys(Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.getOwnMetadataKeys(Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.getOwnMetadataKeys(Example.prototype, "method");
+         *
+         */
+        function getOwnMetadataKeys(target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            return OrdinaryOwnMetadataKeys(target, propertyKey);
+        }
+        exporter("getOwnMetadataKeys", getOwnMetadataKeys);
+        /**
+         * Deletes the metadata entry from the target object with the provided key.
+         * @param metadataKey A key used to store and retrieve metadata.
+         * @param target The target object on which the metadata is defined.
+         * @param propertyKey (Optional) The property key for the target.
+         * @returns `true` if the metadata entry was found and deleted; otherwise, false.
+         * @example
+         *
+         *     class Example {
+         *         // property declarations are not part of ES6, though they are valid in TypeScript:
+         *         // static staticProperty;
+         *         // property;
+         *
+         *         constructor(p) { }
+         *         static staticMethod(p) { }
+         *         method(p) { }
+         *     }
+         *
+         *     // constructor
+         *     result = Reflect.deleteMetadata("custom:annotation", Example);
+         *
+         *     // property (on constructor)
+         *     result = Reflect.deleteMetadata("custom:annotation", Example, "staticProperty");
+         *
+         *     // property (on prototype)
+         *     result = Reflect.deleteMetadata("custom:annotation", Example.prototype, "property");
+         *
+         *     // method (on constructor)
+         *     result = Reflect.deleteMetadata("custom:annotation", Example, "staticMethod");
+         *
+         *     // method (on prototype)
+         *     result = Reflect.deleteMetadata("custom:annotation", Example.prototype, "method");
+         *
+         */
+        function deleteMetadata(metadataKey, target, propertyKey) {
+            if (!IsObject(target))
+                throw new TypeError();
+            if (!IsUndefined(propertyKey))
+                propertyKey = ToPropertyKey(propertyKey);
+            var metadataMap = GetOrCreateMetadataMap(target, propertyKey, /*Create*/ false);
+            if (IsUndefined(metadataMap))
+                return false;
+            if (!metadataMap.delete(metadataKey))
+                return false;
+            if (metadataMap.size > 0)
+                return true;
+            var targetMetadata = Metadata.get(target);
+            targetMetadata.delete(propertyKey);
+            if (targetMetadata.size > 0)
+                return true;
+            Metadata.delete(target);
+            return true;
+        }
+        exporter("deleteMetadata", deleteMetadata);
+        function DecorateConstructor(decorators, target) {
+            for (var i = decorators.length - 1; i >= 0; --i) {
+                var decorator = decorators[i];
+                var decorated = decorator(target);
+                if (!IsUndefined(decorated) && !IsNull(decorated)) {
+                    if (!IsConstructor(decorated))
+                        throw new TypeError();
+                    target = decorated;
+                }
+            }
+            return target;
+        }
+        function DecorateProperty(decorators, target, propertyKey, descriptor) {
+            for (var i = decorators.length - 1; i >= 0; --i) {
+                var decorator = decorators[i];
+                var decorated = decorator(target, propertyKey, descriptor);
+                if (!IsUndefined(decorated) && !IsNull(decorated)) {
+                    if (!IsObject(decorated))
+                        throw new TypeError();
+                    descriptor = decorated;
+                }
+            }
+            return descriptor;
+        }
+        function GetOrCreateMetadataMap(O, P, Create) {
+            var targetMetadata = Metadata.get(O);
+            if (IsUndefined(targetMetadata)) {
+                if (!Create)
+                    return undefined;
+                targetMetadata = new _Map();
+                Metadata.set(O, targetMetadata);
+            }
+            var metadataMap = targetMetadata.get(P);
+            if (IsUndefined(metadataMap)) {
+                if (!Create)
+                    return undefined;
+                metadataMap = new _Map();
+                targetMetadata.set(P, metadataMap);
+            }
+            return metadataMap;
+        }
+        // 3.1.1.1 OrdinaryHasMetadata(MetadataKey, O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinaryhasmetadata
+        function OrdinaryHasMetadata(MetadataKey, O, P) {
+            var hasOwn = OrdinaryHasOwnMetadata(MetadataKey, O, P);
+            if (hasOwn)
+                return true;
+            var parent = OrdinaryGetPrototypeOf(O);
+            if (!IsNull(parent))
+                return OrdinaryHasMetadata(MetadataKey, parent, P);
+            return false;
+        }
+        // 3.1.2.1 OrdinaryHasOwnMetadata(MetadataKey, O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinaryhasownmetadata
+        function OrdinaryHasOwnMetadata(MetadataKey, O, P) {
+            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
+            if (IsUndefined(metadataMap))
+                return false;
+            return ToBoolean(metadataMap.has(MetadataKey));
+        }
+        // 3.1.3.1 OrdinaryGetMetadata(MetadataKey, O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinarygetmetadata
+        function OrdinaryGetMetadata(MetadataKey, O, P) {
+            var hasOwn = OrdinaryHasOwnMetadata(MetadataKey, O, P);
+            if (hasOwn)
+                return OrdinaryGetOwnMetadata(MetadataKey, O, P);
+            var parent = OrdinaryGetPrototypeOf(O);
+            if (!IsNull(parent))
+                return OrdinaryGetMetadata(MetadataKey, parent, P);
+            return undefined;
+        }
+        // 3.1.4.1 OrdinaryGetOwnMetadata(MetadataKey, O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinarygetownmetadata
+        function OrdinaryGetOwnMetadata(MetadataKey, O, P) {
+            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
+            if (IsUndefined(metadataMap))
+                return undefined;
+            return metadataMap.get(MetadataKey);
+        }
+        // 3.1.5.1 OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinarydefineownmetadata
+        function OrdinaryDefineOwnMetadata(MetadataKey, MetadataValue, O, P) {
+            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ true);
+            metadataMap.set(MetadataKey, MetadataValue);
+        }
+        // 3.1.6.1 OrdinaryMetadataKeys(O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinarymetadatakeys
+        function OrdinaryMetadataKeys(O, P) {
+            var ownKeys = OrdinaryOwnMetadataKeys(O, P);
+            var parent = OrdinaryGetPrototypeOf(O);
+            if (parent === null)
+                return ownKeys;
+            var parentKeys = OrdinaryMetadataKeys(parent, P);
+            if (parentKeys.length <= 0)
+                return ownKeys;
+            if (ownKeys.length <= 0)
+                return parentKeys;
+            var set = new _Set();
+            var keys = [];
+            for (var _i = 0, ownKeys_1 = ownKeys; _i < ownKeys_1.length; _i++) {
+                var key = ownKeys_1[_i];
+                var hasKey = set.has(key);
+                if (!hasKey) {
+                    set.add(key);
+                    keys.push(key);
+                }
+            }
+            for (var _a = 0, parentKeys_1 = parentKeys; _a < parentKeys_1.length; _a++) {
+                var key = parentKeys_1[_a];
+                var hasKey = set.has(key);
+                if (!hasKey) {
+                    set.add(key);
+                    keys.push(key);
+                }
+            }
+            return keys;
+        }
+        // 3.1.7.1 OrdinaryOwnMetadataKeys(O, P)
+        // https://rbuckton.github.io/reflect-metadata/#ordinaryownmetadatakeys
+        function OrdinaryOwnMetadataKeys(O, P) {
+            var keys = [];
+            var metadataMap = GetOrCreateMetadataMap(O, P, /*Create*/ false);
+            if (IsUndefined(metadataMap))
+                return keys;
+            var keysObj = metadataMap.keys();
+            var iterator = GetIterator(keysObj);
+            var k = 0;
+            while (true) {
+                var next = IteratorStep(iterator);
+                if (!next) {
+                    keys.length = k;
+                    return keys;
+                }
+                var nextValue = IteratorValue(next);
+                try {
+                    keys[k] = nextValue;
+                }
+                catch (e) {
+                    try {
+                        IteratorClose(iterator);
+                    }
+                    finally {
+                        throw e;
+                    }
+                }
+                k++;
+            }
+        }
+        // 6 ECMAScript Data Typ0es and Values
+        // https://tc39.github.io/ecma262/#sec-ecmascript-data-types-and-values
+        function Type(x) {
+            if (x === null)
+                return 1 /* Null */;
+            switch (typeof x) {
+                case "undefined": return 0 /* Undefined */;
+                case "boolean": return 2 /* Boolean */;
+                case "string": return 3 /* String */;
+                case "symbol": return 4 /* Symbol */;
+                case "number": return 5 /* Number */;
+                case "object": return x === null ? 1 /* Null */ : 6 /* Object */;
+                default: return 6 /* Object */;
+            }
+        }
+        // 6.1.1 The Undefined Type
+        // https://tc39.github.io/ecma262/#sec-ecmascript-language-types-undefined-type
+        function IsUndefined(x) {
+            return x === undefined;
+        }
+        // 6.1.2 The Null Type
+        // https://tc39.github.io/ecma262/#sec-ecmascript-language-types-null-type
+        function IsNull(x) {
+            return x === null;
+        }
+        // 6.1.5 The Symbol Type
+        // https://tc39.github.io/ecma262/#sec-ecmascript-language-types-symbol-type
+        function IsSymbol(x) {
+            return typeof x === "symbol";
+        }
+        // 6.1.7 The Object Type
+        // https://tc39.github.io/ecma262/#sec-object-type
+        function IsObject(x) {
+            return typeof x === "object" ? x !== null : typeof x === "function";
+        }
+        // 7.1 Type Conversion
+        // https://tc39.github.io/ecma262/#sec-type-conversion
+        // 7.1.1 ToPrimitive(input [, PreferredType])
+        // https://tc39.github.io/ecma262/#sec-toprimitive
+        function ToPrimitive(input, PreferredType) {
+            switch (Type(input)) {
+                case 0 /* Undefined */: return input;
+                case 1 /* Null */: return input;
+                case 2 /* Boolean */: return input;
+                case 3 /* String */: return input;
+                case 4 /* Symbol */: return input;
+                case 5 /* Number */: return input;
+            }
+            var hint = PreferredType === 3 /* String */ ? "string" : PreferredType === 5 /* Number */ ? "number" : "default";
+            var exoticToPrim = GetMethod(input, toPrimitiveSymbol);
+            if (exoticToPrim !== undefined) {
+                var result = exoticToPrim.call(input, hint);
+                if (IsObject(result))
+                    throw new TypeError();
+                return result;
+            }
+            return OrdinaryToPrimitive(input, hint === "default" ? "number" : hint);
+        }
+        // 7.1.1.1 OrdinaryToPrimitive(O, hint)
+        // https://tc39.github.io/ecma262/#sec-ordinarytoprimitive
+        function OrdinaryToPrimitive(O, hint) {
+            if (hint === "string") {
+                var toString_1 = O.toString;
+                if (IsCallable(toString_1)) {
+                    var result = toString_1.call(O);
+                    if (!IsObject(result))
+                        return result;
+                }
+                var valueOf = O.valueOf;
+                if (IsCallable(valueOf)) {
+                    var result = valueOf.call(O);
+                    if (!IsObject(result))
+                        return result;
+                }
+            }
+            else {
+                var valueOf = O.valueOf;
+                if (IsCallable(valueOf)) {
+                    var result = valueOf.call(O);
+                    if (!IsObject(result))
+                        return result;
+                }
+                var toString_2 = O.toString;
+                if (IsCallable(toString_2)) {
+                    var result = toString_2.call(O);
+                    if (!IsObject(result))
+                        return result;
+                }
+            }
+            throw new TypeError();
+        }
+        // 7.1.2 ToBoolean(argument)
+        // https://tc39.github.io/ecma262/2016/#sec-toboolean
+        function ToBoolean(argument) {
+            return !!argument;
+        }
+        // 7.1.12 ToString(argument)
+        // https://tc39.github.io/ecma262/#sec-tostring
+        function ToString(argument) {
+            return "" + argument;
+        }
+        // 7.1.14 ToPropertyKey(argument)
+        // https://tc39.github.io/ecma262/#sec-topropertykey
+        function ToPropertyKey(argument) {
+            var key = ToPrimitive(argument, 3 /* String */);
+            if (IsSymbol(key))
+                return key;
+            return ToString(key);
+        }
+        // 7.2 Testing and Comparison Operations
+        // https://tc39.github.io/ecma262/#sec-testing-and-comparison-operations
+        // 7.2.2 IsArray(argument)
+        // https://tc39.github.io/ecma262/#sec-isarray
+        function IsArray(argument) {
+            return Array.isArray
+                ? Array.isArray(argument)
+                : argument instanceof Object
+                    ? argument instanceof Array
+                    : Object.prototype.toString.call(argument) === "[object Array]";
+        }
+        // 7.2.3 IsCallable(argument)
+        // https://tc39.github.io/ecma262/#sec-iscallable
+        function IsCallable(argument) {
+            // NOTE: This is an approximation as we cannot check for [[Call]] internal method.
+            return typeof argument === "function";
+        }
+        // 7.2.4 IsConstructor(argument)
+        // https://tc39.github.io/ecma262/#sec-isconstructor
+        function IsConstructor(argument) {
+            // NOTE: This is an approximation as we cannot check for [[Construct]] internal method.
+            return typeof argument === "function";
+        }
+        // 7.2.7 IsPropertyKey(argument)
+        // https://tc39.github.io/ecma262/#sec-ispropertykey
+        function IsPropertyKey(argument) {
+            switch (Type(argument)) {
+                case 3 /* String */: return true;
+                case 4 /* Symbol */: return true;
+                default: return false;
+            }
+        }
+        // 7.3 Operations on Objects
+        // https://tc39.github.io/ecma262/#sec-operations-on-objects
+        // 7.3.9 GetMethod(V, P)
+        // https://tc39.github.io/ecma262/#sec-getmethod
+        function GetMethod(V, P) {
+            var func = V[P];
+            if (func === undefined || func === null)
+                return undefined;
+            if (!IsCallable(func))
+                throw new TypeError();
+            return func;
+        }
+        // 7.4 Operations on Iterator Objects
+        // https://tc39.github.io/ecma262/#sec-operations-on-iterator-objects
+        function GetIterator(obj) {
+            var method = GetMethod(obj, iteratorSymbol);
+            if (!IsCallable(method))
+                throw new TypeError(); // from Call
+            var iterator = method.call(obj);
+            if (!IsObject(iterator))
+                throw new TypeError();
+            return iterator;
+        }
+        // 7.4.4 IteratorValue(iterResult)
+        // https://tc39.github.io/ecma262/2016/#sec-iteratorvalue
+        function IteratorValue(iterResult) {
+            return iterResult.value;
+        }
+        // 7.4.5 IteratorStep(iterator)
+        // https://tc39.github.io/ecma262/#sec-iteratorstep
+        function IteratorStep(iterator) {
+            var result = iterator.next();
+            return result.done ? false : result;
+        }
+        // 7.4.6 IteratorClose(iterator, completion)
+        // https://tc39.github.io/ecma262/#sec-iteratorclose
+        function IteratorClose(iterator) {
+            var f = iterator["return"];
+            if (f)
+                f.call(iterator);
+        }
+        // 9.1 Ordinary Object Internal Methods and Internal Slots
+        // https://tc39.github.io/ecma262/#sec-ordinary-object-internal-methods-and-internal-slots
+        // 9.1.1.1 OrdinaryGetPrototypeOf(O)
+        // https://tc39.github.io/ecma262/#sec-ordinarygetprototypeof
+        function OrdinaryGetPrototypeOf(O) {
+            var proto = Object.getPrototypeOf(O);
+            if (typeof O !== "function" || O === functionPrototype)
+                return proto;
+            // TypeScript doesn't set __proto__ in ES5, as it's non-standard.
+            // Try to determine the superclass constructor. Compatible implementations
+            // must either set __proto__ on a subclass constructor to the superclass constructor,
+            // or ensure each class has a valid `constructor` property on its prototype that
+            // points back to the constructor.
+            // If this is not the same as Function.[[Prototype]], then this is definately inherited.
+            // This is the case when in ES6 or when using __proto__ in a compatible browser.
+            if (proto !== functionPrototype)
+                return proto;
+            // If the super prototype is Object.prototype, null, or undefined, then we cannot determine the heritage.
+            var prototype = O.prototype;
+            var prototypeProto = prototype && Object.getPrototypeOf(prototype);
+            if (prototypeProto == null || prototypeProto === Object.prototype)
+                return proto;
+            // If the constructor was not a function, then we cannot determine the heritage.
+            var constructor = prototypeProto.constructor;
+            if (typeof constructor !== "function")
+                return proto;
+            // If we have some kind of self-reference, then we cannot determine the heritage.
+            if (constructor === O)
+                return proto;
+            // we have a pretty good guess at the heritage.
+            return constructor;
+        }
+        // naive Map shim
+        function CreateMapPolyfill() {
+            var cacheSentinel = {};
+            var arraySentinel = [];
+            var MapIterator = /** @class */ (function () {
+                function MapIterator(keys, values, selector) {
+                    this._index = 0;
+                    this._keys = keys;
+                    this._values = values;
+                    this._selector = selector;
+                }
+                MapIterator.prototype["@@iterator"] = function () { return this; };
+                MapIterator.prototype[iteratorSymbol] = function () { return this; };
+                MapIterator.prototype.next = function () {
+                    var index = this._index;
+                    if (index >= 0 && index < this._keys.length) {
+                        var result = this._selector(this._keys[index], this._values[index]);
+                        if (index + 1 >= this._keys.length) {
+                            this._index = -1;
+                            this._keys = arraySentinel;
+                            this._values = arraySentinel;
+                        }
+                        else {
+                            this._index++;
+                        }
+                        return { value: result, done: false };
+                    }
+                    return { value: undefined, done: true };
+                };
+                MapIterator.prototype.throw = function (error) {
+                    if (this._index >= 0) {
+                        this._index = -1;
+                        this._keys = arraySentinel;
+                        this._values = arraySentinel;
+                    }
+                    throw error;
+                };
+                MapIterator.prototype.return = function (value) {
+                    if (this._index >= 0) {
+                        this._index = -1;
+                        this._keys = arraySentinel;
+                        this._values = arraySentinel;
+                    }
+                    return { value: value, done: true };
+                };
+                return MapIterator;
+            }());
+            return /** @class */ (function () {
+                function Map() {
+                    this._keys = [];
+                    this._values = [];
+                    this._cacheKey = cacheSentinel;
+                    this._cacheIndex = -2;
+                }
+                Object.defineProperty(Map.prototype, "size", {
+                    get: function () { return this._keys.length; },
+                    enumerable: true,
+                    configurable: true
+                });
+                Map.prototype.has = function (key) { return this._find(key, /*insert*/ false) >= 0; };
+                Map.prototype.get = function (key) {
+                    var index = this._find(key, /*insert*/ false);
+                    return index >= 0 ? this._values[index] : undefined;
+                };
+                Map.prototype.set = function (key, value) {
+                    var index = this._find(key, /*insert*/ true);
+                    this._values[index] = value;
+                    return this;
+                };
+                Map.prototype.delete = function (key) {
+                    var index = this._find(key, /*insert*/ false);
+                    if (index >= 0) {
+                        var size = this._keys.length;
+                        for (var i = index + 1; i < size; i++) {
+                            this._keys[i - 1] = this._keys[i];
+                            this._values[i - 1] = this._values[i];
+                        }
+                        this._keys.length--;
+                        this._values.length--;
+                        if (key === this._cacheKey) {
+                            this._cacheKey = cacheSentinel;
+                            this._cacheIndex = -2;
+                        }
+                        return true;
+                    }
+                    return false;
+                };
+                Map.prototype.clear = function () {
+                    this._keys.length = 0;
+                    this._values.length = 0;
+                    this._cacheKey = cacheSentinel;
+                    this._cacheIndex = -2;
+                };
+                Map.prototype.keys = function () { return new MapIterator(this._keys, this._values, getKey); };
+                Map.prototype.values = function () { return new MapIterator(this._keys, this._values, getValue); };
+                Map.prototype.entries = function () { return new MapIterator(this._keys, this._values, getEntry); };
+                Map.prototype["@@iterator"] = function () { return this.entries(); };
+                Map.prototype[iteratorSymbol] = function () { return this.entries(); };
+                Map.prototype._find = function (key, insert) {
+                    if (this._cacheKey !== key) {
+                        this._cacheIndex = this._keys.indexOf(this._cacheKey = key);
+                    }
+                    if (this._cacheIndex < 0 && insert) {
+                        this._cacheIndex = this._keys.length;
+                        this._keys.push(key);
+                        this._values.push(undefined);
+                    }
+                    return this._cacheIndex;
+                };
+                return Map;
+            }());
+            function getKey(key, _) {
+                return key;
+            }
+            function getValue(_, value) {
+                return value;
+            }
+            function getEntry(key, value) {
+                return [key, value];
+            }
+        }
+        // naive Set shim
+        function CreateSetPolyfill() {
+            return /** @class */ (function () {
+                function Set() {
+                    this._map = new _Map();
+                }
+                Object.defineProperty(Set.prototype, "size", {
+                    get: function () { return this._map.size; },
+                    enumerable: true,
+                    configurable: true
+                });
+                Set.prototype.has = function (value) { return this._map.has(value); };
+                Set.prototype.add = function (value) { return this._map.set(value, value), this; };
+                Set.prototype.delete = function (value) { return this._map.delete(value); };
+                Set.prototype.clear = function () { this._map.clear(); };
+                Set.prototype.keys = function () { return this._map.keys(); };
+                Set.prototype.values = function () { return this._map.values(); };
+                Set.prototype.entries = function () { return this._map.entries(); };
+                Set.prototype["@@iterator"] = function () { return this.keys(); };
+                Set.prototype[iteratorSymbol] = function () { return this.keys(); };
+                return Set;
+            }());
+        }
+        // naive WeakMap shim
+        function CreateWeakMapPolyfill() {
+            var UUID_SIZE = 16;
+            var keys = HashMap.create();
+            var rootKey = CreateUniqueKey();
+            return /** @class */ (function () {
+                function WeakMap() {
+                    this._key = CreateUniqueKey();
+                }
+                WeakMap.prototype.has = function (target) {
+                    var table = GetOrCreateWeakMapTable(target, /*create*/ false);
+                    return table !== undefined ? HashMap.has(table, this._key) : false;
+                };
+                WeakMap.prototype.get = function (target) {
+                    var table = GetOrCreateWeakMapTable(target, /*create*/ false);
+                    return table !== undefined ? HashMap.get(table, this._key) : undefined;
+                };
+                WeakMap.prototype.set = function (target, value) {
+                    var table = GetOrCreateWeakMapTable(target, /*create*/ true);
+                    table[this._key] = value;
+                    return this;
+                };
+                WeakMap.prototype.delete = function (target) {
+                    var table = GetOrCreateWeakMapTable(target, /*create*/ false);
+                    return table !== undefined ? delete table[this._key] : false;
+                };
+                WeakMap.prototype.clear = function () {
+                    // NOTE: not a real clear, just makes the previous data unreachable
+                    this._key = CreateUniqueKey();
+                };
+                return WeakMap;
+            }());
+            function CreateUniqueKey() {
+                var key;
+                do
+                    key = "@@WeakMap@@" + CreateUUID();
+                while (HashMap.has(keys, key));
+                keys[key] = true;
+                return key;
+            }
+            function GetOrCreateWeakMapTable(target, create) {
+                if (!hasOwn.call(target, rootKey)) {
+                    if (!create)
+                        return undefined;
+                    Object.defineProperty(target, rootKey, { value: HashMap.create() });
+                }
+                return target[rootKey];
+            }
+            function FillRandomBytes(buffer, size) {
+                for (var i = 0; i < size; ++i)
+                    buffer[i] = Math.random() * 0xff | 0;
+                return buffer;
+            }
+            function GenRandomBytes(size) {
+                if (typeof Uint8Array === "function") {
+                    if (typeof crypto !== "undefined")
+                        return crypto.getRandomValues(new Uint8Array(size));
+                    if (typeof msCrypto !== "undefined")
+                        return msCrypto.getRandomValues(new Uint8Array(size));
+                    return FillRandomBytes(new Uint8Array(size), size);
+                }
+                return FillRandomBytes(new Array(size), size);
+            }
+            function CreateUUID() {
+                var data = GenRandomBytes(UUID_SIZE);
+                // mark as random - RFC 4122 § 4.4
+                data[6] = data[6] & 0x4f | 0x40;
+                data[8] = data[8] & 0xbf | 0x80;
+                var result = "";
+                for (var offset = 0; offset < UUID_SIZE; ++offset) {
+                    var byte = data[offset];
+                    if (offset === 4 || offset === 6 || offset === 8)
+                        result += "-";
+                    if (byte < 16)
+                        result += "0";
+                    result += byte.toString(16).toLowerCase();
+                }
+                return result;
+            }
+        }
+        // uses a heuristic used by v8 and chakra to force an object into dictionary mode.
+        function MakeDictionary(obj) {
+            obj.__ = undefined;
+            delete obj.__;
+            return obj;
+        }
+    });
+})(Reflect || (Reflect = {}));
+
+
+/***/ }),
+
+/***/ 7927:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var camera_kit_1 = __webpack_require__(4303);
+var liveRenderTarget = document.getElementById('canvas');
+var videoContainer = document.getElementById('video-container');
+var videoTarget = document.getElementById('video');
+var startRecordingButton = document.getElementById('start');
+var stopRecordingButton = document.getElementById('stop');
+var downloadButton = document.getElementById('download');
+var mediaRecorder;
+var downloadUrl;
+function init() {
+    return __awaiter(this, void 0, void 0, function () {
+        var cameraKit, session, mediaStream, source, lens;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, camera_kit_1.bootstrapCameraKit)({
+                        apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzE4OTg3ODg3LCJzdWIiOiJkN2UwNWJjYS02ODVkLTQ0ZGItODE0Mi01ZDg0YTA3YjRlYWJ-UFJPRFVDVElPTn41NTEzNzczNi02YzA2LTRkMjktYjg0YS0wN2Y1MTlhZGRjZGUifQ.sECS_i5kKnojrBmdFNF0r5P8HMnebLJx8P6Xex9VcSE',
+                    })];
+                case 1:
+                    cameraKit = _a.sent();
+                    return [4 /*yield*/, cameraKit.createSession({ liveRenderTarget: liveRenderTarget })];
+                case 2:
+                    session = _a.sent();
+                    return [4 /*yield*/, navigator.mediaDevices.getUserMedia({
+                            video: true,
+                        })];
+                case 3:
+                    mediaStream = _a.sent();
+                    source = (0, camera_kit_1.createMediaStreamSource)(mediaStream);
+                    return [4 /*yield*/, session.setSource(source)];
+                case 4:
+                    _a.sent();
+                    return [4 /*yield*/, session.play()];
+                case 5:
+                    _a.sent();
+                    return [4 /*yield*/, cameraKit.lensRepository.loadLens('af6a7504-79ba-499c-8e0d-53b9e785eb36', '1ab5269b-f2b0-4570-a30f-74a123521727')];
+                case 6:
+                    lens = _a.sent();
+                    session.applyLens(lens);
+                    bindRecorder();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
+function bindRecorder() {
+    startRecordingButton.addEventListener('click', function () {
+        startRecordingButton.disabled = true;
+        stopRecordingButton.disabled = false;
+        downloadButton.disabled = true;
+        videoContainer.style.display = 'none';
+        var mediaStream = liveRenderTarget.captureStream(30);
+        mediaRecorder = new MediaRecorder(mediaStream);
+        mediaRecorder.addEventListener('dataavailable', function (event) {
+            if (!event.data.size) {
+                console.warn('No recorded data available');
+                return;
+            }
+            var blob = new Blob([event.data]);
+            downloadUrl = window.URL.createObjectURL(blob);
+            downloadButton.disabled = false;
+            videoTarget.src = downloadUrl;
+            videoContainer.style.display = 'block';
+        });
+        mediaRecorder.start();
+    });
+    stopRecordingButton.addEventListener('click', function () {
+        startRecordingButton.disabled = false;
+        stopRecordingButton.disabled = true;
+        mediaRecorder === null || mediaRecorder === void 0 ? void 0 : mediaRecorder.stop();
+    });
+    downloadButton.addEventListener('click', function () {
+        var link = document.createElement('a');
+        link.setAttribute('style', 'display: none');
+        link.href = downloadUrl;
+        link.download = 'camera-kit-web-recording.webm';
+        link.click();
+        link.remove();
+    });
+}
+init();
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__(7927);
+/******/ 	
 /******/ })()
 ;
