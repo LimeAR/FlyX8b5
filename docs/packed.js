@@ -35140,6 +35140,8 @@ session.play('capture');
 
 await session.applyLens(lens);
 
+bindRecorder();
+
 })();
 })();
 
