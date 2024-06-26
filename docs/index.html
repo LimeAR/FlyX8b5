@@ -6,13 +6,15 @@
     <meta name="description" content="Betway">
     <link href="./index.css" rel="stylesheet">
     <script src="./packed.js"></script>
-    <meta http-equiv="Content-Security-Policy" content="connect-src https: *.snapar.co; script-src https: cf-st.sc-cdn.net/ blob: 'wasm-unsafe-eval';" />
+    <meta http-equiv="Content-Security-Policy" content="connect-src https://*.snapar.com; script-src https://cf-st.sc-cdn.net/ blob: 'wasm-unsafe-eval';">
   </head>
 
   <body>
     <section>
+    <div id="buttons">
       <button id="start">Start Recording</button>
-      <button id="stop" disabled>Stop Recording</button>
+      <button id="stop">Stop Recording</button>
+    </div>
     </section>
     <div class="poweredbysnap-logo">
       <img id="image" src="./assets/Powered_bysnap.png" alt="Powered by Snap">

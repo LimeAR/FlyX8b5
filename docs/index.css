@@ -15,10 +15,32 @@ body {
     height: 100vh;
   }
 
+  #buttons{
+    position: absolute;
+    display: flex;
+    bottom: 10%;
+    height: 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #start {
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+  }
+
+  #stop {
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+  }
+
   .poweredbysnap-logo {
     width: 100%;
     position: absolute;
-    bottom: 100px;
+    bottom: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
